@@ -38,6 +38,8 @@
     flex: 50%;
     width: 100%;
 }
+ 
+/*Flex-Item bis 12 und width anpassen*/
 
 .list-container{
     display: block;
@@ -50,10 +52,6 @@
 
 .list-link{
     text-align: center;
-    text-decoration: none;
-    text-shadow: none;
-    text-size-adjust: none;
-    text-decoration-line: none !important;
     font-size: medium;
     font-style: normal;
     font-weight: 500;

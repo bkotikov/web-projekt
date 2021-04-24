@@ -1,0 +1,43 @@
+.remove-text-decoration{
+    text-decoration: none  !important;
+    text-shadow: none !important;
+    text-size-adjust: none !important;
+    text-decoration-line: none !important;
+}
+
+.text-xs{
+    font-style: normal !important;
+    font-weight: 300 !important;
+    font-size: 8px !important;
+}
+
+.text-sm{
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+}
+
+.text-md{
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 24px !important;
+}
+
+.text-l{
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 32px !important;
+}
+
+.text-xl{
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 40px !important;
+}
+
+.text-xxl{
+    font-style: normal !important;
+    font-weight: 700 !important;
+    font-size: 48px !important;
+}
+
