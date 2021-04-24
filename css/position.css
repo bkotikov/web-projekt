@@ -1,0 +1,9 @@
+.float-left{
+    margin-left: auto;
+    float: left !important;
+}
+
+.float-right{
+    margin-right: auto;
+    float: right !important;
+}
