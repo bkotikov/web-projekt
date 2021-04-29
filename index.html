@@ -7,32 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/flexbox.css">
-    <link rel="stylesheet" href="css/spacing.css">
-    <link rel="stylesheet" href="css/position.css">
-    <link rel="stylesheet" href="css/text.css">
+    <link rel="stylesheet" href="/web-projekt/css/style.css">
 </head>
 
 <body>
-    <div class="flex-container">
-        <div class="flex-item ">
-            <a class="float-left list-link text-l" href="#">Rundfunk B-2</a>
+    <header class="container">
+        <div class="flex-container flex-center">
+            <div class="flex-item">
+                <a class="float-left none-decoration" href="#">Rundfunk B-2</a>
+            </div>
+            <div class="flex-item">
+                <div class="list-items float-right">
+                    <a href="#" class="list-item none-decoration">Startseite</a>
+                    <a href="#" class="list-item none-decoration">Über uns</a>
+                    <a href="#" class="list-item none-decoration">Login</a>
+                    <a href="#" class="list-item none-decoration">Registrierung</a>
+                </div>
+            </div>
         </div>
-        <div class="flex-item ">
-            <ul class="list-container float-right">
-                <li class="list-item">
-                    <a class="list-link" href="#">Startseite</a>
-                </li>
-                <li class="list-item">
-                    <a class="list-link" href="#">Login</a>
-                </li>
-                <li class="list-item"> 
-                    <a class="list-link" href="#">Registrieren</a>
-                </li>
-            </ul>
+
+        <div class="flex-container flex-center">
+
+            <div class="flex-item">
+                <h3 class="text-large">Online-Service</h3>
+                <p class="text-small-xs text-small-sm"> Wir sind ein Online-Service, der ihnen bei folgenden Aufgaben helfen kann: </p>
+                <ul class="text-small">
+                    <li class="header-list-item m-top-2">Ausfüllhinweise während des Ausfüllen</li>
+                    <li class="header-list-item m-top-2">Erkennen deinen Formular und helfen dir diesen Auszufüllen</li>
+                    <li class="header-list-item m-top-2">Zugang zu allen Unterlagen jeder Zeit möglich</li>
+                </ul>
+                <a href="#" class="m-top-5 p-bottom-3 p-top-3 p-right-3  header-main-text-btn">Formular Einscannen</a>
+            </div>
+
+            <div class="flex-item sm-hidden show-md">
+                <img src="/web-projekt/images/index_image.svg" class="header-img" alt="" srcset="">
+            </div>
+
         </div>
-    </div>
+    </header>
+
+    <hr>
+
+
 </body>
 
 </html>
