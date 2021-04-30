@@ -13,10 +13,10 @@
 <body>
     <div class="header">
         <div class="container-xs shadow p-tb">
-            <div class="col-5">
+            <div class="col-3">
                 <a class="logo" href="#">Team-B2</a>
             </div>
-            <div class="col-7 float-right">
+            <div class="col-9 float-right show-md hide-xs">
                 <a class="nav-btn" href="#">Startseite</a>
                 <a class="nav-btn" href="#">Impressum</a>
                 <a class="nav-btn" href="#">Datenschutz</a>
@@ -24,6 +24,20 @@
                 <a class="nav-btn" href="#">Login</a>
                 <a class="nav-btn" href="#">Anmelden</a>
             </div>
+            <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+        <div class="mobile-nav" id="myLinks" style="display: none;">
+            <a class="mobile-btn" href="#">Startseite</a>
+            <a class="mobile-btn" href="#">Impressum</a>
+            <a class="mobile-btn" href="#">Datenschutz</a>
+            <a class="mobile-btn" href="#">Über uns</a>
+            <a class="mobile-btn" href="#">Login</a>
+            <a class="mobile-btn" href="#">Anmelden</a>
         </div>
 
         <div class="container-xs ">
@@ -87,6 +101,19 @@
     <div class="footer">
         <p class="footer-text">Erstellt vom Team-B2, WEB 2021SS</p>
     </div>
+
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+
 </body>
 
 </html>
