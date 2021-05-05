@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="cookie-consent-banner">
+        <div class="cookie-consent-banner__inner">
+            <div class="cookie-consent-banner__copy">
+                <div class="cookie-consent-banner__header">НА ДАННОМ САЙТЕ ИСПОЛЬЗУЮТСЯ ФАЙЛЫ COOKIE</div>
+                <div class="cookie-consent-banner__description">
+                    Мы используем файлы cookie для персонализации контента 
+                    и рекламы, для обеспечения функций социальных сетей и 
+                    для анализа нашего трафика. Мы также передаем информацию
+                    об использовании вами нашего сайта нашим партнерам по 
+                    социальным сетям, рекламе и аналитике, которую они могут 
+                    объединять с другой информацией, которую вы предоставили 
+                    им или собрали в результате использования вами их услуг. 
+                    вы соглашаетесь на использование наших файлов cookie, 
+                    если продолжаете пользоваться нашим сайтом.
+                </div>
+            </div>
+
+            <div class="cookie-consent-banner__actions">
+                <a href="#" class="cookie-consent-banner__cta">
+                    Принять
+                </a>
+
+                <a href="#" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">
+                    Отклонить
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="container-xs shadow p-tb">
+            <div class="col-8 col-8-sm col-3-md">
+                <a class="logo" href="#">Team-B2</a>
+            </div>
+            <div class="col-4 col-9-md col-4-sm float-right show-md hide-xs">
+                <a class="nav-btn" href="#">Домашняя страница</a>
+                <a class="nav-btn" href="#">Служебная информация</a>
+                <a class="nav-btn" href="#">Условия предоставления информации</a>
+                <a class="nav-btn" href="#">О проекте</a>
+                <a class="nav-btn" href="#">Вход</a>
+                <a class="nav-btn" href="#">Зарегистрироваться</a>
+            </div>
+            <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+        <div class="mobile-nav" id="myLinks" style="display: none;">
+            <a class="mobile-btn" href="#">Домашняя страница</a>
+            <a class="mobile-btn" href="#">Служебная информация</a>
+            <a class="mobile-btn" href="#">Условия предоставления информации</a>
+            <a class="mobile-btn" href="#">О проекте</a>
+            <a class="mobile-btn" href="#">Вход</a>
+            <a class="mobile-btn" href="#">Зарегистрироваться</a>
+        </div>
+
+        <div class="container-xs ">
+            <div class="col-12 col-5-md text-sec">
+                <h1 class="text-sec-main">С нами ты быстро и просто заполнишь свои документы</h1>
+                <p class="text-sec-secondary">
+                    У вас есть форма, которую вы не можете заполнить, и вам нужна помощь?
+                    Тогда вы пришли по адресу. Мы поможем вам заполнить анкету
+                    и объяснить все шаг за шагом
+                </p>
+                <div class="header-btn-sec">
+                    <a class="text-sec-btn child" href="#">Начать заполнять</a>
+                </div>
+            </div>
+            <div class="col-12 col-7-md hide-xs show-md ">
+                <img class="responsive-image" src="/images/index_image.svg" alt="">
+            </div>
+        </div>
+
+        <hr>
+
+
+    </div>
+
+    <div class="section">
+        <div class="main-text-section">
+            <h1 class="main-text">
+                это приложение для тех, кто имеет
+                проблемы с пониманием при заполнение документов
+            </h1>
+
+            <p class="secondary-text">
+                Вы переехали и хотели бы
+                сообщите нам свой новый адрес
+                или вы хотите пересмотреть другие данные?
+                Неважно, какой у вас запрос,
+                просто воспользуйтесь нашей формой или
+                также своей собственной формой.
+            </p>
+
+            <a href="#" class="main-text-section-btn">Поехали</a>
+        </div>
+    </div>
+
+    <div class="card-section">
+        <div class="col-12 col-4-md col-6-sm card">
+            <h4 class="card-text-main">Мультиязычное оформление документов</h4>
+            <img class="responsive-image" src="/images/undraw_Around_the_world_re_n353.svg" alt="">
+        </div>
+        <div class="col-12 col-4-md col-6-sm card">
+            <h4 class="card-text-main">Шаг за Шагом</h4>
+            <img class="responsive-image" src="/images/undraw_In_progress_re_m1l6.svg" alt="">
+        </div>
+        <div class="col-12 col-4-md col-12-sm card">
+            <h4 class="card-text-main">Идеален для Планшета и Телефона</h4>
+            <img class="responsive-image" src="/images/undraw_Mobile_feed_re_72ta.svg" alt="">
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="footer-text">Сделано Командой "Team-B2", WEB 2021SS</p>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
