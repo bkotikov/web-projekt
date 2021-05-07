@@ -19,29 +19,34 @@ var language = '';
 
 app.use('/static/css', express.static(__dirname + '/assets/css'));
 app.use('/static/images', express.static(__dirname + '/assets/images'));
-app.use('/static/js', express.static(__dirname + 'js'));
+app.use('/static/js', express.static(__dirname + '/js'));
 
 
 // res.sendFile(path.join(__dirname+'/html/de/index.html'));
 
 app.get('/',function(req,res){
-  language = parser.pick([en, ru, de, bgr], req.headers['accept-language']);
-  res.redirect('/' + language + '/');
+  //language = parser.pick([en, ru, de, bgr], req.headers['accept-language']);
+  res.sendFile(path.join(__dirname+'/html/lang.html'));
 });
 
-app.get('/' + en + '/',function(req,res){
+
+app.get('/de/scan',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/de/scan.html'));
+});
+
+app.get('/en',function(req,res){
   res.sendFile(path.join(__dirname+'/html/en/index.html'));
 });
 
-app.get('/' + ru + '/',function(req,res){
+app.get('/ru',function(req,res){
   res.sendFile(path.join(__dirname+'/html/ru/RU_index.html'));
 });
 
-app.get('/' + de + '/',function(req,res){
+app.get('/de',function(req,res){
   res.sendFile(path.join(__dirname+'/html/de/index.html'));
 });
 
-app.get('/' + bgr + '/',function(req,res){
+app.get('/bgr',function(req,res){
   res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
 });
 

@@ -10,137 +10,140 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
-<body>
-    <div class="cookie-consent-banner">
-        <div class="cookie-consent-banner__inner">
-            <div class="cookie-consent-banner__copy">
-                <div class="cookie-consent-banner__header">DIESE WEBSITE BENUTZT COOKIES</div>
-                <div class="cookie-consent-banner__description">
-                    Wir verwenden Cookies, um Inhalte und Anzeigen zu 
-                    personalisieren, um Funktionen für soziale Medien 
-                    bereitzustellen und um unseren Datenverkehr zu 
-                    analysieren. Wir teilen auch Informationen über 
-                    Ihre Nutzung unserer Website mit unseren Partnern 
-                    für soziale Medien, Werbung und Analysen, die 
-                    diese mit anderen Informationen kombinieren können,
-                    die Sie ihnen zur Verfügung gestellt haben oder die 
-                    sie aus Ihrer Nutzung ihrer Dienste gesammelt haben.
-                    Sie stimmen unseren Cookies zu, wenn Sie unsere Website 
-                    weiterhin nutzen.
+<body id="body">
+    
+        <div class="header">
+            <div class="container-xs shadow p-tb">
+                <div class="col-8 col-8-sm col-3-md">
+                    <a class="logo" href="#">Team-B2</a>
+                </div>
+                <div class="col-4 col-9-md col-4-sm float-right show-md hide-xs">
+                    <a class="nav-btn" href="#">Startseite</a>
+                    <a class="nav-btn" href="#">Impressum</a>
+                    <a class="nav-btn" href="#">Datenschutz</a>
+                    <a class="nav-btn" href="#">Über uns</a>
+                    <a class="nav-btn" href="#">Login</a>
+                    <a class="nav-btn" href="#">Anmelden</a>
+                </div>
+                <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
                 </div>
             </div>
-
-            <div class="cookie-consent-banner__actions">
-                <a href="#" class="cookie-consent-banner__cta">
-                    OK
-                </a>
-
-                <a href="#" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">
-                    Decline
-                </a>
+    
+            <div class="mobile-nav" id="myLinks" style="display: none;">
+                <a class="mobile-btn" href="#">Startseite</a>
+                <a class="mobile-btn" href="#">Impressum</a>
+                <a class="mobile-btn" href="#">Datenschutz</a>
+                <a class="mobile-btn" href="#">Über uns</a>
+                <a class="mobile-btn" href="#">Login</a>
+                <a class="mobile-btn" href="#">Anmelden</a>
             </div>
+    
+            <div class="container-xs ">
+                <div class="col-12 col-5-md text-sec">
+                    <h1 class="text-sec-main">Mit Team-B2 machst du deinen Antrag schnell und einfach</h1>
+                    <p class="text-sec-secondary">
+                        Hast du ein Formular, den du nicht ausfüllen kannst und Hilfe brauchst?
+                        Dann bist bei uns richtig. Wir helfen dir dein Formular auszufüllen
+                        und erklären dir alles Schritt für Schritt
+                    </p>
+                    <div class="header-btn-sec">
+                        <a class="text-sec-btn child" href="#">Zum Antrag</a>
+                    </div>
+                </div>
+                <div class="col-12 col-7-md hide-xs show-md ">
+                    <img class="responsive-image" src="/static/images/index_image.svg" alt="">
+                </div>
+            </div>
+    
+            <hr>
+    
+    
         </div>
-    </div>
-    <div class="header">
-        <div class="container-xs shadow p-tb">
-            <div class="col-8 col-8-sm col-3-md">
-                <a class="logo" href="#">Team-B2</a>
-            </div>
-            <div class="col-4 col-9-md col-4-sm float-right show-md hide-xs">
-                <a class="nav-btn" href="#">Startseite</a>
-                <a class="nav-btn" href="#">Impressum</a>
-                <a class="nav-btn" href="#">Datenschutz</a>
-                <a class="nav-btn" href="#">Über uns</a>
-                <a class="nav-btn" href="#">Login</a>
-                <a class="nav-btn" href="#">Anmelden</a>
-            </div>
-            <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </div>
-
-        <div class="mobile-nav" id="myLinks" style="display: none;">
-            <a class="mobile-btn" href="#">Startseite</a>
-            <a class="mobile-btn" href="#">Impressum</a>
-            <a class="mobile-btn" href="#">Datenschutz</a>
-            <a class="mobile-btn" href="#">Über uns</a>
-            <a class="mobile-btn" href="#">Login</a>
-            <a class="mobile-btn" href="#">Anmelden</a>
-        </div>
-
-        <div class="container-xs ">
-            <div class="col-12 col-5-md text-sec">
-                <h1 class="text-sec-main">Mit Team-B2 machst du deinen Antrag schnell und einfach</h1>
-                <p class="text-sec-secondary">
-                    Hast du ein Formular, den du nicht ausfüllen kannst und Hilfe brauchst?
-                    Dann bist bei uns richtig. Wir helfen dir dein Formular auszufüllen
-                    und erklären dir alles Schritt für Schritt
+    
+        <div class="section">
+            <div class="main-text-section">
+                <h1 class="main-text">
+                    Team-B2 ist die Ausfüllhilfe-App für alle,
+                    die Verständnisprobleme und etc. haben.
+                </h1>
+    
+                <p class="secondary-text">
+                    Sie sind umgezogen und möchten
+                    uns Ihre neue Adresse nennen,
+                    oder Sie möchten weitere Daten
+                    überarbeiten?
+                    Egal, welches Anliegen Sie haben,
+                    nutzen Sie einfach unsere Formular oder
+                    auch ihr eigenen Formular.
                 </p>
-                <div class="header-btn-sec">
-                    <a class="text-sec-btn child" href="#">Zum Antrag</a>
+    
+                <a href="#" class="main-text-section-btn">Starten</a>
+            </div>
+        </div>
+    
+        <div class="card-section">
+            <div class="col-12 col-4-md col-6-sm card">
+                <h4 class="card-text-main">Mehrsprachig</h4>
+                <img class="responsive-image" src="/static/images/undraw_Around_the_world_re_n353.svg" alt="">
+            </div>
+            <div class="col-12 col-4-md col-6-sm card">
+                <h4 class="card-text-main">Schritt für Schritt</h4>
+                <img class="responsive-image" src="/static/images/undraw_In_progress_re_m1l6.svg" alt="">
+            </div>
+            <div class="col-12 col-4-md col-12-sm card">
+                <h4 class="card-text-main">Mobile Friendly</h4>
+                <img class="responsive-image" src="/static/images/undraw_Mobile_feed_re_72ta.svg" alt="">
+            </div>
+        </div>
+    
+        <div class="footer">
+            <p class="footer-text">Erstellt vom Team-B2, WEB 2021SS</p>
+        </div>
+    
+    
+        <div id="overlay" class="overlay-container" hidden>
+            <div id="cookie" class="cookie-consent-banner">
+                <div class="cookie-consent-banner__inner">
+                    <div class="cookie-consent-banner__copy">
+                        <div class="cookie-consent-banner__header">DIESE WEBSITE BENUTZT COOKIES</div>
+                        <div class="cookie-consent-banner__description">
+                            Wir verwenden Cookies, um Inhalte und Anzeigen zu 
+                            personalisieren, um Funktionen für soziale Medien 
+                            bereitzustellen und um unseren Datenverkehr zu 
+                            analysieren. Wir teilen auch Informationen über 
+                            Ihre Nutzung unserer Website mit unseren Partnern 
+                            für soziale Medien, Werbung und Analysen, die 
+                            diese mit anderen Informationen kombinieren können,
+                            die Sie ihnen zur Verfügung gestellt haben oder die 
+                            sie aus Ihrer Nutzung ihrer Dienste gesammelt haben.
+                            Sie stimmen unseren Cookies zu, wenn Sie unsere Website 
+                            weiterhin nutzen.
+                        </div>
+                    </div>
+        
+                    <div class="cookie-consent-banner__actions">
+
+                        <input id="ok" type="button" hidden/>
+                        <label for="ok" class="cookie-consent-banner__cta">OK</label>
+        
+                        <a href="#" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">
+                            Decline
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-7-md hide-xs show-md ">
-                <img class="responsive-image" src="/static/images/index_image.svg" alt="">
-            </div>
         </div>
 
-        <hr>
+    
 
+    <script src="/static/js/index.js">
+    </script>
+    <script src="/static/js/banner.js">
+        
 
-    </div>
-
-    <div class="section">
-        <div class="main-text-section">
-            <h1 class="main-text">
-                Team-B2 ist die Ausfüllhilfe-App für alle,
-                die Verständnisprobleme und etc. haben.
-            </h1>
-
-            <p class="secondary-text">
-                Sie sind umgezogen und möchten
-                uns Ihre neue Adresse nennen,
-                oder Sie möchten weitere Daten
-                überarbeiten?
-                Egal, welches Anliegen Sie haben,
-                nutzen Sie einfach unsere Formular oder
-                auch ihr eigenen Formular.
-            </p>
-
-            <a href="#" class="main-text-section-btn">Starten</a>
-        </div>
-    </div>
-
-    <div class="card-section">
-        <div class="col-12 col-4-md col-6-sm card">
-            <h4 class="card-text-main">Mehrsprachig</h4>
-            <img class="responsive-image" src="/static/images/undraw_Around_the_world_re_n353.svg" alt="">
-        </div>
-        <div class="col-12 col-4-md col-6-sm card">
-            <h4 class="card-text-main">Schritt für Schritt</h4>
-            <img class="responsive-image" src="/static/images/undraw_In_progress_re_m1l6.svg" alt="">
-        </div>
-        <div class="col-12 col-4-md col-12-sm card">
-            <h4 class="card-text-main">Mobile Friendly</h4>
-            <img class="responsive-image" src="/static/images/undraw_Mobile_feed_re_72ta.svg" alt="">
-        </div>
-    </div>
-
-    <div class="footer">
-        <p class="footer-text">Erstellt vom Team-B2, WEB 2021SS</p>
-    </div>
-
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myLinks");
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
     </script>
 </body>
 
