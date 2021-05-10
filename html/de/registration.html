@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang = "de">
+  <head>
+    <meta charset = "utf-8"/>
+    <meta viewport = "width = device-width, initial-scale = 1.0"/>
+    <link rel="stylesheet" href= "/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+
+    <title>Registrierung</title>
+  </head>
+  <body>
+    <form action = "/registrierungPrüfen" method = "POST">
+      <div id = "registrierung">
+        <h1> Registrierungs-Informationen eingeben: </h1>
+      </div>
+      <label for = "emailAdresse">Email-Adresse </label><input id = "emailAdresse" type = "email" class="height" size="25" tab-index = "1" required/>
+      <div><label for = "passwort" class = "passwortLabel">Passwort: </label><input id = "passwort" type = "password" class="height" tab-index = "2" required/></div>
+      <label for = "vorname"> Vorname </label> <input id = "vorname" type = "text" max-length = "50" tab-index = "3"/>
+      <label for = "nachname"> Nachname </label><input id = "nachname" type = "text" max-length = "50" tab-index = "4"/>
+      <fieldset>
+        <legend id = "anschrift"><label for = "anschrift">Anschrift hinzufügen:</label></legend>
+        <label for = "straße">Straße: </label> <input type="text" id = straße name = "straße" tab-index = "5"/>
+        <label for = "hausnummer">Hausnummer: </label><input type = "number" id = "hausnummer" name="hausnummer" step = 1 min = "1" tab-index="6"/>
+        <label for = "postleitzahl">Postleitzahl: </label><input type = "number" id = "postleitzahl" name = "postleitzahl" step = 1 tab-index="7"/>
+        <label for = "stadt">Stadt: </label><input type = "name" id = "stadt" name = "stadt" tab-index = "8"/>
+        <label for = "land">Land: </label> <input type = "name" id = "land" name = "land" tab-index = "9"/>
+      </fieldset>
+
+      <input type = "submit" id="submitLogin" value = "Anmelden" class = "cookie-consent-banner__cta" tab-index = "10"/>
+    </form>
+  </body>
+</html>

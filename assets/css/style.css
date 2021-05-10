@@ -340,7 +340,7 @@
         flex: 0 0 auto;
         width: 66.6666666667%;
     }
-    
+
 }
 
 @media (min-width: 768px) {
@@ -410,40 +410,40 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: auto;
-        
+
         z-index: 2147483645;
         box-sizing: border-box;
         background-color: #F1F6F4;
       }
-    
+
 }
 
 @media (min-width: 1200px) {}
 
-  
-  .cookie-consent-banner__inner {     
+
+  .cookie-consent-banner__inner {
     max-width: 960px;
     margin: 0 auto;
     padding: 32px 10px;
   }
-  
-  .cookie-consent-banner__copy { 
+
+  .cookie-consent-banner__copy {
     margin-bottom: 16px;
   }
-  
-  .cookie-consent-banner__actions {    
+
+  .cookie-consent-banner__actions {
       text-align: center;
   }
-  
+
   .cookie-consent-banner__header {
     margin-bottom: 8px;
-    
+
     font-family: "CeraPRO-Bold", sans-serif, arial;
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
   }
-  
+
   .cookie-consent-banner__description {
     font-family: "CeraPRO-Regular", sans-serif, arial;
     font-weight: normal;
@@ -452,17 +452,17 @@
     line-height: 24px;
     text-align: justify;
   }
-  
+
   .cookie-consent-banner__cta {
     box-sizing: border-box;
     display: inline-block;
     min-width: 164px;
     padding: 11px 13px;
-      
+
     border-radius: 2px;
-    
+
     background-color: #2CE080;
-     
+
     color: #FFF;
     text-decoration: none;
     text-align: center;
@@ -471,29 +471,29 @@
     font-size: 16px;
     line-height: 20px;
   }
-  
-  .cookie-consent-banner__cta--secondary { 
+
+  .cookie-consent-banner__cta--secondary {
     padding: 9px 13px;
-    
+
     border: 2px solid #3A4649;
-    
+
     background-color: transparent;
-    
+
     color: #2CE080;
   }
-  
+
   .cookie-consent-banner__cta:hover {
     background-color: #20BA68;
   }
-  
+
   .cookie-consent-banner__cta--secondary:hover {
     border-color: #838F93;
-      
+
     background-color: transparent;
-    
+
     color: #22C870;
   }
-  
+
   .cookie-consent-banner__cta:last-child {
     margin-left: 16px;
   }

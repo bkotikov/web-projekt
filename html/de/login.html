@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang = "de">
+  <head>
+    <meta charset = "utf-8"/>
+    <meta viewport = "width = device-width, initial-scale = 1.0"/>
+    <link rel="stylesheet" href= "/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+
+    <title>Login</title>
+  </head>
+  <body>
+    <form action="/loginPruefen" method = "POST">
+      <div id = "login">
+        <h1 id = "loginInformation">
+          <label for = "loginInformation">Login Informationen eingeben:</label>
+        </h1>
+        <div id = "emailFehlermeldung"><label for = "emailFehlermeldung">Die eingegebene Email-Adresse ist nicht gültig</label></div>
+        <label for = "emailAdresse">Email-Adresse </label><input id = "emailAdresse" type = "email" class="height" size="25" required tab-index = "1"/>
+        <div><label for = "passwort" class = "passwortLabel">Passwort: </label><input id = "passwort" type = "password" class="height" required tab-index="2"/></div>
+        <input type = "submit" id="submitLogin" value = "Anmelden" class = "cookie-consent-banner__cta" tab-index = "3"/>
+      </div>
+    </form>
+
+    <script src="/static/js/validateEmail.js"></script>
+  </body>
+</html>
