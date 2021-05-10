@@ -1,0 +1,40 @@
+#registrierung {
+  display : none;
+}
+
+body {
+  text-align: center;
+  font-size: 1.5rem;
+  border-style: solid;
+  border-width: 1%;
+  border-colour: Black;
+}
+
+.passwortLabel {
+  margin-left: 1%;
+}
+
+.height {
+  min-height : 40px;
+  min-width: 70px;
+  border-style: solid;
+  border-width: 1%;
+  margin-bottom: 2%;
+  font-size: 1.5rem;
+}
+
+#emailFehlermeldung{
+  display:none;
+  color: red;
+}
+
+
+/*input[type=button]{
+  width: 20%;
+  height: 25%;
+  font-size: 1.5rem;
+}
+
+input[type=button]:hover {
+  background-color:rgba(255,204,0,0.8);
+}*/
