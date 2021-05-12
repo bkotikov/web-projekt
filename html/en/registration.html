@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang = "de">
+  <head>
+    <meta charset = "utf-8"/>
+    <meta viewport = "width = device-width, initial-scale = 1.0"/>
+    <link rel="stylesheet" href= "/static/css/style.css">
+    <link rel = "stylesheet" href = "/static/css/login.css">
+    <link rel = "stylesheet" href= "/static/css/registrierung.css">
+
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="header">
+        <div class="container-xs shadow p-tb">
+            <div class="col-8 col-8-sm col-3-md">
+                <a class="logo" href="#">Team-B2</a>
+            </div>
+            <div class="col-4 col-9-md col-4-sm float-right show-md hide-xs">
+                <a class="nav-btn" href="#">welcome page</a>
+                <a class="nav-btn" href="#">imprint</a>
+                <a class="nav-btn" href="#">data protection</a>
+                <a class="nav-btn" href="#">about us</a>
+                <a class="nav-btn" href="/login/en">log in</a>
+                <a class="nav-btn" href="/registration/en">register</a>
+            </div>
+            <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+
+        <div class="mobile-nav" id="myLinks" style="display: none;">
+            <a class="mobile-btn" href="#">welcome page</a>
+            <a class="mobile-btn" href="#">imprint</a>
+            <a class="mobile-btn" href="#">data protection</a>
+            <a class="mobile-btn" href="#">about us</a>
+            <a class="mobile-btn" href="/login/en">log in</a>
+            <a class="mobile-btn" href="/registration/en">register</a>
+        </div>
+        <hr>
+    </div>
+
+    <div id = "registrierung">
+    <form action = "/registrierungPruefen/en" method = "POST">
+      <div id = "login">
+        <h1 id = "loginInformation">
+          <label for = "loginInformation">Please enter your registration information:</label>
+        </h1>
+        <div id = "emailFehlermeldung"><label for = "emailFehlermeldung">The entered email address is not valid</label></div>
+        <div id = "passwortFehlermeldung"><label for = "passwortFehlermeldung">The password must contain at least eight characters, an uppercase letter, a lowercase letter, a number and a special character </label></div>
+        <label for = "emailAdresse">Email address: </label><input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
+        <label for = "passwort" class = "margin-left umbruch">Password: </label><input id = "passwort" type = "password" class="height" required tab-index="2"/>
+        <label for = "vorname" class = "break"> First name: </label> <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
+        <label for = "nachname" class = "margin-left umbruch"> Last name: </label><input id = "nachname" type = "text" class = "height" tab-index = "4"/>
+
+        <fieldset class = "umbruch margin-bottom">
+          <legend id = "anschrift"><label for = "anschrift">Add address:</label></legend>
+          <div id = "plzFehlermeldung"><label for = "plzFehlermeldung">The postcode entered is not valid</label></div>
+          <label for = "straße">Street: </label> <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
+          <label for = "hausnummer" class = "margin-left umbruch">Number of the house: </label><input type = "number" id = "hausnummer" name="hausnummer" class = "height" step = "1" min = "1" tab-index="6"/>
+          <label for = "postleitzahl" class = "break">Postal code: </label><input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
+          <label for = "stadt" class = "margin-left umbruch">City: </label><input type = "name" id = "stadt" name = "stadt" class = "height" tab-index = "8"/>
+        </fieldset>
+        <span class="umbruch"><input type = "submit" id="submitLogin" value = "Register" class = "cookie-consent-banner__cta margin-bottom" tab-index = "9"/></span>
+      </div>
+
+    </form>
+    </div>
+    <script src="/static/js/validierung.js"></script>
+    <script src="/static/js/banner.js"></script>
+  </body>
+</html>

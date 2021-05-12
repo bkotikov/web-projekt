@@ -1,0 +1,32 @@
+legend {
+  font-weight: bold;
+}
+
+fieldset {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+#plzFehlermeldung {
+  display:none;
+  color: red;
+}
+
+.flex  {
+  display : flex;
+  flex: wrap;
+  flex: 200px;
+}
+
+.float {
+  float:left;
+}
+
+.break::before {
+  content: "\A";
+  white-space: pre;
+}
+
+@media (min-width: 500px) {
+
+}

@@ -50,5 +50,36 @@ app.get('/bgr',function(req,res){
   res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
 });
 
+app.get('/login/de', function(req,res) {
+  res.sendFile(path.join(__dirname + '/html/de/login.html'));
+});
+
+app.get('/registration/de', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/de/registration.html'))
+});
+
+app.get('/login/en', function(req,res) {
+  res.sendFile(path.join(__dirname + '/html/en/login.html'));
+});
+
+app.get('/registration/en', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/en/registration.html'))
+});
+
+app.post('/loginPruefen/de', function(req,res){
+  res.sendFile(path.join(__dirname+'/html/de/index.html'));
+});
+
+app.post('/loginPruefen/en', function(req,res){
+  res.sendFile(path.join(__dirname+'/html/en/index.html'));
+});
+
+app.post('/registrierungPruefen/de', function(req,res){
+  res.sendFile(path.join(__dirname+'/html/de/index.html'));
+});
+
+app.post('/registrierungPruefen/en', function(req,res){
+  res.sendFile(path.join(__dirname+'/html/en/index.html'));
+});
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
