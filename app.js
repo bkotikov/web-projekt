@@ -58,5 +58,13 @@ app.get('/registration/de', function(req, res){
   res.sendFile(path.join(__dirname + '/html/de/registration.html'))
 });
 
+app.get('/login/en', function(req,res) {
+  res.sendFile(path.join(__dirname + '/html/en/login.html'));
+});
+
+app.get('/registration/en', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/en/registration.html'))
+});
+
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
