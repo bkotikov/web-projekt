@@ -6,6 +6,8 @@ const { dirname } = require('path');
 const path    = require("path");
 const parser = require('accept-language-parser');
 const url = require('url');
+const gulp = require('gulp');
+const fileinclude = require('gulp-file-include');
 
 const PORT = 3000;
 
@@ -40,6 +42,7 @@ app.get('/de/scan',function(req,res){
 });
 
 app.get('/en',function(req,res){
+  
   res.sendFile(path.join(__dirname+'/html/en/index.html'));
 });
 
@@ -48,6 +51,15 @@ app.get('/ru',function(req,res){
 });
 
 app.get('/de',function(req,res){
+  gulp.task('fileinclude', function() {
+    gulp.src(['index.html'])
+      .pipe(fileinclude({
+        prefix: '@@',
+        basepath: '@file'
+      }))
+      .pipe(gulp.dest('./'));
+      console.log('23');
+  });
   res.sendFile(path.join(__dirname+'/html/de/index.html'));
 });
 
