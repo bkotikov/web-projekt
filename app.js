@@ -29,6 +29,11 @@ app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/html/lang.html'));
 });
 
+app.get('/de/cookie',function(req,res){
+  //language = parser.pick([en, ru, de, bgr], req.headers['accept-language']);
+  res.sendFile(path.join(__dirname+'/html/de/cookie.html'));
+});
+
 
 app.get('/de/scan',function(req,res){
   res.sendFile(path.join(__dirname+'/html/de/scan.html'));
