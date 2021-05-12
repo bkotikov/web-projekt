@@ -1,59 +1,69 @@
 <!DOCTYPE html>
-<html lang = "de">
-  <head>
-    <meta charset = "utf-8"/>
-    <meta viewport = "width = device-width, initial-scale = 1.0"/>
-    <link rel="stylesheet" href= "/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/login.css">
+<html lang="de">
 
-    <title>Login</title>
-  </head>
-  <body>
-    <div class="header">
-        <div class="container-xs shadow p-tb">
-            <div class="col-8 col-8-sm col-3-md">
-                <a class="logo" href="#">Team-B2</a>
-            </div>
-            <div class="col-4 col-9-md col-4-sm float-right show-md hide-xs">
-                <a class="nav-btn" href="#">Startseite</a>
-                <a class="nav-btn" href="#">Impressum</a>
-                <a class="nav-btn" href="#">Datenschutz</a>
-                <a class="nav-btn" href="#">Über uns</a>
-                <a class="nav-btn" href="/login/de">Login</a>
-                <a class="nav-btn" href="/registration/de">Anmelden</a>
-            </div>
-            <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </div>
+<head>
+  <meta charset="utf-8" />
+  <meta viewport="width = device-width, initial-scale = 1.0" />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/login.css">
 
-        <div class="mobile-nav" id="myLinks" style="display: none;">
-            <a class="mobile-btn" href="#">Startseite</a>
-            <a class="mobile-btn" href="#">Impressum</a>
-            <a class="mobile-btn" href="#">Datenschutz</a>
-            <a class="mobile-btn" href="#">Über uns</a>
-            <a class="mobile-btn" href="/login/de">Login</a>
-            <a class="mobile-btn" href="/registration/de">Anmelden</a>
-        </div>
-        <hr>
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container-xs shadow p-tb">
+      <div class="col-8 col-8-sm col-3-md">
+        <a class="logo" href="#">Team-B2</a>
+      </div>
+      <div class="col-4 col-9-md col-4-sm float-right show-md hide-xs">
+        <a class="nav-btn" href="#">Startseite</a>
+        <a class="nav-btn" href="#">Impressum</a>
+        <a class="nav-btn" href="#">Datenschutz</a>
+        <a class="nav-btn" href="#">Über uns</a>
+        <a class="nav-btn" href="/login/de">Login</a>
+        <a class="nav-btn" href="/registration/de">Anmelden</a>
+      </div>
+      <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
     </div>
-    <div id = "registrierung">
-    <form action="/loginPruefen/de" method = "POST">
-      <div id = "login">
-        <h1 id = "loginInformation">
-          <label for = "loginInformation">Bitte geben Sie Ihre Login Informationen ein:</label>
+
+    <div class="mobile-nav" id="myLinks" style="display: none;">
+      <a class="mobile-btn" href="#">Startseite</a>
+      <a class="mobile-btn" href="#">Impressum</a>
+      <a class="mobile-btn" href="#">Datenschutz</a>
+      <a class="mobile-btn" href="#">Über uns</a>
+      <a class="mobile-btn" href="/login/de">Login</a>
+      <a class="mobile-btn" href="/registration/de">Anmelden</a>
+    </div>
+    <hr>
+  </div>
+  <div id="registrierung">
+    <form action="/loginPruefen/de" method="POST">
+      <div id="login">
+        <h1 id="loginInformation">
+          <label for="loginInformation">Bitte geben Sie Ihre Login Informationen ein:</label>
         </h1>
-        <div id = "emailFehlermeldung"><label for = "emailFehlermeldung">Die eingegebene Email-Adresse ist nicht gültig</label></div>
-        <div id = "passwortFehlermeldung"><label for = "passwortFehlermeldung">Das Passwort muss aus mindestens acht Zeichen, einem Großbuchstabe, einem Kleinbuchstaben, einer Zahl und einem Sonderzeichen bestehen </label></div>
-        <label for = "emailAdresse">Email-Adresse: </label><input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
-        <label for = "passwort" class = "passwortLabel umbruch">Passwort: </label><input id = "passwort" type = "password" class="height" required tab-index="2"/>
-        <span class="umbruch"><input type = "submit" id="submitLogin" value = "Anmelden" class = "cookie-consent-banner__cta margin-bottom" tab-index = "3"/></span>
+        <div id="emailFehlermeldung">
+          <label for="emailFehlermeldung">Die eingegebene Email-Adresse ist nicht gültig</label>
+        </div>
+        <div id="passwortFehlermeldung"><label for="passwortFehlermeldung">Das Passwort muss aus mindestens acht
+            Zeichen, einem Großbuchstabe, einem Kleinbuchstaben, einer Zahl und einem Sonderzeichen bestehen </label>
+        </div>
+        <label for="emailAdresse">Email-Adresse: </label><input id="emailAdresse" type="email" class="height" required
+          tab-index="1" />
+        <label for="passwort" class="passwortLabel umbruch">Passwort: </label><input id="passwort" type="password"
+          class="height" required tab-index="2" />
+        <span class="umbruch"><input type="submit" id="submitLogin" value="Anmelden"
+            class="cookie-consent-banner__cta margin-bottom" tab-index="3" /></span>
       </div>
     </form>
-    </div>
-    <script src="/static/js/validierung.js"></script>
-    <script src="/static/js/banner.js"></script>
-  </body>
+  </div>
+  <script src="/static/js/validierung.js"></script>
+  <script src="/static/js/banner.js"></script>
+</body>
+
 </html>
