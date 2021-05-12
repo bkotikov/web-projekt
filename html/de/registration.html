@@ -4,29 +4,37 @@
     <meta charset = "utf-8"/>
     <meta viewport = "width = device-width, initial-scale = 1.0"/>
     <link rel="stylesheet" href= "/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel = "stylesheet" href = "/static/css/login.css">
+    <link rel = "stylesheet" href= "/static/css/registrierung.css">
 
     <title>Registrierung</title>
   </head>
   <body>
+    <div id = "registrierung">
     <form action = "/registrierungPrüfen" method = "POST">
-      <div id = "registrierung">
-        <h1> Registrierungs-Informationen eingeben: </h1>
-      </div>
-      <label for = "emailAdresse">Email-Adresse </label><input id = "emailAdresse" type = "email" class="height" size="25" tab-index = "1" required/>
-      <div><label for = "passwort" class = "passwortLabel">Passwort: </label><input id = "passwort" type = "password" class="height" tab-index = "2" required/></div>
-      <label for = "vorname"> Vorname </label> <input id = "vorname" type = "text" max-length = "50" tab-index = "3"/>
-      <label for = "nachname"> Nachname </label><input id = "nachname" type = "text" max-length = "50" tab-index = "4"/>
-      <fieldset>
-        <legend id = "anschrift"><label for = "anschrift">Anschrift hinzufügen:</label></legend>
-        <label for = "straße">Straße: </label> <input type="text" id = straße name = "straße" tab-index = "5"/>
-        <label for = "hausnummer">Hausnummer: </label><input type = "number" id = "hausnummer" name="hausnummer" step = 1 min = "1" tab-index="6"/>
-        <label for = "postleitzahl">Postleitzahl: </label><input type = "number" id = "postleitzahl" name = "postleitzahl" step = 1 tab-index="7"/>
-        <label for = "stadt">Stadt: </label><input type = "name" id = "stadt" name = "stadt" tab-index = "8"/>
-        <label for = "land">Land: </label> <input type = "name" id = "land" name = "land" tab-index = "9"/>
-      </fieldset>
+      <div id = "login">
+        <h1 id = "loginInformation">
+          <label for = "loginInformation">Registrierungs-Informationen eingeben:</label>
+        </h1>
+        <div id = "emailFehlermeldung"><label for = "emailFehlermeldung">Die eingegebene Email-Adresse ist nicht gültig</label></div>
+        <label for = "emailAdresse">Email-Adresse: </label><input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
+        <label for = "passwort" class = "margin-left umbruch">Passwort: </label><input id = "passwort" type = "password" class="height" required tab-index="2"/>
+        <label for = "vorname" class = "break"> Vorname: </label> <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
+        <label for = "nachname" class = "margin-left umbruch"> Nachname: </label><input id = "nachname" type = "text" class = "height" tab-index = "4"/>
 
-      <input type = "submit" id="submitLogin" value = "Anmelden" class = "cookie-consent-banner__cta" tab-index = "10"/>
+        <fieldset class = "umbruch margin-bottom">
+          <legend id = "anschrift"><label for = "anschrift">Anschrift hinzufügen:</label></legend>
+          <div id = "plzFehlermeldung"><label for = "plzFehlermeldung">Die eingegebene Postleitzahl ist nicht gültig</label></div>
+          <label for = "straße">Straße: </label> <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
+          <label for = "hausnummer" class = "margin-left umbruch">Hausnummer: </label><input type = "number" id = "hausnummer" name="hausnummer" class = "height" step = "1" min = "1" tab-index="6"/>
+          <label for = "postleitzahl" class = "break">Postleitzahl: </label><input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
+          <label for = "stadt" class = "margin-left umbruch">Stadt: </label><input type = "name" id = "stadt" name = "stadt" class = "height" tab-index = "8"/>
+        </fieldset>
+        <span class="umbruch"><input type = "submit" id="submitLogin" value = "Registrieren" class = "cookie-consent-banner__cta margin-bottom" tab-index = "9"/></span>
+      </div>
+
     </form>
+    </div>
+    <script src="/static/js/validierung.js"></script>
   </body>
 </html>

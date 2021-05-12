@@ -1,26 +1,29 @@
-#registrierung {
-  display : none;
-}
-
 body {
-  text-align: center;
+  font-family: "CeraPRO-Bold", sans-serif, arial;
+  font-weight: normal;
   font-size: 1.5rem;
   border-style: solid;
-  border-width: 1%;
-  border-colour: Black;
+  border-width: 2px;
+  border-color: Black;
+  text-align: center;
 }
 
-.passwortLabel {
+.margin-left {
   margin-left: 1%;
 }
-
+.margin-bottom {
+  margin-bottom: 1%;
+}
 .height {
-  min-height : 40px;
-  min-width: 70px;
+  min-height : 20%;
+  min-width: 30%;
   border-style: solid;
   border-width: 1%;
   margin-bottom: 2%;
   font-size: 1.5rem;
+  display: inline-block;
+  position: relative;
+  justify-content: center;
 }
 
 #emailFehlermeldung{
@@ -28,13 +31,31 @@ body {
   color: red;
 }
 
+@media screen and (max-width: 1200px){
+  .height {
+    min-width: 45%;
+  }
 
-/*input[type=button]{
-  width: 20%;
-  height: 25%;
-  font-size: 1.5rem;
+  .umbruch::before {
+    content: "\A";
+    white-space: pre;
+  }
 }
 
-input[type=button]:hover {
-  background-color:rgba(255,204,0,0.8);
-}*/
+@media screen and (max-width:900px)
+{
+ .umbruch::before{
+   content: "\A";
+   white-space: pre;
+ }
+
+ .height {
+   min-width: 50%;
+ }
+}
+
+@media screen and (max-width: 500px){
+  .height {
+    min-width: 95%;
+  }
+}

@@ -55,7 +55,7 @@ app.get('/login/de', function(req,res) {
 });
 
 app.get('/registration/de', function(req, res){
-  res.sendFile(path.join(__dirname + 'html/de/registration.html'))
+  res.sendFile(path.join(__dirname + '/html/de/registration.html'))
 });
 
 
