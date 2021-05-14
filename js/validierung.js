@@ -16,7 +16,7 @@ function validiereEmail(email){
 }
 var passwortFehler = false;
 function validierePasswort(value){
-  var passwortRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;;
+  var passwortRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
 
   if (!value.trim().match(passwortRegex)){
     document.getElementById("passwortFehlermeldung").style.display = "block";

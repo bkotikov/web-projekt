@@ -10,35 +10,58 @@
 <body>
 
     <div class="header">
-        <div class="container-xs shadow p-tb">
-            <div class="col-8 col-8-sm col-3-md">
-                <a class="logo" href="#">Team-B2</a>
+        <div id="banner"></div>
+    </div>
+    <div class="scan">
+        <h1 class="logo">Formular erkennen</h1>
+        <h2 style="margin-bottom: 3rem;">Wir bestimmern Ihr Formular für Sie</h2>
+        <hr/>
+        <label for="fileUpload" class="upload">
+            <div  class="uploadContent">
+                <div class="uploadLogo">
+                    <img src="/static/images/Ic_file_upload_48px.svg" alt=""/>
+                </div>
+                <div style="flex-grow: 0;">
+                    <h3>Datei auswählen</h3>  
+                </div>
             </div>
-            <div class="col-4 col-9-md col-4-sm float-right show-md hide-xs">
-                <a class="nav-btn" href="/de">Startseite</a>
-                <a class="nav-btn" href="#">Impressum</a>
-                <a class="nav-btn" href="#">Datenschutz</a>
-                <a class="nav-btn" href="#">Über uns</a>
-                <a class="nav-btn" href="#">Login</a>
-                <a class="nav-btn" href="#">Anmelden</a>
-            </div>
-            <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </div>
+                
+                 
+        </label>
+        <input id="fileUpload" type="file" accept="image/*" hidden/>
+        <p class="show" hidden>Oder legen Sie Ihre Datei hier ab</p>
 
-        <div class="mobile-nav" id="myLinks" style="display: none;">
-            <a class="mobile-btn" href="#">Startseite</a>
-            <a class="mobile-btn" href="#">Impressum</a>
-            <a class="mobile-btn" href="#">Datenschutz</a>
-            <a class="mobile-btn" href="#">Über uns</a>
-            <a class="mobile-btn" href="#">Login</a>
-            <a class="mobile-btn" href="#">Anmelden</a>
+        <img id="gif" src="/static/images/loading.gif" height="62" width="62" alt="" style="margin-top: 3rem;" hidden/>
+
+        <hr style="margin: 3rem 0 0 0;"/>
+        <h3 style="color: darkgreen; margin: 3rem 0 0 0;">So benutzen Sie die Formularerkennung:</h3>
+        <div style="justify-content: center; display: flex;">
+            <ol class="table">
+                <li>Ziehen und legen Sie die Datei hier ab oder <br/> benutzen Sie einfach den Datei hochladen Knopf</li>
+                <li>Die Datei wird auf unseren Server hochgeladen</li>
+                <li>Wir erkennen das Formular für Sie</li>
+                <li>Sie werden automatisch auf Ihr Formular weitergeleitet</li>
+            </ol>
         </div>
+        
     </div>
 
+
+    
+
+    <footer>
+        <div class="footer">
+            <p class="footer-text">Erstellt vom Team-B2, WEB 2021SS</p>
+        </div>
+    </footer>
+
+    <div id="content"></div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/js/index.js"></script>
+
+    <script src="/static/js/file.js"></script>
     <script src="/static/js/banner.js">
         
 

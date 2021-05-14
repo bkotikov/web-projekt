@@ -6,8 +6,6 @@ const { dirname } = require('path');
 const path    = require("path");
 const parser = require('accept-language-parser');
 const url = require('url');
-const gulp = require('gulp');
-const fileinclude = require('gulp-file-include');
 
 const PORT = 3000;
 
@@ -24,74 +22,191 @@ app.use('/static/images', express.static(__dirname + '/assets/images'));
 app.use('/static/js', express.static(__dirname + '/js'));
 
 
-// res.sendFile(path.join(__dirname+'/html/de/index.html'));
 
-app.get('/',function(req,res){
-  //language = parser.pick([en, ru, de, bgr], req.headers['accept-language']);
+//root
+app.get('/',function(req,res){ 
   res.sendFile(path.join(__dirname+'/html/lang.html'));
 });
+
+//----Cookie------
+
+app.get('/de/cookie',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/de/cookie.html'));
+});
+
+app.get('/en/cookie',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/en/cookie.html'));
+});
+
+app.get('/ru/cookie',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/ru/cookie.html'));
+});
+
+app.get('/bgr/cookie',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/bgr/cookie.html'));
+});
+
+//----Cookie------
+
+
+//----Banner------
+
+app.get('/de/banner',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/de/banner.html'));
+});
+app.get('/en/banner',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/en/banner.html'));
+});
+app.get('/ru/banner',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/ru/banner.html'));
+});
+app.get('/bgr/banner',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/bgr/banner.html'));
+});
+
+//----Banner------
+
 
 
 app.get('/de/scan',function(req,res){
   res.sendFile(path.join(__dirname+'/html/de/scan.html'));
 });
 
+
+//----Index------
+
 app.get('/en',function(req,res){
-  
   res.sendFile(path.join(__dirname+'/html/en/index.html'));
 });
-
+app.get('/de',function(req,res){
+  res.sendFile(path.join(__dirname+'/html/de/index.html'));
+});
 app.get('/ru',function(req,res){
   res.sendFile(path.join(__dirname+'/html/ru/RU_index.html'));
 });
-
-app.get('/de',function(req,res){
-  gulp.task('fileinclude', function() {
-    gulp.src(['index.html'])
-      .pipe(fileinclude({
-        prefix: '@@',
-        basepath: '@file'
-      }))
-      .pipe(gulp.dest('./'));
-      console.log('23');
-  });
-  res.sendFile(path.join(__dirname+'/html/de/index.html'));
-});
-
 app.get('/bgr',function(req,res){
   res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
 });
 
-app.get('/login/de', function(req,res) {
+//----Index------
+
+
+//----Login------
+
+app.get('/de/login', function(req,res) {
   res.sendFile(path.join(__dirname + '/html/de/login.html'));
 });
+app.get('/en/login', function(req,res) {
+  res.sendFile(path.join(__dirname + '/html/en/login.html'));
+});
+app.get('/ru/login', function(req,res) {
+  res.sendFile(path.join(__dirname + '/html/ru/RU_login.html'));
+});
+app.get('/bgr/login', function(req,res) {
+  res.sendFile(path.join(__dirname + '/html/bgr/login.html'));
+});
 
-app.get('/registration/de', function(req, res){
+app.get('/de/registration', function(req, res){
   res.sendFile(path.join(__dirname + '/html/de/registration.html'))
 });
 
-app.get('/login/en', function(req,res) {
-  res.sendFile(path.join(__dirname + '/html/en/login.html'));
-});
+//----Login------
 
-app.get('/registration/en', function(req, res){
+
+//----Registration-----
+
+app.get('/de/registration', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/de/registration.html'))
+});
+app.get('/ru/registration', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/ru/RU_registration.html'))
+});
+app.get('/en/registration', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/registration.html'))
 });
+app.get('/bgr/registration', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/bgr/registration.html'))
+});
 
-app.post('/loginPruefen/de', function(req,res){
+//----Registration-----
+
+
+//----About-----
+
+app.get('/de/about', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/de/about.html'))
+});
+app.get('/ru/about', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/ru/RU_about.html'))
+});
+app.get('/en/about', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/en/about.html'))
+});
+app.get('/bgr/about', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/bgr/about.html'))
+});
+
+//----About-----
+
+
+app.get('/de/privacy', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/de/privacy.html'))
+});
+app.get('/ru/privacy', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/ru/RU_privacy.html'))
+});
+app.get('/en/privacy', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/en/privacy.html'))
+});
+app.get('/bgr/privacy', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/bgr/privacy.html'))
+});
+
+
+
+//-----Imprint----
+
+app.get('/de/imprint', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/de/imprint.html'))
+});
+app.get('/ru/imprint', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/ru/RU_imprint.html'))
+});
+app.get('/en/imprint', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/en/imprint.html'))
+});
+app.get('/bgr/imprint', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/bgr/imprint.html'))
+});
+
+//-----Imprint----
+
+app.post('/de/loginPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/de/index.html'));
 });
-
-app.post('/loginPruefen/en', function(req,res){
+app.post('/en/loginPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/en/index.html'));
 });
+app.post('/ru/loginPruefen', function(req,res){
+  res.sendFile(path.join(__dirname+'/html/ru/RU_index.html'));
+});
+app.post('/bgr/loginPruefen', function(req,res){
+  res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
+});
 
-app.post('/registrierungPruefen/de', function(req,res){
+
+
+app.post('/de/registrierungPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/de/index.html'));
 });
-
-app.post('/registrierungPruefen/en', function(req,res){
+app.post('/en/registrierungPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/en/index.html'));
+});
+app.post('/ru/registrierungPruefen', function(req,res){
+  res.sendFile(path.join(__dirname+'/html/ru/RU_index.html'));
+});
+app.post('/bgr/registrierungPruefen', function(req,res){
+  res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
 });
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));

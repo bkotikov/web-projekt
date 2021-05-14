@@ -1,0 +1,84 @@
+<div id="overlay" class="overlay-container" hidden>
+    <div id="cookie" class="cookie-consent-banner">
+        <div class="cookie-consent-banner__inner">
+            <div class="cookie-consent-banner__copy">
+                <div class="cookie-consent-banner__header">НА ДАННОМ САЙТЕ ИСПОЛЬЗУЮТСЯ ФАЙЛЫ COOKIE</div>
+                <div class="cookie-consent-banner__description">
+                    Мы используем файлы cookie для персонализации контента
+                    и рекламы, для обеспечения функций социальных сетей и
+                    для анализа нашего трафика. Мы также передаем информацию
+                    об использовании вами нашего сайта нашим партнерам по
+                    социальным сетям, рекламе и аналитике, которую они могут
+                    объединять с другой информацией, которую вы предоставили
+                    им или собрали в результате использования вами их услуг.
+                    вы соглашаетесь на использование наших файлов cookie,
+                    если продолжаете пользоваться нашим сайтом.
+                </div>
+            </div>
+
+            <div class="cookie-consent-banner__actions">
+
+                <input id="ok" type="button" hidden/>
+                <label for="ok" class="cookie-consent-banner__cta">Принять</label>
+
+                <input id="reject" type="button" hidden/>
+                <label for="reject" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">Отклонить</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+
+
+const body = document.getElementsByTagName('body')[0];
+const ok = document.getElementById("ok");
+const deny = document.getElementById("reject");
+const popup = document.getElementById("cookie");
+const overlay = document.getElementById("overlay");
+
+function showCookie(bool) {
+    if (bool) {
+      body.style.overflow = "hidden";
+      popup.style.display = "block";
+      overlay.style.display = "block";
+    } else {
+      body.style.overflow = "auto";
+      popup.style.display = "none";
+      overlay.style.display = "none";
+    }
+}
+
+
+
+var dvsgo = getCookie("dvsgo");
+if (dvsgo !== "accecpted" && dvsgo !== "rejected") {
+    showCookie(true);
+}
+ 
+ok.addEventListener('click', () => {
+    document.cookie = "dvsgo=accecpted; path=/; samesite=strict";
+    showCookie(false);
+}, true);
+
+deny.addEventListener('click', () => {
+    document.cookie = "dvsgo=rejected; path=/; samesite=strict";
+    showCookie(false);
+}, true);
+</script>

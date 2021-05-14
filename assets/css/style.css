@@ -1,3 +1,5 @@
+
+
 .bg {
     background-color: rgba(0, 0, 0, 0.658);
     z-index: 15646;
@@ -284,6 +286,7 @@
 }
 
 .footer {
+    
     background-color: #2a2b30;
     color: #fff;
     margin: 2rem 0 0 0;
@@ -322,9 +325,49 @@
     width: 100%;
     background-color: #F1F6F4;
 
-  }
+}
 
+.scan {
+    height: 100%;
+    position:relative;
+    width:100%;
+    text-align: center;
+}
 
+.upload {
+    display: block;
+    background-color: #2CE080;
+    margin-top: 4rem;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+    min-width: 300px;
+    width: 20%;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+.uploadContent {
+    display: flex;
+    justify-content: center;
+}
+
+.uploadLogo {
+    display: none;
+}
+
+.table {
+    margin-top: 2rem;
+    text-align: left;
+}
+.table li{
+    margin-bottom: 1rem;
+    
+}
+
+.upload:hover {
+    cursor: pointer;
+    background-color: #20BA68;
+}
 @media (min-width: 576px) {
     .card-section {
         flex-wrap: wrap;
@@ -340,7 +383,7 @@
         flex: 0 0 auto;
         width: 66.6666666667%;
     }
-
+    
 }
 
 @media (min-width: 768px) {
@@ -349,9 +392,14 @@
         display: block;
     }
 
+    .show {
+        display: block;
+    }
+
     .hide-md {
         display: none;
     }
+
 
     .card-section {
         flex-direction: row;
@@ -392,9 +440,12 @@
         flex: 0 0 auto;
         width: 25%;
     }
+
+    
 }
 
 @media (min-width: 992px) {
+    
     .header-btn-sec {
         margin: 0 1rem;
         text-align: left;
@@ -418,7 +469,12 @@
 
 }
 
-@media (min-width: 1200px) {}
+@media (min-width: 1250px) {
+    .uploadLogo {
+        display: block;
+    }
+
+}
 
 
   .cookie-consent-banner__inner {
