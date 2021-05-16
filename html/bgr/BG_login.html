@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+  <meta charset="utf-8" />
+  <meta viewport="width = device-width, initial-scale = 1.0" />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/login.css">
+
+  <title>Вход</title>
+</head>
+
+<body>
+  <div class="header">
+    <div id="banner"></div>
+    <hr>
+  </div>
+  <div id="registrierung">
+    <form action="/loginPruefen/de" method="POST">
+      <div id="login">
+        <h1 id="loginInformation">
+          <label for="loginInformation">Моля, въведете данните си за вход:</label>
+        </h1>
+        <div id="emailFehlermeldung">
+          <label for="emailFehlermeldung">Въведеният имейл адрес е невалиден</label>
+        </div>
+        <div id="passwortFehlermeldung"><label for="passwortFehlermeldung">Паролата трябва да се състои от поне осем
+          знака: главна буква, малка буква, число и специален знак. </label>
+        </div>
+        <label for="emailAdresse">Имейл: </label><input id="emailAdresse" type="email" class="height" required
+          tab-index="1" />
+        <label for="passwort" class="passwortLabel umbruch">Парола: </label><input id="passwort" type="password"
+          class="height" required tab-index="2" />
+        <span class="umbruch"><input type="submit" id="submitLogin" value="Anmelden"
+            class="cookie-consent-banner__cta margin-bottom" tab-index="3" /></span>
+      </div>
+    </form>
+  </div>
+  <div id="content"></div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/static/js/index.js"></script>
+  <script src="/static/js/validierung.js"></script>
+  <script src="/static/js/banner.js"></script>
+</body>
+
+</html>
