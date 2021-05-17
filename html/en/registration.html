@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "de">
+<html lang = "en">
   <head>
     <meta charset = "utf-8"/>
     <meta viewport = "width = device-width, initial-scale = 1.0"/>
@@ -7,7 +7,7 @@
     <link rel = "stylesheet" href = "/static/css/login.css">
     <link rel = "stylesheet" href= "/static/css/registrierung.css">
 
-    <title>Registration</title>
+    <title>Registrierung</title>
   </head>
   <body>
     <div class="header">
@@ -16,26 +16,88 @@
     </div>
 
     <div id = "registrierung">
-    <form action = "/registrierungPruefen/en" method = "POST">
+    <form action = "/registrierungPruefen/de" method = "POST">
       <div id = "login">
         <h1 id = "loginInformation">
-          <label for = "loginInformation">Please enter your registration information:</label>
+          Please enter your registration information:
         </h1>
-        <div id = "emailFehlermeldung"><label for = "emailFehlermeldung">The entered email address is not valid</label></div>
-        <div id = "passwortFehlermeldung"><label for = "passwortFehlermeldung">The password must contain at least eight characters, an uppercase letter, a lowercase letter, a number and a special character </label></div>
-        <label for = "emailAdresse">Email address: </label><input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
-        <label for = "passwort" class = "margin-left umbruch">Password: </label><input id = "passwort" type = "password" class="height" required tab-index="2"/>
-        <label for = "vorname" class = "break"> First name: </label> <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
-        <label for = "nachname" class = "margin-left umbruch"> Last name: </label><input id = "nachname" type = "text" class = "height" tab-index = "4"/>
+        
+        
+        <fieldset class = "margin-bottom flex">
+          <legend id = "anschrift">Create account:</legend>
+          
+            <div class="form">
+              
+                <label for = "emailAdresse" >Email address: </label>
+                <br/>
+                <input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
+                <div id = "emailFehlermeldung" class="fehlermeldung">The entered email address is not valid</div>
+              
+                <br/>
+              
+              
+              
+                <label for = "passwort">Password: </label>
+                <br/>
+                <input id = "passwort" type = "password" class="height" required tab-index="2"/>
+                <div id = "passwortFehlermeldung" class="fehlermeldung">The password must contain at least eight characters, an uppercase letter, a lowercase letter, a number and a special character </div>
+              
+              
+              
+              
+            </div>
+            <div class="form">
+              
+                <label for = "vorname">First name: </label> 
+                <br/>
+                <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
+              
+              
+              <br/>
+              
+                <label for = "nachname">Last name:</label>
+                <br/>
+                <input id = "nachname" type = "text" class = "height" tab-index = "4"/>
+              
+              
+            </div>
+            
 
-        <fieldset class = "umbruch margin-bottom">
-          <legend id = "anschrift"><label for = "anschrift">Add address:</label></legend>
-          <div id = "plzFehlermeldung"><label for = "plzFehlermeldung">The postcode entered is not valid</label></div>
-          <label for = "straße">Street: </label> <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
-          <label for = "hausnummer" class = "margin-left umbruch">Number of the house: </label><input type = "number" id = "hausnummer" name="hausnummer" class = "height" step = "1" min = "1" tab-index="6"/>
-          <label for = "postleitzahl" class = "break">Postal code: </label><input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
-          <label for = "stadt" class = "margin-left umbruch">City: </label><input type = "name" id = "stadt" name = "stadt" class = "height" tab-index = "8"/>
+            
+          
+          
         </fieldset>
+        <fieldset class = "margin-bottom flex">
+          <legend id = "anschrift">Add address:</legend>
+
+          
+          
+            <div class="form">
+              <label for = "straße">Street</label> 
+              <br/>
+              <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
+
+              <br/>
+
+              <label for = "hausnummer">Number of the house: </label>
+              <br/>
+              <input type = "number" id = "hausnummer" name="hausnummer" class = "height" step = "1" min = "1" tab-index="6"/>
+
+              
+            </div>
+            <div class="form">
+              
+              <label for = "postleitzahl">Postal code: </label>
+              <br/>
+              <input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
+              <div id = "plzFehlermeldung" class="fehlermeldung">The postcode entered is not valid</div>
+              <br/>
+
+              <label for = "stadt">City: </label>
+              <br/>
+              <input type = "name" id = "stadt" name = "stadt" class = "height" tab-index = "8"/>
+            </div>
+          </fieldset>
         <span class="umbruch"><input type = "submit" id="submitLogin" value = "Register" class = "cookie-consent-banner__cta margin-bottom" tab-index = "9"/></span>
       </div>
 

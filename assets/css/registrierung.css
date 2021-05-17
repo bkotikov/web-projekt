@@ -3,19 +3,17 @@ legend {
 }
 
 fieldset {
-  margin-left: 1%;
-  margin-right: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-#plzFehlermeldung {
-  display:none;
-  color: red;
-}
+
 
 .flex  {
   display : flex;
-  flex: wrap;
-  flex: 200px;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
 }
 
 .float {
@@ -27,6 +25,38 @@ fieldset {
   white-space: pre;
 }
 
-@media (min-width: 500px) {
+.form{
+  display: flex;
+  flex-direction: column;
+  margin: 0 5% 0 5%;
+}
 
+.fehlermeldung{
+  display: none;
+  color: red;
+  font-size: 1rem; 
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .flex{
+    flex-direction: row;
+  }
+  .form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20% 0 0;
+    
+  }
+  .form:last-child {
+    margin: 0;
+  }
+  .fehlermeldung {
+    max-width: 260px;
+    text-align: left;
+    border-width: 5px;
+    border-color: black;
+    background-color: white;
+    z-index: 56465;
+  }
 }

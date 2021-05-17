@@ -1,44 +1,61 @@
 <!DOCTYPE html>
-<html lang = "de">
-  <head>
-    <meta charset = "utf-8"/>
-    <meta viewport = "width = device-width, initial-scale = 1.0"/>
-    <link rel="stylesheet" href= "/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/login.css">
+<html lang="de">
 
-    <title>Login</title>
-  </head>
-  <body>
-    <div class="header">
-        <div id="banner"></div>
-        <hr>
-    </div>
+<head>
+  <meta charset="utf-8" />
+  <meta viewport="width = device-width, initial-scale = 1.0" />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="/static/css/registrierung.css">
 
-    <div id = "registrierung">
-    <form action="/loginPruefen/en" method = "POST">
-      <div id = "login">
-        <h1 id = "loginInformation">
-          <label for = "loginInformation">Please enter your login information:</label>
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="header">
+    <div id="banner"></div>
+    <hr>
+  </div>
+  <div id="registrierung">
+    <form action="/loginPruefen/de" method="POST">
+      <div id="login">
+        <h1 id="loginInformation">
+          Please enter your login information:
         </h1>
-        <div id = "emailFehlermeldung"><label for = "emailFehlermeldung">The entered email address is not valid</label></div>
-        <div id = "passwortFehlermeldung"><label for = "passwortFehlermeldung">The password must contain at least eight characters, an uppercase letter, a lowercase letter, a number and a special character </label></div>
-        <label for = "emailAdresse">Email address: </label><input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
-        <label for = "passwort" class = "passwortLabel umbruch">Password: </label><input id = "passwort" type = "password" class="height" required tab-index="2"/>
-        <span class="umbruch"><input type = "submit" id="submitLogin" value = "Log in" class = "cookie-consent-banner__cta margin-bottom" tab-index = "3"/></span>
+        
+        
+        <div class="flex">
+          <div class="form">
+            <label for="emailAdresse">Email address: </label>
+            <br/>
+            <input id="emailAdresse" type="email" class="height" required tab-index="1" />
+            <div id="emailFehlermeldung" class="fehlermeldung">
+              The entered email address is not valid
+            </div>
+          </div>
+          <div class="form">
+            <label for="passwort">Password: </label>
+            <br/>
+            <input id="passwort" type="password" class="height" required tab-index="2" />
+            <div id="passwortFehlermeldung" class="fehlermeldung">The password must contain at least eight characters, an uppercase letter, a lowercase letter, a number and a special character 
+            </div>
+          </div>
+        </div>
+        
+
+        
+        <span class="umbruch"><input type="submit" id="submitLogin" value="Log in"
+            class="cookie-consent-banner__cta margin-bottom" tab-index="3" /></span>
       </div>
     </form>
-    </div>
-    <script src="/static/js/validierung.js"></script>
-    <div id="content"></div>
+  </div>
+  <div id="content"></div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/static/js/index.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/static/js/index.js"></script>
+  <script src="/static/js/validierung.js"></script>
+  <script src="/static/js/banner.js"></script>
+</body>
 
-
-    <script src="/static/js/banner.js">
-
-
-    </script>
-  </body>
 </html>

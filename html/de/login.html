@@ -6,6 +6,7 @@
   <meta viewport="width = device-width, initial-scale = 1.0" />
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="/static/css/registrierung.css">
 
   <title>Login</title>
 </head>
@@ -19,18 +20,31 @@
     <form action="/loginPruefen/de" method="POST">
       <div id="login">
         <h1 id="loginInformation">
-          <label for="loginInformation">Bitte geben Sie Ihre Login Informationen ein:</label>
+          Bitte geben Sie Ihre Login Informationen ein:
         </h1>
-        <div id="emailFehlermeldung">
-          <label for="emailFehlermeldung">Die eingegebene Email-Adresse ist nicht gültig</label>
+        
+        
+        <div class="flex">
+          <div class="form">
+            <label for="emailAdresse">Email-Adresse: </label>
+            <br/>
+            <input id="emailAdresse" type="email" class="height" required tab-index="1" />
+            <div id="emailFehlermeldung" class="fehlermeldung">
+              Die eingegebene Email-Adresse ist nicht gültig
+            </div>
+          </div>
+          <div class="form">
+            <label for="passwort">Passwort: </label>
+            <br/>
+            <input id="passwort" type="password" class="height" required tab-index="2" />
+            <div id="passwortFehlermeldung" class="fehlermeldung">Das Passwort muss aus min. 8
+              Zeichen, einem Großbuchstaben, einem Kleinbuchstaben, einer Zahl und einem Sonderzeichen bestehen
+          </div>
+          </div>
         </div>
-        <div id="passwortFehlermeldung"><label for="passwortFehlermeldung">Das Passwort muss aus mindestens acht
-            Zeichen, einem Großbuchstabe, einem Kleinbuchstaben, einer Zahl und einem Sonderzeichen bestehen </label>
-        </div>
-        <label for="emailAdresse">Email-Adresse: </label><input id="emailAdresse" type="email" class="height" required
-          tab-index="1" />
-        <label for="passwort" class="passwortLabel umbruch">Passwort: </label><input id="passwort" type="password"
-          class="height" required tab-index="2" />
+        
+
+        
         <span class="umbruch"><input type="submit" id="submitLogin" value="Anmelden"
             class="cookie-consent-banner__cta margin-bottom" tab-index="3" /></span>
       </div>

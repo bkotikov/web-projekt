@@ -7,7 +7,7 @@ const path    = require("path");
 const parser = require('accept-language-parser');
 const url = require('url');
 
-const PORT = 3000;
+const PORT = 5000;
 
 //Sprachen, die im URL eingesetzt werden
 const en = 'en';
@@ -82,7 +82,7 @@ app.get('/de',function(req,res){
   res.sendFile(path.join(__dirname+'/html/de/index.html'));
 });
 app.get('/ru',function(req,res){
-  res.sendFile(path.join(__dirname+'/html/ru/RU_index.html'));
+  res.sendFile(path.join(__dirname+'/html/ru/index.html'));
 });
 app.get('/bgr',function(req,res){
   res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
@@ -100,7 +100,7 @@ app.get('/en/login', function(req,res) {
   res.sendFile(path.join(__dirname + '/html/en/login.html'));
 });
 app.get('/ru/login', function(req,res) {
-  res.sendFile(path.join(__dirname + '/html/ru/RU_login.html'));
+  res.sendFile(path.join(__dirname + '/html/ru/login.html'));
 });
 app.get('/bgr/login', function(req,res) {
   res.sendFile(path.join(__dirname + '/html/bgr/login.html'));
@@ -119,7 +119,7 @@ app.get('/de/registration', function(req, res){
   res.sendFile(path.join(__dirname + '/html/de/registration.html'))
 });
 app.get('/ru/registration', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/ru/RU_registration.html'))
+  res.sendFile(path.join(__dirname + '/html/ru/registration.html'))
 });
 app.get('/en/registration', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/registration.html'))
@@ -137,7 +137,7 @@ app.get('/de/about', function(req, res){
   res.sendFile(path.join(__dirname + '/html/de/about.html'))
 });
 app.get('/ru/about', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/ru/RU_about.html'))
+  res.sendFile(path.join(__dirname + '/html/ru/about.html'))
 });
 app.get('/en/about', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/about.html'))
@@ -153,7 +153,7 @@ app.get('/de/privacy', function(req, res){
   res.sendFile(path.join(__dirname + '/html/de/privacy.html'))
 });
 app.get('/ru/privacy', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/ru/RU_privacy.html'))
+  res.sendFile(path.join(__dirname + '/html/ru/privacy.html'))
 });
 app.get('/en/privacy', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/privacy.html'))
@@ -170,7 +170,7 @@ app.get('/de/imprint', function(req, res){
   res.sendFile(path.join(__dirname + '/html/de/imprint.html'))
 });
 app.get('/ru/imprint', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/ru/RU_imprint.html'))
+  res.sendFile(path.join(__dirname + '/html/ru/imprint.html'))
 });
 app.get('/en/imprint', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/imprint.html'))
@@ -181,6 +181,25 @@ app.get('/bgr/imprint', function(req, res){
 
 //-----Imprint----
 
+
+
+//-----GEZ-----
+
+app.get('/de/gez', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/de/gez.html'))
+});
+app.get('/ru/gez', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/ru/gez.html'))
+});
+app.get('/en/gez', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/en/gez.html'))
+});
+app.get('/bgr/gez', function(req, res){
+  res.sendFile(path.join(__dirname + '/html/bgr/gez.html'))
+});
+
+//-----GEZ-----
+
 app.post('/de/loginPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/de/index.html'));
 });
@@ -188,11 +207,14 @@ app.post('/en/loginPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/en/index.html'));
 });
 app.post('/ru/loginPruefen', function(req,res){
-  res.sendFile(path.join(__dirname+'/html/ru/RU_index.html'));
+  res.sendFile(path.join(__dirname+'/html/ru/index.html'));
 });
 app.post('/bgr/loginPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
 });
+
+
+
 
 
 
@@ -203,7 +225,7 @@ app.post('/en/registrierungPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/en/index.html'));
 });
 app.post('/ru/registrierungPruefen', function(req,res){
-  res.sendFile(path.join(__dirname+'/html/ru/RU_index.html'));
+  res.sendFile(path.join(__dirname+'/html/ru/index.html'));
 });
 app.post('/bgr/registrierungPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/bgr/index.html'));

@@ -476,6 +476,9 @@
 
 }
 
+.margin-bottom{
+    margin-bottom: 1rem;
+}
 
   .cookie-consent-banner__inner {
     max-width: 960px;
