@@ -6,6 +6,7 @@
   <meta viewport="width = device-width, initial-scale = 1.0" />
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="/static/css/registrierung.css">
 
   <title>Вход</title>
 </head>
@@ -19,18 +20,31 @@
     <form action="/loginPruefen/de" method="POST">
       <div id="login">
         <h1 id="loginInformation">
-          <label for="loginInformation">Моля, въведете данните си за вход:</label>
+          Моля, въведете данните си за вход:
         </h1>
-        <div id="emailFehlermeldung">
-          <label for="emailFehlermeldung">Въведеният имейл адрес е невалиден</label>
+        
+        
+        <div class="flex">
+          <div class="form">
+            <label for="emailAdresse">Имейл: </label>
+            <br/>
+            <input id="emailAdresse" type="email" class="height" required tab-index="1" />
+            <div id="emailFehlermeldung" class="fehlermeldung">
+              Въведеният имейл адрес е невалиден
+            </div>
+          </div>
+          <div class="form">
+            <label for="passwort">Парола: </label>
+            <br/>
+            <input id="passwort" type="password" class="height" required tab-index="2" />
+            <div id="passwortFehlermeldung" class="fehlermeldung">Паролата трябва да се състои от поне осем
+              знака: главна буква, малка буква, число и специален знак.
+          </div>
+          </div>
         </div>
-        <div id="passwortFehlermeldung"><label for="passwortFehlermeldung">Паролата трябва да се състои от поне осем
-          знака: главна буква, малка буква, число и специален знак. </label>
-        </div>
-        <label for="emailAdresse">Имейл: </label><input id="emailAdresse" type="email" class="height" required
-          tab-index="1" />
-        <label for="passwort" class="passwortLabel umbruch">Парола: </label><input id="passwort" type="password"
-          class="height" required tab-index="2" />
+        
+
+        
         <span class="umbruch"><input type="submit" id="submitLogin" value="Вход"
             class="cookie-consent-banner__cta margin-bottom" tab-index="3" /></span>
       </div>

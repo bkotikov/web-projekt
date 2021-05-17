@@ -1,72 +1,121 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang = "bg">
+  <head>
+    <meta charset = "utf-8"/>
+    <meta viewport = "width = device-width, initial-scale = 1.0"/>
+    <link rel="stylesheet" href= "/static/css/style.css">
+    <link rel = "stylesheet" href = "/static/css/login.css">
+    <link rel = "stylesheet" href= "/static/css/registrierung.css">
 
-<head>
-  <meta charset="utf-8" />
-  <meta viewport="width = device-width, initial-scale = 1.0" />
-  <link rel="stylesheet" href="/static/css/style.css">
-  <link rel="stylesheet" href="/static/css/login.css">
-  <link rel="stylesheet" href="/static/css/registrierung.css">
+    <title>Регистрация</title>
+  </head>
+  <body>
+    <div class="header">
+        <div id="banner"></div>
+        <hr>
+    </div>
 
-  <title>Регистрация</title>
-</head>
-
-<body>
-  <div class="header">
-    <div id="banner"></div>
-    <hr>
-  </div>
-
-  <div id="registrierung">
-    <form action="/registrierungPruefen/de" method="POST">
-      <div id="login">
-        <h1 id="loginInformation">
-          <label for="loginInformation">Моля, въведете регистрационната си информация:</label>
+    <div id = "registrierung">
+    <form action = "/registrierungPruefen/de" method = "POST">
+      <div id = "login">
+        <h1 id = "loginInformation">
+          Моля, въведете регистрационната си информация:
         </h1>
-        <div id="emailFehlermeldung"><label for="emailFehlermeldung">Въведеният имейл адрес e невалиден</label></div>
-        <div id="passwortFehlermeldung"><label for="passwortFehlermeldung">Паролата трябва да се състои от най-малко
-            осем знака, една главна буква, една малка буква, една цифра и един специален знак. </label></div>
-        <label for="emailAdresse">Имейл: </label><input id="emailAdresse" type="email" class="height" required
-          tab-index="1" />
-        <label for="passwort" class="margin-left umbruch">Парола: </label><input id="passwort" type="password"
-          class="height" required tab-index="2" />
-        <label for="vorname" class="break"> Име: </label> <input id="vorname" type="text" class="height"
-          tab-index="3" />
-        <label for="nachname" class="margin-left umbruch"> Фамилия: </label><input id="nachname" type="text"
-          class="height" tab-index="4" />
+        
+        
+        <fieldset class = "margin-bottom flex">
+          <legend id = "anschrift">Konto erstellen:</legend>
+          
+            <div class="form">
+              
+                <label for = "emailAdresse" >Email-Adresse: </label>
+                <br/>
+                <input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
+                <div id = "emailFehlermeldung" class="fehlermeldung">Въведеният имейл адрес e невалиден</div>
+              
+                <br/>
+              
+              
+              
+                <label for = "passwort">Парола: </label>
+                <br/>
+                <input id = "passwort" type = "password" class="height" required tab-index="2"/>
+                <div id = "passwortFehlermeldung" class="fehlermeldung">Паролата трябва да се състои от най-малко
+                  осем знака, една главна буква, една малка буква, една цифра и един специален знак.</div>
+              
+              
+              
+              
+            </div>
+            <div class="form">
+              
+                <label for = "vorname"> Име: </label> 
+                <br/>
+                <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
+              
+              
+              <br/>
+              
+                <label for = "nachname"> Фамилия: </label>
+                <br/>
+                <input id = "nachname" type = "text" class = "height" tab-index = "4"/>
+              
+              
+            </div>
+            
 
-        <fieldset class="umbruch margin-bottom">
-          <legend id="anschrift"><label for="anschrift">Адрес:</label></legend>
-          <div id="plzFehlermeldung"><label for="plzFehlermeldung">Въведеният пощенски код не е валиден</label>
-          </div>
-          <label for="straße">Улица: </label> <input type="text" id=straße name="straße" class="height"
-            tab-index="5" />
-          <label for="hausnummer" class="margin-left umbruch">Номер на улица: </label><input type="number" id="hausnummer"
-            name="hausnummer" class="height" step="1" min="1" tab-index="6" />
-          <label for="postleitzahl" class="break">Пощенски код: </label><input type="name" id="postleitzahl"
-            name="postleitzahl" class="height" min-length="5" max-length="5" tab-index="7" />
-          <label for="stadt" class="margin-left umbruch">Град: </label><input type="name" id="stadt" name="stadt"
-            class="height" tab-index="8" />
+            
+          
+          
         </fieldset>
-        <span class="umbruch"><input type="submit" id="submitLogin" value="Регистрация"
-            class="cookie-consent-banner__cta margin-bottom" tab-index="9" /></span>
+        <fieldset class = "margin-bottom flex">
+          <legend id = "anschrift">Адрес:</legend>
+
+          
+          
+            <div class="form">
+              <label for = "straße">Straße: </label> 
+              <br/>
+              <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
+
+              <br/>
+
+              <label for = "hausnummer">Номер на улица: </label>
+              <br/>
+              <input type = "text" id = "hausnummer" name="hausnummer" class = "height" step = "1" min = "1" tab-index="6"/>
+              <div id = "hnumberFehlermeldung" class="fehlermeldung">Die eingegebene Hausnummer ist nicht gültig</div>
+              
+            </div>
+            <div class="form">
+              
+              <label for = "postleitzahl">Пощенски код: </label>
+              <br/>
+              <input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
+              <div id = "plzFehlermeldung" class="fehlermeldung">Въведеният пощенски код не е валиден</div>
+              <br/>
+
+              <label for = "stadt">Град: </label>
+              <br/>
+              <input type = "name" id = "stadt" name = "stadt" class = "height" tab-index = "8"/>
+            </div>
+          </fieldset>
+        <span class="umbruch"><input type = "submit" id="submitLogin" value = "Регистрация" class = "cookie-consent-banner__cta margin-bottom" tab-index = "9"/></span>
       </div>
 
     </form>
-  </div>
-  <div id="content"></div>
+    </div>
+    <div id="content"></div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/static/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/static/js/index.js"></script>
 
 
-  <script src="/static/js/banner.js">
+    <script src="/static/js/banner.js">
 
 
-  </script>
-  <script src="/static/js/validierung.js"></script>
-
-</body>
-
+    </script>
+    <script src="/static/js/validierung.js"></script>
+    
+  </body>
 </html>
