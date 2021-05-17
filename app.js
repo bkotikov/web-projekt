@@ -1,6 +1,15 @@
 const express = require('express');
 const app = express();
 
+var jsdom = require('jsdom');
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+
+var $ = jQuery = require('jquery')(window);
+
+
 const http = require('http');
 const { dirname } = require('path');
 const path    = require("path");
@@ -20,6 +29,7 @@ var language = '';
 app.use('/static/css', express.static(__dirname + '/assets/css'));
 app.use('/static/images', express.static(__dirname + '/assets/images'));
 app.use('/static/js', express.static(__dirname + '/js'));
+app.use('/static/jquery', express.static(__dirname + '/node_modules/jquery/dist/jquery.min.js'));
 
 
 
