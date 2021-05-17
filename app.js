@@ -43,7 +43,7 @@ app.get('/ru/cookie',function(req,res){
 });
 
 app.get('/bgr/cookie',function(req,res){
-  res.sendFile(path.join(__dirname+'/html/bgr/cookie.html'));
+  res.sendFile(path.join(__dirname+'/html/bgr/BG_cookie.html'));
 });
 
 //----Cookie------
@@ -61,7 +61,7 @@ app.get('/ru/banner',function(req,res){
   res.sendFile(path.join(__dirname+'/html/ru/banner.html'));
 });
 app.get('/bgr/banner',function(req,res){
-  res.sendFile(path.join(__dirname+'/html/bgr/banner.html'));
+  res.sendFile(path.join(__dirname+'/html/bgr/BG_banner.html'));
 });
 
 //----Banner------
@@ -85,7 +85,7 @@ app.get('/ru',function(req,res){
   res.sendFile(path.join(__dirname+'/html/ru/index.html'));
 });
 app.get('/bgr',function(req,res){
-  res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
+  res.sendFile(path.join(__dirname+'/html/bgr/BG_index.html'));
 });
 
 //----Index------
@@ -103,7 +103,7 @@ app.get('/ru/login', function(req,res) {
   res.sendFile(path.join(__dirname + '/html/ru/login.html'));
 });
 app.get('/bgr/login', function(req,res) {
-  res.sendFile(path.join(__dirname + '/html/bgr/login.html'));
+  res.sendFile(path.join(__dirname + '/html/bgr/BG_login.html'));
 });
 
 app.get('/de/registration', function(req, res){
@@ -125,7 +125,7 @@ app.get('/en/registration', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/registration.html'))
 });
 app.get('/bgr/registration', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/bgr/registration.html'))
+  res.sendFile(path.join(__dirname + '/html/bgr/BG_registration.html'))
 });
 
 //----Registration-----
@@ -143,7 +143,7 @@ app.get('/en/about', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/about.html'))
 });
 app.get('/bgr/about', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/bgr/about.html'))
+  res.sendFile(path.join(__dirname + '/html/bgr/BG_about.html'))
 });
 
 //----About-----
@@ -159,7 +159,7 @@ app.get('/en/privacy', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/privacy.html'))
 });
 app.get('/bgr/privacy', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/bgr/privacy.html'))
+  res.sendFile(path.join(__dirname + '/html/bgr/BG_privacy.html'))
 });
 
 
@@ -176,7 +176,7 @@ app.get('/en/imprint', function(req, res){
   res.sendFile(path.join(__dirname + '/html/en/imprint.html'))
 });
 app.get('/bgr/imprint', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/bgr/imprint.html'))
+  res.sendFile(path.join(__dirname + '/html/bgr/BG_imprint.html'))
 });
 
 //-----Imprint----
@@ -210,7 +210,7 @@ app.post('/ru/loginPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/ru/index.html'));
 });
 app.post('/bgr/loginPruefen', function(req,res){
-  res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
+  res.sendFile(path.join(__dirname+'/html/bgr/BG_index.html'));
 });
 
 
@@ -228,7 +228,7 @@ app.post('/ru/registrierungPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/ru/index.html'));
 });
 app.post('/bgr/registrierungPruefen', function(req,res){
-  res.sendFile(path.join(__dirname+'/html/bgr/index.html'));
+  res.sendFile(path.join(__dirname+'/html/bgr/BG_index.html'));
 });
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
