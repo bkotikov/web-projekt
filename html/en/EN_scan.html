@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <div class="header">
+        <div id="banner"></div>
+    </div>
+    <div class="scan">
+        <h1 class="logo">Scan form</h1>
+        <h2 style="margin-bottom: 3rem;">We will determine your form</h2>
+        <hr/>
+        <label for="fileUpload" class="upload">
+            <div  class="uploadContent">
+                <div class="uploadLogo">
+                    <img src="/static/images/Ic_file_upload_48px.svg" alt=""/>
+                </div>
+                <div style="flex-grow: 0;">
+                    <h3>Select file</h3>  
+                </div>
+            </div>
+                
+                 
+        </label>
+        <input id="fileUpload" type="file" accept="image/*" hidden/>
+        <p class="show" hidden>Place your file here</p>
+
+        <img id="gif" src="/static/images/loading.gif" height="62" width="62" alt="loading..." style="margin-top: 3rem;" hidden/>
+
+        <hr style="margin: 3rem 0 0 0;"/>
+        <h3 style="color: darkgreen; margin: 3rem 0 0 0;">How to use form recognition:</h3>
+        <div style="justify-content: center; display: flex;">
+            <ol class="table">
+                <li>Drag and drop an image of the form here or <br/> upload the image via the button</li>
+                <li>The file will be uploaded to our server</li>
+                <li>Our system will recognize the form</li>
+                <li>You will be automatically redirected to your form</li>
+            </ol>
+        </div>
+        
+    </div>
+
+
+    
+
+    <footer>
+        <div class="footer">
+            <p class="footer-text">Created by Team-B2, WEB 2021SS</p>
+        </div>
+    </footer>
+
+    <div id="content"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/static/js/index.js"></script>
+
+    <script src="/static/js/file.js"></script>
+    <script src="/static/js/banner.js">
+        
+
+    </script>
+</body>
+</html>
