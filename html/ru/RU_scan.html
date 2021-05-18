@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scanner</title>
+    <title>Сканер</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -13,8 +13,8 @@
         <div id="banner"></div>
     </div>
     <div class="scan">
-        <h1 class="logo">Formular erkennen</h1>
-        <h2 style="margin-bottom: 3rem;">Wir bestimmern Ihr Formular für Sie</h2>
+        <h1 class="logo">Распознать форму</h1>
+        <h2 style="margin-bottom: 3rem;">Мы определяем форму для вас</h2>
         <hr/>
         <label for="fileUpload" class="upload">
             <div  class="uploadContent">
@@ -22,25 +22,34 @@
                     <img src="/static/images/Ic_file_upload_48px.svg" alt=""/>
                 </div>
                 <div style="flex-grow: 0;">
-                    <h3>Datei auswählen</h3>  
+                    <h3>Выберите файл</h3>  
                 </div>
             </div>
                 
                  
         </label>
         <input id="fileUpload" type="file" accept="image/*" hidden/>
-        <p class="show" hidden>Oder legen Sie Ihre Datei hier ab</p>
+        <p class="show" hidden>Или разместите свой файл здесь</p>
 
         <img id="gif" src="/static/images/loading.gif" height="62" width="62" alt="loading..." style="margin-top: 3rem;" hidden/>
 
         <hr style="margin: 3rem 0 0 0;"/>
-        <h3 style="color: darkgreen; margin: 3rem 0 0 0;">So benutzen Sie die Formularerkennung:</h3>
+        <h3 style="color: darkgreen; margin: 3rem 0 0 0;">Как использовать распознавание форм:</h3>
         <div style="justify-content: center; display: flex;">
             <ol class="table">
-                <li>Ziehen und legen Sie ein Bild des Formulars hier ab oder <br/> laden Sie das Bild über den Knopf hoch</li>
-                <li>Die Datei wird auf unseren Server hochgeladen</li>
-                <li>Wir erkennen das Formular für Sie</li>
-                <li>Sie werden automatisch auf Ihr Formular weitergeleitet</li>
+                <li>
+                    Перетащите изображение формы сюда или <br/> 
+                    загрузите фотографию с помощью кнопки
+                </li>
+                <li>
+                    Файл будет загружен на наш сервер
+                </li>
+                <li>
+                    Мы распознаем форму для вас
+                </li>
+                <li>
+                    Вы будете автоматически перенаправлены на вашу форму
+                </li>
             </ol>
         </div>
         
@@ -51,7 +60,7 @@
 
     <footer>
         <div class="footer">
-            <p class="footer-text">Erstellt vom Team-B2, WEB 2021SS</p>
+            <p class="footer-text">Создано Team-B2, WEB 2021SS</p>
         </div>
     </footer>
 
