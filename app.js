@@ -29,7 +29,7 @@ app.use('/static/js', express.static(__dirname + '/js'));
 
 
 //root
-app.get('/',function(req,res){ 
+app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/html/lang.html'));
 });
 
