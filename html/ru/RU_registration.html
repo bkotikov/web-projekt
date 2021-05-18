@@ -16,70 +16,70 @@
     </div>
 
     <div id = "registrierung">
-    <form action = "/registrierungPruefen/de" method = "POST">
+    <form action = "/ru/registrierungPruefen" method = "POST">
       <div id = "login">
         <h1 id = "loginInformation">
           Пожалуйста, введите ваши данные:
         </h1>
-        
-        
+
+
         <fieldset class = "margin-bottom flex">
           <legend id = "anschrift">Создать учетную запись:</legend>
-          
+
             <div class="form">
-              
+
                 <label for = "emailAdresse">Адрес эл. почты:</label>
                 <br/>
                 <input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
                 <div id = "emailFehlermeldung" class="fehlermeldung">
                   Введенный адрес электронной почты недействителен
                 </div>
-              
+
                 <br/>
-              
-              
-              
+
+
+
                 <label for = "passwort">Пароль:</label>
                 <br/>
                 <input id = "passwort" type = "password" class="height" required tab-index="2"/>
                 <div id = "passwortFehlermeldung" class="fehlermeldung">
                   Пароль должен состоять как минимум из 8
-                  символов, одна буква верхнего регистра, одна буква нижнего регистра, 
+                  символов, одна буква верхнего регистра, одна буква нижнего регистра,
                   число и специальный символ
                 </div>
-              
-              
-              
-              
+
+
+
+
             </div>
             <div class="form">
-              
-                <label for = "vorname"> Имя: </label> 
+
+                <label for = "vorname"> Имя: </label>
                 <br/>
                 <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
-              
-              
+
+
               <br/>
-              
+
                 <label for = "nachname"> Фамилия: </label>
                 <br/>
                 <input id = "nachname" type = "text" class = "height" tab-index = "4"/>
-              
-              
-            </div>
-            
 
-            
-          
-          
+
+            </div>
+
+
+
+
+
         </fieldset>
         <fieldset class = "margin-bottom flex">
           <legend id = "anschrift">Добавить адрес:</legend>
 
-          
-          
+
+
             <div class="form">
-              <label for = "straße">Улица: </label> 
+              <label for = "straße">Улица: </label>
               <br/>
               <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
 
@@ -91,10 +91,10 @@
               <div id = "hnumberFehlermeldung" class="fehlermeldung">
                 Введенный номер дома недействителен
               </div>
-              
+
             </div>
             <div class="form">
-              
+
               <label for = "postleitzahl">Почтовый индекс: </label>
               <br/>
               <input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
@@ -127,6 +127,6 @@
 
     </script>
     <script src="/static/js/validierung.js"></script>
-    
+
   </body>
 </html>

@@ -16,7 +16,7 @@ const ru = 'ru';
 const ru_index = 'RU_';
 const de = 'de';
 const de_index = 'DE_';
-const bg = 'bg';
+const bg = 'bgr';
 const bg_index = 'BG_';
 
 var language = '';
@@ -243,7 +243,7 @@ app.post('/'+ ru +'/registrierungPruefen', function(req,res){
   res.sendFile(path.join(__dirname+'/html/'+ ru +'/'+ ru_index +'index.html'));
 });
 app.post('/'+ bg +'/registrierungPruefen', function(req,res){
-  res.sendFile(path.join(__dirname+'/html/'+ bg +'/'+ bg_index +'BG_index.html'));
+  res.sendFile(path.join(__dirname+'/html/'+ bg +'/'+ bg_index +'index.html'));
 });
 
 app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
