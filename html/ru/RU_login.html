@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/static/css/login.css">
   <link rel="stylesheet" href="/static/css/registrierung.css">
 
-  <title>Login</title>
+  <title>Доступ к сайту</title>
 </head>
 
 <body>
@@ -20,25 +20,27 @@
     <form action="/loginPruefen/de" method="POST">
       <div id="login">
         <h1 id="loginInformation">
-          Bitte geben Sie Ihre Login Informationen ein:
+          Пожалуйста, введите информацию для входа в систему:
         </h1>
         
         
         <div class="flex">
           <div class="form">
-            <label for="emailAdresse">Email-Adresse: </label>
+            <label for="emailAdresse">Адрес эл. почты: </label>
             <br/>
             <input id="emailAdresse" type="email" class="height" required tab-index="1" />
             <div id="emailFehlermeldung" class="fehlermeldung">
-              Die eingegebene Email-Adresse ist nicht gültig
+              Введенный адрес электронной почты недействителен
             </div>
           </div>
           <div class="form">
-            <label for="passwort">Passwort: </label>
+            <label for="passwort">Пароль: </label>
             <br/>
             <input id="passwort" type="password" class="height" required tab-index="2" />
-            <div id="passwortFehlermeldung" class="fehlermeldung">Das Passwort muss aus min. 8
-              Zeichen, einem Großbuchstaben, einem Kleinbuchstaben, einer Zahl und einem Sonderzeichen bestehen
+            <div id="passwortFehlermeldung" class="fehlermeldung">
+              Пароль должен состоять как минимум из 8
+              символов, одна буква верхнего регистра, 
+              строчная буква, цифра и специальный символ.
           </div>
           </div>
         </div>

@@ -7,7 +7,7 @@
     <link rel = "stylesheet" href = "/static/css/login.css">
     <link rel = "stylesheet" href= "/static/css/registrierung.css">
 
-    <title>Registrierung</title>
+    <title>Регистрация</title>
   </head>
   <body>
     <div class="header">
@@ -19,29 +19,34 @@
     <form action = "/registrierungPruefen/de" method = "POST">
       <div id = "login">
         <h1 id = "loginInformation">
-          Bitte geben Sie ihre Registrierungs-Informationen ein:
+          Пожалуйста, введите ваши данные:
         </h1>
         
         
         <fieldset class = "margin-bottom flex">
-          <legend id = "anschrift">Konto erstellen:</legend>
+          <legend id = "anschrift">Создать учетную запись:</legend>
           
             <div class="form">
               
-                <label for = "emailAdresse" >Email-Adresse: </label>
+                <label for = "emailAdresse">Адрес эл. почты:</label>
                 <br/>
                 <input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
-                <div id = "emailFehlermeldung" class="fehlermeldung">Die eingegebene Email-Adresse ist nicht gültig</div>
+                <div id = "emailFehlermeldung" class="fehlermeldung">
+                  Введенный адрес электронной почты недействителен
+                </div>
               
                 <br/>
               
               
               
-                <label for = "passwort">Passwort: </label>
+                <label for = "passwort">Пароль:</label>
                 <br/>
                 <input id = "passwort" type = "password" class="height" required tab-index="2"/>
-                <div id = "passwortFehlermeldung" class="fehlermeldung">Das Passwort muss aus min. 8
-                  Zeichen, einem Großbuchstaben, einem Kleinbuchstaben, einer Zahl und einem Sonderzeichen bestehen</div>
+                <div id = "passwortFehlermeldung" class="fehlermeldung">
+                  Пароль должен состоять как минимум из 8
+                  символов, одна буква верхнего регистра, одна буква нижнего регистра, 
+                  число и специальный символ
+                </div>
               
               
               
@@ -49,14 +54,14 @@
             </div>
             <div class="form">
               
-                <label for = "vorname"> Vorname: </label> 
+                <label for = "vorname"> Имя: </label> 
                 <br/>
                 <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
               
               
               <br/>
               
-                <label for = "nachname"> Nachname: </label>
+                <label for = "nachname"> Фамилия: </label>
                 <br/>
                 <input id = "nachname" type = "text" class = "height" tab-index = "4"/>
               
@@ -69,37 +74,43 @@
           
         </fieldset>
         <fieldset class = "margin-bottom flex">
-          <legend id = "anschrift">Anschrift hinzufügen:</legend>
+          <legend id = "anschrift">Добавить адрес:</legend>
 
           
           
             <div class="form">
-              <label for = "straße">Straße: </label> 
+              <label for = "straße">Улица: </label> 
               <br/>
               <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
 
               <br/>
 
-              <label for = "hausnummer">Hausnummer: </label>
+              <label for = "hausnummer">Номер дома: </label>
               <br/>
               <input type = "text" id = "hausnummer" name="hausnummer" class = "height" step = "1" min = "1" tab-index="6"/>
-              <div id = "hnumberFehlermeldung" class="fehlermeldung">Die eingegebene Hausnummer ist nicht gültig</div>
+              <div id = "hnumberFehlermeldung" class="fehlermeldung">
+                Введенный номер дома недействителен
+              </div>
               
             </div>
             <div class="form">
               
-              <label for = "postleitzahl">Postleitzahl: </label>
+              <label for = "postleitzahl">Почтовый индекс: </label>
               <br/>
               <input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
-              <div id = "plzFehlermeldung" class="fehlermeldung">Die eingegebene Postleitzahl ist nicht gültig</div>
+              <div id = "plzFehlermeldung" class="fehlermeldung">
+                Введенный почтовый индекс недействителен
+              </div>
               <br/>
 
-              <label for = "stadt">Stadt: </label>
+              <label for = "stadt">Город: </label>
               <br/>
               <input type = "name" id = "stadt" name = "stadt" class = "height" tab-index = "8"/>
             </div>
           </fieldset>
-        <span class="umbruch"><input type = "submit" id="submitLogin" value = "Registrieren" class = "cookie-consent-banner__cta margin-bottom" tab-index = "9"/></span>
+        <span class="umbruch">
+          <input type = "submit" id="submitLogin" value = "Registrieren" class = "cookie-consent-banner__cta margin-bottom" tab-index = "9"/>
+        </span>
       </div>
 
     </form>
