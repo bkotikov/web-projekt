@@ -1,25 +1,33 @@
-var first = document.getElementById("first");
-var second = document.getElementById("second");
-var third = document.getElementById("third");
-first.addEventListener("click", () => {
-    first.classList.add("trainOn");
-    second.classList.remove("trainOn");
-    third.classList.remove("trainOn");
-    
+const toaster = document.getElementsByClassName('toaster')[0];
+const form = document.querySelector('form');
+
+GentleForm(form, function (event) {
+  event.preventDefault();
+
+  if (this.isValid()) addToast('success', 'Yay, the form is valid!');else
+  addToast('error', 'Oops, the form is invalid.');
 });
 
-second.addEventListener("click", () => {
-    first.classList.add("trainOn");
-    second.classList.add("trainOn");
-    third.classList.remove("trainOn");
-    
-});
+function addToast(type, message) {
+  const toast = document.createElement('div');
 
+  toast.classList.add('toast');
+  toast.classList.add('toast--' + type);
+  toast.innerHTML = message;
 
-third.addEventListener("click", () => {
-    
-    first.classList.add("trainOn");
-    second.classList.add("trainOn");
-    third.classList.add("trainOn"); 
-    
-});
+  toaster.appendChild(toast);
+
+  toast.addEventListener('transitionend', function (event) {
+    if (event.propertyName !== 'transform') return;
+
+    if (toast.classList.contains('toast--show')) {
+      setTimeout(function () {
+        toast.classList.remove('toast--show');
+      }, 3000);
+    } else {
+      toaster.removeChild(toast);
+    }
+  }, false);
+
+  setTimeout(() => toast.classList.add('toast--show'), 100);
+}

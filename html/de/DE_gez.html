@@ -7,21 +7,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/registrierung.css">
+    <link rel="stylesheet" href="/static/css/gez.css">
     <title>Document</title>
 </head>
 
 <body>
     <div id="banner"></div>
-    <h1 class="logo">GEZ </h1>
-    <div class="train">
-        <div id="first" class="trainOff trainOn">1</div>
-        <div id="second" class="trainOff">2</div>
-        <div id="third" class="trainOff">3</div>
-    </div>
-    <fieldset class="margin-bottom flex">
-        <legend id="anschrift">Ihre Anschrift:</legend>
 
-    </fieldset>
+    <main class="wrapper">
+        <section class="section-form">
+            <h1>Der Rundfunkbeitrag</h1>
+            <h2>Persönliche Daten:</h2>
+            <p>Pflichtfelder sind mit * gekennzeichnet.</p>
+
+            <form name="signup" class="form" novalidate>
+                <div class="form-group">
+                    <label for="name" class="form-label form-label--required">
+                        Name:
+                    </label>
+
+                    <div class="form-addon" data-states-for="name">
+                        <div class="form-addon__addon">
+                            <span class="icon-name"></span>
+                        </div>
+
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Name" required>
+
+                        <span class="form-addon__icon icon-valid"></span>
+                        <span class="form-addon__icon icon-invalid"></span>
+                    </div>
+
+                    <div data-errors-for="name">
+                        <small class="form-error" data-errors-when="valueMissing">
+                            Dieses Feld wird benötigt.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label form-label--required">
+                        Email:
+                    </label>
+
+                    <div class="form-addon" data-states-for="email">
+                        <div class="form-addon__addon">
+                            <span class="icon-email"></span>
+                        </div>
+
+                        <input type="email" id="email" name="email" class="form-input" placeholder="test@email.com"
+                            required>
+
+                        <span class="form-addon__icon icon-valid"></span>
+                        <span class="form-addon__icon icon-invalid"></span>
+                    </div>
+
+                    <div data-errors-for="email">
+                        <small class="form-error" data-errors-when="valueMissing">
+                            Dieses Feld wird benötigt.
+                        </small>
+
+                        <small class="form-error" data-errors-when="typeMismatch">
+                            Bitte geben Sie eine gültige E-Mail-Adresse ein.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="form-label">
+                        Nummer:
+                    </label>
+
+                    <div class="form-addon" data-states-for="phone">
+                        <div class="form-addon__addon">
+                            <span class="icon-phone"></span>
+                        </div>
+
+                        <input type="text" id="phone" name="phone" class="form-input" placeholder="123 456 789"
+                            pattern="[0-9]{3} [0-9]{3} [0-9]{3}">
+
+                        <span class="form-addon__icon icon-valid"></span>
+                        <span class="form-addon__icon icon-invalid"></span>
+                    </div>
+
+                    <div data-errors-for="phone">
+                        <small class="form-error" data-errors-when="patternMismatch">
+                            Bitte geben Sie eine gültige Telefonnummer ein.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label form-label--required">
+                        Passwort <span class="text-muted">(Min. 8 Zeichen)</span>:
+                    </label>
+
+                    <div class="form-addon" data-states-for="password">
+                        <div class="form-addon__addon">
+                            <span class="icon-password"></span>
+                        </div>
+
+                        <input type="password" id="password" name="password" class="form-input" placeholder="********"
+                            minlength="6" required>
+
+                        <span class="form-addon__icon icon-valid"></span>
+                        <span class="form-addon__icon icon-invalid"></span>
+                    </div>
+
+                    <div data-errors-for="password">
+                        <small class="form-error" data-errors-when="valueMissing">
+                            Dieses Feld wird benötigt.
+                        </small>
+
+                        <small class="form-error" data-errors-when="tooShort">
+                            Ihr Passwort sollte mindestens 6 Zeichen lang sein.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="button">Weiter</button>
+                </div>
+            </form>
+        </section>
+    </main>
 
     <div class="footer">
         <div class="card-section">
