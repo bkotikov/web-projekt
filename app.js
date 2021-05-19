@@ -158,7 +158,7 @@ app.get('/'+ en +'/about', function(req, res){
   res.sendFile(path.join(__dirname + '/html/'+ en +'/'+ en_index +'about.html'))
 });
 app.get('/'+ bg +'/about', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/'+ bg +'/'+ bg_index +'BGabout.html'))
+  res.sendFile(path.join(__dirname + '/html/'+ bg +'/'+ bg_index +'about.html'))
 });
 
 //----About-----

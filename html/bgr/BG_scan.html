@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scanner</title>
+    <title>Скенер</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -13,8 +13,8 @@
         <div id="banner"></div>
     </div>
     <div class="scan">
-        <h1 class="logo">Formular erkennen</h1>
-        <h2 style="margin-bottom: 3rem;">Wir bestimmern Ihr Formular für Sie</h2>
+        <h1 class="logo">Разпознаване на формуляр</h1>
+        <h2 style="margin-bottom: 3rem;">Ние разпознаваме Вашия формуляр</h2>
         <hr/>
         <label for="fileUpload" class="upload">
             <div  class="uploadContent">
@@ -22,25 +22,25 @@
                     <img src="/static/images/Ic_file_upload_48px.svg" alt=""/>
                 </div>
                 <div style="flex-grow: 0;">
-                    <h3>Datei auswählen</h3>  
+                    <h3>Избиране на файл</h3>  
                 </div>
             </div>
                 
                  
         </label>
         <input id="fileUpload" type="file" accept="image/*" hidden/>
-        <p class="show" hidden>Oder legen Sie Ihre Datei hier ab</p>
+        <p class="show" hidden>Или поставете вашия документ тук</p>
 
         <img id="gif" src="/static/images/loading.gif" height="62" width="62" alt="loading..." style="margin-top: 3rem;" hidden/>
 
         <hr style="margin: 3rem 0 0 0;"/>
-        <h3 style="color: darkgreen; margin: 3rem 0 0 0;">So benutzen Sie die Formularerkennung:</h3>
+        <h3 style="color: darkgreen; margin: 3rem 0 0 0;">Инструкции за употреба:</h3>
         <div style="justify-content: center; display: flex;">
             <ol class="table">
-                <li>Ziehen und legen Sie ein Bild des Formulars hier ab oder <br/> laden Sie das Bild über den Knopf hoch</li>
-                <li>Die Datei wird auf unseren Server hochgeladen</li>
-                <li>Wir erkennen das Formular für Sie</li>
-                <li>Sie werden automatisch auf Ihr Formular weitergeleitet</li>
+                <li>Плъзнете и пуснете изображение на формуляра тук или качете снимката с помощта на бутона</li>
+                <li>Файлът ще бъде качен на нашия сървър</li>
+                <li>Ние разпознаваме формуляра вместо вас</li>
+                <li>Ще бъдете автоматично пренасочени към вашия формуляр</li>
             </ol>
         </div>
         
@@ -55,16 +55,16 @@
                 <div class="select">
                     <select name="slct" id="slct"
                         onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                        <option selected disabled>Sprache</option>
-                        <option value="de"><a href="/de">Deutsch</a></option>
-                        <option value="en"><a href="/en">English</a></option>
-                        <option value="ru"><a href="/ru">Русский</a></option>
-                        <option value="bg"><a href="/bg">Болгарьский</a></option>
+                        <option selected disabled>Език</option>
+                        <option value="de"><a href="/de">Немски</a></option>
+                        <option value="en"><a href="/en">Английски</a></option>
+                        <option value="ru"><a href="/ru">Руски</a></option>
+                        <option value="bg"><a href="/bg">Български</a></option>
                     </select>
                 </div>
-                <a class="footer-btn" href="/de/imprint">Impressum</a>
-                <a class="footer-btn" href="/de/privacy">Datenschutz</a>
-                <a class="footer-btn" href="/de/about">Über uns</a>
+                <a class="footer-btn" href="/de/imprint">Импресия</a>
+                <a class="footer-btn" href="/de/privacy">Защита на данните</a>
+                <a class="footer-btn" href="/de/about">За нас</a>
             </div>
             <div class="col-12 col-6-md footer-sec">
                 <p>WEB Team-B2</p>
