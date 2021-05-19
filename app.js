@@ -16,7 +16,7 @@ const ru = 'ru';
 const ru_index = 'RU_';
 const de = 'de';
 const de_index = 'DE_';
-const bg = 'bgr';
+const bg = 'bg';
 const bg_index = 'BG_';
 
 var language = '';
