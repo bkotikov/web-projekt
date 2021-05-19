@@ -115,6 +115,28 @@
 
     </form>
     </div>
+    <div class="footer">
+      <div class="card-section">
+          <div class="col-12 col-6-md footer-sec">
+              <div class="select">
+                  <select name="slct" id="slct"
+                      onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                      <option selected disabled>Sprache</option>
+                      <option value="de"><a href="/de">Deutsch</a></option>
+                      <option value="en"><a href="/en">English</a></option>
+                      <option value="ru"><a href="/ru">Русский</a></option>
+                      <option value="bg"><a href="/bg">Болгарьский</a></option>
+                  </select>
+              </div>
+              <a class="footer-btn" href="/de/imprint">Impressum</a>
+              <a class="footer-btn" href="/de/privacy">Datenschutz</a>
+              <a class="footer-btn" href="/de/about">Über uns</a>
+          </div>
+          <div class="col-12 col-6-md footer-sec">
+              <p>WEB Team-B2</p>
+          </div>
+      </div>
+  </div>
     <div id="content"></div>
 
 

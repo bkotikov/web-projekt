@@ -1,40 +1,65 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Über uns </title>
-<link rel="stylesheet" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Über uns </title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body>
     <div id="banner"></div>
-<hr>
-</div>
-<div>
-<h1> Über uns </h1>
-Dies ist ein Projekt der Hochschule Mannheim aus dem Modul 'WEB' im 3. Semester. Der Leiter dieser Veranstaltung ist Herr Professor Frank Dopatka. 
-<br>
-<br>
-Zusammen mit der Fakultät für Sozialwesen und dem Studenten Herr Andreas Lindemann soll dieses Projekt realisiert werden. 
-<br>
-<br>
-Diese Arbeitsgruppe besteht aus den Studenten:
-<ul>
-<li> Benjamin Heppes - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
-<li> Bogdan Kotikov </li>
-<li> Hendrik Melich - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
-<li> Nils Bächer - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
-<li> Nils Rudolph </li>
-<li> Petar Radev </li>
-</ul> 
-</p>
-</div>
-<div id="content"></div>
+    <hr>
+    </div>
+    <div>
+        <h1> Über uns </h1>
+        Dies ist ein Projekt der Hochschule Mannheim aus dem Modul 'WEB' im 3. Semester. Der Leiter dieser Veranstaltung
+        ist Herr Professor Frank Dopatka.
+        <br>
+        <br>
+        Zusammen mit der Fakultät für Sozialwesen und dem Studenten Herr Andreas Lindemann soll dieses Projekt
+        realisiert werden.
+        <br>
+        <br>
+        Diese Arbeitsgruppe besteht aus den Studenten:
+        <ul>
+            <li> Benjamin Heppes - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Bogdan Kotikov </li>
+            <li> Hendrik Melich - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Nils Bächer - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Nils Rudolph </li>
+            <li> Petar Radev </li>
+        </ul>
+        </p>
+    </div>
+
+    <div class="footer">
+        <div class="card-section">
+            <div class="col-12 col-6-md footer-sec">
+                <div class="select">
+                    <select name="slct" id="slct" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                      <option selected disabled>Sprache</option>
+                      <option value="de"><a href="/de">Deutsch</a></option>
+                      <option value="en"><a href="/en">English</a></option>
+                      <option value="ru"><a href="/ru">Русский</a></option>
+                      <option value="bg"><a href="/bg">Болгарьский</a></option>
+                    </select>
+                  </div>
+            </div>  
+            <div class="col-12 col-6-md footer-sec">
+                <p>WEB Team-B2</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="content"></div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/static/js/index.js"></script>
-<script src="/static/js/banner.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script src="/static/js/banner.js"></script>
 </body>
+
 </html>

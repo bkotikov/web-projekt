@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel = "stylesheet" href= "/static/css/registrierung.css">
+    <link rel="stylesheet" href="/static/css/registrierung.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="banner"></div>
     <h1 class="logo">GEZ </h1>
@@ -17,10 +19,29 @@
         <div id="third" class="trainOff">3</div>
     </div>
     <fieldset class="margin-bottom flex">
-        <legend id = "anschrift">Ihre Anschrift:</legend>
+        <legend id="anschrift">Ihre Anschrift:</legend>
 
     </fieldset>
 
+    <div class="footer">
+        <div class="card-section">
+            <div class="col-12 col-6-md footer-sec">
+                <div class="select">
+                    <select name="slct" id="slct"
+                        onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                        <option selected disabled>Sprache</option>
+                        <option value="de"><a href="/de">Deutsch</a></option>
+                        <option value="en"><a href="/en">English</a></option>
+                        <option value="ru"><a href="/ru">Русский</a></option>
+                        <option value="bg"><a href="/bg">Болгарьский</a></option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-6-md footer-sec">
+                <p>WEB Team-B2</p>
+            </div>
+        </div>
+    </div>
 
     <div id="content"></div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -28,4 +49,5 @@
     <script src="/static/js/banner.js"></script>
     <script src="/static/js/gez.js"></script>
 </body>
+
 </html>
