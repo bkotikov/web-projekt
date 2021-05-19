@@ -1,154 +1,155 @@
 <!DOCTYPE html>
-<html lang = "de">
-  <head>
-    <meta charset = "utf-8"/>
-    <meta viewport = "width = device-width, initial-scale = 1.0"/>
-    <link rel="stylesheet" href= "/static/css/style.css">
-    <link rel = "stylesheet" href = "/static/css/login.css">
-    <link rel = "stylesheet" href= "/static/css/registrierung.css">
+<html lang="de">
 
-    <title>Регистрация</title>
-  </head>
-  <body>
-    <div class="header">
-        <div id="banner"></div>
-        <hr>
-    </div>
+<head>
+  <meta charset="utf-8" />
+  <meta viewport="width = device-width, initial-scale = 1.0" />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="/static/css/registrierung.css">
 
-    <div id = "registrierung">
-    <form action = "/ru/registrierungPruefen" method = "POST">
-      <div id = "login">
-        <h1 id = "loginInformation">
+  <title>Регистрация</title>
+</head>
+
+<body>
+  <div class="header">
+    <div id="banner"></div>
+    <hr>
+  </div>
+
+  <div id="registrierung">
+    <form action="/ru/registrierungPruefen" method="POST">
+      <div id="login">
+        <h1 id="loginInformation">
           Пожалуйста, введите ваши данные:
         </h1>
 
 
-        <fieldset class = "margin-bottom flex">
-          <legend id = "anschrift">Создать учетную запись:</legend>
+        <fieldset class="margin-bottom flex">
+          <legend id="anschrift">Создать учетную запись:</legend>
 
-            <div class="form">
+          <div class="form">
 
-                <label for = "emailAdresse">Адрес эл. почты:</label>
-                <br/>
-                <input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
-                <div id = "emailFehlermeldung" class="fehlermeldung">
-                  Введенный адрес электронной почты недействителен
-                </div>
-
-                <br/>
-
-
-
-                <label for = "passwort">Пароль:</label>
-                <br/>
-                <input id = "passwort" type = "password" class="height" required tab-index="2"/>
-                <div id = "passwortFehlermeldung" class="fehlermeldung">
-                  Пароль должен состоять как минимум из 8
-                  символов, одна буква верхнего регистра, одна буква нижнего регистра,
-                  число и специальный символ
-                </div>
-
-
-
-
+            <label for="emailAdresse">Адрес эл. почты:</label>
+            <br />
+            <input id="emailAdresse" type="email" class="height" required tab-index="1" />
+            <div id="emailFehlermeldung" class="fehlermeldung">
+              Введенный адрес электронной почты недействителен
             </div>
-            <div class="form">
 
-                <label for = "vorname"> Имя: </label>
-                <br/>
-                <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
+            <br />
 
 
-              <br/>
 
-                <label for = "nachname"> Фамилия: </label>
-                <br/>
-                <input id = "nachname" type = "text" class = "height" tab-index = "4"/>
-
-
+            <label for="passwort">Пароль:</label>
+            <br />
+            <input id="passwort" type="password" class="height" required tab-index="2" />
+            <div id="passwortFehlermeldung" class="fehlermeldung">
+              Пароль должен состоять как минимум из 8
+              символов, одна буква верхнего регистра, одна буква нижнего регистра,
+              число и специальный символ
             </div>
+
+
+
+
+          </div>
+          <div class="form">
+
+            <label for="vorname"> Имя: </label>
+            <br />
+            <input id="vorname" type="text" class="height" tab-index="3" />
+
+
+            <br />
+
+            <label for="nachname"> Фамилия: </label>
+            <br />
+            <input id="nachname" type="text" class="height" tab-index="4" />
+
+
+          </div>
 
 
 
 
 
         </fieldset>
-        <fieldset class = "margin-bottom flex">
-          <legend id = "anschrift">Добавить адрес:</legend>
+        <fieldset class="margin-bottom flex">
+          <legend id="anschrift">Добавить адрес:</legend>
 
 
 
-            <div class="form">
-              <label for = "straße">Улица: </label>
-              <br/>
-              <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
+          <div class="form">
+            <label for="straße">Улица: </label>
+            <br />
+            <input type="text" id=straße name="straße" class="height" tab-index="5" />
 
-              <br/>
+            <br />
 
-              <label for = "hausnummer">Номер дома: </label>
-              <br/>
-              <input type = "text" id = "hausnummer" name="hausnummer" class = "height" step = "1" min = "1" tab-index="6"/>
-              <div id = "hnumberFehlermeldung" class="fehlermeldung">
-                Введенный номер дома недействителен
-              </div>
-
+            <label for="hausnummer">Номер дома: </label>
+            <br />
+            <input type="text" id="hausnummer" name="hausnummer" class="height" step="1" min="1" tab-index="6" />
+            <div id="hnumberFehlermeldung" class="fehlermeldung">
+              Введенный номер дома недействителен
             </div>
-            <div class="form">
 
-              <label for = "postleitzahl">Почтовый индекс: </label>
-              <br/>
-              <input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
-              <div id = "plzFehlermeldung" class="fehlermeldung">
-                Введенный почтовый индекс недействителен
-              </div>
-              <br/>
+          </div>
+          <div class="form">
 
-              <label for = "stadt">Город: </label>
-              <br/>
-              <input type = "name" id = "stadt" name = "stadt" class = "height" tab-index = "8"/>
+            <label for="postleitzahl">Почтовый индекс: </label>
+            <br />
+            <input type="name" id="postleitzahl" name="postleitzahl" class="height" min-length="5" max-length="5"
+              tab-index="7" />
+            <div id="plzFehlermeldung" class="fehlermeldung">
+              Введенный почтовый индекс недействителен
             </div>
-          </fieldset>
+            <br />
+
+            <label for="stadt">Город: </label>
+            <br />
+            <input type="name" id="stadt" name="stadt" class="height" tab-index="8" />
+          </div>
+        </fieldset>
         <span class="umbruch">
-          <input type = "submit" id="submitLogin" value = "Registrieren" class = "cookie-consent-banner__cta margin-bottom" tab-index = "9"/>
+          <input type="submit" id="submitLogin" value="Registrieren" class="cookie-consent-banner__cta margin-bottom"
+            tab-index="9" />
         </span>
       </div>
 
     </form>
-    </div>
-    <div class="footer">
-      <div class="card-section">
-          <div class="col-12 col-6-md footer-sec">
-              <div class="select">
-                  <select name="slct" id="slct"
-                      onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                      <option selected disabled>Sprache</option>
-                      <option value="de"><a href="/de">Deutsch</a></option>
-                      <option value="en"><a href="/en">English</a></option>
-                      <option value="ru"><a href="/ru">Русский</a></option>
-                      <option value="bg"><a href="/bg">Болгарьский</a></option>
-                  </select>
-              </div>
-              <a class="footer-btn" href="/de/imprint">Impressum</a>
-              <a class="footer-btn" href="/de/privacy">Datenschutz</a>
-              <a class="footer-btn" href="/de/about">Über uns</a>
-          </div>
-          <div class="col-12 col-6-md footer-sec">
-              <p>WEB Team-B2</p>
-          </div>
-      </div>
   </div>
-    <div id="content"></div>
+  <div class="footer">
+    <div class="card-section">
+      <div class="col-12 col-6-md footer-sec">
+        <div class="select">
+          <select name="slct" id="slct" data-select-name>
+            <option selected disabled>Язык</option>
+            <option value="/de/registration">Немецкий</option>
+            <option value="/en/registration">Английский</option>
+            <option value="/ru/registration">Русский</option>
+            <option value="/bg/registration">Болгарьский</option>
+          </select>
+        </div>
+        <br>
+        <a class="footer-btn" href="/ru/imprint">Служебная информация</a>
+        <a class="footer-btn" href="/ru/privacy">Условия предоставления информации</a>
+        <a class="footer-btn" href="/ru/about">О проекте</a>
+      </div>
+      <div class="col-12 col-6-md footer-sec">
+        <p>WEB Team-B2</p>
+      </div>
+    </div>
+  </div>
 
+  <div id="content"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/static/js/index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/static/js/index.js"></script>
+  <script type="text/javascript" src="/static/js/footer.js"></script>
+  <script src="/static/js/banner.js"></script>
+  <script src="/static/js/validierung.js"></script>
 
+</body>
 
-    <script src="/static/js/banner.js">
-
-
-    </script>
-    <script src="/static/js/validierung.js"></script>
-
-  </body>
 </html>

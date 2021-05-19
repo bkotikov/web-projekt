@@ -113,18 +113,18 @@
         <div class="card-section">
             <div class="col-12 col-6-md footer-sec">
                 <div class="select">
-                    <select name="slct" id="slct"
-                        onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                    <select name="slct" id="slct" data-select-name>
                         <option selected disabled>Език</option>
-                        <option value="de"><a href="/de">Немски</a></option>
-                        <option value="en"><a href="/en">Английски</a></option>
-                        <option value="ru"><a href="/ru">Руски</a></option>
-                        <option value="bg"><a href="/bg">Български</a></option>
+                        <option value="/de/privacy">Немски</option>
+                        <option value="/en/privacy">Английски</option>
+                        <option value="/ru/privacy">Руски</option>
+                        <option value="/bg/privacy">Български</option>
                     </select>
                 </div>
-                <a class="footer-btn" href="/de/imprint">Импресия</a>
-                <a class="footer-btn" href="/de/privacy">Защита на данните</a>
-                <a class="footer-btn" href="/de/about">За нас</a>
+                <br>
+                <a class="footer-btn" href="/bg/imprint">Импресия</a>
+                <a class="footer-btn" href="/bg/privacy">Защита на данните</a>
+                <a class="footer-btn" href="/bg/about">За нас</a>
             </div>
             <div class="col-12 col-6-md footer-sec">
                 <p>WEB Team-B2</p>
@@ -134,13 +134,10 @@
 
     <div id="content"></div>
 
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/js/index.js"></script>
-    <script src="/static/js/banner.js">
-
-
-    </script>
+    <script type="text/javascript" src="/static/js/footer.js"></script>
+    <script src="/static/js/banner.js"></script>
 </body>
 
 </html>

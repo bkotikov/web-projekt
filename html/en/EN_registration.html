@@ -1,142 +1,145 @@
 <!DOCTYPE html>
-<html lang = "en">
-  <head>
-    <meta charset = "utf-8"/>
-    <meta viewport = "width = device-width, initial-scale = 1.0"/>
-    <link rel="stylesheet" href= "/static/css/style.css">
-    <link rel = "stylesheet" href = "/static/css/login.css">
-    <link rel = "stylesheet" href= "/static/css/registrierung.css">
+<html lang="en">
 
-    <title>Registrierung</title>
-  </head>
-  <body>
-    <div class="header">
-        <div id="banner"></div>
-        <hr>
-    </div>
+<head>
+  <meta charset="utf-8" />
+  <meta viewport="width = device-width, initial-scale = 1.0" />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="/static/css/registrierung.css">
 
-    <div id = "registrierung">
-    <form action = "/en/registrierungPruefen" method = "POST">
-      <div id = "login">
-        <h1 id = "loginInformation">
+  <title>Registrierung</title>
+</head>
+
+<body>
+  <div class="header">
+    <div id="banner"></div>
+    <hr>
+  </div>
+
+  <div id="registrierung">
+    <form action="/en/registrierungPruefen" method="POST">
+      <div id="login">
+        <h1 id="loginInformation">
           Please enter your registration information:
         </h1>
 
 
-        <fieldset class = "margin-bottom flex">
-          <legend id = "anschrift">Create account:</legend>
+        <fieldset class="margin-bottom flex">
+          <legend id="anschrift">Create account:</legend>
 
-            <div class="form">
+          <div class="form">
 
-                <label for = "emailAdresse" >Email address: </label>
-                <br/>
-                <input id = "emailAdresse" type = "email" class="height" required tab-index = "1"/>
-                <div id = "emailFehlermeldung" class="fehlermeldung">The entered email address is not valid</div>
+            <label for="emailAdresse">Email address: </label>
+            <br />
+            <input id="emailAdresse" type="email" class="height" required tab-index="1" />
+            <div id="emailFehlermeldung" class="fehlermeldung">The entered email address is not valid</div>
 
-                <br/>
-
-
-
-                <label for = "passwort">Password: </label>
-                <br/>
-                <input id = "passwort" type = "password" class="height" required tab-index="2"/>
-                <div id = "passwortFehlermeldung" class="fehlermeldung">The password must contain at least eight characters, an uppercase letter, a lowercase letter, a number and a special character </div>
+            <br />
 
 
 
-
-            </div>
-            <div class="form">
-
-                <label for = "vorname">First name: </label>
-                <br/>
-                <input id = "vorname" type = "text" class = "height" tab-index = "3"/>
+            <label for="passwort">Password: </label>
+            <br />
+            <input id="passwort" type="password" class="height" required tab-index="2" />
+            <div id="passwortFehlermeldung" class="fehlermeldung">The password must contain at least eight characters,
+              an uppercase letter, a lowercase letter, a number and a special character </div>
 
 
-              <br/>
-
-                <label for = "nachname">Last name:</label>
-                <br/>
-                <input id = "nachname" type = "text" class = "height" tab-index = "4"/>
 
 
-            </div>
+          </div>
+          <div class="form">
+
+            <label for="vorname">First name: </label>
+            <br />
+            <input id="vorname" type="text" class="height" tab-index="3" />
+
+
+            <br />
+
+            <label for="nachname">Last name:</label>
+            <br />
+            <input id="nachname" type="text" class="height" tab-index="4" />
+
+
+          </div>
 
 
 
 
 
         </fieldset>
-        <fieldset class = "margin-bottom flex">
-          <legend id = "anschrift">Add address:</legend>
+        <fieldset class="margin-bottom flex">
+          <legend id="anschrift">Add address:</legend>
 
 
 
-            <div class="form">
-              <label for = "straße">Street</label>
-              <br/>
-              <input type="text" id = straße name = "straße" class ="height" tab-index = "5"/>
+          <div class="form">
+            <label for="straße">Street</label>
+            <br />
+            <input type="text" id=straße name="straße" class="height" tab-index="5" />
 
-              <br/>
+            <br />
 
-              <label for = "hausnummer">Number of the house: </label>
-              <br/>
-              <input type = "number" id = "hausnummer" name="hausnummer" class = "height" step = "1" min = "1" tab-index="6"/>
+            <label for="hausnummer">Number of the house: </label>
+            <br />
+            <input type="number" id="hausnummer" name="hausnummer" class="height" step="1" min="1" tab-index="6" />
 
 
-            </div>
-            <div class="form">
+          </div>
+          <div class="form">
 
-              <label for = "postleitzahl">Postal code: </label>
-              <br/>
-              <input type = "name" id = "postleitzahl" name = "postleitzahl" class = "height" min-length = "5" max-length = "5" tab-index="7"/>
-              <div id = "plzFehlermeldung" class="fehlermeldung">The postcode entered is not valid</div>
-              <br/>
+            <label for="postleitzahl">Postal code: </label>
+            <br />
+            <input type="name" id="postleitzahl" name="postleitzahl" class="height" min-length="5" max-length="5"
+              tab-index="7" />
+            <div id="plzFehlermeldung" class="fehlermeldung">The postcode entered is not valid</div>
+            <br />
 
-              <label for = "stadt">City: </label>
-              <br/>
-              <input type = "name" id = "stadt" name = "stadt" class = "height" tab-index = "8"/>
-            </div>
-          </fieldset>
-        <span class="umbruch"><input type = "submit" id="submitLogin" value = "Register" class = "cookie-consent-banner__cta margin-bottom" tab-index = "9"/></span>
+            <label for="stadt">City: </label>
+            <br />
+            <input type="name" id="stadt" name="stadt" class="height" tab-index="8" />
+          </div>
+        </fieldset>
+        <span class="umbruch"><input type="submit" id="submitLogin" value="Register"
+            class="cookie-consent-banner__cta margin-bottom" tab-index="9" /></span>
       </div>
 
     </form>
-    </div>
-    <div class="footer">
-      <div class="card-section">
-          <div class="col-12 col-6-md footer-sec">
-              <div class="select">
-                  <select name="slct" id="slct"
-                      onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                      <option selected disabled>Sprache</option>
-                      <option value="de"><a href="/de">Deutsch</a></option>
-                      <option value="en"><a href="/en">English</a></option>
-                      <option value="ru"><a href="/ru">Русский</a></option>
-                      <option value="bg"><a href="/bg">Болгарьский</a></option>
-                  </select>
-              </div>
-              <a class="footer-btn" href="/de/imprint">Impressum</a>
-              <a class="footer-btn" href="/de/privacy">Datenschutz</a>
-              <a class="footer-btn" href="/de/about">Über uns</a>
-          </div>
-          <div class="col-12 col-6-md footer-sec">
-              <p>WEB Team-B2</p>
-          </div>
-      </div>
   </div>
-    <div id="content"></div>
 
+  <div class="footer">
+    <div class="card-section">
+      <div class="col-12 col-6-md footer-sec">
+        <div class="select">
+          <select name="slct" id="slct" data-select-name>
+            <option selected disabled>Language</option>
+            <option value="/de/registration">German</option>
+            <option value="/en/registration">English</option>
+            <option value="/ru/registration">Russian</option>
+            <option value="/bg/registration">Bulgarian</option>
+          </select>
+        </div>
+        <br>
+        <a class="footer-btn" href="/en/imprint">Imprint</a>
+        <a class="footer-btn" href="/en/privacy">Privacy</a>
+        <a class="footer-btn" href="/en/about">About</a>
+      </div>
+      <div class="col-12 col-6-md footer-sec">
+        <p>WEB Team-B2</p>
+      </div>
+    </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/static/js/index.js"></script>
+  <div id="content"></div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/static/js/index.js"></script>
+  <script type="text/javascript" src="/static/js/footer.js"></script>
+  <script src="/static/js/banner.js"></script>
+  <script src="/static/js/validierung.js"></script>
 
-    <script src="/static/js/banner.js">
+</body>
 
-
-    </script>
-    <script src="/static/js/validierung.js"></script>
-
-  </body>
 </html>

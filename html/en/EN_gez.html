@@ -26,28 +26,30 @@
         <div class="card-section">
             <div class="col-12 col-6-md footer-sec">
                 <div class="select">
-                    <select name="slct" id="slct"
-                        onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                        <option selected disabled>Sprache</option>
-                        <option value="de"><a href="/de">Deutsch</a></option>
-                        <option value="en"><a href="/en">English</a></option>
-                        <option value="ru"><a href="/ru">Русский</a></option>
-                        <option value="bg"><a href="/bg">Болгарьский</a></option>
+                    <select name="slct" id="slct" data-select-name>
+                        <option selected disabled>Language</option>
+                        <option value="/de/gez">German</option>
+                        <option value="/en/gez">English</option>
+                        <option value="/ru/gez">Russian</option>
+                        <option value="/bg/gez">Bulgarian</option>
                     </select>
                 </div>
-                <a class="footer-btn" href="/de/imprint">Impressum</a>
-                <a class="footer-btn" href="/de/privacy">Datenschutz</a>
-                <a class="footer-btn" href="/de/about">Über uns</a>
+                <br>
+                <a class="footer-btn" href="/en/imprint">Imprint</a>
+                <a class="footer-btn" href="/en/privacy">Privacy</a>
+                <a class="footer-btn" href="/en/about">About</a>
             </div>
             <div class="col-12 col-6-md footer-sec">
                 <p>WEB Team-B2</p>
             </div>
         </div>
     </div>
+
     <div id="content"></div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/js/index.js"></script>
-    <script src="/static/js/banner.js"></script>
+    <script type="text/javascript" src="/static/js/footer.js"></script>
     <script src="/static/js/gez.js"></script>
 </body>
 </html>
