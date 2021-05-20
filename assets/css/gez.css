@@ -1,38 +1,38 @@
 .text-muted, footer {
     color: #a9bec6;
   }
-  
+
   .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  
+
   .section-form {
     padding: 0 20px;
   }
-  
+
   .form {
     display: block;
     max-width: 400px;
   }
-  
+
   .form-group {
     margin-bottom: 20px;
   }
-  
+
   .form-label,
   .form-input {
     display: block;
     width: 100%;
   }
-  
+
   .form-label {
     cursor: pointer;
     margin-bottom: 5px;
   }
-  
+
   .form-label--required {
     position: relative;
   }
@@ -42,7 +42,7 @@
     left: -10px;
     color: #f42866;
   }
-  
+
   .form-input {
     padding: 10px;
     background-color: transparent;
@@ -52,16 +52,16 @@
     outline: none;
     background-color: #f0f7f9;
   }
-  
+
   .form-footer {
     text-align: right;
   }
-  
+
   .form-error {
     color: #f42866;
     margin-top: 5px;
   }
-  
+
   .button {
     color: white;
     white-space: nowrap;
@@ -74,7 +74,7 @@
   .button:focus, .button:hover {
     background-color: #219d5b;
   }
-  
+
   .form-addon {
     position: relative;
     display: table;
@@ -104,7 +104,7 @@
     height: calc(100% - 8px);
     border-right: 1px solid #bcdae5;
   }
-  
+
   .form-addon__icon {
     position: absolute;
     color: #31d47d;
@@ -114,14 +114,14 @@
     transform: translateY(-50%);
     right: 10px;
   }
-  
+
   .toaster {
     position: fixed;
     z-index: 1;
     top: 10px;
     right: 10px;
   }
-  
+
   .toast {
     color: #fff;
     padding: 20px;
@@ -136,19 +136,42 @@
     transform: translateY(0) rotateY(0);
     opacity: 1;
   }
-  
+
   .toast--success {
     background-color: #31d47d;
   }
-  
+
   .toast--error {
     background-color: #f42866;
   }
-  
+
   footer {
     margin-top: 10px;
   }
-  
+
+  div.display-inline{
+    display: inline-block;
+  }
+
+  .form-radio {
+    padding: 10px;
+    background-color: transparent;
+    border: 0;
+  }
+
+  .form-radio:focus {
+    outline: none;
+    background-color: #f0f7f9;
+  }
+
+  .margin-left {
+    margin-left:5%;
+  }
+
+  .display-none {
+    display: none;
+  }
+
   /*---------------------------------------------*\
       GentleForm related styles
   \*---------------------------------------------*/

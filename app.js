@@ -26,7 +26,10 @@ app.use('/static/images', express.static(__dirname + '/assets/images'));
 app.use('/static/js', express.static(__dirname + '/js'));
 
 
-
+//Test
+app.get('/node/js/gentleform/dist/GentleForm.js', function(req,res){
+  res.sendFile(path.join(__dirname+'/node_modules/gentleform/dist/GentleForm.js'));
+});
 
 //root
 app.get('/',function(req,res){

@@ -20,18 +20,46 @@
             <h2>Persönliche Daten:</h2>
             <p>Pflichtfelder sind mit * gekennzeichnet.</p>
 
-            <form name="signup" class="form" novalidate>
+            <form name="signup" id = "signup" class="form" novalidate>
+              <div id = "person">
+              <div class="form-group">
+                  <label for="name" class="form-label form-label--required">
+                      Anrede
+                  </label>
+
+                  <div class="form-addon" data-states-for="geschlecht">
+                      <div class="form-addon__addon">
+                          <span class="icon-name"></span>
+                      </div>
+
+                      <div class = "display-inline" id = "geschlecht">
+                        <input type="radio" id="frau" name="geschlecht" class="form-radio"  required>
+                        <label for = "frau">Frau</label>
+                        <input type="radio" id="mann" name="geschlecht" class ="form-radio" required>
+                        <label for = "mann">Mann</label>
+                      </div>
+                      <span class="form-addon__icon icon-valid"></span>
+                      <span class="form-addon__icon icon-invalid"></span>
+                  </div>
+
+                  <div data-errors-for="name">
+                      <small class="form-error" data-errors-when="valueMissing">
+                          Dieses Feld wird benötigt.
+                      </small>
+                  </div>
+              </div>
+
                 <div class="form-group">
                     <label for="name" class="form-label form-label--required">
-                        Name:
+                        Vorname:
                     </label>
 
-                    <div class="form-addon" data-states-for="name">
+                    <div class="form-addon" data-states-for="vorname">
                         <div class="form-addon__addon">
                             <span class="icon-name"></span>
                         </div>
 
-                        <input type="text" id="name" name="name" class="form-input" placeholder="Name" required>
+                        <input type="text" id="vorname" name="vorname" class="form-input" placeholder="Vorname" required>
 
                         <span class="form-addon__icon icon-valid"></span>
                         <span class="form-addon__icon icon-invalid"></span>
@@ -45,6 +73,144 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="name" class="form-label form-label--required">
+                        Nachname:
+                    </label>
+
+                    <div class="form-addon" data-states-for="name">
+                        <div class="form-addon__addon">
+                            <span class="icon-name"></span>
+                        </div>
+
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Nachname" required>
+
+                        <span class="form-addon__icon icon-valid"></span>
+                        <span class="form-addon__icon icon-invalid"></span>
+                    </div>
+
+                    <div data-errors-for="name">
+                        <small class="form-error" data-errors-when="valueMissing">
+                            Dieses Feld wird benötigt.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="geburtsdatum" class="form-label form-label--required">
+                        Geburtsdatum:
+                    </label>
+
+                    <div class="form-addon" data-states-for="geburtsdatum">
+                        <div class="form-addon__addon">
+                            <span class="icon-name"></span>
+                        </div>
+
+                        <input type="date" id="geburtsdatum" name="geburtsdatum" class="form-input" placeholder="Geburtsdatum" required>
+
+                        <span class="form-addon__icon icon-valid"></span>
+                        <span class="form-addon__icon icon-invalid"></span>
+                    </div>
+                    <div data-errors-for="geburtdatum">
+                        <small class="form-error" data-errors-when="valueMissing">
+                            Dieses Feld wird benötigt.
+                        </small>
+                    </div>
+                </div>
+
+                <span class="umbruch"><input type="button" id="weiter" value="Weiter"
+                    class="cookie-consent-banner__cta margin-bottom" tab-index="3" /></span>
+                </div>
+                <div class = "display-none" id = "wohnungsanmeldung">
+                  <h2>Wohnungs-Anmeldung</h2>
+                  <div class="form-group">
+                      <label for="monat" class="form-label form-label--required">
+                        Monat / Jahr
+                      </label>
+
+                      <div class="form-addon" data-states-for="monat">
+                          <div class="form-addon__addon">
+                              <span class="icon-name"></span>
+                          </div>
+
+                          <input type="month" id="monat" name="monat" class="form-input" placeholder="Monat Jahr" required>
+
+                          <span class="form-addon__icon icon-valid"></span>
+                          <span class="form-addon__icon icon-invalid"></span>
+                      </div>
+                      <div data-errors-for="monat">
+                          <small class="form-error" data-errors-when="valueMissing">
+                              Dieses Feld wird benötigt.
+                          </small>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="straße" class="form-label form-label--required">
+                            Straße
+                          </label>
+
+                          <div class="form-addon" data-states-for="monat">
+                              <div class="form-addon__addon">
+                                  <span class="icon-name"></span>
+                              </div>
+
+                              <input type="text" id="straße" name="straße" class="form-input" placeholder="Straße" required>
+
+                              <span class="form-addon__icon icon-valid"></span>
+                              <span class="form-addon__icon icon-invalid"></span>
+                          </div>
+                          <div data-errors-for="straße">
+                              <small class="form-error" data-errors-when="valueMissing">
+                                  Dieses Feld wird benötigt.
+                              </small>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="hausnummer" class="form-label form-label--required">
+                            Hausnummer
+                          </label>
+
+                          <div class="form-addon" data-states-for="hausnummer">
+                              <div class="form-addon__addon">
+                                  <span class="icon-name"></span>
+                              </div>
+
+                              <input type="text" id="hausnummer" name="hausnummer" class="form-input" placeholder="Hausnummer" step="1" min="1" required>
+
+                              <span class="form-addon__icon icon-valid"></span>
+                              <span class="form-addon__icon icon-invalid"></span>
+                          </div>
+                          <div data-errors-for="hausnummer">
+                              <small class="form-error" data-errors-when="valueMissing">
+                                  Dieses Feld wird benötigt.
+                              </small>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="plz" class="form-label form-label--required">
+                            Postleitzahl
+                          </label>
+
+                          <div class="form-addon" data-states-for="plz">
+                              <div class="form-addon__addon">
+                                  <span class="icon-name"></span>
+                              </div>
+
+                              <input type="text" id="plz" name="plz" class="form-input" placeholder="Postleitzahl" min-length="5" max-length="5" required>
+
+                              <span class="form-addon__icon icon-valid"></span>
+                              <span class="form-addon__icon icon-invalid"></span>
+                          </div>
+                          <div data-errors-for="plz">
+                              <small class="form-error" data-errors-when="valueMissing">
+                                  Dieses Feld wird benötigt.
+                              </small>
+                          </div>
+                      </div>
+
+
+                <!--<div class="form-group">
                     <label for="email" class="form-label form-label--required">
                         Email:
                     </label>
@@ -126,7 +292,7 @@
 
                 <div class="form-footer">
                     <button type="submit" class="button">Weiter</button>
-                </div>
+                </div>-->
             </form>
         </section>
     </main>
@@ -160,6 +326,7 @@
     <script src="/static/js/index.js"></script>
     <script src="/static/js/banner.js"></script>
     <script type="text/javascript" src="/static/js/footer.js"></script>
+    <script type="text/javascript" src="/node/js/gentleform/dist/GentleForm.js"></script>
     <script src="/static/js/gez.js"></script>
 </body>
 
