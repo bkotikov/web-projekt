@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 
 <head>
     <meta charset="UTF-8">
@@ -16,41 +16,40 @@
 
     <main class="wrapper">
         <section class="section-form">
-            <h1>Der Rundfunkbeitrag
+            <h1>Приносът на излъчването
                 <div class="tooltip">
                     <img style="width: 0.75rem;"
                         src="https://img.icons8.com/fluent-systems-regular/48/000000/about.png" />
                     <span class="tooltiptext">
-                        Der Rundfunkbeitrag (ehemals GEZ)
-                        soll den unabhängigen Journalismus sichern.
-                        Der Rundfunkbeitrag ist die Bezeichnung
-                        für das Modell der Finanzierung
-                        der öffentlich-rechtlichen Rundfunkanstalten
-                        und wird durch den ARD ZDF Deutschlandradio
-                        Beitragsservice eingezogen.
+                        Таксата за излъчване (бивша GEZ)
+                        има за цел да защити независимата журналистика.
+                        Приносът на излъчването е името
+                        за модела на финансиране
+                        на обществените радио- и телевизионни корпорации
+                        и се събира от ARD ZDF Deutschlandradio
+                        Служба за вноски.
+                        По принцип се прилага следното:
+                        Такса за излъчване трябва да се плати за всяко жилище.
+                        Има изключение за вторите жилища.
+                        Лица, които получават социални помощи
+                        могат да бъдат освободени от плащане
+                        да бъдат освободени от плащането на вноската.
 
-                        Grundsätzlich gilt: Für jede Wohnung muss ein
-                        Rundfunkbeitrag gezahlt werden.
-                        Für Zweitwohnungen gibt es eine Ausnahme.
-                        Wer Sozialleistungen bezieht,
-                        kann sich von der Zahlung des Beitrags
-                        befreien lassen.
-
-                        <p>Ausführliche Informationen
+                        <p>Подробна информация
                             <a
-                                href="https://www.mannheim.de/de/service-bieten/integration-migration/anima-ankommen-in-mannheim">Hier</a>
+                                href="https://www.mannheim.de/de/service-bieten/integration-migration/anima-ankommen-in-mannheim">Тук</a>
                         </p>
                     </span>
                 </div>
             </h1>
-            <h2>Persönliche Daten:</h2>
-            <p>Pflichtfelder sind mit * gekennzeichnet.</p>
+            <h2>Лична информация:</h2>
+            <p>Задължителните полета са отбелязани с *.</p>
 
             <form name="signup" id="signup" class="form" novalidate>
                 <div id="person"  class="display" hidden>
                     <div class="form-group">
                         <label for="geschlecht" class="form-label form-label--required">
-                            Anrede
+                            Пол
 
                         </label>
 
@@ -61,9 +60,9 @@
 
                             <div class="display-inline" id="geschlecht">
                                 <input type="radio" id="frau" name="geschlecht" class="form-radio" required>
-                                <label for="frau">Frau</label>
+                                <label for="frau">женски</label>
                                 <input type="radio" id="mann" name="geschlecht" class="form-radio" required>
-                                <label for="mann">Mann</label>
+                                <label for="mann">мъжки</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -71,17 +70,17 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="vorname" class="form-label form-label--required">
-                            Vorname:
+                            Име:
                         </label>
                         <div class="fehler" id="vornameFehler">
-                            Der eingegebene Vorname darf maximal 19 Zeichen enthalten
+                            Въведеното първо име може да съдържа максимум 19 символа.
                         </div>
 
                         <div class="form-addon" data-states-for="vorname">
@@ -98,18 +97,18 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Nachname:
+                            Фамилия:
                         </label>
                         <div class="fehler" id="nachnameFehler">
-                            Der eingegebene Nachname / Titel ist zu lang für das GEZ-Formular, die maximale
-                            Zeichenanzahl darf 28 Zeichen betragen
+                            Въведеното фамилно име/титла е твърде дълго за формуляра GEZ.
+                            броят на знаците може да бъде 28 знака
                         </div>
                         <div class="form-addon" data-states-for="name">
                             <div class="form-addon__addon">
@@ -124,17 +123,17 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="geburtsdatum" class="form-label form-label--required">
-                            Geburtsdatum:
+                            Дата на раждане:
                         </label>
                         <div class="fehler" id="fehlerGeburtsdatum">
-                            Das eingegebene Geburtsdatum entspricht nicht der Form "Tag.Monat.Jahr"
+                            Въведената дата на раждане не съответства на формата "Ден.Месец.Година".
                         </div>
 
                         <div class="form-addon" data-states-for="geburtsdatum">
@@ -150,7 +149,7 @@
                         </div>
                         <div data-errors-for="geburtdatum">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
@@ -159,13 +158,13 @@
                             class="cookie-consent-banner__cta margin-bottom" /></span>
                 </div>
                 <div id="wohnungsanmeldung" hidden>
-                    <h2>Wohnungs-Anmeldung</h2>
+                    <h2>Регистрация на апартамент</h2>
                     <div class="form-group">
                         <label for="monat" class="form-label form-label--required">
-                            Monat / Jahr
+                            Месец / Година
                         </label>
                         <div id="fehlerMonat" class="fehler">
-                            Wählen Sie einen Monat oder ein Jahr aus, das näher an den aktuellen Werten liegt
+                            Изберете месец или година, които са по-близки до текущите стойности
                         </div>
 
                         <div class="form-addon" data-states-for="monat">
@@ -181,13 +180,13 @@
                         </div>
                         <div data-errors-for="monat">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="straße" class="form-label form-label--required">
-                            Straße
+                            Улица
                         </label>
 
                         <div class="form-addon" data-states-for="monat">
@@ -203,17 +202,17 @@
                         </div>
                         <div data-errors-for="straße">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="hausnummer" class="form-label form-label--required">
-                            Hausnummer
+                            Номер на къщата
                         </label>
                         <div id="hnumberFehlermeldung" class="fehler">
-                            Die eingegebene Hausnummer ist nicht gültig
+                            Въведеният номер на къща не е валиден
                         </div>
 
                         <div class="form-addon" data-states-for="hausnummer">
@@ -229,14 +228,14 @@
                         </div>
                         <div data-errors-for="hausnummer">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="adresszusatz" class="form-label">
-                            Adresszusatz
+                            Адресен суфикс
                         </label>
 
                         <div class="form-addon" data-states-for="adresszusatz">
@@ -253,10 +252,10 @@
 
                     <div class="form-group">
                         <label for="plz" class="form-label form-label--required">
-                            Postleitzahl
+                            Пощенски код
                         </label>
                         <div id="plzFehlermeldung" class="fehler">
-                            Die eingegebene Postleitzahl ist nicht gültig
+                            Въведеният пощенски код не е валиден
                         </div>
 
                         <div class="form-addon" data-states-for="plz">
@@ -272,13 +271,13 @@
                         </div>
                         <div data-errors-for="plz">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="stadt" class="form-label form-label--required">
-                            Stadt
+                            Град
                         </label>
 
                         <div class="form-addon" data-states-for="stadt">
@@ -293,14 +292,14 @@
                         </div>
                         <div data-errors-for="stadt">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="tel" class="form-label">
-                            Telefonnummer
+                            Телефонен номер
                         </label>
 
                         <div class="form-addon" data-states-for="tel">
@@ -320,10 +319,10 @@
                     </span>
                 </div>
                 <div id="zahlung" hidden>
-                    <h2>Angaben zur Zahlung</h2>
+                    <h2>Данни за плащане</h2>
                     <div class="form-group">
                         <label for="zahlungart" class="form-label form-label--required">
-                            Gesetzliche Zahlung
+                            Законно плащане
                         </label>
 
                         <div class="" data-states-for="zahlung-field">
@@ -334,7 +333,7 @@
                             <div class="display-inline" id="zahlung">
                                 <input type="radio" id="gesetz" value="gesetzlich-Mitte" name="zahlungart"
                                     class="form-radio" required>
-                                <label for="gesetz">in der Mitte eines Dreimonatszeitraums</label>
+                                <label for="gesetz">в средата на тримесечен период</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -342,13 +341,13 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Vorauszahlung
+                            Предплащане
                         </label>
 
                         <div class="" data-states-for="zahlung-field">
@@ -358,11 +357,11 @@
 
                             <div class="display-inline" id="zahlung">
                                 <input type="radio" id="viertel" name="zahlungart" class="form-radio" required>
-                                <label for="viertel">vierteljährlich im Voraus</label>
+                                <label for="viertel">предварително на тримесечие</label>
                                 <input type="radio" id="halb" name="zahlungart" class="form-radio" required>
-                                <label for="halb">halbjährlich im Voraus </label>
+                                <label for="halb">шестмесечно предварително </label>
                                 <input type="radio" id="jahr" name="zahlungart" class="form-radio" required>
-                                <label for="jahr">jährlich im Voraus</label>
+                                <label for="jahr">годишно предварително</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -370,13 +369,13 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Zahlungen werden über erfolgen:
+                            Плащанията ще се извършват чрез:
                         </label>
 
                         <div class="" data-states-for="zahlung-field">
@@ -386,9 +385,9 @@
 
                             <div class="display-inline" id="zahlung">
                                 <input type="radio" id="last" name="uberweisungsart" class="form-radio" required>
-                                <label for="last">durch Lastschrift</label>
+                                <label for="last">чрез директно дебитиране</label>
                                 <input type="radio" id="ueber" name="uberweisungsart" class="form-radio" required>
-                                <label for="ueber">durch Überweisung</label>
+                                <label for="ueber">чрез превод</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -396,7 +395,7 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
@@ -407,27 +406,24 @@
                     </span>
                 </div>
                 <div id="lastschrift" hidden>
-                    <h2>SEPA-Lastschriftmandat</h2>
+                    <h2>Мандат за директен дебит SEPA</h2>
 
                     <p style="font-size: 0.75rem;">
-                        Gläubiger-Identifikationsnummer des Beitragsservice von ARD,
-                        ZDF und Deutschlandradio: DE3000100000001272
-                        Ich ermächtige den Beitragsservice von ARD, ZDF und
-                        Deutschlandradio, Zahlungen von meinem Konto mittels Lastschrift
-                        einzuziehen. Zugleich weise ich mein Kreditinstitut
-                        an, die vom Beitragsservice von ARD, ZDF und Deutschlandradio auf mein
-                        Konto gezogenen Lastschriften einzulösen.
-                        Hinweis: Ich kann innerhalb von acht Wochen,
-                        beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags
-                        verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
+                        Идентификационен номер на кредитора на службата за вноски на ARD, ZDF и Deutschlandradio:
+                        DE30001000001272 Разрешавам услугата за плащане на вноски на ARD, ZDF и Deutschlandradio
+                        Deutschlandradio да дебитира плащания от моята сметка чрез директен дебит. В същото време
+                        инструктирам кредитния си институт услугата за плащане на вноски на ARD, ZDF и Deutschlandradio
+                        в моята сметка чрез директен дебит. Забележка: Мога да анулирам директния дебит в рамките на
+                        осем седмици, считано от датата на дебитиране, да поиска възстановяване на сумата дебитираната
+                        сума. Прилагат се условията, договорени с моята кредитна институция.
                     </p>
 
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Vorname:
+                            Име:
                         </label>
                         <div class="fehler" id="vornameFehler">
-                            Der eingegebene Vorname darf maximal 19 Zeichen enthalten
+                            Въведеното първо име може да съдържа максимум 19 символа.
                         </div>
 
                         <div class="form-addon" data-states-for="vorname">
@@ -444,17 +440,17 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Nachname:
+                            Фамилия:
                         </label>
                         <div class="fehler" id="nachnameFehler">
-                            Der eingegebene Nachname / Titel ist zu lang für das GEZ-Formular, die maximale
-                            Zeichenanzahl darf 28 Zeichen betragen
+                            Въведеното фамилно име/титла е твърде дълго за формуляра GEZ.
+                            Броят на знаците може да бъде 28 знака.
                         </div>
                         <div class="form-addon" data-states-for="name">
                             <div class="form-addon__addon">
@@ -469,13 +465,13 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="straße" class="form-label form-label--required">
-                            Straße
+                            Улица
                         </label>
 
                         <div class="form-addon" data-states-for="monat">
@@ -491,16 +487,16 @@
                         </div>
                         <div data-errors-for="straße">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="hausnummer" class="form-label form-label--required">
-                            Hausnummer
+                            Номер на къщата
                         </label>
                         <div id="hnumberFehlermeldung" class="fehler">
-                            Die eingegebene Hausnummer ist nicht gültig
+                            Въведеният номер на къща не е валиден
                         </div>
 
                         <div class="form-addon" data-states-for="hausnummer">
@@ -516,16 +512,16 @@
                         </div>
                         <div data-errors-for="hausnummer">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="plz" class="form-label form-label--required">
-                            Postleitzahl
+                            Пощенски код
                         </label>
                         <div id="plzFehlermeldung" class="fehler">
-                            Die eingegebene Postleitzahl ist nicht gültig
+                            Въведеният пощенски код не е валиден
                         </div>
 
                         <div class="form-addon" data-states-for="plz">
@@ -541,13 +537,13 @@
                         </div>
                         <div data-errors-for="plz">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="stadt" class="form-label form-label--required">
-                            Stadt
+                            Град
                         </label>
 
                         <div class="form-addon" data-states-for="stadt">
@@ -562,7 +558,7 @@
                         </div>
                         <div data-errors-for="stadt">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
@@ -572,7 +568,7 @@
                             IBAN:
                         </label>
                         <div class="fehler" id="vornameFehler">
-                            IBAN darf 22 Stellen lang sein.
+                            IBAN може да бъде с дължина 22 цифри.
                         </div>
 
                         <div class="form-addon" data-states-for="iban">
@@ -588,7 +584,7 @@
 
                         <div data-errors-for="iban">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
@@ -598,7 +594,7 @@
                             BIC:
                         </label>
                         <div class="fehler" id="bicFehler">
-                            BIC darf 11 Stellen lang sein.
+                            BIC може да бъде с дължина 11 цифри..
                         </div>
 
                         <div class="form-addon" data-states-for="bic">
@@ -614,17 +610,17 @@
 
                         <div data-errors-for="bic">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Kreditinstitut:
+                            Кредитен институт:
                         </label>
                         <div class="fehler" id="kreditinstitutFehler">
-                            Geben sie gültiges Kreditinstitut an
+                            Въведете валидна кредитна институция
                         </div>
 
                         <div class="form-addon" data-states-for="kreditinstitut">
@@ -641,7 +637,7 @@
 
                         <div data-errors-for="kreditinstitut">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                Това поле е задължително.
                             </small>
                         </div>
                     </div>
