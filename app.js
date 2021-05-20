@@ -205,7 +205,7 @@ app.get('/'+ ru +'/gez', function(req, res){
   res.sendFile(path.join(__dirname + '/html/'+ ru +'/'+ ru_index +'gez.html'))
 });
 app.get('/'+ en +'/gez', function(req, res){
-  res.sendFile(path.join(__dirname + '/html/'+ en +'/'+ ru_index +'gez.html'))
+  res.sendFile(path.join(__dirname + '/html/'+ en +'/'+ en_index +'gez.html'))
 });
 app.get('/'+ bg +'/gez', function(req, res){
   res.sendFile(path.join(__dirname + '/html/'+ bg +'/'+ bg_index +'gez.html'))
