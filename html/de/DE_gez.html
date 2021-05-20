@@ -16,7 +16,33 @@
 
     <main class="wrapper">
         <section class="section-form">
-            <h1>Der Rundfunkbeitrag</h1>
+            <h1>Der Rundfunkbeitrag
+                <div class="tooltip">
+                    <img style="width: 0.75rem;"
+                        src="https://img.icons8.com/fluent-systems-regular/48/000000/about.png" />
+                    <span class="tooltiptext">
+                        Der Rundfunkbeitrag (ehemals GEZ)
+                        soll den unabhängigen Journalismus sichern.
+                        Der Rundfunkbeitrag ist die Bezeichnung
+                        für das Modell der Finanzierung
+                        der öffentlich-rechtlichen Rundfunkanstalten
+                        und wird durch den ARD ZDF Deutschlandradio
+                        Beitragsservice eingezogen.
+
+                        Grundsätzlich gilt: Für jede Wohnung muss ein
+                        Rundfunkbeitrag gezahlt werden.
+                        Für Zweitwohnungen gibt es eine Ausnahme.
+                        Wer Sozialleistungen bezieht,
+                        kann sich von der Zahlung des Beitrags
+                        befreien lassen.
+
+                        <p>Ausführliche Informationen
+                            <a
+                                href="https://www.mannheim.de/de/service-bieten/integration-migration/anima-ankommen-in-mannheim">Hier</a>
+                        </p>
+                    </span>
+                </div>
+            </h1>
             <h2>Persönliche Daten:</h2>
             <p>Pflichtfelder sind mit * gekennzeichnet.</p>
 
@@ -25,6 +51,7 @@
                     <div class="form-group">
                         <label for="geschlecht" class="form-label form-label--required">
                             Anrede
+
                         </label>
 
                         <div class="form-addon" data-states-for="geschlecht">
@@ -89,8 +116,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="name" name="name" 
-                            class="form-input" placeholder="Nachname" required>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Nachname" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -289,7 +315,8 @@
                         </div>
                     </div>
                     <span class="umbruch">
-                        <input type="button" id="weiter-1" value="Weiter" class="cookie-consent-banner__cta margin-bottom" />
+                        <input type="button" id="weiter-1" value="Weiter"
+                            class="cookie-consent-banner__cta margin-bottom" />
                     </span>
                 </div>
                 <div id="zahlung" class="display-none">
@@ -305,7 +332,8 @@
                             </div>
 
                             <div class="display-inline" id="zahlung">
-                                <input type="radio" id="gesetz" value="gesetzlich-Mitte" name="zahlungart" class="form-radio" required>
+                                <input type="radio" id="gesetz" value="gesetzlich-Mitte" name="zahlungart"
+                                    class="form-radio" required>
                                 <label for="gesetz">in der Mitte eines Dreimonatszeitraums</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
@@ -374,21 +402,22 @@
                     </div>
 
                     <span class="umbruch">
-                        <input type="button" id="weiter-2" value="Weiter" class="cookie-consent-banner__cta margin-bottom" />
+                        <input type="button" id="weiter-2" value="Weiter"
+                            class="cookie-consent-banner__cta margin-bottom" />
                     </span>
                 </div>
                 <div id="lastschrift" class="display-none">
                     <h2>SEPA-Lastschriftmandat</h2>
 
                     <p style="font-size: 0.75rem;">
-                        Gläubiger-Identifikationsnummer des Beitragsservice von ARD, 
+                        Gläubiger-Identifikationsnummer des Beitragsservice von ARD,
                         ZDF und Deutschlandradio: DE3000100000001272
-                        Ich ermächtige den Beitragsservice von ARD, ZDF und 
+                        Ich ermächtige den Beitragsservice von ARD, ZDF und
                         Deutschlandradio, Zahlungen von meinem Konto mittels Lastschrift
-                        einzuziehen. Zugleich weise ich mein Kreditinstitut 
+                        einzuziehen. Zugleich weise ich mein Kreditinstitut
                         an, die vom Beitragsservice von ARD, ZDF und Deutschlandradio auf mein
                         Konto gezogenen Lastschriften einzulösen.
-                        Hinweis: Ich kann innerhalb von acht Wochen, 
+                        Hinweis: Ich kann innerhalb von acht Wochen,
                         beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags
                         verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
                     </p>
@@ -527,7 +556,7 @@
                             </div>
 
                             <input type="text" id="stadt" name="stadt" class="form-input" placeholder="Stadt" required>
-                            
+
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
                         </div>
@@ -551,8 +580,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="iban" name="iban" class="form-input" placeholder="IBAN"
-                                required>
+                            <input type="text" id="iban" name="iban" class="form-input" placeholder="IBAN" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -578,8 +606,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="bic" name="bic" class="form-input" placeholder="BIC"
-                                required>
+                            <input type="text" id="bic" name="bic" class="form-input" placeholder="BIC" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -599,19 +626,19 @@
                         <div class="fehler" id="kreditinstitutFehler">
                             Geben sie gültiges Kreditinstitut an
                         </div>
-    
+
                         <div class="form-addon" data-states-for="kreditinstitut">
                             <div class="form-addon__addon">
                                 <span class="icon-name"></span>
                             </div>
-    
-                            <input type="text" id="kreditinstitut" name="kreditinstitut" class="form-input" placeholder="Kreditinstitut"
-                                required>
-    
+
+                            <input type="text" id="kreditinstitut" name="kreditinstitut" class="form-input"
+                                placeholder="Kreditinstitut" required>
+
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
                         </div>
-    
+
                         <div data-errors-for="kreditinstitut">
                             <small class="form-error" data-errors-when="valueMissing">
                                 Dieses Feld wird benötigt.
@@ -621,7 +648,7 @@
 
                     <input class="cookie-consent-banner__cta margin-bottom" type="submit" value="Abschicken">
                 </div>
-            </div>
+                </div>
 
                 <!--<div class="form-group">
                     <label for="email" class="form-label form-label--required">
