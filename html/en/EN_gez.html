@@ -33,7 +33,7 @@
             <p>Required fields are marked with *.</p>
 
             <form name="signup" id="signup" class="form" novalidate>
-                <div id="person">
+                <div id="person" class="display" hidden>
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
                             Salutation
@@ -143,7 +143,7 @@
                     <span class="umbruch"><input type="button" id="weiter" value="Next"
                             class="cookie-consent-banner__cta margin-bottom" /></span>
                 </div>
-                <div class="display-none" id="wohnungsanmeldung">
+                <div id="wohnungsanmeldung" hidden>
                     <h2>Apartment registration</h2>
                     <div class="form-group">
                         <label for="monat" class="form-label form-label--required">
@@ -304,7 +304,7 @@
                             class="cookie-consent-banner__cta margin-bottom" />
                     </span>
                 </div>
-                <div id="zahlung" class="display-none">
+                <div id="zahlung" hidden>
                     <h2>Payment details</h2>
                     <div class="form-group">
                         <label for="zahlungart" class="form-label form-label--required">
@@ -391,7 +391,7 @@
                             class="cookie-consent-banner__cta margin-bottom" />
                     </span>
                 </div>
-                <div id="lastschrift" class="display-none">
+                <div id="lastschrift" hidden>
                     <h2>SEPA direct debit mandate</h2>
 
                     <p style="font-size: 0.75rem;">

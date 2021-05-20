@@ -195,8 +195,8 @@ div.display-inline {
   margin-left: 5%;
 }
 
-.display-none {
-  display: none;
+.display {
+  display: block;
 }
 
 .fehler {

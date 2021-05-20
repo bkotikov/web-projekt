@@ -1,3 +1,71 @@
+const tabs = document.querySelector(".form");
+
+const hashes = new Map([
+  ["#first", "person"],
+  ["#second", "wohnungsanmeldung"],
+  ["#third", "zahlung"],
+  ["#fourth", "lastschrift"],
+]);
+
+const update = (tabId) => {
+  console.log(tabId);
+  // remove the active class of the previously selected tab
+  const currentTab = tabs.querySelector(".display");
+  console.log("current: " + currentTab.id);
+
+  if (currentTab.id != tabId) {
+      currentTab.classList.remove("display");
+  }
+  // add active class to the selected tab
+  const selectedTab = document.getElementById(tabId);
+  selectedTab.classList.add("display");
+
+
+  
+      // update the URL
+      //history.pushState(null, "", "#first");
+      // change the content
+};
+
+
+window.addEventListener("hashchange", () => {
+  console.log("Event: " + hashes.get(window.location.hash));
+  update(hashes.get(window.location.hash));
+});
+
+
+
+
+// store the relationship between hash & tab id
+
+
+// store the relationship between tab id and contents
+
+
+
+
+(() => {
+    // get tab id from the hash
+    const tabId = hashes.get(window.location.hash);
+    // update the tab
+    if (tabId) update(tabId);
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//---------------------------------
 const toaster = document.getElementsByClassName('toaster')[0];
 const form = document.querySelector('form');
 
@@ -87,8 +155,11 @@ function wechselScreen() {
   var radios = document.querySelectorAll('input[type="radio"]:checked');
   var value = radios.length>0? radios[0].value: null;
   if (surnameError === false && firstNameError === false && dateError === false && value != null){
-    wohnungsanmeldung.style.display = "block";
-    person.style.display = "none";
+    //wohnungsanmeldung.style.display = "block";
+    //person.style.display = "none";
+    history.pushState(0,0,"#second");
+    update(hashes.get("#second"));
+    
   }else {}
 }
 
@@ -98,9 +169,9 @@ const anmeldungFehler = document.getElementById("fehlerMonat");
 var monthError = true;
 
 function validiereMonatUndJahr(date){
-  date = date.split("-");
-  var jahr = validiereJahr(date[0]);
-  var monat = validiereMonat(date[1]);
+  date = date.split("/");
+  var jahr = validiereJahr(date[1]);
+  var monat = validiereMonat(date[0]);
   if (!jahr || !monat){
     anmeldungFehler.style.display = "block";
     monthError = true;
@@ -193,8 +264,10 @@ const zahlung = document.getElementById("zahlung");
 
 function zurZahlung(){
   if(monthError === false && hFehler === false && plzFehler === false && stadtFehler === false && fehlerStraße === false){
-    wohnungsanmeldung.style.display = "none";
-    zahlung.style.display = "block";
+    //wohnungsanmeldung.style.display = "none";
+    //zahlung.style.display = "block";
+    history.pushState(0,0,"#third");
+    update(hashes.get("#third"));
   }
 }
 
@@ -205,7 +278,9 @@ const lastschirft = document.getElementById("lastschrift");
 
 function zurLastschrift(){
   if(monthError === false && hFehler === false && plzFehler === false && stadtFehler === false && fehlerStraße === false){
-    zahlung.style.display = "none";
-    lastschirft.style.display = "block";
+    //zahlung.style.display = "none";
+    //lastschirft.style.display = "block";
+    history.pushState(0,0,"#fourth");
+    update(hashes.get("#fourth"));
   }
 }
