@@ -3,5 +3,5 @@ document.addEventListener('DOMContentLoaded',function() {
 },false);
 
 function changeEventHandler(event) {
-    window.location.href = this.options[this.selectedIndex].value;
+    window.location.href = this.options[this.selectedIndex].value + window.location.hash;
 }
