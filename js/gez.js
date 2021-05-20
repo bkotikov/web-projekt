@@ -197,3 +197,15 @@ function zurZahlung(){
     zahlung.style.display = "block";
   }
 }
+
+const weiter2 = document.getElementById("weiter-2");
+weiter2.onclick = function() {zurLastschrift()};
+
+const lastschirft = document.getElementById("lastschrift");
+
+function zurLastschrift(){
+  if(monthError === false && hFehler === false && plzFehler === false && stadtFehler === false && fehlerStraße === false){
+    zahlung.style.display = "none";
+    lastschirft.style.display = "block";
+  }
+}
