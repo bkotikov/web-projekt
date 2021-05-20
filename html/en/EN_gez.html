@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/registrierung.css">
-    <link rel="stylesheet" href="/static/css/gez.css">
+<link rel="stylesheet" href="/static/css/gez.css">
     <title>Document</title>
 </head>
 
@@ -16,41 +16,27 @@
 
     <main class="wrapper">
         <section class="section-form">
-            <h1>Der Rundfunkbeitrag
+            <h1>Broadcasting contribution
                 <div class="tooltip">
                     <img style="width: 0.75rem;"
                         src="https://img.icons8.com/fluent-systems-regular/48/000000/about.png" />
                     <span class="tooltiptext">
-                        Der Rundfunkbeitrag (ehemals GEZ)
-                        soll den unabhängigen Journalismus sichern.
-                        Der Rundfunkbeitrag ist die Bezeichnung
-                        für das Modell der Finanzierung
-                        der öffentlich-rechtlichen Rundfunkanstalten
-                        und wird durch den ARD ZDF Deutschlandradio
-                        Beitragsservice eingezogen.
-
-                        Grundsätzlich gilt: Für jede Wohnung muss ein
-                        Rundfunkbeitrag gezahlt werden.
-                        Für Zweitwohnungen gibt es eine Ausnahme.
-                        Wer Sozialleistungen bezieht,
-                        kann sich von der Zahlung des Beitrags
-                        befreien lassen.
-
-                        <p>Ausführliche Informationen
+                        Broadcasting contribution is intended to safeguard independent journalism. The broadcasting contribution is the name for the model of financing of the public broadcasters and is collected by the "ARD ZDF Deutschlandradio" contribution service. The basic rule is that a broadcasting fee must be paid for every dwelling. There is an exception for second homes. Anyone who receives social benefits can be exempted from paying the from paying the contribution.
+                        <p>Detailed information
                             <a
                                 href="https://www.mannheim.de/de/service-bieten/integration-migration/anima-ankommen-in-mannheim">Hier</a>
                         </p>
                     </span>
                 </div>
             </h1>
-            <h2>Persönliche Daten:</h2>
-            <p>Pflichtfelder sind mit * gekennzeichnet.</p>
+            <h2>Personal Data:</h2>
+            <p>Required fields are marked with *.</p>
 
             <form name="signup" id="signup" class="form" novalidate>
                 <div id="person">
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Anrede
+                            Salutation
 
                         </label>
 
@@ -61,9 +47,9 @@
 
                             <div class="display-inline" id="geschlecht">
                                 <input type="radio" id="frau" name="geschlecht" class="form-radio" required>
-                                <label for="frau">Frau</label>
+                                <label for="frau">Women</label>
                                 <input type="radio" id="mann" name="geschlecht" class="form-radio" required>
-                                <label for="mann">Mann</label>
+                                <label for="mann">Men</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -71,17 +57,17 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Vorname:
+                            First name:
                         </label>
                         <div class="fehler" id="vornameFehler">
-                            Der eingegebene Vorname darf maximal 19 Zeichen enthalten
+                            The entered first name may contain a maximum of 19 characters
                         </div>
 
                         <div class="form-addon" data-states-for="vorname">
@@ -89,7 +75,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="vorname" name="vorname" class="form-input" placeholder="Vorname"
+                            <input type="text" id="vorname" name="vorname" class="form-input" placeholder="First name"
                                 required>
 
                             <span class="form-addon__icon icon-valid"></span>
@@ -98,25 +84,24 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Nachname:
+                            Last name:
                         </label>
                         <div class="fehler" id="nachnameFehler">
-                            Der eingegebene Nachname / Titel ist zu lang für das GEZ-Formular, die maximale
-                            Zeichenanzahl darf 28 Zeichen betragen
+                            The entered last name / title is too long for the GEZ form, the maximum number of characters may be 28 characters
                         </div>
                         <div class="form-addon" data-states-for="name">
                             <div class="form-addon__addon">
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Nachname" required>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Last name" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -124,17 +109,17 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="geburtsdatum" class="form-label form-label--required">
-                            Geburtsdatum:
+                            Birthday:
                         </label>
                         <div class="fehler" id="fehlerGeburtsdatum">
-                            Das eingegebene Geburtsdatum entspricht nicht der Form "Tag.Monat.Jahr"
+                            The entered date of birth does not correspond to the form "Day.Month.Year".
                         </div>
 
                         <div class="form-addon" data-states-for="geburtsdatum">
@@ -143,29 +128,29 @@
                             </div>
 
                             <input type="date" id="geburtsdatum" name="geburtsdatum" class="form-input"
-                                placeholder="Geburtsdatum" required>
+                                placeholder="Birthday" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
                         </div>
                         <div data-errors-for="geburtdatum">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
 
-                    <span class="umbruch"><input type="button" id="weiter" value="Weiter"
+                    <span class="umbruch"><input type="button" id="weiter" value="Next"
                             class="cookie-consent-banner__cta margin-bottom" /></span>
                 </div>
                 <div class="display-none" id="wohnungsanmeldung">
-                    <h2>Wohnungs-Anmeldung</h2>
+                    <h2>Apartment registration</h2>
                     <div class="form-group">
                         <label for="monat" class="form-label form-label--required">
-                            Monat / Jahr
+                            Month / Year
                         </label>
                         <div id="fehlerMonat" class="fehler">
-                            Wählen Sie einen Monat oder ein Jahr aus, das näher an den aktuellen Werten liegt
+                            Select a month or year closer to the current values
                         </div>
 
                         <div class="form-addon" data-states-for="monat">
@@ -173,7 +158,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="month" id="monat" name="monat" class="form-input" placeholder="Monat Jahr"
+                            <input type="month" id="monat" name="monat" class="form-input" placeholder="Month Year"
                                 required>
 
                             <span class="form-addon__icon icon-valid"></span>
@@ -181,13 +166,13 @@
                         </div>
                         <div data-errors-for="monat">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="straße" class="form-label form-label--required">
-                            Straße
+                            Street
                         </label>
 
                         <div class="form-addon" data-states-for="monat">
@@ -195,7 +180,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="straße" name="straße" class="form-input" placeholder="Straße"
+                            <input type="text" id="straße" name="straße" class="form-input" placeholder="Street"
                                 required>
 
                             <span class="form-addon__icon icon-valid"></span>
@@ -203,7 +188,7 @@
                         </div>
                         <div data-errors-for="straße">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
@@ -213,7 +198,7 @@
                             Hausnummer
                         </label>
                         <div id="hnumberFehlermeldung" class="fehler">
-                            Die eingegebene Hausnummer ist nicht gültig
+                            The entered house number is not valid
                         </div>
 
                         <div class="form-addon" data-states-for="hausnummer">
@@ -222,21 +207,21 @@
                             </div>
 
                             <input type="text" id="hausnummer" name="hausnummer" class="form-input"
-                                placeholder="Hausnummer" step="1" min="1" required>
+                                placeholder="House number" step="1" min="1" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
                         </div>
                         <div data-errors-for="hausnummer">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                               This field is required.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="hausnummer" class="form-label">
-                            Adresszusatz
+                            Address suffix
                         </label>
 
                         <div class="form-addon" data-states-for="adresszusatz">
@@ -244,7 +229,7 @@
                                 <span class="icon-name"></span>
                             </div>
                             <input type="text" id="adresszusatz" name="adresszusatz" class="form-input"
-                                placeholder="Adresszusatz" required>
+                                placeholder="Address suffix" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -253,10 +238,10 @@
 
                     <div class="form-group">
                         <label for="plz" class="form-label form-label--required">
-                            Postleitzahl
+                            Postal code
                         </label>
                         <div id="plzFehlermeldung" class="fehler">
-                            Die eingegebene Postleitzahl ist nicht gültig
+                            The entered postal code is not valid
                         </div>
 
                         <div class="form-addon" data-states-for="plz">
@@ -264,7 +249,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="plz" name="plz" class="form-input" placeholder="Postleitzahl"
+                            <input type="text" id="plz" name="plz" class="form-input" placeholder="Postal code"
                                 min-length="5" max-length="5" required>
 
                             <span class="form-addon__icon icon-valid"></span>
@@ -272,13 +257,13 @@
                         </div>
                         <div data-errors-for="plz">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="stadt" class="form-label form-label--required">
-                            Stadt
+                            City
                         </label>
 
                         <div class="form-addon" data-states-for="stadt">
@@ -286,21 +271,21 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="stadt" name="stadt" class="form-input" placeholder="Stadt" required>
+                            <input type="text" id="stadt" name="stadt" class="form-input" placeholder="City" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
                         </div>
                         <div data-errors-for="stadt">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="tel" class="form-label">
-                            Telefonnummer
+                            Telephone number:
                         </label>
 
                         <div class="form-addon" data-states-for="tel">
@@ -308,22 +293,22 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="tel" id="tel" name="tel" class="form-input" placeholder="Telefonnummer">
+                            <input type="tel" id="tel" name="tel" class="form-input" placeholder="Telephone number">
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
                         </div>
                     </div>
                     <span class="umbruch">
-                        <input type="button" id="weiter-1" value="Weiter"
+                        <input type="button" id="weiter-1" value="Next"
                             class="cookie-consent-banner__cta margin-bottom" />
                     </span>
                 </div>
                 <div id="zahlung" class="display-none">
-                    <h2>Angaben zur Zahlung</h2>
+                    <h2>Payment details</h2>
                     <div class="form-group">
                         <label for="zahlungart" class="form-label form-label--required">
-                            Gesetzliche Zahlung
+                            Legal payment
                         </label>
 
                         <div class="" data-states-for="zahlung-field">
@@ -332,9 +317,9 @@
                             </div>
 
                             <div class="display-inline" id="zahlung">
-                                <input type="radio" id="gesetz" value="gesetzlich-Mitte" name="zahlungart"
+                                <input type="radio" id="gesetz" value="legal-center" name="Payment method"
                                     class="form-radio" required>
-                                <label for="gesetz">in der Mitte eines Dreimonatszeitraums</label>
+                                <label for="gesetz">in the middle of a three-month period</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -342,13 +327,13 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Vorauszahlung
+                            Prepayment
                         </label>
 
                         <div class="" data-states-for="zahlung-field">
@@ -358,11 +343,11 @@
 
                             <div class="display-inline" id="zahlung">
                                 <input type="radio" id="viertel" name="zahlungart" class="form-radio" required>
-                                <label for="viertel">vierteljährlich im Voraus</label>
+                                <label for="quarter">quarterly in advance</label>
                                 <input type="radio" id="halb" name="zahlungart" class="form-radio" required>
-                                <label for="halb">halbjährlich im Voraus </label>
+                                <label for="half">Half-yearly in advance </label>
                                 <input type="radio" id="jahr" name="zahlungart" class="form-radio" required>
-                                <label for="jahr">jährlich im Voraus</label>
+                                <label for="year">annually in advance</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -370,13 +355,13 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Zahlungen werden über erfolgen:
+                            Payments will be made via:
                         </label>
 
                         <div class="" data-states-for="zahlung-field">
@@ -388,7 +373,7 @@
                                 <input type="radio" id="frau" name="uberweisungsart" class="form-radio" required>
                                 <label for="frau">durch Lastschrift</label>
                                 <input type="radio" id="frau" name="uberweisungsart" class="form-radio" required>
-                                <label for="frau">durch Überweisung</label>
+                                <label for="frau">by bank transfer</label>
                             </div>
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -396,38 +381,31 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
 
                     <span class="umbruch">
-                        <input type="button" id="weiter-2" value="Weiter"
+                        <input type="button" id="weiter-2" value="Next"
                             class="cookie-consent-banner__cta margin-bottom" />
                     </span>
                 </div>
                 <div id="lastschrift" class="display-none">
-                    <h2>SEPA-Lastschriftmandat</h2>
+                    <h2>SEPA direct debit mandate</h2>
 
                     <p style="font-size: 0.75rem;">
-                        Gläubiger-Identifikationsnummer des Beitragsservice von ARD,
-                        ZDF und Deutschlandradio: DE3000100000001272
-                        Ich ermächtige den Beitragsservice von ARD, ZDF und
-                        Deutschlandradio, Zahlungen von meinem Konto mittels Lastschrift
-                        einzuziehen. Zugleich weise ich mein Kreditinstitut
-                        an, die vom Beitragsservice von ARD, ZDF und Deutschlandradio auf mein
-                        Konto gezogenen Lastschriften einzulösen.
-                        Hinweis: Ich kann innerhalb von acht Wochen,
-                        beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags
-                        verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
+Creditor identification number of the contribution service of ARD, ZDF and Deutschlandradio: DE30001000001272.
+I authorize the Contribution Service of "ARD, ZDF und Deutschlandradio" to make payments from my account by means of direct debit by direct debit. At the same time, I instruct my credit institution
+the contribution service of "ARD, ZDF und Deutschlandradio" to my account. my account by the Contribution Service of "ARD, ZDF und Deutschlandradio". Note: I can cancel the direct debit within eight weeks the debit date, I can demand a refund of the debited amount. Demand reimbursement of the debited amount. The conditions agreed with my credit institution apply.
                     </p>
 
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Vorname:
+                            First Name
                         </label>
                         <div class="fehler" id="vornameFehler">
-                            Der eingegebene Vorname darf maximal 19 Zeichen enthalten
+                            The entered first name may contain a maximum of 19 characters
                         </div>
 
                         <div class="form-addon" data-states-for="vorname">
@@ -435,7 +413,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="vorname" name="vorname" class="form-input" placeholder="Vorname"
+                            <input type="text" id="vorname" name="vorname" class="form-input" placeholder="First name"
                                 required>
 
                             <span class="form-addon__icon icon-valid"></span>
@@ -444,24 +422,23 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Nachname:
+                           Last Name:
                         </label>
                         <div class="fehler" id="nachnameFehler">
-                            Der eingegebene Nachname / Titel ist zu lang für das GEZ-Formular, die maximale
-                            Zeichenanzahl darf 28 Zeichen betragen
+                            The entered last name / title is too long for the GEZ form, the maximum number of characters may be 28 characters
                         </div>
                         <div class="form-addon" data-states-for="name">
                             <div class="form-addon__addon">
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Nachname" required>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Last name" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -469,13 +446,13 @@
 
                         <div data-errors-for="name">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="straße" class="form-label form-label--required">
-                            Straße
+                            Street:
                         </label>
 
                         <div class="form-addon" data-states-for="monat">
@@ -483,7 +460,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="straße" name="straße" class="form-input" placeholder="Straße"
+                            <input type="text" id="straße" name="straße" class="form-input" placeholder="Street"
                                 required>
 
                             <span class="form-addon__icon icon-valid"></span>
@@ -491,16 +468,16 @@
                         </div>
                         <div data-errors-for="straße">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="hausnummer" class="form-label form-label--required">
-                            Hausnummer
+                            House number
                         </label>
                         <div id="hnumberFehlermeldung" class="fehler">
-                            Die eingegebene Hausnummer ist nicht gültig
+                            The entered house number is not valid
                         </div>
 
                         <div class="form-addon" data-states-for="hausnummer">
@@ -509,23 +486,23 @@
                             </div>
 
                             <input type="text" id="hausnummer" name="hausnummer" class="form-input"
-                                placeholder="Hausnummer" step="1" min="1" required>
+                                placeholder="House number" step="1" min="1" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
                         </div>
                         <div data-errors-for="hausnummer">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="plz" class="form-label form-label--required">
-                            Postleitzahl
+                            Postal code
                         </label>
                         <div id="plzFehlermeldung" class="fehler">
-                            Die eingegebene Postleitzahl ist nicht gültig
+                            The entered postal code is not valid
                         </div>
 
                         <div class="form-addon" data-states-for="plz">
@@ -533,7 +510,7 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="plz" name="plz" class="form-input" placeholder="Postleitzahl"
+                            <input type="text" id="plz" name="plz" class="form-input" placeholder="Postal code"
                                 min-length="5" max-length="5" required>
 
                             <span class="form-addon__icon icon-valid"></span>
@@ -541,13 +518,13 @@
                         </div>
                         <div data-errors-for="plz">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="stadt" class="form-label form-label--required">
-                            Stadt
+                            City
                         </label>
 
                         <div class="form-addon" data-states-for="stadt">
@@ -555,14 +532,14 @@
                                 <span class="icon-name"></span>
                             </div>
 
-                            <input type="text" id="stadt" name="stadt" class="form-input" placeholder="Stadt" required>
+                            <input type="text" id="stadt" name="stadt" class="form-input" placeholder="City" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
                         </div>
                         <div data-errors-for="stadt">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
@@ -572,7 +549,7 @@
                             IBAN:
                         </label>
                         <div class="fehler" id="vornameFehler">
-                            IBAN darf 22 Stellen lang sein.
+                            IBAN may be 22 digits long.
                         </div>
 
                         <div class="form-addon" data-states-for="iban">
@@ -588,7 +565,7 @@
 
                         <div data-errors-for="iban">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
@@ -598,7 +575,7 @@
                             BIC:
                         </label>
                         <div class="fehler" id="bicFehler">
-                            BIC darf 11 Stellen lang sein.
+                            BIC may be 11 digits long.
                         </div>
 
                         <div class="form-addon" data-states-for="bic">
@@ -614,17 +591,17 @@
 
                         <div data-errors-for="bic">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="name" class="form-label form-label--required">
-                            Kreditinstitut:
+                            Credit institution:
                         </label>
                         <div class="fehler" id="kreditinstitutFehler">
-                            Geben sie gültiges Kreditinstitut an
+                            Specify valid credit institution
                         </div>
 
                         <div class="form-addon" data-states-for="kreditinstitut">
@@ -633,7 +610,7 @@
                             </div>
 
                             <input type="text" id="kreditinstitut" name="kreditinstitut" class="form-input"
-                                placeholder="Kreditinstitut" required>
+                                placeholder="Credit institution" required>
 
                             <span class="form-addon__icon icon-valid"></span>
                             <span class="form-addon__icon icon-invalid"></span>
@@ -641,81 +618,14 @@
 
                         <div data-errors-for="kreditinstitut">
                             <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
+                                This field is required.
                             </small>
                         </div>
                     </div>
 
-                    <input class="cookie-consent-banner__cta margin-bottom" type="submit" value="Abschicken">
+                    <input class="cookie-consent-banner__cta margin-bottom" type="submit" value="Submit">
                 </div>
                 </div>
-
-                <!--<div class="form-group">
-                    <label for="email" class="form-label form-label--required">
-                        Email:
-                    </label>
-                    <div class="form-addon" data-states-for="email">
-                        <div class="form-addon__addon">
-                            <span class="icon-email"></span>
-                        </div>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="test@email.com"
-                            required>
-                        <span class="form-addon__icon icon-valid"></span>
-                        <span class="form-addon__icon icon-invalid"></span>
-                    </div>
-                    <div data-errors-for="email">
-                        <small class="form-error" data-errors-when="valueMissing">
-                            Dieses Feld wird benötigt.
-                        </small>
-                        <small class="form-error" data-errors-when="typeMismatch">
-                            Bitte geben Sie eine gültige E-Mail-Adresse ein.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="phone" class="form-label">
-                        Nummer:
-                    </label>
-                    <div class="form-addon" data-states-for="phone">
-                        <div class="form-addon__addon">
-                            <span class="icon-phone"></span>
-                        </div>
-                        <input type="text" id="phone" name="phone" class="form-input" placeholder="123 456 789"
-                            pattern="[0-9]{3} [0-9]{3} [0-9]{3}">
-                        <span class="form-addon__icon icon-valid"></span>
-                        <span class="form-addon__icon icon-invalid"></span>
-                    </div>
-                    <div data-errors-for="phone">
-                        <small class="form-error" data-errors-when="patternMismatch">
-                            Bitte geben Sie eine gültige Telefonnummer ein.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="password" class="form-label form-label--required">
-                        Passwort <span class="text-muted">(Min. 8 Zeichen)</span>:
-                    </label>
-                    <div class="form-addon" data-states-for="password">
-                        <div class="form-addon__addon">
-                            <span class="icon-password"></span>
-                        </div>
-                        <input type="password" id="password" name="password" class="form-input" placeholder="********"
-                            minlength="6" required>
-                        <span class="form-addon__icon icon-valid"></span>
-                        <span class="form-addon__icon icon-invalid"></span>
-                    </div>
-                    <div data-errors-for="password">
-                        <small class="form-error" data-errors-when="valueMissing">
-                            Dieses Feld wird benötigt.
-                        </small>
-                        <small class="form-error" data-errors-when="tooShort">
-                            Ihr Passwort sollte mindestens 6 Zeichen lang sein.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-footer">
-                    <button type="submit" class="button">Weiter</button>
-                </div>-->
             </form>
         </section>
     </main>
