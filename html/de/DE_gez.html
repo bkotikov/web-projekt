@@ -53,6 +53,9 @@
                     <label for="name" class="form-label form-label--required">
                         Vorname:
                     </label>
+                    <div class = "fehler" id = "vornameFehler">
+                      Der eingegebene Vorname darf maximal 19 Zeichen enthalten
+                    </div>
 
                     <div class="form-addon" data-states-for="vorname">
                         <div class="form-addon__addon">
@@ -76,7 +79,9 @@
                     <label for="name" class="form-label form-label--required">
                         Nachname:
                     </label>
-
+                    <div class = "fehler" id = "nachnameFehler">
+                      Der eingegebene Nachname / Titel ist zu lang für das GEZ-Formular, die maximale Zeichenanzahl darf 28 Zeichen betragen
+                    </div>
                     <div class="form-addon" data-states-for="name">
                         <div class="form-addon__addon">
                             <span class="icon-name"></span>
@@ -99,6 +104,9 @@
                     <label for="geburtsdatum" class="form-label form-label--required">
                         Geburtsdatum:
                     </label>
+                    <div class = "fehler" id = "fehlerGeburtsdatum">
+                      Das eingegebene Geburtsdatum entspricht nicht der Form "Tag.Monat.Jahr"
+                    </div>
 
                     <div class="form-addon" data-states-for="geburtsdatum">
                         <div class="form-addon__addon">
@@ -118,7 +126,7 @@
                 </div>
 
                 <span class="umbruch"><input type="button" id="weiter" value="Weiter"
-                    class="cookie-consent-banner__cta margin-bottom" tab-index="3" /></span>
+                    class="cookie-consent-banner__cta margin-bottom" /></span>
                 </div>
                 <div class = "display-none" id = "wohnungsanmeldung">
                   <h2>Wohnungs-Anmeldung</h2>
@@ -126,6 +134,9 @@
                       <label for="monat" class="form-label form-label--required">
                         Monat / Jahr
                       </label>
+                      <div id = "fehlerMonat" class = "fehler">
+                         Wählen Sie einen Monat oder ein Jahr aus, das näher an den aktuellen Werten liegt
+                      </div>
 
                       <div class="form-addon" data-states-for="monat">
                           <div class="form-addon__addon">
@@ -142,55 +153,77 @@
                               Dieses Feld wird benötigt.
                           </small>
                       </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="straße" class="form-label form-label--required">
+                        Straße
+                      </label>
 
-                      <div class="form-group">
-                          <label for="straße" class="form-label form-label--required">
-                            Straße
-                          </label>
-
-                          <div class="form-addon" data-states-for="monat">
-                              <div class="form-addon__addon">
-                                  <span class="icon-name"></span>
-                              </div>
-
-                              <input type="text" id="straße" name="straße" class="form-input" placeholder="Straße" required>
-
-                              <span class="form-addon__icon icon-valid"></span>
-                              <span class="form-addon__icon icon-invalid"></span>
+                      <div class="form-addon" data-states-for="monat">
+                          <div class="form-addon__addon">
+                              <span class="icon-name"></span>
                           </div>
-                          <div data-errors-for="straße">
-                              <small class="form-error" data-errors-when="valueMissing">
-                                  Dieses Feld wird benötigt.
-                              </small>
-                          </div>
+
+                          <input type="text" id="straße" name="straße" class="form-input" placeholder="Straße" required>
+
+                          <span class="form-addon__icon icon-valid"></span>
+                          <span class="form-addon__icon icon-invalid"></span>
                       </div>
-
-                      <div class="form-group">
-                          <label for="hausnummer" class="form-label form-label--required">
-                            Hausnummer
-                          </label>
-
-                          <div class="form-addon" data-states-for="hausnummer">
-                              <div class="form-addon__addon">
-                                  <span class="icon-name"></span>
-                              </div>
-
-                              <input type="text" id="hausnummer" name="hausnummer" class="form-input" placeholder="Hausnummer" step="1" min="1" required>
-
-                              <span class="form-addon__icon icon-valid"></span>
-                              <span class="form-addon__icon icon-invalid"></span>
-                          </div>
-                          <div data-errors-for="hausnummer">
-                              <small class="form-error" data-errors-when="valueMissing">
-                                  Dieses Feld wird benötigt.
-                              </small>
-                          </div>
+                      <div data-errors-for="straße">
+                          <small class="form-error" data-errors-when="valueMissing">
+                              Dieses Feld wird benötigt.
+                          </small>
                       </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="hausnummer" class="form-label form-label--required">
+                        Hausnummer
+                    </label>
+                    <div id = "hnumberFehlermeldung" class="fehler">
+                      Die eingegebene Hausnummer ist nicht gültig
+                    </div>
+
+                    <div class="form-addon" data-states-for="hausnummer">
+                        <div class="form-addon__addon">
+                            <span class="icon-name"></span>
+                        </div>
+
+                        <input type="text" id="hausnummer" name="hausnummer" class="form-input" placeholder="Hausnummer" step="1" min="1" required>
+
+                        <span class="form-addon__icon icon-valid"></span>
+                        <span class="form-addon__icon icon-invalid"></span>
+                    </div>
+                    <div data-errors-for="hausnummer">
+                        <small class="form-error" data-errors-when="valueMissing">
+                            Dieses Feld wird benötigt.
+                        </small>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="hausnummer" class="form-label">
+                        Adresszusatz
+                      </label>
+
+                      <div class="form-addon" data-states-for="adresszusatz">
+                        <div class="form-addon__addon">
+                          <span class="icon-name"></span>
+                        </div>
+                        <input type="text" id="adresszusatz" name="adresszusatz" class="form-input" placeholder="Adresszusatz" required>
+
+                        <span class="form-addon__icon icon-valid"></span>
+                        <span class="form-addon__icon icon-invalid"></span>
+                      </div>
+                  </div>
 
                       <div class="form-group">
                           <label for="plz" class="form-label form-label--required">
                             Postleitzahl
                           </label>
+                          <div id = "plzFehlermeldung" class="fehler">
+                            Die eingegebene Postleitzahl ist nicht gültig
+                          </div>
 
                           <div class="form-addon" data-states-for="plz">
                               <div class="form-addon__addon">
@@ -207,6 +240,50 @@
                                   Dieses Feld wird benötigt.
                               </small>
                           </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="stadt" class="form-label form-label--required">
+                            Stadt
+                          </label>
+
+                          <div class="form-addon" data-states-for="stadt">
+                              <div class="form-addon__addon">
+                                  <span class="icon-name"></span>
+                              </div>
+
+                              <input type="text" id="stadt" name="stadt" class="form-input" placeholder="Stadt" required>
+
+                              <span class="form-addon__icon icon-valid"></span>
+                              <span class="form-addon__icon icon-invalid"></span>
+                          </div>
+                          <div data-errors-for="stadt">
+                              <small class="form-error" data-errors-when="valueMissing">
+                                  Dieses Feld wird benötigt.
+                              </small>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="tel" class="form-label">
+                            Telefonnummer
+                          </label>
+
+                          <div class="form-addon" data-states-for="tel">
+                              <div class="form-addon__addon">
+                                  <span class="icon-name"></span>
+                              </div>
+
+                              <input type="tel" id="tel" name="tel" class="form-input" placeholder="Telefonnummer">
+
+                              <span class="form-addon__icon icon-valid"></span>
+                              <span class="form-addon__icon icon-invalid"></span>
+                          </div>
+                      </div>
+                      <span class="umbruch"><input type="button" id="weiter-1" value="Weiter"
+                          class="cookie-consent-banner__cta margin-bottom" /></span>
+                      </div>
+                      <div id = "zahlung" class = "display-none">
+                        <h2>Hier kommen die Angaben zur Zahlungsweise rein</h2>
                       </div>
 
 
@@ -326,7 +403,6 @@
     <script src="/static/js/index.js"></script>
     <script src="/static/js/banner.js"></script>
     <script type="text/javascript" src="/static/js/footer.js"></script>
-    <script type="text/javascript" src="/node/js/gentleform/dist/GentleForm.js"></script>
     <script src="/static/js/gez.js"></script>
 </body>
 

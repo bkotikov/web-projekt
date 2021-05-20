@@ -172,6 +172,13 @@
     display: none;
   }
 
+  .fehler {
+    display: none;
+    width: 100 %;
+    color: red;
+  }
+
+
   /*---------------------------------------------*\
       GentleForm related styles
   \*---------------------------------------------*/
