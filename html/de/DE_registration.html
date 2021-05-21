@@ -6,108 +6,59 @@
   <meta viewport="width = device-width, initial-scale = 1.0" />
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/login.css">
-  <link rel="stylesheet" href="/static/css/registrierung.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <title>Registrierung</title>
 </head>
 
 <body>
-  <div class="header">
-    <div id="banner"></div>
-    <hr>
-  </div>
+  <div id="banner"></div>
 
-  <div id="registrierung">
-    <form action="/de/registrierungPruefen" method="POST">
-      <div id="login">
-        <h1 id="loginInformation">
-          Bitte geben Sie ihre Registrierungs-Informationen ein:
-        </h1>
-
-
-        <fieldset class="margin-bottom flex">
-          <legend id="anschrift">Konto erstellen:</legend>
-
-          <div class="form">
-
-            <label for="emailAdresse">Email-Adresse: </label>
-            <br />
-            <input id="emailAdresse" type="email" class="height" required tab-index="1" />
-            <div id="emailFehlermeldung" class="fehlermeldung">Die eingegebene Email-Adresse ist nicht gültig</div>
-
-            <br />
-
-
-
-            <label for="passwort">Passwort: </label>
-            <br />
-            <input id="passwort" type="password" class="height" required tab-index="2" />
-            <div id="passwortFehlermeldung" class="fehlermeldung">Das Passwort muss aus min. 8
-              Zeichen, einem Großbuchstaben, einem Kleinbuchstaben, einer Zahl und einem Sonderzeichen bestehen</div>
-
-
-
-
+  <main class="main">
+    <div class="container">
+      <section class="wrapper">
+        <div class="heading">
+          <h1 class="text text-large">Anmelden</h1>
+          <p class="text text-normal">neuer Benutzer? <span><a href="#" class="text text-links">Create an
+                account</a></span>
+          </p>
+        </div>
+        <form name="login" class="form">
+          <div class="input-control">
+            <label for="email" class="input-label" hidden>E-Mail Adresse</label>
+            <input type="email" name="email" class="input-field" placeholder="E-Mail Adresse">
           </div>
-          <div class="form">
-
-            <label for="vorname"> Vorname: </label>
-            <br />
-            <input id="vorname" type="text" class="height" tab-index="3" />
-
-
-            <br />
-
-            <label for="nachname"> Nachname: </label>
-            <br />
-            <input id="nachname" type="text" class="height" tab-index="4" />
-
-
+          <div class="input-control">
+            <label for="password" class="input-label" hidden>Passwort</label>
+            <input type="password" name="password" class="input-field" placeholder="Passwort">
           </div>
-
-
-
-
-
-        </fieldset>
-        <fieldset class="margin-bottom flex">
-          <legend id="anschrift">Anschrift hinzufügen:</legend>
-
-
-
-          <div class="form">
-            <label for="straße">Straße: </label>
-            <br />
-            <input type="text" id=straße name="straße" class="height" tab-index="5" />
-
-            <br />
-
-            <label for="hausnummer">Hausnummer: </label>
-            <br />
-            <input type="text" id="hausnummer" name="hausnummer" class="height" step="1" min="1" tab-index="6" />
-            <div id="hnumberFehlermeldung" class="fehlermeldung">Die eingegebene Hausnummer ist nicht gültig</div>
-
+          <div class="input-control">
+            <a href="#" class="text text-links">Passwort vergessen</a>
+            <input type="button" name="submit" class="input-submit" value="Login" disabled>
           </div>
-          <div class="form">
-
-            <label for="postleitzahl">Postleitzahl: </label>
-            <br />
-            <input type="name" id="postleitzahl" name="postleitzahl" class="height" min-length="5" max-length="5"
-              tab-index="7" />
-            <div id="plzFehlermeldung" class="fehlermeldung">Die eingegebene Postleitzahl ist nicht gültig</div>
-            <br />
-
-            <label for="stadt">Stadt: </label>
-            <br />
-            <input type="name" id="stadt" name="stadt" class="height" tab-index="8" />
+        </form>
+        <div class="striped">
+          <span class="striped-line"></span>
+          <span class="striped-text">Oder</span>
+          <span class="striped-line"></span>
+        </div>
+        <div class="method">
+          <div class="method-control">
+            <a href="#" class="method-action">
+              <i class="bi bi-google ion-logo-google"></i>
+              <span>Anmelden mit Google</span>
+            </a>
           </div>
-        </fieldset>
-        <span class="umbruch"><input type="submit" id="submitLogin" value="Registrieren"
-            class="cookie-consent-banner__cta margin-bottom" tab-index="9" /></span>
-      </div>
-
-    </form>
-  </div>
+          <div class="method-control">
+            <a href="#" class="method-action">
+              <i class="bi bi-facebook ion-logo-facebook"></i>
+              <span></i>Anmelden mit Facebook</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
   <div class="footer">
     <div class="card-section">
