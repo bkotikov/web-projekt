@@ -9,720 +9,938 @@
     <!--<link rel="stylesheet" href="/static/css/registrierung.css">-->
     <link rel="stylesheet" href="/static/css/gez.css">
     <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .form-sec {
+            display: block;
+            width: 100%;
+            -webkit-box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 0.5);
+            padding: 2rem 0;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .form-sec-text-main {
+            text-align: left;
+            text-decoration: none;
+            text-shadow: none;
+            font-weight: 500;
+            font-size: 2.25rem;
+            padding: 0;
+            margin: 1rem 0;
+            color: black;
+        }
+
+        .form-sec-text-second {
+            text-align: left;
+            text-decoration: none;
+            text-shadow: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0;
+            margin: 1rem 0;
+            color: black;
+        }
+
+        .page {
+            display: block;
+            width: 100%;
+            margin: 0;
+        }
+
+        .page,
+        .page-content,
+        .btn-field {
+            padding: 0 1rem;
+        }
+
+        .btn-field {
+            margin: 0 auto;
+            width: 100%;
+            display: block;
+        }
+
+        .btn-page {
+            display: inline-block;
+        }
+
+        .btn {
+            width: 100%;
+            display: inline-block;
+            padding: 0.5rem 3rem;
+            color: #fff;
+            background: #33c74f;
+            border: 1px solid #000;
+            border-radius: 1rem;
+            opacity: 0.92;
+            margin: 0 0 1rem 0;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .page-main-text {
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            text-shadow: none;
+            font-weight: 500;
+            font-size: 1.5rem;
+            padding: 0;
+            margin: 2rem 0 1rem 0;
+            color: black;
+        }
+
+        .page-row {
+            /*margin: 0 auto;*/
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            /*justify-content: center;*/
+            /*align-items: center;*/
+        }
+
+        .btn-row {
+            /*margin: 0 auto;*/
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            /*justify-content: center;*/
+            /*align-items: center;*/
+        }
+
+        .page-auto {
+            flex: 0 0 auto;
+            width: auto;
+        }
+
+        .page-1 {
+            flex: 0 0 auto;
+            width: 8.3333333333%;
+        }
+
+        .page-2 {
+            flex: 0 0 auto;
+            width: 16.6666666667%;
+        }
+
+        .page-3 {
+            flex: 0 0 auto;
+            width: 25%;
+        }
+
+        .page-4 {
+            flex: 0 0 auto;
+            width: 33.3333333333%;
+        }
+
+        .page-5 {
+            flex: 0 0 auto;
+            width: 41.6666666667%;
+        }
+
+        .page-6 {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+
+        .page-7 {
+            flex: 0 0 auto;
+            width: 58.3333333333%;
+        }
+
+        .page-8 {
+            flex: 0 0 auto;
+            width: 66.6666666667%;
+        }
+
+        .page-9 {
+            flex: 0 0 auto;
+            width: 75%;
+        }
+
+        .page-10 {
+            flex: 0 0 auto;
+            width: 83.3333333333%;
+        }
+
+        .page-11 {
+            flex: 0 0 auto;
+            width: 91.6666666667%;
+        }
+
+        .page-12 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+
+        /*.page-12 > .text-field {
+            margin: 5px !important;
+        }*/
+
+        .page-label-text {
+            text-align: left;
+            text-decoration: none;
+            text-shadow: none;
+            font-weight: 500;
+            font-size: 1.25rem;
+            /*padding: 0.75rem;*/
+            margin: 1rem 0;
+            color: black;
+        }
+
+        .page-inside {
+            margin: 0 0 1rem 0;
+        }
+
+        .page-inside-row {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mandat-text {
+            text-align: left;
+            text-decoration: none;
+            text-shadow: none;
+            font-size: 0.65rem;
+        }
+
+        .payment-row {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .yearly,
+        .quarterly,
+        .semiannual {
+            text-align: center;
+            text-decoration: none;
+            text-shadow: none;
+            font-size: 0.75rem;
+        }
+
+        .label-text {
+            display: block;
+            text-align: left;
+            text-decoration: none;
+            text-shadow: none;
+            font-weight: 500;
+            font-size: 1.25rem;
+            /*padding: 0.75rem;*/
+            margin: 0 0 0.5rem 0;
+            color: black;
+        }
+
+        .text-field {
+            width: 100%;
+            padding: 0.5rem 0 0.5rem 0.5rem;
+            margin: 0 0 1rem 0;
+            border: 1px solid #000;
+            border-radius: 1rem;
+        }
+
+        .plz-field {
+            /*width: 50% !important;*/
+        }
+
+        .accept-field {
+            margin: 0 0 1rem;
+        }
+
+        .accept-label {
+            text-align: left;
+            text-decoration: none;
+            text-shadow: none;
+            font-size: 0.75rem;
+            font-weight: 400;
+
+            margin: 0 0 1rem;
+        }
+
+        .btn-row:nth-child(1) {
+            margin: 0 1rem 0 0 !important;
+        }
+
+        .btn-row:nth-child(2) {
+            margin: 0 0 0 1rem !important;
+        }
+
+        @media (min-width: 576px) {
+            .btn {
+                max-width: 50%;
+                padding: 0.5rem 3rem;
+            }
+
+
+
+            .date-field {
+                width: 95% !important;
+            }
+
+            .page-sm-1 {
+                flex: 0 0 auto;
+                width: 8.3333333333%;
+            }
+
+            .page-sm-2 {
+                flex: 0 0 auto;
+                width: 16.6666666667%;
+            }
+
+            .page-sm-3 {
+                flex: 0 0 auto;
+                width: 25%;
+            }
+
+            .page-sm-4 {
+                flex: 0 0 auto;
+                width: 33.3333333333%;
+            }
+
+            .page-sm-5 {
+                flex: 0 0 auto;
+                width: 41.6666666667%;
+            }
+
+            .page-sm-6 {
+                flex: 0 0 auto;
+                width: 50%;
+            }
+
+            .page-sm-7 {
+                flex: 0 0 auto;
+                width: 58.3333333333%;
+            }
+
+            .page-sm-8 {
+                flex: 0 0 auto;
+                width: 66.6666666667%;
+            }
+
+            .page-sm-9 {
+                flex: 0 0 auto;
+                width: 75%;
+            }
+
+            .page-sm-10 {
+                flex: 0 0 auto;
+                width: 83.3333333333%;
+            }
+
+            .page-sm-11 {
+                flex: 0 0 auto;
+                width: 91.6666666667%;
+            }
+
+            .page-sm-12 {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+
+            .page-inside-row {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .form-sec {
+                max-width: 700px;
+                width: 100%;
+                margin: 3rem auto;
+            }
+
+            .page,
+            .page-content,
+            .btn-field {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+
+            .page-md-1 {
+                flex: 0 0 auto;
+                width: 8.3333333333%;
+            }
+
+            .page-md-2 {
+                flex: 0 0 auto;
+                width: 16.6666666667%;
+            }
+
+            .page-md-3 {
+                flex: 0 0 auto;
+                width: 25%;
+            }
+
+            .page-md-4 {
+                flex: 0 0 auto;
+                width: 33.3333333333%;
+            }
+
+            .page-md-5 {
+                flex: 0 0 auto;
+                width: 41.6666666667%;
+            }
+
+            .page-md-6 {
+                flex: 0 0 auto;
+                width: 50%;
+            }
+
+            .page-md-7 {
+                flex: 0 0 auto;
+                width: 58.3333333333%;
+            }
+
+            .page-md-8 {
+                flex: 0 0 auto;
+                width: 66.6666666667%;
+            }
+
+            .page-md-9 {
+                flex: 0 0 auto;
+                width: 75%;
+            }
+
+            .page-md-10 {
+                flex: 0 0 auto;
+                width: 83.3333333333%;
+            }
+
+            .page-md-11 {
+                flex: 0 0 auto;
+                width: 91.6666666667%;
+            }
+
+            .page-md-12 {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+
+            .btn-field {
+                width: 80%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .form-sec {
+                max-width: 700px;
+                width: 100%;
+                margin: 5rem auto;
+            }
+
+            .page,
+            .page-content,
+            .btn-field {
+                width: 60%;
+                margin: 0 auto;
+            }
+
+            .page-lg-1 {
+                flex: 0 0 auto;
+                width: 8.3333333333%;
+            }
+
+            .page-lg-2 {
+                flex: 0 0 auto;
+                width: 16.6666666667%;
+            }
+
+            .page-lg-3 {
+                flex: 0 0 auto;
+                width: 25%;
+            }
+
+            .page-lg-4 {
+                flex: 0 0 auto;
+                width: 33.3333333333%;
+            }
+
+            .page-lg-5 {
+                flex: 0 0 auto;
+                width: 41.6666666667%;
+            }
+
+            .page-lg-6 {
+                flex: 0 0 auto;
+                width: 50%;
+            }
+
+            .page-lg-7 {
+                flex: 0 0 auto;
+                width: 58.3333333333%;
+            }
+
+            .page-lg-8 {
+                flex: 0 0 auto;
+                width: 66.6666666667%;
+            }
+
+            .page-lg-9 {
+                flex: 0 0 auto;
+                width: 75%;
+            }
+
+            .page-lg-10 {
+                flex: 0 0 auto;
+                width: 83.3333333333%;
+            }
+
+            .page-lg-11 {
+                flex: 0 0 auto;
+                width: 91.6666666667%;
+            }
+
+            .page-lg-12 {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+
+            .page,
+            .page-content {
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            .page-xl-1 {
+                flex: 0 0 auto;
+                width: 8.3333333333%;
+            }
+
+            .page-xl-2 {
+                flex: 0 0 auto;
+                width: 16.6666666667%;
+            }
+
+            .page-xl-3 {
+                flex: 0 0 auto;
+                width: 25%;
+            }
+
+            .page-xl-4 {
+                flex: 0 0 auto;
+                width: 33.3333333333%;
+            }
+
+            .page-xl-5 {
+                flex: 0 0 auto;
+                width: 41.6666666667%;
+            }
+
+            .page-xl-6 {
+                flex: 0 0 auto;
+                width: 50%;
+            }
+
+            .page-xl-7 {
+                flex: 0 0 auto;
+                width: 58.3333333333%;
+            }
+
+            .page-xl-8 {
+                flex: 0 0 auto;
+                width: 66.6666666667%;
+            }
+
+            .page-xl-9 {
+                flex: 0 0 auto;
+                width: 75%;
+            }
+
+            .page-xl-10 {
+                flex: 0 0 auto;
+                width: 83.3333333333%;
+            }
+
+            .page-xl-11 {
+                flex: 0 0 auto;
+                width: 91.6666666667%;
+            }
+
+            .page-xl-12 {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+
+        .date-field {
+            width: 100%;
+            padding: 0.5rem 0 0.5rem 0.5rem;
+            margin: 0 0 1rem 0;
+            border: 1px solid #000;
+            border-radius: 1rem;
+        }
+    </style>
 </head>
 
 <body>
     <div id="banner"></div>
 
-    <main class="wrapper">
-        <section class="section-form">
-            <h1>Der Rundfunkbeitrag
-                <div class="tooltip">
-                    <img style="width: 0.75rem;"
-                        src="https://img.icons8.com/fluent-systems-regular/48/000000/about.png" />
-                    <span class="tooltiptext">
-                        Der Rundfunkbeitrag (ehemals GEZ)
-                        soll den unabhängigen Journalismus sichern.
-                        Der Rundfunkbeitrag ist die Bezeichnung
-                        für das Modell der Finanzierung
-                        der öffentlich-rechtlichen Rundfunkanstalten
-                        und wird durch den ARD ZDF Deutschlandradio
-                        Beitragsservice eingezogen.
 
-                        Grundsätzlich gilt: Für jede Wohnung muss ein
-                        Rundfunkbeitrag gezahlt werden.
-                        Für Zweitwohnungen gibt es eine Ausnahme.
-                        Wer Sozialleistungen bezieht,
-                        kann sich von der Zahlung des Beitrags
-                        befreien lassen.
+    <section class="form-sec">
+        <div class="page-content">
+            <h2 class="form-sec-text-main">Neuanmeldung einer Wohnung </h2>
+            <p class="form-sec-text-second">
+                Nutzen Sie dieses Formular für die Neuanmeldung einer Wohnung.
+                Sind Sie bereits mit einer Wohnung
+                angemeldet oder wollen eine Zweit- oder
+                Nebenwohnung bzw. ausschließlich privat genutzte Ferienwohnung
+                anmelden? Nutzen Sie dafür bitte das
+                Formular "Zumeldung einer weiteren Wohnung".
+            </p>
+            <p class="form-sec-text-second">
+                Pflichtfelder sind mit * gekennzeichnet.
+            </p>
+        </div>
 
-                        <p>Ausführliche Informationen
-                            <a
-                                href="https://www.mannheim.de/de/service-bieten/integration-migration/anima-ankommen-in-mannheim">Hier</a>
-                        </p>
-                    </span>
+        <div class="page">
+            <h3 class="page-main-text">
+                1. Allgemeine Angaben
+            </h3>
+            <div class="page-row">
+                <div class="page-12">
+                    <label class="label-text" for="salutation">Anrede</label>
+                    <div class="page-inside" id="salutation">
+                        <input type="radio" name="gender" id="men" value="men">
+                        <label for="men">Man</label>
+
+                        <input type="radio" name="gender" id="woman" value="woman">
+                        <label for="woman">Frau</label>
+                    </div>
                 </div>
-            </h1>
-            <h2>Persönliche Daten:</h2>
-            <p>Pflichtfelder sind mit * gekennzeichnet.</p>
-
-            <form name="signup" id="signup" class="form" novalidate>
-                <div id="person" class="display" hidden>
-                    <div class="form-group">
-                        <label for="geschlecht" class="form-label form-label--required">
-                            Anrede
-
-                        </label>
-
-                        <div class="form-addon" data-states-for="geschlecht">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <div class="display-inline" id="geschlecht">
-                                <input type="radio" id="frau" name="geschlecht" class="form-radio" required>
-                                <label for="frau">Frau</label>
-                                <input type="radio" id="mann" name="geschlecht" class="form-radio" required>
-                                <label for="mann">Mann</label>
-                            </div>
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="name">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="firstname">Nachname</label>
+                        <input class="text-field" type="text" name="firstname" id="firstname" placeholder="Nachname">
                     </div>
-
-                    <div class="form-group">
-                        <label for="vorname" class="form-label form-label--required">
-                            Vorname:
-                        </label>
-                        <div class="fehler" id="vornameFehler">
-                            Der eingegebene Vorname darf maximal 19 Zeichen enthalten
-                        </div>
-
-                        <div class="form-addon" data-states-for="vorname">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="vorname" name="vorname" class="form-input" placeholder="Vorname"
-                                required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="name">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="secondname">Vorname</label>
+                        <input class="text-field" type="text" name="secondname" id="secondname" placeholder="Vorname">
                     </div>
-
-                    <div class="form-group">
-                        <label for="name" class="form-label form-label--required">
-                            Nachname:
-                        </label>
-                        <div class="fehler" id="nachnameFehler">
-                            Der eingegebene Nachname / Titel ist zu lang für das GEZ-Formular, die maximale
-                            Zeichenanzahl darf 28 Zeichen betragen
-                        </div>
-                        <div class="form-addon" data-states-for="name">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Nachname" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="name">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="geburtsdatum" class="form-label form-label--required">
-                            Geburtsdatum:
-                        </label>
-                        <div class="fehler" id="fehlerGeburtsdatum">
-                            Das eingegebene Geburtsdatum entspricht nicht der Form "Tag.Monat.Jahr"
-                        </div>
-
-                        <div class="form-addon" data-states-for="geburtsdatum">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="date" id="geburtsdatum" name="geburtsdatum" class="form-input"
-                                placeholder="Geburtsdatum" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="geburtdatum">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <span class="umbruch"><input type="button" id="weiter" value="Weiter"
-                            class="cookie-consent-banner__cta margin-bottom" /></span>
                 </div>
-                <div id="wohnungsanmeldung" hidden>
-                    <h2>Wohnungs-Anmeldung</h2>
-                    <div class="form-group">
-                        <label for="monat" class="form-label form-label--required">
-                            Monat / Jahr
-                        </label>
-                        <div id="fehlerMonat" class="fehler">
-                            Wählen Sie einen Monat oder ein Jahr aus, das näher an den aktuellen Werten liegt
-                        </div>
-
-                        <div class="form-addon" data-states-for="monat">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="month" id="monat" name="monat" class="form-input" placeholder="Monat Jahr"
-                                required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="monat">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="straße" class="form-label form-label--required">
-                            Straße
-                        </label>
-
-                        <div class="form-addon" data-states-for="monat">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="straße" name="straße" class="form-input" placeholder="Straße"
-                                required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="straße">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="hausnummer" class="form-label form-label--required">
-                            Hausnummer
-                        </label>
-                        <div id="hnumberFehlermeldung" class="fehler">
-                            Die eingegebene Hausnummer ist nicht gültig
-                        </div>
-
-                        <div class="form-addon" data-states-for="hausnummer">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="hausnummer" name="hausnummer" class="form-input"
-                                placeholder="Hausnummer" step="1" min="1" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="hausnummer">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="adresszusatz" class="form-label">
-                            Adresszusatz
-                        </label>
-
-                        <div class="form-addon" data-states-for="adresszusatz">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-                            <input type="text" id="adresszusatz" name="adresszusatz" class="form-input"
-                                placeholder="Adresszusatz" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="plz" class="form-label form-label--required">
-                            Postleitzahl
-                        </label>
-                        <div id="plzFehlermeldung" class="fehler">
-                            Die eingegebene Postleitzahl ist nicht gültig
-                        </div>
-
-                        <div class="form-addon" data-states-for="plz">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="plz" name="plz" class="form-input" placeholder="Postleitzahl"
-                                min-length="5" max-length="5" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="plz">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="stadt" class="form-label form-label--required">
-                            Stadt
-                        </label>
-
-                        <div class="form-addon" data-states-for="stadt">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="stadt" name="stadt" class="form-input" placeholder="Stadt" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="stadt">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tel" class="form-label">
-                            Telefonnummer
-                        </label>
-
-                        <div class="form-addon" data-states-for="tel">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="tel" id="tel" name="tel" class="form-input" placeholder="Telefonnummer">
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                    </div>
-                    <span class="umbruch">
-                        <input type="button" id="weiter-1" value="Weiter"
-                            class="cookie-consent-banner__cta margin-bottom" />
-                    </span>
+                <div class="page-12">
+                    <label class="label-text" for="birthday">Geburtsdatum</label>
+                    <input class="date-field" type="date" name="birthday" id="birthday">
                 </div>
-                <div id="zahlung" hidden>
-                    <h2>Angaben zur Zahlung</h2>
-                    <div class="form-group">
-                        <label for="zahlungart" class="form-label form-label--required">
-                            Gesetzliche Zahlung
-                        </label>
+            </div>
+        </div>
 
-                        <div class="" data-states-for="zahlung-field">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
+        <div class="page">
+            <h3 class="page-main-text">
+                2. Anmeldung
+            </h3>
+            <div class="page-12">
+                <label class="label-text" for="startDay">Anmeldung zum (Monat.Jahr)</label>
+                <input class="date-field" type="month" name="startDay" id="startDay">
+            </div>
+        </div>
 
-                            <div class="display-inline" id="zahlung">
-                                <input type="radio" id="gesetz" value="gesetzlich-Mitte" name="zahlungart"
-                                    class="form-radio" required>
-                                <label for="gesetz">in der Mitte eines Dreimonatszeitraums</label>
-                            </div>
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="name">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="form-label form-label--required">
-                            Vorauszahlung
-                        </label>
-
-                        <div class="" data-states-for="zahlung-field">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <div class="display-inline" id="zahlung">
-                                <input type="radio" id="viertel" name="zahlungart" class="form-radio" required>
-                                <label for="viertel">vierteljährlich im Voraus</label>
-                                <input type="radio" id="halb" name="zahlungart" class="form-radio" required>
-                                <label for="halb">halbjährlich im Voraus </label>
-                                <input type="radio" id="jahr" name="zahlungart" class="form-radio" required>
-                                <label for="jahr">jährlich im Voraus</label>
-                            </div>
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="name">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="form-label form-label--required">
-                            Zahlungen werden über erfolgen:
-                        </label>
-
-                        <div class="" data-states-for="zahlung-field">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <div class="display-inline" id="zahlung">
-                                <input type="radio" id="frau" name="uberweisungsart" class="form-radio" required>
-                                <label for="frau">durch Lastschrift</label>
-                                <input type="radio" id="frau" name="uberweisungsart" class="form-radio" required>
-                                <label for="frau">durch Überweisung</label>
-                            </div>
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="name">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <span class="umbruch">
-                        <input type="button" id="weiter-2" value="Weiter"
-                            class="cookie-consent-banner__cta margin-bottom" />
-                    </span>
+        <div class="page">
+            <div class="page-12 page-inside-row">
+                <div class="page-12 page-sm-6">
+                    <label class="label-text" for="street">Straße</label>
+                    <input class="text-field" type="text" name="street" id="street" placeholder="Straße">
                 </div>
-                <div id="lastschrift" hidden>
-                    <h2>SEPA-Lastschriftmandat</h2>
-
-                    <p style="font-size: 0.75rem;">
-                        Gläubiger-Identifikationsnummer des Beitragsservice von ARD,
-                        ZDF und Deutschlandradio: DE3000100000001272
-                        Ich ermächtige den Beitragsservice von ARD, ZDF und
-                        Deutschlandradio, Zahlungen von meinem Konto mittels Lastschrift
-                        einzuziehen. Zugleich weise ich mein Kreditinstitut
-                        an, die vom Beitragsservice von ARD, ZDF und Deutschlandradio auf mein
-                        Konto gezogenen Lastschriften einzulösen.
-                        Hinweis: Ich kann innerhalb von acht Wochen,
-                        beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrags
-                        verlangen. Es gelten dabei die mit meinem Kreditinstitut vereinbarten Bedingungen.
-                    </p>
-
-                    <div class="form-group">
-                        <label for="name" class="form-label form-label--required">
-                            Vorname:
-                        </label>
-                        <div class="fehler" id="vornameFehler">
-                            Der eingegebene Vorname darf maximal 19 Zeichen enthalten
-                        </div>
-
-                        <div class="form-addon" data-states-for="vorname">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="vorname" name="vorname" class="form-input" placeholder="Vorname"
-                                required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="name">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name" class="form-label form-label--required">
-                            Nachname:
-                        </label>
-                        <div class="fehler" id="nachnameFehler">
-                            Der eingegebene Nachname / Titel ist zu lang für das GEZ-Formular, die maximale
-                            Zeichenanzahl darf 28 Zeichen betragen
-                        </div>
-                        <div class="form-addon" data-states-for="name">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="name" name="name" class="form-input" placeholder="Nachname" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="name">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="straße" class="form-label form-label--required">
-                            Straße
-                        </label>
-
-                        <div class="form-addon" data-states-for="monat">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="straße" name="straße" class="form-input" placeholder="Straße"
-                                required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="straße">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="hausnummer" class="form-label form-label--required">
-                            Hausnummer
-                        </label>
-                        <div id="hnumberFehlermeldung" class="fehler">
-                            Die eingegebene Hausnummer ist nicht gültig
-                        </div>
-
-                        <div class="form-addon" data-states-for="hausnummer">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="hausnummer" name="hausnummer" class="form-input"
-                                placeholder="Hausnummer" step="1" min="1" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="hausnummer">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="plz" class="form-label form-label--required">
-                            Postleitzahl
-                        </label>
-                        <div id="plzFehlermeldung" class="fehler">
-                            Die eingegebene Postleitzahl ist nicht gültig
-                        </div>
-
-                        <div class="form-addon" data-states-for="plz">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="plz" name="plz" class="form-input" placeholder="Postleitzahl"
-                                min-length="5" max-length="5" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="plz">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="stadt" class="form-label form-label--required">
-                            Stadt
-                        </label>
-
-                        <div class="form-addon" data-states-for="stadt">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="stadt" name="stadt" class="form-input" placeholder="Stadt" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-                        <div data-errors-for="stadt">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name" class="form-label form-label--required">
-                            IBAN:
-                        </label>
-                        <div class="fehler" id="vornameFehler">
-                            IBAN darf 22 Stellen lang sein.
-                        </div>
-
-                        <div class="form-addon" data-states-for="iban">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="iban" name="iban" class="form-input" placeholder="IBAN" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="iban">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name" class="form-label form-label--required">
-                            BIC:
-                        </label>
-                        <div class="fehler" id="bicFehler">
-                            BIC darf 11 Stellen lang sein.
-                        </div>
-
-                        <div class="form-addon" data-states-for="bic">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="bic" name="bic" class="form-input" placeholder="BIC" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="bic">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name" class="form-label form-label--required">
-                            Kreditinstitut:
-                        </label>
-                        <div class="fehler" id="kreditinstitutFehler">
-                            Geben sie gültiges Kreditinstitut an
-                        </div>
-
-                        <div class="form-addon" data-states-for="kreditinstitut">
-                            <div class="form-addon__addon">
-                                <span class="icon-name"></span>
-                            </div>
-
-                            <input type="text" id="kreditinstitut" name="kreditinstitut" class="form-input"
-                                placeholder="Kreditinstitut" required>
-
-                            <span class="form-addon__icon icon-valid"></span>
-                            <span class="form-addon__icon icon-invalid"></span>
-                        </div>
-
-                        <div data-errors-for="kreditinstitut">
-                            <small class="form-error" data-errors-when="valueMissing">
-                                Dieses Feld wird benötigt.
-                            </small>
-                        </div>
-                    </div>
-
-                    <input class="cookie-consent-banner__cta margin-bottom" type="submit" value="Abschicken">
+                <div class="page-12 page-sm-6">
+                    <label class="label-text" for="housenumber">Hausnummer</label>
+                    <input class="text-field" type="text" name="housenumber" id="housenumber" placeholder="Hausnummer">
                 </div>
-                </div>
+            </div>
+        </div>
 
-                <!--<div class="form-group">
-                    <label for="email" class="form-label form-label--required">
-                        Email:
+        <div class="page">
+            <div class="page-12">
+                <label class="label-text" for="optionalAdress">Adresszusatz</label>
+                <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
+                    placeholder="Adresszusatz, z.B. Wohnungnummer, Etage">
+            </div>
+        </div>
+
+        <div class="page">
+            <div class="page-12">
+                <label class="label-text" for="mobilenumber">Telefonnummer für Rückfragen (freiwillige Angabe)</label>
+                <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
+                    placeholder="Telefonnummer">
+            </div>
+        </div>
+
+        <div class="page">
+            <h3 class="page-main-text">
+                3. Ich bestätige die Richtigkeit der Angaben.
+            </h3>
+            <div class="page-12 accept-field">
+                <div class="accept-field">
+                    <input class="" type="checkbox" name="accept" id="accept">
+                    <label for="accept" class="accept-label">
+                        Hiermit bestätige ich, dass die Angaben
+                        richtig und Ordnungsgemäß eingetragen wurden.
                     </label>
-                    <div class="form-addon" data-states-for="email">
-                        <div class="form-addon__addon">
-                            <span class="icon-email"></span>
-                        </div>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="test@email.com"
-                            required>
-                        <span class="form-addon__icon icon-valid"></span>
-                        <span class="form-addon__icon icon-invalid"></span>
-                    </div>
-                    <div data-errors-for="email">
-                        <small class="form-error" data-errors-when="valueMissing">
-                            Dieses Feld wird benötigt.
-                        </small>
-                        <small class="form-error" data-errors-when="typeMismatch">
-                            Bitte geben Sie eine gültige E-Mail-Adresse ein.
-                        </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3 class="page-main-text">
+                4. Angaben zur Zahlungsweise
+            </h3>
+            <div class="page-12">
+                <div class="page-12">
+                    <label class="label-text" for="payment">Gesetzliche Zahlung </label>
+                    <div class="page-inside" id="payment">
+                        <input type="radio" name="payment" id="payment-middle" value="middle">
+                        <label for="men">
+                            in der Mitte eines
+                            Dreimonatszeitraums (zum 15.)
+                        </label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone" class="form-label">
-                        Nummer:
+            </div>
+            <div class="page-12">
+                <div class="page-12">
+                    <label class="label-text" for="inadvance">Vorauszahlung</label>
+                    <div class="page-inside payment-row" id="inadvance">
+                        <div class="page-4">
+                            <input type="radio" name="payment" id="quarterly" value="quarterly">
+                            <label for="quarterly" class="quarterly">
+                                in der Mitte eines
+                                Dreimonatszeitraums (zum 15.)
+                            </label>
+                        </div>
+                        <div class="page-4">
+                            <input type="radio" name="payment" id="semiannual" value="semiannual">
+                            <label for="semiannual" class="semiannual">
+                                halbjährlich im Voraus
+                                (zum 1.1., 1.7.)
+                            </label>
+                        </div>
+                        <div class="page-4">
+                            <input type="radio" name="payment" id="yearly" value="yearly">
+                            <label for="yearly" class="yearly">
+                                jährlich im Voraus
+                                (zum 1.1.)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3 class="page-main-text">
+                4. Angaben zur Zahlungsweise
+            </h3>
+            <div class="page-12">
+                <label class="label-text" for="payment-via">Zahlung über:</label>
+                <div class="page-inside payment-row" id="payment-via">
+                    <div class="page-6">
+                        <input type="radio" name="payment-via" id="direct-debit" value="direct-debit">
+                        <label for="direct-debit" class="quarterly">
+                            durch Lastschrift
+                        </label>
+                    </div>
+                    <div class="page-6">
+                        <input type="radio" name="payment-via" id="bank-transfer" value="bank-transfer"">
+                        <label for=" bank-transfer" class="semiannual">
+                        durch Überweisung
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3 class="page-main-text">
+                5. SEPA-Lastschriftmandat
+            </h3>
+            <p class="mandat-text">
+                Gläubiger-Identifikationsnummer des Beitragsservice
+                von ARD, ZDF und Deutschlandradio: DE3000100000001272
+            </p>
+            <p class="mandat-text">
+                Ich ermächtige den Beitragsservice
+                von ARD, ZDF und Deutschlandradio,
+                Zahlungen von meinem Konto mittels
+                Lastschrift
+                einzuziehen. Zugleich weise ich
+                mein Kreditinstitut an, die vom Beitragsservice von ARD, ZDF und
+                Deutschlandradio auf mein
+                Konto gezogenen Lastschriften einzulösen.
+            </p>
+            <p class="mandat-text">
+                Hinweis: Ich kann innerhalb von acht
+                Wochen, beginnend mit dem Belastungsdatum, die Erstattung des
+                belasteten Betrags
+                verlangen. Es gelten dabei die mit
+                meinem Kreditinstitut vereinbarten Bedingungen.
+            </p>
+            <div class="page-12 page-inside-row">
+                <div class="page-12">
+                    <label class="label-text" for="fandsname">Nachname, Vorname</label>
+                    <input class="text-field" type="text" name="fandsname" id="fandsname"
+                        placeholder="Nachname, Vorname">
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3 class="page-main-text">
+                5.1. SEPA-Lastschriftmandat
+            </h3>
+            <div class="page-12 page-inside-row">
+                <div class="page-12 page-sm-6">
+                    <label class="label-text" for="street-mandat">Straße</label>
+                    <input class="text-field" type="text" name="street-mandat" id="street-mandat" placeholder="Straße">
+                </div>
+                <div class="page-12 page-sm-6">
+                    <label class="label-text" for="housenumber-mandat">Hausnummer</label>
+                    <input class="text-field" type="text" name="housenumber-mandat" id="housenumber-mandat"
+                        placeholder="Hausnummer">
+                </div>
+            </div>
+            <div class="page-12 page-inside-row">
+                <div class="page-12 page-sm-6">
+                    <label class="label-text" for="code-mandat">Postleitzahl</label>
+                    <input class="text-field plz-field" type="number" name="code-mandat" id="code-mandat"
+                        placeholder="Postleitzahl">
+                </div>
+                <div class="page-12 page-sm-6">
+                    <label class="label-text" for="city-mandat">Stadt</label>
+                    <input class="text-field" type="text" name="city-mandat" id="city-mandat" placeholder="Stadt">
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3 class="page-main-text">
+                5.2. SEPA-Lastschriftmandat
+            </h3>
+            <div class="page-12 page-inside-row">
+                <div class="page-12 ">
+                    <label class="label-text" for="iban-mandat">IBAN</label>
+                    <input class="text-field" type="text" name="iban-mandat" id="iban-mandat" placeholder="IBAN">
+                </div>
+            </div>
+            <div class="page-12 page-inside-row">
+                <div class="page-12 page-sm-6">
+                    <label class="label-text" for="bic-mandat">BIC</label>
+                    <input class="text-field plz-field" type="number" name="bic-mandat" id="bic-mandat"
+                        placeholder="BIC">
+                </div>
+                <div class="page-12 page-sm-6">
+                    <label class="label-text" for="institut-mandat">Kreditinstitut</label>
+                    <input class="text-field" type="text" name="institut-mandat" id="institut-mandat" placeholder="Kreditinstitut">
+                </div>
+            </div>
+            <div class="page-12 page-inside-row">
+                <div class="page-12 ">
+                    <label class="label-text" for="ort-mandat">Ort</label>
+                    <input class="text-field" type="text" name="ort-mandat" id="ort-mandat" placeholder="Ort">
+                </div>
+            </div>
+        </div>
+
+        <div class="page">
+            <h3 class="page-main-text">
+                5.3. Ich bestätige die Richtigkeit der Angaben für den Mandat.
+            </h3>
+            <div class="page-12 accept-field">
+                <div class="accept-field">
+                    <input class="" type="checkbox" name="accept-mandat" id="accept-mandat">
+                    <label for="accept-mandat" class="accept-label">
+                        Hiermit bestätige ich, dass die Angaben
+                        richtig und Ordnungsgemäß eingetragen wurden.
                     </label>
-                    <div class="form-addon" data-states-for="phone">
-                        <div class="form-addon__addon">
-                            <span class="icon-phone"></span>
-                        </div>
-                        <input type="text" id="phone" name="phone" class="form-input" placeholder="123 456 789"
-                            pattern="[0-9]{3} [0-9]{3} [0-9]{3}">
-                        <span class="form-addon__icon icon-valid"></span>
-                        <span class="form-addon__icon icon-invalid"></span>
-                    </div>
-                    <div data-errors-for="phone">
-                        <small class="form-error" data-errors-when="patternMismatch">
-                            Bitte geben Sie eine gültige Telefonnummer ein.
-                        </small>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="password" class="form-label form-label--required">
-                        Passwort <span class="text-muted">(Min. 8 Zeichen)</span>:
-                    </label>
-                    <div class="form-addon" data-states-for="password">
-                        <div class="form-addon__addon">
-                            <span class="icon-password"></span>
-                        </div>
-                        <input type="password" id="password" name="password" class="form-input" placeholder="********"
-                            minlength="6" required>
-                        <span class="form-addon__icon icon-valid"></span>
-                        <span class="form-addon__icon icon-invalid"></span>
-                    </div>
-                    <div data-errors-for="password">
-                        <small class="form-error" data-errors-when="valueMissing">
-                            Dieses Feld wird benötigt.
-                        </small>
-                        <small class="form-error" data-errors-when="tooShort">
-                            Ihr Passwort sollte mindestens 6 Zeichen lang sein.
-                        </small>
-                    </div>
-                </div>
-                <div class="form-footer">
-                    <button type="submit" class="button">Weiter</button>
-                </div>-->
-            </form>
-        </section>
-    </main>
+            </div>
+        </div>
+
+        <div class="btn-field">
+            <div class="page-6 btn-row">
+                <button class="btn" type="button" id="prev">Prev</button>
+                <button class="btn " type="button" id="next">Next</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        var allPages = document.getElementsByClassName("page");
+        for (let index = 0; index < allPages.length; index++) {
+            allPages[index].style.display = "none";
+        }
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        console.log((urlParams.has('page')));
+        console.log((urlParams.get("page")));
+        if (!(urlParams.has("page"))) {
+            urlParams.set("page", 0);
+            window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
+        }
+
+        if (parseInt(urlParams.get("page")) > allPages.length - 1) {
+            urlParams.set("page", allPages.length - 1);
+            window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
+        } else if (parseInt(urlParams.get("page")) < 0) {
+            urlParams.set("page", 0);
+            window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
+        } else {
+            console.log("Position:" + parseInt(urlParams.get("page")));
+        }
+
+        allPages[parseInt(urlParams.get("page"))].style.display = "block";
+
+        const next = document.getElementById("next");
+        next.addEventListener("click", function () {
+            if ((parseInt(urlParams.get("page")) + 1) == allPages.length) {
+                next.setAttribute('type', 'submit');
+                console.log("submitted");
+                setTimeout(() => { console.log("World!"); }, 5000);
+            } else {
+                urlParams.set("page", parseInt(urlParams.get("page")) + 1);
+                window.history.replaceState({ page: this.href }, '', `${location.pathname}?${urlParams}`);
+                window.top.location = window.top.location;
+            }
+        });
+
+        const prev = document.getElementById("prev");
+        prev.addEventListener("click", function () {
+            if ((parseInt(urlParams.get("page")) - 1) == -1) {
+                //prev.setAttribute('type', 'submit');
+                console.log("prev");
+                setTimeout(() => { console.log("World!"); }, 5000);
+            } else {
+                urlParams.set("page", parseInt(urlParams.get("page")) - 1);
+                window.history.replaceState({ page: this.href }, '', `${location.pathname}?${urlParams}`);
+                window.top.location = window.top.location;
+            }
+        });
+
+    </script>
 
     <div class="footer">
         <div class="card-section">
-            <div class="col-12 col-6-md footer-sec">
+            <div class="page-12 page-6-md footer-sec">
                 <div class="select">
                     <select name="slct" id="slct" data-select-name>
                         <option selected disabled>Sprache</option>
@@ -737,7 +955,7 @@
                 <a class="footer-btn" href="/de/privacy">Datenschutz</a>
                 <a class="footer-btn" href="/de/about">Über uns</a>
             </div>
-            <div class="col-12 col-6-md footer-sec">
+            <div class="page-12 page-6-md footer-sec">
                 <p>WEB Team-B2</p>
             </div>
         </div>
