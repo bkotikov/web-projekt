@@ -1,286 +1,57 @@
-const tabs = document.querySelector(".form");
+var allPages = document.getElementsByClassName("page");
+for (let index = 0; index < allPages.length; index++) {
+  allPages[index].style.display = "none";
+}
 
-const hashes = new Map([
-  ["#first", "person"],
-  ["#second", "wohnungsanmeldung"],
-  ["#third", "zahlung"],
-  ["#fourth", "lastschrift"],
-]);
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+console.log((urlParams.has('page')));
+console.log((urlParams.get("page")));
+if (!(urlParams.has("page"))) {
+  urlParams.set("page", 0);
+  window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
+}
 
-const update = (tabId) => {
-  console.log(tabId);
-  // remove the active class of the previously selected tab
-  const currentTab = tabs.querySelector(".display");
-  console.log("current: " + currentTab.id);
+if (parseInt(urlParams.get("page")) > allPages.length - 1) {
+  urlParams.set("page", allPages.length - 1);
+  window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
+} else if (parseInt(urlParams.get("page")) < 0) {
+  urlParams.set("page", 0);
+  window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
+} else {
+  console.log("Position:" + parseInt(urlParams.get("page")));
+}
 
-  if (currentTab.id != tabId) {
-      currentTab.classList.remove("display");
+allPages[parseInt(urlParams.get("page"))].style.display = "block";
+
+const successdiv = document.getElementById("success-div");
+successdiv.style.display = "none";
+const next = document.getElementById("next");
+next.addEventListener("click", function () {
+  if ((parseInt(urlParams.get("page")) + 1) == allPages.length) {
+    next.setAttribute('type', 'submit');
+    console.log("submitted");
+    successdiv.style.display = "block";
+    setTimeout(() => {
+      console.log("Submitted");
+      successdiv.style.display = "none";
+    }, 3000);
+  } else {
+    urlParams.set("page", parseInt(urlParams.get("page")) + 1);
+    window.history.replaceState({ page: this.href }, '', `${location.pathname}?${urlParams}`);
+    window.top.location = window.top.location;
   }
-  // add active class to the selected tab
-  const selectedTab = document.getElementById(tabId);
-  selectedTab.classList.add("display");
-
-
-  
-      // update the URL
-      //history.pushState(null, "", "#first");
-      // change the content
-};
-
-
-window.addEventListener("hashchange", () => {
-  console.log("Event: " + hashes.get(window.location.hash));
-  update(hashes.get(window.location.hash));
 });
 
-
-
-
-// store the relationship between hash & tab id
-
-
-// store the relationship between tab id and contents
-
-
-
-
-(() => {
-    // get tab id from the hash
-    const tabId = hashes.get(window.location.hash);
-    // update the tab
-    if (tabId) update(tabId);
-})();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//---------------------------------
-const toaster = document.getElementsByClassName('toaster')[0];
-const form = document.querySelector('form');
-
-/*GentleForm(document.getElementById('singup'), function onSubmit (event) {
-  event.preventDefault();
-
-  if (this.isValid()) addToast('success', 'Yay, the form is valid!');else
-  addToast('error', 'Oops, the form is invalid.');
-});*/
-
-function addToast(type, message) {
-  const toast = document.createElement('div');
-
-  toast.classList.add('toast');
-  toast.classList.add('toast--' + type);
-  toast.innerHTML = message;
-
-  toaster.appendChild(toast);
-
-  toast.addEventListener('transitionend', function (event) {
-    if (event.propertyName !== 'transform') return;
-
-    if (toast.classList.contains('toast--show')) {
-      setTimeout(function () {
-        toast.classList.remove('toast--show');
-      }, 3000);
-    } else {
-      toaster.removeChild(toast);
-    }
-  }, false);
-
-  setTimeout(() => toast.classList.add('toast--show'), 100);
-}
-
-const nachname = document.getElementById("name");
-nachname.oninput = function() {validiereNachname(this.value)};
-const nachnameFehler = document.getElementById("nachnameFehler");
-var surnameError = true;
-function validiereNachname(string) {
-  if (string.length > 28){
-    nachnameFehler.style.display = "block";
-    surnameError = true;
+const prev = document.getElementById("prev");
+prev.addEventListener("click", function () {
+  if ((parseInt(urlParams.get("page")) - 1) == -1) {
+    //prev.setAttribute('type', 'submit');
+    console.log("prev");
+    setTimeout(() => { console.log("World!"); }, 5000);
   } else {
-    nachnameFehler.style.display = "none";
-    surnameError = false;
+    urlParams.set("page", parseInt(urlParams.get("page")) - 1);
+    window.history.replaceState({ page: this.href }, '', `${location.pathname}?${urlParams}`);
+    window.top.location = window.top.location;
   }
-}
-
-const vorname = document.getElementById("vorname");
-const vornameFehler = document.getElementById("vornameFehler");
-var firstNameError = true;
-vorname.oninput = function() {validiereVorname(this.value)};
-
-function validiereVorname(string){
-  if (string.length > 19){
-    vornameFehler.style.display = "block";
-    firstNameError = true;
-  } else {
-    vornameFehler.style.display = "none";
-    firstNameError = false;
-  }
-}
-
-const date = document.getElementById("geburtsdatum");
-const datumFehler = document.getElementById("fehlerGeburtsdatum");
-var dateError = true;
-
-date.onchange = function() {validiereDatum(this.value)};
-
-function validiereDatum(date){
-  var regex = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
-  if (!date.trim().match(regex)){
-    datumFehler.style.display = "block";
-    dateError = true;
-  } else {
-    datumFehler.style.display = "none";
-    dateError = false;
-  }
-}
-
-const weiter = document.getElementById("weiter");
-weiter.onclick = function() {wechselScreen()};
-const wohnungsanmeldung = document.getElementById("wohnungsanmeldung");
-const person = document.getElementById("person")
-
-function wechselScreen() {
-  var radios = document.querySelectorAll('input[type="radio"]:checked');
-  var value = radios.length>0? radios[0].value: null;
-  if (surnameError === false && firstNameError === false && dateError === false && value != null){
-    //wohnungsanmeldung.style.display = "block";
-    //person.style.display = "none";
-    history.pushState(0,0,"#second");
-    update(hashes.get("#second"));
-    
-  }else {}
-}
-
-const anmeldung = document.getElementById("monat");
-anmeldung.oninput = function(){validiereMonatUndJahr(this.value)};
-const anmeldungFehler = document.getElementById("fehlerMonat");
-var monthError = true;
-
-function validiereMonatUndJahr(date){
-  date = date.split("/");
-  var jahr = validiereJahr(date[1]);
-  var monat = validiereMonat(date[0]);
-  if (!jahr || !monat){
-    anmeldungFehler.style.display = "block";
-    monthError = true;
-  }else {
-    anmeldungFehler.style.display = "none";
-    monthError = false;
-  }
-}
-
-function validiereJahr(jahr){
-  var currentYear = new Date().getFullYear();
-  jahr = parseInt(jahr, 10);
-  //Jahr Fehler wenn nicht im aktuellen, letzten oder zukünftigen Jahr
-  if (jahr === (currentYear+1) || jahr === (currentYear-1) || jahr === currentYear){
-    return true;
-  } else{
-    return false;
-  }
-}
-
-function validiereMonat(monat){
-  if (monat < 13 && monat > 0){
-    return true;
-  } else {
-    return false;
-  }
-}
-
-var straße = document.getElementById("straße");
-var fehlerStraße = true;
-straße.oninput = function() {straßeValidieren(this.value)};
-
-function straßeValidieren(value){
-  if (value.trim() === ""){
-    fehlerStraße = true
-  } else {
-    fehlerStraße = false;
-  }
-}
-
-var hFehler = true;
-var hausnummer = document.getElementById("hausnummer");
-var hNummerFehler = document.getElementById("hnumberFehlermeldung");
-hausnummer.oninput = function() {validiereHausNummer(this.value)};
-
-function validiereHausNummer(value) {
-  var hausnummerFormat = /^[0-9]+$/;
-  if(!value.trim().match(hausnummerFormat) && value.length > 0){
-    hNummerFehler.style.display = "block";
-    hFehler = true;
-  } else if (value.trim().match(hausnummerFormat)){
-    hNummerFehler.style.display = "none";
-    hFehler = false;
-  }
-}
-
-var plz = document.getElementById("plz");
-if (plz){
-  plz.oninput = function () {validierePlz(this.value)};
-}
-
-var plzFehler = true;
-var plzFehlerEl = document.getElementById("plzFehlermeldung");
-function validierePlz(value) {
-  var plzFormat = /^[0-9]{5}$/;
-  if(!value.trim().match(plzFormat) && value.length > 0){
-    plzFehlerEl.style.display = "block";
-    plzFehler = true;
-  } else if (value.trim().match(plzFormat)){
-    plzFehlerEl.style.display = "none";
-    plzFehler = false;
-  }
-}
-
-var stadt = document.getElementById("stadt");
-var stadtFehler = true;
-stadt.oninput = function() {stadtValidieren(this.value)};
-
-function stadtValidieren(value){
-  if (value === ""){
-    stadtFehler = true
-  } else {
-    stadtFehler = false;
-  }
-}
-
-const weiter1 = document.getElementById("weiter-1");
-weiter1.onclick = function() {zurZahlung()};
-const zahlung = document.getElementById("zahlung");
-
-function zurZahlung(){
-  if(monthError === false && hFehler === false && plzFehler === false && stadtFehler === false && fehlerStraße === false){
-    //wohnungsanmeldung.style.display = "none";
-    //zahlung.style.display = "block";
-    history.pushState(0,0,"#third");
-    update(hashes.get("#third"));
-  }
-}
-
-const weiter2 = document.getElementById("weiter-2");
-weiter2.onclick = function() {zurLastschrift()};
-
-const lastschirft = document.getElementById("lastschrift");
-
-function zurLastschrift(){
-  if(monthError === false && hFehler === false && plzFehler === false && stadtFehler === false && fehlerStraße === false){
-    //zahlung.style.display = "none";
-    //lastschirft.style.display = "block";
-    history.pushState(0,0,"#fourth");
-    update(hashes.get("#fourth"));
-  }
-}
+});
