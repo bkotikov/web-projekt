@@ -8,46 +8,37 @@ const hashes = new Map([
 ]);
 
 const update = (tabId) => {
-  console.log(tabId);
-  // remove the active class of the previously selected tab
   const currentTab = tabs.querySelector(".display");
-  console.log("current: " + currentTab.id);
+
 
   if (currentTab.id != tabId) {
       currentTab.classList.remove("display");
   }
-  // add active class to the selected tab
+ 
   const selectedTab = document.getElementById(tabId);
   selectedTab.classList.add("display");
 
 
-  
-      // update the URL
-      //history.pushState(null, "", "#first");
-      // change the content
+ 
 };
 
 
 window.addEventListener("hashchange", () => {
-  console.log("Event: " + hashes.get(window.location.hash));
+
   update(hashes.get(window.location.hash));
 });
 
 
 
 
-// store the relationship between hash & tab id
-
-
-// store the relationship between tab id and contents
 
 
 
 
 (() => {
-    // get tab id from the hash
+
     const tabId = hashes.get(window.location.hash);
-    // update the tab
+
     if (tabId) update(tabId);
 })();
 
