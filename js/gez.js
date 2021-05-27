@@ -33,6 +33,7 @@ next.addEventListener("click", function () {
   console.log("position at next: " + urlParams.get("page") + 1);
   if ((parseInt(urlParams.get("page")) + 1) == allPages.length) {
     next.setAttribute('type', 'submit');
+    setAccessBannerVisibleAfterSuccessSubmit();
   } else {
     replaceUrlParams(true);
     hidePages();
@@ -89,3 +90,13 @@ function reloadPage() {
 }
 
 reloadPage();
+
+
+var successBanner = document.getElementById("success-div");
+successBanner.style.display = "none";
+async function setAccessBannerVisibleAfterSuccessSubmit() {
+  successBanner.style.display = "block";
+  setTimeout(() => {
+    successBanner.style.display = "none";
+  }, 3000);
+}
