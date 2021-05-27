@@ -38,275 +38,282 @@
                 Pflichtfelder sind mit * gekennzeichnet.
             </p>
         </div>
+        <form action="/gez/data" method="post">
 
-        <div class="page">
-            <h3 class="page-main-text">
-                1. Allgemeine Angaben
-            </h3>
-            <div class="page-row">
-                <div class="page-12">
-                    <label class="label-text" for="salutation">Anrede</label>
-                    <div class="page-inside" id="salutation">
-                        <input type="radio" name="gender" id="men" value="men">
-                        <label for="men">Man</label>
+            <div class="page">
+                <h3 class="page-main-text">
+                    1. Allgemeine Angaben
+                </h3>
+                <div class="page-row">
+                    <div class="page-12">
+                        <label class="label-text" for="salutation">Anrede</label>
+                        <div class="page-inside" id="salutation">
+                            <input type="radio" name="gender" id="men" value="men">
+                            <label for="men">Man</label>
 
-                        <input type="radio" name="gender" id="woman" value="woman">
-                        <label for="woman">Frau</label>
+                            <input type="radio" name="gender" id="woman" value="woman">
+                            <label for="woman">Frau</label>
+                        </div>
+                    </div>
+                    <div class="page-12 page-inside-row">
+                        <div class="page-12 page-sm-6">
+                            <label class="label-text" for="firstname">Nachname</label>
+                            <input class="text-field" type="text" name="firstname" id="firstname"
+                                placeholder="Nachname">
+                        </div>
+                        <div class="page-12 page-sm-6">
+                            <label class="label-text" for="secondname">Vorname</label>
+                            <input class="text-field" type="text" name="secondname" id="secondname"
+                                placeholder="Vorname">
+                        </div>
+                    </div>
+                    <div class="page-12">
+                        <label class="label-text" for="birthday">Geburtsdatum</label>
+                        <input class="date-field" type="date" name="birthday" id="birthday">
                     </div>
                 </div>
+            </div>
+
+            <div class="page">
+                <h3 class="page-main-text">
+                    2. Anmeldung
+                </h3>
+                <div class="page-12">
+                    <label class="label-text" for="startDay">Anmeldung zum (Monat.Jahr)</label>
+                    <input class="date-field" type="month" name="startDay" id="startDay">
+                </div>
+            </div>
+
+            <div class="page">
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="firstname">Nachname</label>
-                        <input class="text-field" type="text" name="firstname" id="firstname" placeholder="Nachname">
+                        <label class="label-text" for="street">Straße</label>
+                        <input class="text-field" type="text" name="street" id="street" placeholder="Straße">
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="secondname">Vorname</label>
-                        <input class="text-field" type="text" name="secondname" id="secondname" placeholder="Vorname">
+                        <label class="label-text" for="housenumber">Hausnummer</label>
+                        <input class="text-field" type="text" name="housenumber" id="housenumber"
+                            placeholder="Hausnummer">
                     </div>
                 </div>
+            </div>
+
+            <div class="page">
                 <div class="page-12">
-                    <label class="label-text" for="birthday">Geburtsdatum</label>
-                    <input class="date-field" type="date" name="birthday" id="birthday">
+                    <label class="label-text" for="optionalAdress">Adresszusatz</label>
+                    <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
+                        placeholder="Adresszusatz, z.B. Wohnungnummer, Etage">
                 </div>
             </div>
-        </div>
 
-        <div class="page">
-            <h3 class="page-main-text">
-                2. Anmeldung
-            </h3>
-            <div class="page-12">
-                <label class="label-text" for="startDay">Anmeldung zum (Monat.Jahr)</label>
-                <input class="date-field" type="month" name="startDay" id="startDay">
-            </div>
-        </div>
-
-        <div class="page">
-            <div class="page-12 page-inside-row">
-                <div class="page-12 page-sm-6">
-                    <label class="label-text" for="street">Straße</label>
-                    <input class="text-field" type="text" name="street" id="street" placeholder="Straße">
-                </div>
-                <div class="page-12 page-sm-6">
-                    <label class="label-text" for="housenumber">Hausnummer</label>
-                    <input class="text-field" type="text" name="housenumber" id="housenumber" placeholder="Hausnummer">
-                </div>
-            </div>
-        </div>
-
-        <div class="page">
-            <div class="page-12">
-                <label class="label-text" for="optionalAdress">Adresszusatz</label>
-                <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
-                    placeholder="Adresszusatz, z.B. Wohnungnummer, Etage">
-            </div>
-        </div>
-
-        <div class="page">
-            <div class="page-12">
-                <label class="label-text" for="mobilenumber">Telefonnummer für Rückfragen (freiwillige Angabe)</label>
-                <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
-                    placeholder="Telefonnummer">
-            </div>
-        </div>
-
-        <div class="page">
-            <h3 class="page-main-text">
-                3. Ich bestätige die Richtigkeit der Angaben.
-            </h3>
-            <div class="page-12 accept-field">
-                <div class="accept-field">
-                    <input class="" type="checkbox" name="accept" id="accept">
-                    <label for="accept" class="accept-label">
-                        Hiermit bestätige ich, dass die Angaben
-                        richtig und Ordnungsgemäß eingetragen wurden.
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="page">
-            <h3 class="page-main-text">
-                4. Angaben zur Zahlungsweise
-            </h3>
-            <div class="page-12">
+            <div class="page">
                 <div class="page-12">
-                    <label class="label-text" for="payment">Gesetzliche Zahlung </label>
-                    <div class="page-inside" id="payment">
-                        <input type="radio" name="payment" id="payment-middle" value="middle">
-                        <label for="men">
-                            in der Mitte eines
-                            Dreimonatszeitraums (zum 15.)
+                    <label class="label-text" for="mobilenumber">Telefonnummer für Rückfragen (freiwillige
+                        Angabe)</label>
+                    <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
+                        placeholder="Telefonnummer">
+                </div>
+            </div>
+
+            <div class="page">
+                <h3 class="page-main-text">
+                    3. Ich bestätige die Richtigkeit der Angaben.
+                </h3>
+                <div class="page-12 accept-field">
+                    <div class="accept-field">
+                        <input class="" type="checkbox" name="accept" id="accept">
+                        <label for="accept" class="accept-label">
+                            Hiermit bestätige ich, dass die Angaben
+                            richtig und Ordnungsgemäß eingetragen wurden.
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="page-12">
+
+            <div class="page">
+                <h3 class="page-main-text">
+                    4. Angaben zur Zahlungsweise
+                </h3>
                 <div class="page-12">
-                    <label class="label-text" for="inadvance">Vorauszahlung</label>
-                    <div class="page-inside payment-row" id="inadvance">
-                        <div class="page-4">
-                            <input type="radio" name="payment" id="quarterly" value="quarterly">
-                            <label for="quarterly" class="quarterly">
+                    <div class="page-12">
+                        <label class="label-text" for="payment">Gesetzliche Zahlung </label>
+                        <div class="page-inside" id="payment">
+                            <input type="radio" name="payment" id="payment-middle" value="middle">
+                            <label for="men">
                                 in der Mitte eines
                                 Dreimonatszeitraums (zum 15.)
                             </label>
                         </div>
-                        <div class="page-4">
-                            <input type="radio" name="payment" id="semiannual" value="semiannual">
-                            <label for="semiannual" class="semiannual">
-                                halbjährlich im Voraus
-                                (zum 1.1., 1.7.)
-                            </label>
-                        </div>
-                        <div class="page-4">
-                            <input type="radio" name="payment" id="yearly" value="yearly">
-                            <label for="yearly" class="yearly">
-                                jährlich im Voraus
-                                (zum 1.1.)
-                            </label>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="page">
-            <h3 class="page-main-text">
-                4. Angaben zur Zahlungsweise
-            </h3>
-            <div class="page-12">
-                <label class="label-text" for="payment-via">Zahlung über:</label>
-                <div class="page-inside payment-row" id="payment-via">
-                    <div class="page-6">
-                        <input type="radio" name="payment-via" id="direct-debit" value="direct-debit">
-                        <label for="direct-debit" class="quarterly">
-                            durch Lastschrift
-                        </label>
-                    </div>
-                    <div class="page-6">
-                        <input type="radio" name="payment-via" id="bank-transfer" value="bank-transfer"">
-                        <label for=" bank-transfer" class="semiannual">
-                        durch Überweisung
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page">
-            <h3 class="page-main-text">
-                5. SEPA-Lastschriftmandat
-            </h3>
-            <p class="mandat-text">
-                Gläubiger-Identifikationsnummer des Beitragsservice
-                von ARD, ZDF und Deutschlandradio: DE3000100000001272
-            </p>
-            <p class="mandat-text">
-                Ich ermächtige den Beitragsservice
-                von ARD, ZDF und Deutschlandradio,
-                Zahlungen von meinem Konto mittels
-                Lastschrift
-                einzuziehen. Zugleich weise ich
-                mein Kreditinstitut an, die vom Beitragsservice von ARD, ZDF und
-                Deutschlandradio auf mein
-                Konto gezogenen Lastschriften einzulösen.
-            </p>
-            <p class="mandat-text">
-                Hinweis: Ich kann innerhalb von acht
-                Wochen, beginnend mit dem Belastungsdatum, die Erstattung des
-                belasteten Betrags
-                verlangen. Es gelten dabei die mit
-                meinem Kreditinstitut vereinbarten Bedingungen.
-            </p>
-            <div class="page-12 page-inside-row">
                 <div class="page-12">
-                    <label class="label-text" for="fandsname">Nachname, Vorname</label>
-                    <input class="text-field" type="text" name="fandsname" id="fandsname"
-                        placeholder="Nachname, Vorname">
+                    <div class="page-12">
+                        <label class="label-text" for="inadvance">Vorauszahlung</label>
+                        <div class="page-inside payment-row" id="inadvance">
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="quarterly" value="quarterly">
+                                <label for="quarterly" class="quarterly">
+                                    in der Mitte eines
+                                    Dreimonatszeitraums (zum 15.)
+                                </label>
+                            </div>
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="semiannual" value="semiannual">
+                                <label for="semiannual" class="semiannual">
+                                    halbjährlich im Voraus
+                                    (zum 1.1., 1.7.)
+                                </label>
+                            </div>
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="yearly" value="yearly">
+                                <label for="yearly" class="yearly">
+                                    jährlich im Voraus
+                                    (zum 1.1.)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="page">
-            <h3 class="page-main-text">
-                5.1. SEPA-Lastschriftmandat
-            </h3>
-            <div class="page-12 page-inside-row">
-                <div class="page-12 page-sm-6">
-                    <label class="label-text" for="street-mandat">Straße</label>
-                    <input class="text-field" type="text" name="street-mandat" id="street-mandat" placeholder="Straße">
-                </div>
-                <div class="page-12 page-sm-6">
-                    <label class="label-text" for="housenumber-mandat">Hausnummer</label>
-                    <input class="text-field" type="text" name="housenumber-mandat" id="housenumber-mandat"
-                        placeholder="Hausnummer">
-                </div>
-            </div>
-            <div class="page-12 page-inside-row">
-                <div class="page-12 page-sm-6">
-                    <label class="label-text" for="code-mandat">Postleitzahl</label>
-                    <input class="text-field plz-field" type="number" name="code-mandat" id="code-mandat"
-                        placeholder="Postleitzahl">
-                </div>
-                <div class="page-12 page-sm-6">
-                    <label class="label-text" for="city-mandat">Stadt</label>
-                    <input class="text-field" type="text" name="city-mandat" id="city-mandat" placeholder="Stadt">
+            <div class="page">
+                <h3 class="page-main-text">
+                    4. Angaben zur Zahlungsweise
+                </h3>
+                <div class="page-12">
+                    <label class="label-text" for="payment-via">Zahlung über:</label>
+                    <div class="page-inside payment-row" id="payment-via">
+                        <div class="page-6">
+                            <input type="radio" name="payment-via" id="direct-debit" value="direct-debit">
+                            <label for="direct-debit" class="quarterly">
+                                durch Lastschrift
+                            </label>
+                        </div>
+                        <div class="page-6">
+                            <input type="radio" name="payment-via" id="bank-transfer" value="bank-transfer"">
+                            <label for=" bank-transfer" class="semiannual">
+                            durch Überweisung
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="page">
-            <h3 class="page-main-text">
-                5.2. SEPA-Lastschriftmandat
-            </h3>
-            <div class="page-12 page-inside-row">
-                <div class="page-12 ">
-                    <label class="label-text" for="iban-mandat">IBAN</label>
-                    <input class="text-field" type="text" name="iban-mandat" id="iban-mandat" placeholder="IBAN">
+            <div class="page">
+                <h3 class="page-main-text">
+                    5. SEPA-Lastschriftmandat
+                </h3>
+                <p class="mandat-text">
+                    Gläubiger-Identifikationsnummer des Beitragsservice
+                    von ARD, ZDF und Deutschlandradio: DE3000100000001272
+                </p>
+                <p class="mandat-text">
+                    Ich ermächtige den Beitragsservice
+                    von ARD, ZDF und Deutschlandradio,
+                    Zahlungen von meinem Konto mittels
+                    Lastschrift
+                    einzuziehen. Zugleich weise ich
+                    mein Kreditinstitut an, die vom Beitragsservice von ARD, ZDF und
+                    Deutschlandradio auf mein
+                    Konto gezogenen Lastschriften einzulösen.
+                </p>
+                <p class="mandat-text">
+                    Hinweis: Ich kann innerhalb von acht
+                    Wochen, beginnend mit dem Belastungsdatum, die Erstattung des
+                    belasteten Betrags
+                    verlangen. Es gelten dabei die mit
+                    meinem Kreditinstitut vereinbarten Bedingungen.
+                </p>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12">
+                        <label class="label-text" for="fandsname">Nachname, Vorname</label>
+                        <input class="text-field" type="text" name="fandsname" id="fandsname"
+                            placeholder="Nachname, Vorname">
+                    </div>
                 </div>
             </div>
-            <div class="page-12 page-inside-row">
-                <div class="page-12 page-sm-6">
-                    <label class="label-text" for="bic-mandat">BIC</label>
-                    <input class="text-field plz-field" type="number" name="bic-mandat" id="bic-mandat"
-                        placeholder="BIC">
-                </div>
-                <div class="page-12 page-sm-6">
-                    <label class="label-text" for="institut-mandat">Kreditinstitut</label>
-                    <input class="text-field" type="text" name="institut-mandat" id="institut-mandat"
-                        placeholder="Kreditinstitut">
-                </div>
-            </div>
-            <div class="page-12 page-inside-row">
-                <div class="page-12 ">
-                    <label class="label-text" for="ort-mandat">Ort</label>
-                    <input class="text-field" type="text" name="ort-mandat" id="ort-mandat" placeholder="Ort">
-                </div>
-            </div>
-        </div>
 
-        <div class="page">
-            <h3 class="page-main-text">
-                5.3. Ich bestätige die Richtigkeit der Angaben für den Mandat.
-            </h3>
-            <div class="page-12 accept-field">
-                <div class="accept-field">
-                    <input class="" type="checkbox" name="accept-mandat" id="accept-mandat">
-                    <label for="accept-mandat" class="accept-label">
-                        Hiermit bestätige ich, dass die Angaben
-                        richtig und Ordnungsgemäß eingetragen wurden.
-                    </label>
+            <div class="page">
+                <h3 class="page-main-text">
+                    5.1. SEPA-Lastschriftmandat
+                </h3>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="street-mandat">Straße</label>
+                        <input class="text-field" type="text" name="street-mandat" id="street-mandat"
+                            placeholder="Straße">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="housenumber-mandat">Hausnummer</label>
+                        <input class="text-field" type="text" name="housenumber-mandat" id="housenumber-mandat"
+                            placeholder="Hausnummer">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="code-mandat">Postleitzahl</label>
+                        <input class="text-field plz-field" type="number" name="code-mandat" id="code-mandat"
+                            placeholder="Postleitzahl">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="city-mandat">Stadt</label>
+                        <input class="text-field" type="text" name="city-mandat" id="city-mandat" placeholder="Stadt">
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="btn-field">
-            <div class="page-6 btn-row">
-                <button class="btn" type="button" id="prev">Prev</button>
-                <button class="btn " type="button" id="next">Next</button>
+            <div class="page">
+                <h3 class="page-main-text">
+                    5.2. SEPA-Lastschriftmandat
+                </h3>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 ">
+                        <label class="label-text" for="iban-mandat">IBAN</label>
+                        <input class="text-field" type="text" name="iban-mandat" id="iban-mandat" placeholder="IBAN">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="bic-mandat">BIC</label>
+                        <input class="text-field plz-field" type="number" name="bic-mandat" id="bic-mandat"
+                            placeholder="BIC">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="institut-mandat">Kreditinstitut</label>
+                        <input class="text-field" type="text" name="institut-mandat" id="institut-mandat"
+                            placeholder="Kreditinstitut">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 ">
+                        <label class="label-text" for="ort-mandat">Ort</label>
+                        <input class="text-field" type="text" name="ort-mandat" id="ort-mandat" placeholder="Ort">
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <div class="page">
+                <h3 class="page-main-text">
+                    5.3. Ich bestätige die Richtigkeit der Angaben für den Mandat.
+                </h3>
+                <div class="page-12 accept-field">
+                    <div class="accept-field">
+                        <input class="" type="checkbox" name="accept-mandat" id="accept-mandat">
+                        <label for="accept-mandat" class="accept-label">
+                            Hiermit bestätige ich, dass die Angaben
+                            richtig und Ordnungsgemäß eingetragen wurden.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-field">
+                <div class="page-6 btn-row">
+                    <button class="btn" type="button" id="prev">Prev</button>
+                    <button class="btn " type="button" id="next">Next</button>
+                </div>
+            </div>
+        </form>
     </section>
 
     <div class="footer">
