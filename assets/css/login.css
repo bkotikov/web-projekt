@@ -138,7 +138,7 @@ img {
   margin-top: 2rem;
 }
 .main .wrapper .form .input-control {
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.25rem;
