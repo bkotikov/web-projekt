@@ -1,17 +1,24 @@
-var queryString = window.location.search;
-var urlParams = new URLSearchParams(queryString);
+var hashString = window.location.hash.substring(1);
 var allPages = document.getElementsByClassName("page");
 
+
+
+
+
+function update() {
+  hashString = window.location.hash.substring(1);
+}
+
 function setRightUrlParams() {
-  if (parseInt(urlParams.get("page")) > allPages.length - 1) {
-    urlParams.set("page", allPages.length - 1);
-    window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
-  } else if (parseInt(urlParams.get("page")) < 0) {
-    urlParams.set("page", 0);
-    window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
-  } else {
-    console.log("Position:" + parseInt(urlParams.get("page")));
+  if (hashString === "") {
+    window.history.replaceState(this.href, '', `#0`);
   }
+  if (parseInt(hashString) > allPages.length - 1) {
+    window.history.replaceState(this.href, '', `#${allPages.length - 1}`);
+  } else if (parseInt(hashString) < 0) {
+    window.history.replaceState(this.href, '', `#0`);
+  }
+  update();
 }
 
 setRightUrlParams();
@@ -20,9 +27,7 @@ function getAndSetUrlParams() {
   for (let index = 0; index < allPages.length; index++) {
     allPages[index].style.display = "none";
   }
-  allPages[parseInt(urlParams.get("page"))].style.display = "block";
-
-  console.log("accessed getAndSetUrlParams Function");
+  allPages[parseInt(hashString)].style.display = "block";
 }
 
 getAndSetUrlParams();
@@ -30,34 +35,31 @@ getAndSetUrlParams();
 
 const next = document.getElementById("next");
 next.addEventListener("click", function () {
-  console.log("position at next: " + urlParams.get("page") + 1);
-  if ((parseInt(urlParams.get("page")) + 1) == allPages.length) {
+  if ((parseInt(hashString) + 1) == allPages.length) {
     next.setAttribute('type', 'submit');
     setAccessBannerVisibleAfterSuccessSubmit();
   } else {
-    replaceUrlParams(true);
-    hidePages();
+    replaceUrlHash(true);
+    getAndSetUrlParams();
   }
 });
 
 const prev = document.getElementById("prev");
 prev.addEventListener("click", function () {
-  if ((parseInt(urlParams.get("page")) - 1) == -1) {
+  if ((parseInt(hashString) - 1) == -1) {
     //prev.setAttribute('type', 'submit');
     console.log("prev");
     setTimeout(() => { console.log("World!"); }, 5000);
   } else {
-    replaceUrlParams(false);
-    hidePages();
+    replaceUrlHash(false);
+    getAndSetUrlParams();
   }
 });
 
-function hidePages() {
-  for (let index = 0; index < allPages.length; index++) {
-    allPages[index].style.display = "none";
-  }
-  allPages[parseInt(urlParams.get("page"))].style.display = "block";
-}
+
+
+
+
 
 function savePositionInCookie(params) {
 
@@ -71,26 +73,21 @@ function getCookieIfExist(params) {
 
 }
 
-function replaceUrlParams(nextOrPrev) {
+function replaceUrlHash(nextOrPrev) {
   if (nextOrPrev) {
-    urlParams.set("page", parseInt(urlParams.get("page")) + 1);
-    window.history.replaceState({ page: this.href }, '', `${location.pathname}?${urlParams}`);
+    window.history.pushState({ page: this.href }, '', `#${parseInt(hashString) + 1}`);
   } else {
-    urlParams.set("page", parseInt(urlParams.get("page")) - 1);
-    window.history.replaceState({ page: this.href }, '', `${location.pathname}?${urlParams}`);
+    window.history.pushState({ page: this.href }, '', `#${parseInt(hashString) - 1}`);
   }
+  update();
+
 }
 
-function reloadPage() {
-  const urlParams = new URLSearchParams(queryString);
-  if (!(urlParams.has("page"))) {
-    urlParams.set("page", 0);
-    window.history.pushState(this.href, '', `${location.pathname}?${urlParams}`);
-  }
-}
 
-reloadPage();
-
+window.addEventListener("hashchange", () => {
+  update();
+  getAndSetUrlParams();
+});
 
 var successBanner = document.getElementById("success-div");
 successBanner.style.display = "none";
