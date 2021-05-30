@@ -6,24 +6,7 @@
   <meta viewport="width = device-width, initial-scale = 1.0" />
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/login.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
   <title>Registrierung</title>
-
-  <style>
-    small {
-      color: red;
-    }
-
-    .input-control {
-      position: relative !important;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 1rem;
-    }
-  </style>
 </head>
 
 <body>
@@ -47,220 +30,42 @@
             <label for="vorname" class="input-label">Vorname</label>
             <input type="text" name="vorname" id="vorname" minlength="3" maxlength="32" class="input-field"
               placeholder="Vorname" required>
-            <small id="vorname-fehler">Vorname muss min. 3 Zeichen und max. 32 Zeichen lang sein.</small>
+            <small class="fehler" id="vorname-fehler">Vorname muss min. 3 Zeichen und max. 32 Zeichen lang sein.</small>
           </div>
           <div class="input-control">
             <label for="nachname" class="input-label" hidden>Nachname</label>
             <input type="text" name="nachname" id="nachname" class="input-field" placeholder="Nachname" required>
-            <small id="nachname-fehler">Vorname muss min. 3 Zeichen und max. 32 Zeichen lang sein.</small>
+            <small class="fehler" id="nachname-fehler">Vorname muss min. 3 Zeichen und max. 32 Zeichen lang
+              sein.</small>
           </div>
           <div class="input-control">
             <label for="email" class="input-label" hidden>E-Mail Adresse</label>
             <input type="email" name="email" id="email" class="input-field" placeholder="E-Mail Adresse" required>
+            <small class="fehler" id="email-fehler">Die von ihnen eingegebene Email ist ungültig. Bitte, geben sie eine
+              gültige Email.</small>
           </div>
           <div class="input-control">
             <label for="password" class="input-label" hidden>Passwort</label>
             <input type="password" name="password" id="passwort" class="input-field" placeholder="Passwort" required>
+            <small class="fehler" id="passwort-fehler">Passwort sollte mindestens 8 Zeichen lang sein, aus Groß- und
+              Kleinbuchstaben sowie Sonderzeichen bestehen</small>
           </div>
           <div class="input-control">
             <label for="password-bestatigen" class="input-label" hidden>Passwort bestätigen</label>
             <input type="password" name="password-bestatigen" id="password-bestatigen" class="input-field" required
               placeholder="Passwort bestätigen">
+            <small class="fehler" id="passwortRepeat-fehler">Passwörter stimmen nicht übereins</small>
           </div>
-          <div class="input-control">
+          <div class="input-control input-btn">
             <a href="#" class="text text-links">Passwort vergessen</a>
             <input type="submit" id="submit" name="submit" class="input-submit" value="Registrieren">
           </div>
         </form>
 
         <script>
-          const vorname = document.getElementById("vorname");
-          vorname.oninput = function () { validateVornameAndNachname(this.value, getLength(this.value), vorname.id); }
-
-          const nachname = document.getElementById("nachname");
-          nachname.oninput = function () { validateVornameAndNachname(this.value, getLength(this.value), nachname.id); }
-
-          const vornameFehler = document.getElementById("vorname-fehler");
-          vornameFehler.style.display = "none";
-
-          const nachnameFehler = document.getElementById("nachname-fehler");
-          nachnameFehler.style.display = "none";
-
-          const email = document.getElementById("email");
-          email.oninput = function () { validateVornameAndNachname(this.value, getLength(this.value)); }
-
-          const passwort = document.getElementById("passwort");
-          //passwort.oninput = function () { validateVornameAndNachname(this.value, getLength(this.value)); }
-
-          const passwortBes = document.getElementById("password-bestatigen");
-          //passwortBes.oninput = function () { validateVornameAndNachname(this.value, getLength(this.value)); }
-
-          const submitBtn = document.getElementById("submit");
-
-
-          function disableBTN() {
-            submitBtn.style.backgroundColor = "#778899";
-            submitBtn.disabled = true;
-          }
-
-          function enableBTN() {
-            submitBtn.style.backgroundColor = "#1a73e8";
-            submitBtn.disabled = false;
-          }
-
-          disableBTN();
-
-
-          /*var nachname = document.getElementById("nachname");
-          var email = document.getElementById("email");
-          var passwort = document.getElementById("passwort");
-          var passwortBestatigen = document.getElementById("password-bestatigen");
-          var submitBtn = document.getElementById("submit");
           
-          function validate() {
-            if (((vorname.value.length < 3 || vorname.value.length > 32) ||
-                (nachname.value.length < 3 || nachname.value.length > 32) ||
-                (passwort.value.length < 8 || passwort.value.length > 32) ||
-                (passwortBestatigen.value.length < 8 || passwortBestatigen.value.length > 32)) ||
-                passwortBestatigen.value !== passwort.value) {
-                  submitBtn.disabled = true;
-                  submitBtn.style.backgroundColor = "#FF0000";
-            } else {
-              submitBtn.disabled = false;
-              submitBtn.style.backgroundColor = "#0000ff";
-            }
-          
-          }
-          */
-
-          function getLength(params) {
-            return params.length;
-          }
-
-
-          var patt = "^(\s)*[A-Za-z]+((\s)?((\'|\-|\.)?([A-Za-z])+))*(\s)*$";
-
-          var regexPattern = new RegExp(patt);
-          const isEmpty = str => !str.trim().length
-
-          function validateVornameAndNachname(params, len, id) {
-            const paramID = id == "vorname" ? true : false;
-            console.log(paramID);
-
-            let valid = false;
-            if (!emptyValue(params)) {
-              hideBlock(paramID);
-              valid = true;
-            }
-            if (len < 3 || len > 32) {
-              displayBlock(paramID);
-              valid = false;
-            }
-            if (!regexPattern.test(params)) {
-              displayBlock(paramID);
-              valid = false;
-            }
-            if (valid) {
-              hideBlock(paramID);
-            }
-          }
-
-          function emptyValue(params) {
-            if (params.trim() == null || params.trim() == "" || params === " ") {
-              return true;
-            } else {
-              return false;
-            }
-          }
-
-          function displayBlock(params) {
-            if (params) {
-              vornameFehler.style.display = "block";
-            } else {
-              nachnameFehler.style.display = "block";
-            }
-          }
-
-          function hideBlock(params) {
-            if (params) {
-              vornameFehler.style.display = "none";
-            } else {
-              nachnameFehler.style.display = "none";
-            }
-          }
-
-
-          const emailPattern = "/\S+@\S+\.\S+/";
-          var regexEmailPattern = new RegExp(emailPattern);
-
-          function validateEmail(params) {
-            let valid = false;
-            if (emptyValue(params)) {
-              valid = true;
-            }
-            if (!regexEmailPattern.test(params)) {
-              valid = false;
-            }
-
-            if (valid) {
-
-            }
-          }
-
-          function validateFields() {
-
-            console.log(emptyValue(vorname.value));
-            console.log(emptyValue(nachname.value));
-            console.log(emptyValue(email.value));
-
-            let valid = false;
-
-            if (!(emptyValue(vorname.value) || emptyValue(nachname.value) || emptyValue(email.value))) {
-              valid = true;
-              console.log(123456);
-            } else {
-              valid = false;
-            }
-
-            console.log("valid: " + valid);
-
-            if (valid) {
-              enableBTN();
-            } else {
-              disableBTN();
-            }
-          }
-
-          function disableBtnInterval(params) {
-            setInterval(() => validateFields(), 2000);
-          }
-
-          disableBtnInterval();
-
-          const passwortPattern = "";
-          var passwortRegex = new RegExp(passwortPattern);
-
-          function validatePasswort(params) {
-            let valid = false;
-            if (!emptyValue(params)) {
-              valid = true;
-            }
-            if (passwortRegex.test(params)) {
-              valid = true;
-            }
-
-            if (valid) {
-              
-            }
-          }
-
-          function matchPasswort(params) {
-
-          }
-
-
-
         </script>
+
         <!--
         <div class="striped">
           <span class="striped-line"></span>
@@ -271,17 +76,12 @@
           <div class="method-control">
             <a href="#" class="method-action">
               <i class="bi bi-google ion-logo-google"></i>
-              <span>Anmelden mit Google</span>
-            </a>
-          </div>
-          <div class="method-control">
-            <a href="#" class="method-action">
-              <i class="bi bi-facebook ion-logo-facebook"></i>
-              <span></i>Anmelden mit Facebook</span>
+              <span>Als Gast fortfahren</span>
             </a>
           </div>
         </div>
         -->
+        
       </section>
     </div>
   </main>
@@ -314,8 +114,12 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/static/js/index.js"></script>
   <script src="/static/js/banner.js"></script>
-  <script type="text/javascript" src="/static/js/footer.js"></script>
+  <script src="/static/js/footer.js"></script>
   <script src="/static/js/validierung.js"></script>
+
+  <script>
+
+  </script>
 
 </body>
 
