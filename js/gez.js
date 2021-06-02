@@ -1,9 +1,6 @@
+
 var hashString = window.location.hash.substring(1);
 var allPages = document.getElementsByClassName("page");
-
-
-
-
 
 function update() {
   hashString = window.location.hash.substring(1);
@@ -37,7 +34,7 @@ const next = document.getElementById("next");
 next.addEventListener("click", function () {
   if ((parseInt(hashString) + 1) == allPages.length) {
     next.setAttribute('type', 'submit');
-    setAccessBannerVisibleAfterSuccessSubmit();
+    showSuccess();
   } else {
     replaceUrlHash(true);
     getAndSetUrlParams();
@@ -89,11 +86,26 @@ window.addEventListener("hashchange", () => {
   getAndSetUrlParams();
 });
 
-var successBanner = document.getElementById("success-div");
-successBanner.style.display = "none";
-async function setAccessBannerVisibleAfterSuccessSubmit() {
-  successBanner.style.display = "block";
-  setTimeout(() => {
-    successBanner.style.display = "none";
-  }, 3000);
+/*
+ async function showSuccess() {
+  const success = document.getElementById("success-div");
+  success.style.display = "block";
+  hideSuccess();
 }
+
+ async function hideSuccess() {
+  const success = document.getElementById("success-div");
+  setTimeout(() => { success.style.display = "none"; }, 3000);
+}
+
+ async function showError() {
+  const error = document.getElementById("error-div");
+  error.style.display = "block";
+  hideError();
+}
+
+ async function hideError() {
+  const error = document.getElementById("error-div");
+  setTimeout(() => { error.style.display = "none"; }, 3000);
+}
+*/

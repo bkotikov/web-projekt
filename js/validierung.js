@@ -206,7 +206,7 @@ $("#submit").click(function (event) {
     nachname: $("#nachname").val(),
     passwort: $("#passwort").val(),
     email: $("#email").val(),
-    passwordBes: $("#password-bestatigen").val(),
+    passwordBes: $("#password-bestatigen").val()
   };
 
   $.ajax({
@@ -216,12 +216,26 @@ $("#submit").click(function (event) {
     dataType: "json",
     encode: true,
     success: function (result) {
-
+      console.log("success: " + data.status);
     },
     error: function (data,status,xhr) {
-      console.log(data);
-      console.log(status);
-      console.log(xhr);
+      console.log(data.status);
+      switch (data.status) {
+        case 201:
+          showSuccess();
+          break;
+      
+        case 401:
+          showError();
+          break;
+
+        default:
+          console.log("Pssss...");
+          break;
+      }
+    },
+    complete : function (data,status,xhr) {
+      console.log("complete");
     }
   });
 

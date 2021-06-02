@@ -7,21 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/gez.css">
+    <link rel="stylesheet" href="/static/css/success.css">
     <title>Formular</title>
 </head>
 
 <body>
     <div id="banner"></div>
-
-
-    <div class="message success" id="success-div">
-        <div class="message__header">Erfolg</div>
-        <div class="message__content">
-            Sie haben ihren Formular erfolgreich verschickt.
-            Wenn sie ihren Formular anschauen wollen,
-            das könnt ihr im Archiv machen.
-        </div>
-    </div>
 
     <section class="form-sec">
         <div class="page-content">
@@ -307,6 +298,24 @@
                 </div>
             </div>
 
+            <div class="message success" id="success-div">
+                <div class="message__header">Erfolg</div>
+                <div class="message__content">
+                    Sie haben ihren Formular erfolgreich verschickt.
+                    Wenn sie ihren Formular anschauen wollen,
+                    das könnt ihr im Archiv machen.
+                </div>
+            </div>
+
+            <div class="message error" id="error-div">
+                <div class="message__header">Erfolg</div>
+                <div class="message__content">
+                  Sie haben ihren Formular erfolgreich verschickt.
+                  Wenn sie ihren Formular anschauen wollen,
+                  das könnt ihr im Archiv machen.
+                </div>
+              </div>
+
             <div class="btn-field">
                 <div class="page-6 btn-row">
                     <button class="btn" type="button" id="prev">Prev</button>
@@ -344,8 +353,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/js/index.js"></script>
     <script src="/static/js/banner.js"></script>
-    <script type="text/javascript" src="/static/js/footer.js"></script>
+    <script src="/static/js/footer.js"></script>
     <script src="/static/js/gez.js"></script>
+    <script src="/static/js/success.js"></script>
+    
 </body>
-
 </html>

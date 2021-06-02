@@ -6,21 +6,23 @@
   <meta viewport="width = device-width, initial-scale = 1.0" />
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="/static/css/success.css">
   <title>Registrierung</title>
 </head>
 
 <body>
   <div id="banner"></div>
+  <div id="content"></div>
 
   <main class="main">
     <div class="container">
       <section class="wrapper">
         <div class="heading">
           <h1 class="text text-large">Registrierung</h1>
-          <p class="text text-normal">neuer Benutzer?
+          <p class="text text-normal">Bereits Mitglied? 
             <span>
-              <a href="#" class="text text-links">
-                Account erstellen
+              <a href="/de/login" class="text text-links">
+                Anmelden
               </a>
             </span>
           </p>
@@ -56,16 +58,28 @@
               placeholder="Passwort bestätigen">
             <small class="fehler" id="passwortRepeat-fehler">Passwörter stimmen nicht übereins</small>
           </div>
+
+          <div class="message success" id="success-div">
+            <div class="message__header">Registrierung erfolgreich</div>
+            <div class="message__content">
+              Sie haben sich erfolgreich registriert.
+            </div>
+          </div>
+
+          <div class="message error" id="error-div">
+            <div class="message__header">Erfolg</div>
+            <div class="message__content">
+              Sie haben ihren Formular erfolgreich verschickt.
+              Wenn sie ihren Formular anschauen wollen,
+              das könnt ihr im Archiv machen.
+            </div>
+          </div>
+
           <div class="input-control input-btn">
             <a href="#" class="text text-links">Passwort vergessen</a>
             <input type="submit" id="submit" name="submit" class="input-submit" value="Registrieren">
           </div>
         </form>
-
-        <script>
-          
-        </script>
-
         <!--
         <div class="striped">
           <span class="striped-line"></span>
@@ -81,7 +95,7 @@
           </div>
         </div>
         -->
-        
+
       </section>
     </div>
   </main>
@@ -109,17 +123,12 @@
     </div>
   </div>
 
-  <div id="content"></div>
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/static/js/index.js"></script>
   <script src="/static/js/banner.js"></script>
   <script src="/static/js/footer.js"></script>
+  <script src="/static/js/success.js"></script>
   <script src="/static/js/validierung.js"></script>
-
-  <script>
-
-  </script>
 
 </body>
 
