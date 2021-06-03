@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/login.css">
   <link rel="stylesheet" href="/static/css/success.css">
+  <link rel="stylesheet" href="/static/css/tooltip.css">
   <title>Registrierung</title>
 </head>
 
@@ -18,8 +19,14 @@
     <div class="container">
       <section class="wrapper">
         <div class="heading">
-          <h1 class="text text-large">Registrierung</h1>
-          <p class="text text-normal">Bereits Mitglied? 
+          <h1 class="text text-large">Registrierung
+            <div class="tooltip ">
+              <div class="tooltiptext">
+                Text
+              </div>
+            </div>
+          </h1>
+          <p class="text text-normal">Bereits Mitglied?
             <span>
               <a href="/de/login" class="text text-links">
                 Anmelden
@@ -67,11 +74,9 @@
           </div>
 
           <div class="message error" id="error-div">
-            <div class="message__header">Erfolg</div>
+            <div class="message__header">Fehler</div>
             <div class="message__content">
-              Sie haben ihren Formular erfolgreich verschickt.
-              Wenn sie ihren Formular anschauen wollen,
-              das könnt ihr im Archiv machen.
+              Jemand hat diese E-Mail
             </div>
           </div>
 

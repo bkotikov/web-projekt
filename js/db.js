@@ -41,7 +41,6 @@ function insertUser(values) {
                         resolve(id);
                     })
                     .catch(err => {
-                        console.log(err);
                         reject(err);
                     });
             }).catch(err => {
@@ -51,15 +50,13 @@ function insertUser(values) {
 }
 
 function getUserByEmail(id) {
-    console.log("getById: " + id);
     return new Promise((resolve, reject) => {
         const sql = "SELECT benutzer_id FROM benutzer WHERE benutzer_id = ?";
         pool.connect().then(res => {
             pool.query(sql, [id])
             .then(result => {
-                console.log("res: " + result);
-                console.log(result.rows[0]);
                 resolve(result.rows[0]);
+                res.end();
             })
             .catch(err => {
                 console.log(err);

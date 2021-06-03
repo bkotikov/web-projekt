@@ -213,30 +213,12 @@ $("#submit").click(function (event) {
     type: "POST",
     url: "/registration",
     data: formData,
-    dataType: "json",
-    encode: true,
-    success: function (result, data) {
-      console.log("success: " + data.status);
-    },
-    error: function (data,status,xhr) {
-      console.log(data.status);
-      switch (data.status) {
-        case 201:
-          showSuccess();
-          break;
-      
-        case 401:
-          showError();
-          break;
-
-        default:
-          console.log("Pssss...");
-          break;
-      }
-    },
-    complete : function (data,status,xhr) {
-      console.log("complete");
-    }
+    //dataType: "json",
+    encode: true
+  }).done(done => {
+    showSuccess();
+  }).fail(fail => {
+    showError();
   });
 
 });

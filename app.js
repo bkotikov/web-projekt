@@ -14,6 +14,7 @@ const crypto = require('crypto');
 
 const db = require('./js/db.js');
 const reg = require('./js/registration.js');
+const success = require('./js/success.js');
 
 const PORT = 5000;
 
@@ -27,15 +28,8 @@ const de_index = 'DE_';
 const bg = 'bg';
 const bg_index = 'BG_';
 
-var language = '';
-
-
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cookieParser());
 
 app.use('/static/css', express.static(__dirname + '/assets/css'));
@@ -157,34 +151,32 @@ app.get('/' + bg + '/registration', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'registration.html'))
 });
 
-app.post('/registration', function (req, res) {
-  const url = req.body;
+app.post('/registration', (request, response) => {
+  const url = request.body;
+  request.setTimeout(0);
   reg.signUp(url)
-  .then(
-    result => {
-      if (typeof result === 'string') {
-        console.log("result: " + result);
-        const userID = req.cookies['benutzer_id'];
-        if (userID) {
-          console.log(1);
-        }else{
-          console.log(2);
-          res.cookie('benutzer_id', result, {maxAge: 9000000, httpOnly: false, secure: false });
-          res.setHeader("Content-Type", "text/html")
-          //res.status(200).send(result);
-          res.redirect('/');
+    .then(
+      result => {
+        if (typeof result === 'string') {
+          console.log(request.cookies.benutzerid);
+          if (request.cookies.benutzerid) {
+            console.log("cookie exist");
+            response.status(400).json({ fail: true });
+          } else {
+            console.log(1);
+            response.cookie('benutzerid', result, {maxAge: 1000 * 60 * 15, httpOnly: false});
+            console.log("cookie: " + request.cookies['benutzerid']);
+            response.status(201).json({ success: true });
+          }
+        } else {
+          response.redirect('/');
         }
-      } else {
-        console.log(result);
       }
-    }
-  ).catch(err => {
-    if (typeof err === 'object') {
-      if (err.redirect) {
-        res.redirect(err.redirect);
+    ).catch(err => {
+      if (typeof err === 'object') {
+        response.status(400).json({ fail: true });
       }
-    }
-  });
+    });
 });
 
 
