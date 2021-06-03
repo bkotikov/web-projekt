@@ -215,7 +215,7 @@ $("#submit").click(function (event) {
     data: formData,
     dataType: "json",
     encode: true,
-    success: function (result) {
+    success: function (result, data) {
       console.log("success: " + data.status);
     },
     error: function (data,status,xhr) {

@@ -3,14 +3,16 @@ const {
     v4: uuidv4,
 } = require('uuid');
 
-const { Pool } = require('pg');
-const pool = new Pool({
+const pg = require('pg')
+const pool = new pg.Pool({
     user: 'web',
     host: 'localhost',
     database: 'web',
     password: 'web2021',
-    port: 5432
-})
+    port: 5432,
+    statement_timeout: 0,
+    idle_in_transaction_session_timeout: 0
+});
 
 const tools = require('./tools.js');
 
@@ -28,49 +30,45 @@ benutzer_id serial PRIMARY KEY,
 function insertUser(values) {
     const { vorname, nachname, passwort, email } = values;
     return new Promise((resolve, reject) => {
-        console.log(vorname + " " + nachname + " " + tools.createPasswordHash(passwort) + " " + email);
-        pool.connect().then(con => {
-            const sql = 'INSERT INTO benutzer (benutzer_id, vorname, nachname, password, email, created_on, last_login) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-            const values = [uuidv4(), vorname, nachname, tools.createPasswordHash(passwort), email, nowTimestamp(), nowTimestamp()];
-            console.log("test");
-            pool
-                .query(sql, values)
-                .then(res => {
-                    console.log(res);
-                    resolve(getUserByEmail(email));
-                    //getUserByEmail(email)
-                })
-                .catch(err => {
-                    console.log("second line");
-                    console.log(err);
-                    reject(err)
-                    pool.end()
-                });
-        })
-            .catch(err => {
+        pool.connect()
+            .then(() => {
+                const sql = 'INSERT INTO benutzer (benutzer_id, vorname, nachname, password, email, created_on, last_login) VALUES ($1, $2, $3, $4, $5, $6, $7)';
+                const id = uuidv4();
+                const values = [id, vorname, nachname, tools.createPasswordHash(passwort), email, nowTimestamp(), nowTimestamp()];
+                pool
+                    .query(sql, values)
+                    .then(res => {
+                        resolve(id);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        reject(err);
+                    });
+            }).catch(err => {
                 console.log("first error: " + err);
-            }
-
-            );
+            });
     });
 }
 
-function getUserByEmail(email) {
+function getUserByEmail(id) {
+    console.log("getById: " + id);
     return new Promise((resolve, reject) => {
-        pool.connect().then(con => {
-            const sql = "SELECT * FROM benutzer WHERE email = ?";
-            pool.query(sql, email)
-                .then(res => {
-                    console.log(res);
-                    resolve(res);
-                    pool.end();
-                })
-                .catch(err => {
-                    console.log("second line");
-                    console.log(err);
-                    reject(err)
-                    pool.end()
-                });
+        const sql = "SELECT benutzer_id FROM benutzer WHERE benutzer_id = ?";
+        pool.connect().then(res => {
+            pool.query(sql, [id])
+            .then(result => {
+                console.log("res: " + result);
+                console.log(result.rows[0]);
+                resolve(result.rows[0]);
+            })
+            .catch(err => {
+                console.log(err);
+                reject(err);
+            });
+            resolve(res);
+        })
+        .catch(err => {
+            reject(err);
         });
     });
 }
@@ -83,8 +81,6 @@ function nowTimestamp() {
     var moment = require('moment');
     var time = moment();
     var time_format = time.format('YYYY-MM-DD HH:mm:ss');
-    console.log(time_format);
-
     return time_format;
 }
 

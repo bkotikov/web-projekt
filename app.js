@@ -10,8 +10,10 @@ const path = require("path");
 const parser = require('accept-language-parser');
 const url = require('url');
 const cookieParser = require('cookie-parser');
+const crypto = require('crypto');
 
-const db = require('./js/db.js')
+const db = require('./js/db.js');
+const reg = require('./js/registration.js');
 
 const PORT = 5000;
 
@@ -34,7 +36,7 @@ app.use(
     extended: true,
   })
 )
-//app.use(cookieParser());
+app.use(cookieParser());
 
 app.use('/static/css', express.static(__dirname + '/assets/css'));
 app.use('/static/images', express.static(__dirname + '/assets/images'));
@@ -157,14 +159,23 @@ app.get('/' + bg + '/registration', function (req, res) {
 
 app.post('/registration', function (req, res) {
   const url = req.body;
-  db.insertUser(url)
+  reg.signUp(url)
   .then(
-    res => {
-      if (typeof res === 'string') {
-        res.send(res)
+    result => {
+      if (typeof result === 'string') {
+        console.log("result: " + result);
+        const userID = req.cookies['benutzer_id'];
+        if (userID) {
+          console.log(1);
+        }else{
+          console.log(2);
+          res.cookie('benutzer_id', result, {maxAge: 9000000, httpOnly: false, secure: false });
+          res.setHeader("Content-Type", "text/html")
+          //res.status(200).send(result);
+          res.redirect('/');
+        }
       } else {
-        console.log("success");
-        //db.getUserByEmail()
+        console.log(result);
       }
     }
   ).catch(err => {
