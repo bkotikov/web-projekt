@@ -1,16 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const fs = require('fs')
-const requirejs = require('requirejs');
 const app = express();
 
+const https = require('https')
 const http = require('http');
 const { dirname } = require('path');
 const path = require("path");
 const parser = require('accept-language-parser');
 const url = require('url');
 const cookieParser = require('cookie-parser');
-const crypto = require('crypto');
 
 const db = require('./js/db.js');
 const reg = require('./js/registration.js');
@@ -101,6 +100,11 @@ app.get('/' + bg + '/scan', function (req, res) {
 
 
 //----Index------
+
+
+app.get('/' + de + '/index', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + de + '/indeex.html'));
+});
 
 app.get('/' + en + '/', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'index.html'));
@@ -283,4 +287,11 @@ app.post('/' + bg + '/registrierungPruefen', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'index.html'));
 });
 
-app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
+https.createServer({
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./key-cert.pem')
+}, app).listen(5001, () => {
+  console.log('Listening... 5000')
+})
+http.createServer(app).listen(5000);
+//app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
