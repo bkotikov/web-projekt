@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/style.css">
+    
     <link rel="stylesheet" href="/static/css/gez.css">
     <link rel="stylesheet" href="/static/css/success.css">
     <link rel="stylesheet" href="/static/css/tooltip.css">
@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <div id="banner"></div>
+
+    <div class="" id="header"></div>
+    <div class="" id="cookie"></div>
 
     <section class="form-sec">
         <div class="page-content">
@@ -319,44 +321,21 @@
 
             <div class="btn-field">
                 <div class="page-6 btn-row">
-                    <button class="btn" type="button" id="prev">Prev</button>
-                    <button class="btn " type="button" id="next">Next</button>
+                    <button class="btn" type="button" id="prev">Zurück</button>
+                    <button class="btn " type="button" id="next">Weiter</button>
                 </div>
             </div>
         </form>
     </section>
 
-    <div class="footer">
-        <div class="card-section">
-            <div class="page-12 page-6-md footer-sec">
-                <div class="select">
-                    <select name="slct" id="slct" data-select-name>
-                        <option selected disabled>Sprache</option>
-                        <option value="/de/gez">Deutsch</option>
-                        <option value="/en/gez">Englisch</option>
-                        <option value="/ru/gez">Russisch</option>
-                        <option value="/bg/gez">Bulgarisch</option>
-                    </select>
-                </div>
-                <br>
-                <a class="footer-btn" href="/de/imprint">Impressum</a>
-                <a class="footer-btn" href="/de/privacy">Datenschutz</a>
-                <a class="footer-btn" href="/de/about">Über uns</a>
-            </div>
-            <div class="page-12 page-6-md footer-sec">
-                <p>WEB Team-B2</p>
-            </div>
-        </div>
-    </div>
+    <div class="" id="footer"></div>
 
-    <div id="content"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/static/js/index.js"></script>
-    <script src="/static/js/banner.js"></script>
-    <script src="/static/js/footer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="/static/js/gez.js"></script>
     <script src="/static/js/success.js"></script>
+    <script src="/static/js/common.js"></script>
     
 </body>
 </html>

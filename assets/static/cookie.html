@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/static/css/cookie.css">
+</head>
+
+<body>
+    <div class="cookie" id="modal">
+        <div class="close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.5" style="color: white;">
+                    <path fill="#fff" d="M18 6L6 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M6 6L18 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </g>
+            </svg>
+
+        </div>
+        <div class="front">
+
+            <h1>Datenschutzeinstellungen</h1>
+            <p>
+                Wir nutzen Cookies und Pixel
+                um Dir die bestmögliche Browsing-Erfahrung
+                zu bieten. Die mit Hilfe von Cookies
+                gesammelten Daten werden zur
+                Optimierung unserer Webseite genutzt
+                und um B2-Nutzern und potenziellen
+                Neukunden die für sie relevantesten
+                Informationen anzuzeigen. Diese Daten
+                werden im Rahmen unserer EU-weiten
+                und globalen Tätigkeiten genutzt</p>
+            <div class="front__buttons">
+                <button id="accepted-all">alle Akzeptieren</button>
+                <button id="accepted-neccesary">Unnötige Cookies ablehnen</button>
+            </div>
+            <div class="front__footer">
+                <a href="#" id="more_cookie">Zustimmungsvorgaben verwalten</a>
+            </div>
+            <!--
+            <div>
+                <a href="#" class="learn_more">Learn More</a>
+            </div>
+            -->
+        </div>
+        <div class="back">
+            <div class="back_icons">
+                <i class="back_icon">
+                    <img src="/static/images/angle-left-solid.svg" style="width: 0.75rem;" alt="">
+                </i>
+            </div>
+            <h1>Zustimmungsvorgaben verwalten</h1>
+
+            <ul class="tab">
+                <li>
+                    <i class="fas fa-plus"></i>
+                    <h2>Notwendige Cookies</h2>
+                    <span class="baged">Aktiv</span>
+                </li>
+                <div class="data2">
+                    <p>
+                        Diese Cookies sind für die Ausführung
+                        von spezifischen Funktionen einer
+                        Website notwendig.
+                    </p>
+                </div>
+
+                <li>
+                    <i class="far fa-minus"></i>
+                    <h2>Performance Cookies</h2>
+                    <label class="custom_checkbox">
+                        <input type="checkbox" id="perfomance" value="">
+                        <span class="toogle"></span>
+                    </label>
+
+                </li>
+                <div class="data2 active">
+                    <p>Diese Cookies sammeln Informationen
+                        über das Userverhalten auf der Seite
+                        und auch, ob der Nutzer z.B.
+                        Fehlermeldungen (wenn ja, wo und
+                        nach welchen Interaktionen) bekommt.
+                        Zudem werden Ladezeiten oder das
+                        Verhalten der Webseite bei
+                        verschiedenen Browsertypen mit
+                        diesen Cookies gemessen.
+                    </p>
+                </div>
+
+
+
+                <li>
+                    <i class="fas fa-plus"></i>
+                    <h2>Funktionale Cookies</h2>
+                    <label class="custom_checkbox">
+                        <input type="checkbox" id="functional">
+                        <span class="toogle"></span>
+                    </label>
+
+                </li>
+                <div class="data2">
+                    <p>Diese Cookies sind zwar nicht zwingend
+                        notwendig, verbessern aber die
+                        Usability einer Webseite und wirken sich
+                        somit positiv auf die User Experience aus. So
+                        werden zum Beispiel einmal eingegebene
+                        Formulardaten, die Größe der Schrift, die
+                        Schriftart oder ähnliches gespeichert. Bei einem erneuten Aufruf der Website sind diese
+                        Informationen dann bereits vorhanden.
+                    </p>
+                </div>
+            </ul>
+            <div class="back_footer">
+                <input type="submit" class="col-7" id="confirmed" value="Auswahl bestätigen">
+                <input type="button" class="col-4" id="back" value="Zurück">
+            </div>
+
+        </div>
+    </div>
+    <script src="/static/js/cookie.js"></script>
+</body>
+
+</html>

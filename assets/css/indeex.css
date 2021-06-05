@@ -1,3 +1,4 @@
+/*
 * {
     margin:0;
     padding:0;
@@ -6,74 +7,7 @@
     text-decoration: none;
     font-family: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
-header {
-    box-sizing: border-box;
-    width:100%;
-    height:60px;
-    padding-left: 24px;
-    padding-right: 24px;
-    background-color:rgba(255, 255, 255, 0.95);
-    opacity:0.9;
-    position:sticky;
-    top:0;
-    -webkit-backdrop-filter: blur(8px);
-    -moz-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-}
-nav {
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-
-}
-.logo {
-    font-size: 2.3rem;
-    font-weight: bold;
-
-}
-.logo span {
-    font-size: 2rem;
-    font-weight: bold;
-    vertical-align:8px;
-}
-.login ul, .menu ul {
-    display:flex;
-
-}
-.login ul li a, .menu ul li a {
-    padding:8px;
-    color:black;
-    opacity:0.6;
-    font-size: 14px;
-    
-}
-.login ul li a:hover, .menu ul li a:hover {
-    color:black;
-    opacity:1;
-    
-}
-.login ul li a#signup {
-    height:32px;
-    padding: 6px 12px;
-    min-width: auto;
-    color: white;
-    background-color: #000;
-    margin-left: 8px;
-    border-radius:5px;
-    border:1px solid black;
-    font-size: 14px;
-    opacity:initial;
-    transition-property: background-color, color;
-    transition-duration: 0.2s, 0.2s;
-    
-}
-.login ul li a#signup:hover {
-    color: rgb(7, 7, 7);
-    background-color: rgb(247, 247, 247);
-
-}
+*/
 main .firstpage {
     background-color: white;
     text-align: center;
@@ -83,6 +17,10 @@ main .firstpage {
     margin-bottom:40px;
     line-height: 160px;
     user-select: none;
+}
+
+main .firstpage h2{
+    margin: 1rem;
 }
 
 main .firstpage h2:nth-of-type(1) {
@@ -101,6 +39,7 @@ main .firstpage h2:nth-of-type(2) {
     background-image: linear-gradient(90deg ,#0e0d0d,#929292);
     -webkit-background-clip: text;
     background-clip: text;
+    line-height: 100%;
     -webkit-text-fill-color: transparent;
 }
 main .firstpage h2:nth-of-type(3) {
@@ -180,110 +119,24 @@ main .info {
 	--color: rgb(7, 7, 7);
 	--color2: white;
 }
-#hamburger {
-	display: none;
-}
-.toogle {
-	width:calc(var(--space) * 3.3);
-	height:calc(var(--height) + (var(--space) * 2));
-	/* background-color: var(--color); */
-	/* border:calc(var(--height) / 3) solid var(--color);
-	border-radius: calc(var(--height) / 3); */
-    display: none;
-}
 
-.toogle label {
-	width:100%;
-	height:100%;
-	background-color: var(--color2);
-	display: block;
-	border-radius: calc(var(--height) / 3);
-	position: relative;
-	cursor: pointer;
-	
-}
-.toogle label span {
-	width:calc(var(--space) * 2.5);
-	height:calc(var(--height) / 1.2);
-	background-color: var(--color);
-	position:absolute;
-	display:block;
-	border-radius: 3px;
-	top:50%;
-	left:50%;
-	transform: translate(-50%, -50%);
-	transition-property: background, border-radius;
-	transition-duration: 0.3s;
-	transition-delay: 0.2s, 0s;
-}
-
-.toogle label span:before {
-	content: '';
-	width:calc(var(--space) * 2.5);
-	height:calc(var(--height) / 1.2);
-	background-color: var(--color);
-	position:absolute;
-	display:block;
-	border-radius: 3px;
-	top: calc((-1 * var(--space)) + var(--height));
-	left:0;	
-	transition-property: top, transform;
-	transition-duration: 0.3s, 0.3s;
-	transition-delay: 0.3s, 0s;
-}
-.toogle label span:after {
-	content: '';
-	width:calc(var(--space) * 2.5);
-	height:calc(var(--height) / 1.2);
-	background-color: var(--color);
-	position:absolute;
-	display:block;
-	border-radius: 3px;
-	top:calc(var(--space) - var(--height));
-	left:0;	
-	transition-property: top, transform;
-	transition-duration: 0.3s, 0.3s;
-	transition-delay: 0.3s, 0s;
-
-}
-input#hamburger:checked + .toogle label span {
-	background: transparent;
-	border-radius: 0;
-
-}
-input#hamburger:checked + .toogle label span:after {
-	top:0;
-	transform: rotate(-45deg);
-	transition-delay: 0s, 0.3s;
-
-}
-input#hamburger:checked + .toogle label span:before {
-	top:0;
-	transform: rotate(45deg);
-	transition-delay: 0s, 0.3s;
-}
 @media screen and (max-width:768px){
-    header nav .menu {
-        display:none;
-    }
-    .toogle {
-        display: block;
-    }
+
     main .firstpage {
         line-height:100.78px;
     }
     main .firstpage h2:nth-of-type(1) {
-        font-size: 100px;
+        font-size: 5rem;
         font-weight: 800;
         letter-spacing: -6.7344px;
     }
     main .firstpage h2:nth-of-type(2) {
-        font-size: 100px;
+        font-size: 5rem;
         font-weight: 800;
         letter-spacing: -6.7344px;
     }
     main .firstpage h2:nth-of-type(3) {
-        font-size: 100px;
+        font-size: 5rem;
         font-weight: 800;
         letter-spacing: -6.7344px;
     }
@@ -302,17 +155,17 @@ input#hamburger:checked + .toogle label span:before {
         display:none;
     }
     main .firstpage h2:nth-of-type(1) {
-        font-size:75px;
+        font-size:4rem;
         font-weight: 800;
         letter-spacing: -4.7344px;
     }
     main .firstpage h2:nth-of-type(2) {
-        font-size: 75px;
+        font-size: 4rem;
         font-weight: 800;
         letter-spacing: -4.7344px;
     }
     main .firstpage h2:nth-of-type(3) {
-        font-size: 75px;
+        font-size: 4rem;
         font-weight: 800;
         letter-spacing: -4.7344px;
     }

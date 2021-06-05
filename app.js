@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use('/static/css', express.static(__dirname + '/assets/css'));
 app.use('/static/images', express.static(__dirname + '/assets/images'));
 app.use('/static/js', express.static(__dirname + '/js'));
-
+app.use('/static/html', express.static(__dirname + '/assets/static/'));
 //root
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/lang.html'));

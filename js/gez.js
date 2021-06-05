@@ -53,23 +53,6 @@ prev.addEventListener("click", function () {
   }
 });
 
-
-
-
-
-
-function savePositionInCookie(params) {
-
-}
-
-function overwriteCookieIfExist(params) {
-
-}
-
-function getCookieIfExist(params) {
-
-}
-
 function replaceUrlHash(nextOrPrev) {
   if (nextOrPrev) {
     window.history.pushState({ page: this.href }, '', `#${parseInt(hashString) + 1}`);
@@ -77,35 +60,91 @@ function replaceUrlHash(nextOrPrev) {
     window.history.pushState({ page: this.href }, '', `#${parseInt(hashString) - 1}`);
   }
   update();
-
 }
-
 
 window.addEventListener("hashchange", () => {
   update();
   getAndSetUrlParams();
 });
 
+const mann = document.getElementById("men");
+const frau = document.getElementById("woman");
+const firstname = document.getElementById("firstname");
+const secondname = document.getElementById("secondname");
+const birthday = document.getElementById("birthday");
+const startDay = document.getElementById("startDay");
+
 /*
- async function showSuccess() {
-  const success = document.getElementById("success-div");
-  success.style.display = "block";
-  hideSuccess();
-}
-
- async function hideSuccess() {
-  const success = document.getElementById("success-div");
-  setTimeout(() => { success.style.display = "none"; }, 3000);
-}
-
- async function showError() {
-  const error = document.getElementById("error-div");
-  error.style.display = "block";
-  hideError();
-}
-
- async function hideError() {
-  const error = document.getElementById("error-div");
-  setTimeout(() => { error.style.display = "none"; }, 3000);
+if (!mann.checked || !frau.checked) {
+  next.style.background = "#888888";
 }
 */
+
+//console.log(window.location.hash.substring(1));
+
+function urlHash() {
+  return parseInt(window.location.hash.substring(1));
+}
+
+function disableBTN() {
+  next.style.backgroundColor = "#778899";
+  next.disabled = true;
+}
+
+function enableBTN() {
+  next.style.backgroundColor = "#33c74f";
+  next.disabled = false;
+}
+
+disableBTN();
+
+async function fieldsValidation() {
+  setInterval(() => validateFields(), 3000);
+}
+
+function getLength(params) {
+  return params.length;
+}
+
+function validateFields() {
+  switch (urlHash()) {
+    case 0:
+      if ((mann.checked || frau.checked) && firstname.value.length > 2 && secondname.value.length > 2 &&  birthday.value != "") {
+        enableBTN();
+      }else{
+        disableBTN();
+      }
+      break;
+    case 1:
+      if (startDay.value != "") {
+        enableBTN();
+      } else {
+        disableBTN();
+      }
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    case value:
+      break;
+    default:
+      break;
+  }
+}
+
+fieldsValidation();

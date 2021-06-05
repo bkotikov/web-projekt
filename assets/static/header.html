@@ -1,50 +1,38 @@
-<div class="header">
-    <div class="container-xs shadow p-tb">
-        <div class="col-8 col-8-sm col-3-md">
-            <a class="logo" href="#">Team-B2</a>
-        </div>
-        <div class="col-4 col-9-md col-4-sm float-right show-md hide-xs">
-            <a class="nav-btn" href="#">Startseite</a>
-            <a class="nav-btn" href="#">Impressum</a>
-            <a class="nav-btn" href="#">Datenschutz</a>
-            <a class="nav-btn" href="#">Über uns</a>
-            <a class="nav-btn" href="/login/de">Login</a>
-            <a class="nav-btn" href="/registration/de">Anmelden</a>
-        </div>
-        <div class="mobile-burger hide-md show-xs float-right" onclick="myFunction()" style="padding-right: 1rem;">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-        </div>
-    </div>
-
-    <div class="mobile-nav" id="myLinks" style="display: none;">
-        <a class="mobile-btn" href="#">Startseite</a>
-        <a class="mobile-btn" href="#">Impressum</a>
-        <a class="mobile-btn" href="#">Datenschutz</a>
-        <a class="mobile-btn" href="#">Über uns</a>
-        <a class="mobile-btn" href="/login/de">Login</a>
-        <a class="mobile-btn" href="/registration/de">Anmelden</a>
-    </div>
-
-    <div class="container-xs ">
-        <div class="col-12 col-5-md text-sec">
-            <h1 class="text-sec-main">Mit Team-B2 machst du deinen Antrag schnell und einfach</h1>
-            <p class="text-sec-secondary">
-                Hast du ein Formular, den du nicht ausfüllen kannst und Hilfe brauchst?
-                Dann bist bei uns richtig. Wir helfen dir dein Formular auszufüllen
-                und erklären dir alles Schritt für Schritt
-            </p>
-            <div class="header-btn-sec">
-                <a class="text-sec-btn child" href="#">Zum Antrag</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <link rel="stylesheet" href="/static/css/header.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><span>WEB-B2</span> </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">Templates</a></li>
+                    <li><a href="">Analytics</a></li>
+                    <li><a href="">Pricing</a></li>
+                </ul>
             </div>
-        </div>
-        <div class="col-12 col-7-md hide-xs show-md ">
-            <img class="responsive-image" src="/static/images/index_image.svg" alt="">
-        </div>
-    </div>
-
-    <hr>
-
-
-</div>
+            <div class="login">
+              <ul>
+                  <li><a href="">Contact</a></li>
+                  <li><a href="">Login</a></li>
+                  <li><a id="signup" href="">Sign Up</a></li>
+              </ul>
+            </div>
+            <input type="checkbox" name="" id="hamburger">
+    
+            <div class="toogle">
+                <label for="hamburger">
+                    <span></span>
+                </label>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>
