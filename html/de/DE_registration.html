@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8" />
   <meta viewport="width = device-width, initial-scale = 1.0" />
-  <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/login.css">
   <link rel="stylesheet" href="/static/css/success.css">
   <link rel="stylesheet" href="/static/css/tooltip.css">
@@ -13,8 +12,9 @@
 </head>
 
 <body>
-  <div id="banner"></div>
-  <div id="content"></div>
+
+  <div class="" id="header"></div>
+  <div class="" id="cookie"></div>
 
   <main class="main">
     <div class="container">
@@ -108,34 +108,12 @@
     </div>
   </main>
 
-  <div class="footer">
-    <div class="card-section">
-      <div class="col-12 col-6-md footer-sec">
-        <div class="select">
-          <select name="slct" id="slct" data-select-name>
-            <option selected disabled>Sprache</option>
-            <option value="/de/registration">Deutsch</option>
-            <option value="/en/registration">Englisch</option>
-            <option value="/ru/registration">Russisch</option>
-            <option value="/bg/registration">Bulgarisch</option>
-          </select>
-        </div>
-        <br>
-        <a class="footer-btn" href="/de/imprint">Impressum</a>
-        <a class="footer-btn" href="/de/privacy">Datenschutz</a>
-        <a class="footer-btn" href="/de/about">Über uns</a>
-      </div>
-      <div class="col-12 col-6-md footer-sec">
-        <p>WEB Team-B2</p>
-      </div>
-    </div>
-  </div>
+  <div class="" id="footer"></div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/static/js/index.js"></script>
-  <script src="/static/js/banner.js"></script>
-  <script src="/static/js/footer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
   <script src="/static/js/success.js"></script>
+  <script src="/static/js/common.js"></script>
   <script src="/static/js/validierung.js"></script>
 
 </body>

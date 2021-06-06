@@ -2,47 +2,55 @@
 <html lang="de">
 
 <head>
-    <title> О компании </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Über uns </title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
 <body>
     <div id="banner"></div>
-    <main>
-        <h1> О компании </h1>
-        <p>
-            Это семестровый проект Мангеймского университета прикладных наук из модуля "WEB". Преподаватель этого курса - г-н Франк Допатка.
+    <hr>
+    </div>
+    <div>
+        <h1> Über uns </h1>
+        Dies ist ein Projekt der Hochschule Mannheim aus dem Modul 'WEB' im 3. Semester. Der Leiter dieser Veranstaltung
+        ist Herr Professor Frank Dopatka.
+        <br>
+        <br>
+        Zusammen mit der Fakultät für Sozialwesen und dem Studenten Herr Andreas Lindemann soll dieses Projekt
+        realisiert werden.
+        <br>
+        <br>
+        Diese Arbeitsgruppe besteht aus den Studenten:
+        <ul>
+            <li> Benjamin Heppes - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Bogdan Kotikov </li>
+            <li> Hendrik Melich - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Nils Bächer - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Nils Rudolph </li>
+            <li> Petar Radev </li>
+        </ul>
         </p>
-        <p> 
-            Совместно с факультетом социальной работы и студентом г-ном Андреасом Линдеманном этот проект должен быть реализованы.
-        </p>
-        <p> В состав этой рабочей группы входят студенты:
-            <ul>
-                <li> Benjamin Heppes - курс обучения в области бизнеса и информационных систем </li>
-                <li> Bogdan Kotikov </li>
-                <li> Hendrik Melich - курс обучения в области бизнеса и информационных систем</li>
-                <li> Nils Bächer - курс обучения в области бизнеса и информационных систем</li>
-                <li> Nils Rudolph </li>
-                <li> Petar Radev </li>
-            </ul>
-        </p>
-    </main>
+    </div>
+
     <div class="footer">
         <div class="card-section">
             <div class="col-12 col-6-md footer-sec">
                 <div class="select">
                     <select name="slct" id="slct" data-select-name>
-                        <option selected disabled>Язык</option>
-                        <option value="/de/about">Немецкий</option>
-                        <option value="/en/about">Английский</option>
-                        <option value="/ru/about">Русский</option>
-                        <option value="/bg/about">Болгарьский</option>
+                        <option selected disabled>Sprache</option>
+                        <option value="/de/about">Deutsch</option>
+                        <option value="/en/about">Englisch</option>
+                        <option value="/ru/about">Russisch</option>
+                        <option value="/bg/about">Bulgarisch</option>
                     </select>
                 </div>
                 <br>
-                <a class="footer-btn" href="/ru/imprint">Служебная информация</a>
-                <a class="footer-btn" href="/ru/privacy">Условия предоставления информации</a>
-                <a class="footer-btn" href="/ru/about">О проекте</a>
+                <a class="footer-btn" href="/de/imprint">Impressum</a>
+                <a class="footer-btn" href="/de/privacy">Datenschutz</a>
+                <a class="footer-btn" href="/de/about">Über uns</a>
             </div>
             <div class="col-12 col-6-md footer-sec">
                 <p>WEB Team-B2</p>
@@ -54,8 +62,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/js/index.js"></script>
-    <script type="text/javascript" src="/static/js/footer.js"></script>
     <script src="/static/js/banner.js"></script>
+    <script type="text/javascript" src="/static/js/footer.js"></script>
 </body>
 
 </html>

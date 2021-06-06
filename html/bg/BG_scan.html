@@ -1,73 +1,70 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Скенер</title>
+    <title>Scanner</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
-
 <body>
 
     <div class="header">
         <div id="banner"></div>
     </div>
     <div class="scan">
-        <h1 class="logo">Разпознаване на формуляр</h1>
-        <h2 style="margin-bottom: 3rem;">Ние разпознаваме Вашия формуляр</h2>
-        <hr />
+        <h1 class="logo">Formular erkennen</h1>
+        <h2 style="margin-bottom: 3rem;">Wir bestimmern Ihr Formular für Sie</h2>
+        <hr/>
         <label for="fileUpload" class="upload">
-            <div class="uploadContent">
+            <div  class="uploadContent">
                 <div class="uploadLogo">
-                    <img src="/static/images/Ic_file_upload_48px.svg" alt="" />
+                    <img src="/static/images/Ic_file_upload_48px.svg" alt=""/>
                 </div>
                 <div style="flex-grow: 0;">
-                    <h3>Избиране на файл</h3>
+                    <h3>Datei auswählen</h3>  
                 </div>
             </div>
-
-
+                
+                 
         </label>
-        <input id="fileUpload" type="file" accept="image/*" hidden />
-        <p class="show" hidden>Или поставете вашия документ тук</p>
+        <input id="fileUpload" type="file" accept="image/*" hidden/>
+        <p class="show" hidden>Oder legen Sie Ihre Datei hier ab</p>
 
-        <img id="gif" src="/static/images/loading.gif" height="62" width="62" alt="loading..." style="margin-top: 3rem;"
-            hidden />
+        <img id="gif" src="/static/images/loading.gif" height="62" width="62" alt="loading..." style="margin-top: 3rem;" hidden/>
 
-        <hr style="margin: 3rem 0 0 0;" />
-        <h3 style="color: darkgreen; margin: 3rem 0 0 0;">Инструкции за употреба:</h3>
+        <hr style="margin: 3rem 0 0 0;"/>
+        <h3 style="color: darkgreen; margin: 3rem 0 0 0;">So benutzen Sie die Formularerkennung:</h3>
         <div style="justify-content: center; display: flex;">
             <ol class="table">
-                <li>Плъзнете и пуснете изображение на формуляра тук или качете снимката с помощта на бутона</li>
-                <li>Файлът ще бъде качен на нашия сървър</li>
-                <li>Ние разпознаваме формуляра вместо вас</li>
-                <li>Ще бъдете автоматично пренасочени към вашия формуляр</li>
+                <li>Ziehen und legen Sie ein Bild des Formulars hier ab oder <br/> laden Sie das Bild über den Knopf hoch</li>
+                <li>Die Datei wird auf unseren Server hochgeladen</li>
+                <li>Wir erkennen das Formular für Sie</li>
+                <li>Sie werden automatisch auf Ihr Formular weitergeleitet</li>
             </ol>
         </div>
-
+        
     </div>
 
 
-
+    
 
     <div class="footer">
         <div class="card-section">
             <div class="col-12 col-6-md footer-sec">
                 <div class="select">
                     <select name="slct" id="slct" data-select-name>
-                        <option selected disabled>Език</option>
-                        <option value="/de/scan">Немски</option>
-                        <option value="/en/scan">Английски</option>
-                        <option value="/ru/scan">Руски</option>
-                        <option value="/bg/scan">Български</option>
+                        <option selected disabled>Sprache</option>
+                        <option value="/de/scan">Deutsch</option>
+                        <option value="/en/scan">Englisch</option>
+                        <option value="/ru/scan">Russisch</option>
+                        <option value="/bg/scan">Bulgarisch</option>
                     </select>
                 </div>
                 <br>
-                <a class="footer-btn" href="/bg/imprint">Импресия</a>
-                <a class="footer-btn" href="/bg/privacy">Защита на данните</a>
-                <a class="footer-btn" href="/bg/about">За нас</a>
+                <a class="footer-btn" href="/de/imprint">Impressum</a>
+                <a class="footer-btn" href="/de/privacy">Datenschutz</a>
+                <a class="footer-btn" href="/de/about">Über uns</a>
             </div>
             <div class="col-12 col-6-md footer-sec">
                 <p>WEB Team-B2</p>
@@ -80,11 +77,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/js/index.js"></script>
     <script type="text/javascript" src="/static/js/footer.js"></script>
-    <script src="/static/js/banner.js"></script>
     <script src="/static/js/file.js"></script>
-
+    <script src="/static/js/banner.js">
+        
 
     </script>
 </body>
-
 </html>

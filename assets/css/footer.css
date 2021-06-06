@@ -7,6 +7,10 @@
 	--dark-blue: #1c2140;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 ul {
 	list-style-type: none;
 }

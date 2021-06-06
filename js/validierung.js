@@ -198,7 +198,12 @@ fieldsValidation();
   Code 201 wenn Nutzer in die DB eingetragen wurde
   Code 409 wenn der Nutzer bereits in der DB existiert
 */
-var varName = require('./tools.js');
+
+function redirectToHomePage() {
+  setTimeout(() => {
+    window.location.href = '/';
+  }, 2000);
+}
 
 $("#submit").click(function (event) {
   event.preventDefault();
@@ -217,8 +222,8 @@ $("#submit").click(function (event) {
     //dataType: "json",
     encode: true
   }).done(done => {
-    console.log(varName.createPasswordHash(1));
     showSuccess();
+    redirectToHomePage();
   }).fail(fail => {
     showError();
   });

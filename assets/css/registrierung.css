@@ -1,0 +1,62 @@
+legend {
+  font-weight: bold;
+}
+
+fieldset {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+
+
+.flex  {
+  display : flex;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+}
+
+.float {
+  float:left;
+}
+
+.break::before {
+  content: "\A";
+  white-space: pre;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  margin: 0 5% 0 5%;
+}
+
+.fehlermeldung{
+  display: none;
+  color: red;
+  font-size: 1rem; 
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .flex{
+    flex-direction: row;
+  }
+  .form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20% 0 0;
+    
+  }
+  .form:last-child {
+    margin: 0;
+  }
+  .fehlermeldung {
+    max-width: 260px;
+    text-align: left;
+    border-width: 5px;
+    border-color: black;
+    background-color: white;
+    z-index: 56465;
+  }
+}

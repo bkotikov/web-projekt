@@ -1,115 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Стартовая страница</title>
-
-    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Startseite</title>
+    <link rel="stylesheet" href="/static/css/indeex.css">
 </head>
 
 <body>
-
     
+    <div class="" id="header"></div>
+    <div class="" id="cookie"></div>
 
-    <div class="header">
-        <div id="banner"></div>
-
-        <div class="container-xs ">
-            <div class="col-12 col-5-md text-sec">
-                <h1 class="text-sec-main">С нами ты быстро и просто заполнишь свои документы</h1>
-                <p class="text-sec-secondary">
-                    У вас есть форма, которую вы не можете заполнить, и вам нужна помощь?
-                    Тогда вы пришли по адресу. Мы поможем вам заполнить анкету
-                    и объяснить все шаг за шагом
-                </p>
-                <div class="header-btn-sec">
-                    <a class="text-sec-btn child" href="/ru/gez#first">Начать заполнять</a>
-                </div>
-            </div>
-            <div class="col-12 col-7-md hide-xs show-md ">
-                <img class="responsive-image" src="/static/images/index_image.svg" alt="">
-            </div>
+    <main>
+        <div class="firstpage">
+            <h2>Verfügbarkeit.</h2>
+            <h2>reduzierte Erfassungsarbeit.</h2>
+            <h2>Datenschutz.</h2>
         </div>
-
-        <hr>
-
-
-    </div>
-
-    <div class="section">
-        <div class="main-text-section">
-            <h1 class="main-text">
-                это приложение для тех, кто имеет
-                проблемы с пониманием при заполнение документов
-            </h1>
-
-            <p class="secondary-text">
-                Вы переехали и хотели бы
-                сообщите нам свой новый адрес
-                или вы хотите пересмотреть другие данные?
-                Неважно, какой у вас запрос,
-                просто воспользуйтесь нашей формой или
-                также своей собственной формой.
-            </p>
-
-            <a href="/ru/scan" class="main-text-section-btn">Поехали</a>
+        <div class="firstpagebutton">
+            <a href="">Zum Formular</a>
+            <a href="">Über das Projekt</a>
         </div>
-    </div>
-
-    <div class="card-section">
-        <div class="col-12 col-4-md col-6-sm card">
-            <h4 class="card-text-main">Мультиязычное оформление документов</h4>
-            <img class="responsive-image" src="/static/images/undraw_Around_the_world_re_n353.svg" alt="">
+        <div class="info">
+            B2 kombiniert die beste Benutzererfahrung
+            mit einem obsessiven Fokus auf die
+            Endbenutzererfahrung.
+            Unsere Plattform ermöglicht es Benutzern,
+            ihre Anfragen einzureichen
+            und zu bearbeiten.
         </div>
-        <div class="col-12 col-4-md col-6-sm card">
-            <h4 class="card-text-main">Шаг за Шагом</h4>
-            <img class="responsive-image" src="/static/images/undraw_In_progress_re_m1l6.svg" alt="">
-        </div>
-        <div class="col-12 col-4-md col-12-sm card">
-            <h4 class="card-text-main">Идеален для Планшета и Телефона</h4>
-            <img class="responsive-image" src="/static/images/undraw_Mobile_feed_re_72ta.svg" alt="">
-        </div>
-    </div>
+ 
+    </main>
 
-    <div class="footer">
-        <p class="footer-text">Сделано Командой "Team-B2", WEB 2021SS</p>
-    </div>
-
-    <div class="footer">
-        <div class="card-section">
-            <div class="col-12 col-6-md footer-sec">
-                <div class="select">
-                    <select name="slct" id="slct" data-select-name>
-                        <option selected disabled>Язык</option>
-                        <option value="/de/">Немецкий</option>
-                        <option value="/en/">Английский</option>
-                        <option value="/ru/">Русский</option>
-                        <option value="/bg/">Болгарьский</option>
-                    </select>
-                </div>
-                <br>
-                <a class="footer-btn" href="/ru/imprint">Служебная информация</a>
-                <a class="footer-btn" href="/ru/privacy">Условия предоставления информации</a>
-                <a class="footer-btn" href="/ru/about">О проекте</a>
-            </div>
-            <div class="col-12 col-6-md footer-sec">
-                <p>WEB Team-B2</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="content"></div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/static/js/index.js"></script>
-    <script type="text/javascript" src="/static/js/footer.js"></script>
-    <script src="/static/js/banner.js"></script>
-
-
-    </script>
+    <div class="" id="footer"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/common.js"></script>
 </body>
-
-</html>

@@ -49,22 +49,28 @@ function insertUser(values) {
     });
 }
 
-function getUserByEmail(id) {
+function getUserByEmail(params) {
+    const { email, password } = params;
+    console.log("email: " + email);
+    console.log("passwort: " + password);
+    const passwort = tools.createPasswordHash(password);
     return new Promise((resolve, reject) => {
-        const sql = "SELECT benutzer_id FROM benutzer WHERE benutzer_id = ?";
+        const sql = "SELECT benutzer_id, email, password FROM benutzer WHERE email = $1 AND password = $2";
         pool.connect().then(res => {
-            pool.query(sql, [id])
+            pool.query(sql, [email, passwort])
             .then(result => {
+                //const { benutzer_id, email, password} = result.rows[0];
                 resolve(result.rows[0]);
                 res.end();
             })
             .catch(err => {
+                
                 console.log(err);
                 reject(err);
             });
-            resolve(res);
         })
         .catch(err => {
+            console.log(err);
             reject(err);
         });
     });

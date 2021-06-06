@@ -1,86 +1,70 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="de">
 
 <head>
   <meta charset="utf-8" />
   <meta viewport="width = device-width, initial-scale = 1.0" />
-  <link rel="stylesheet" href="/static/css/style.css">
   <link rel="stylesheet" href="/static/css/login.css">
-  <link rel="stylesheet" href="/static/css/registrierung.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/css/success.css">
 
-  <title>Вход</title>
+  <title>Login</title>
 </head>
 
 <body>
-  <div class="header">
-    <div id="banner"></div>
-    <hr>
-  </div>
-  <div id="registrierung">
-    <form action="/bgr/loginPruefen" method="POST">
-      <div id="login">
-        <h1 id="loginInformation">
-          Моля, въведете данните си за вход:
-        </h1>
 
+  <div class="" id="header"></div>
+  <div class="" id="cookie"></div>
 
-        <div class="flex">
-          <div class="form">
-            <label for="emailAdresse">Имейл: </label>
-            <br />
-            <input id="emailAdresse" type="email" class="height" required tab-index="1" />
-            <div id="emailFehlermeldung" class="fehlermeldung">
-              Въведеният имейл адрес е невалиден
+  <main class="main">
+    <div class="container">
+      <section class="wrapper">
+        <div class="heading">
+          <h1 class="text text-large">Anmelden</h1>
+          <p class="text text-normal">neuer Benutzer? <span><a href="/de/registration" class="text text-links">Account
+                erstellen</a></span>
+          </p>
+        </div>
+        <form name="login" method="post" action="/login" class="form">
+          <div class="input-control">
+            <label for="email" class="input-label" hidden>E-Mail Adresse</label>
+            <input type="email" name="email" id="email" class="input-field" placeholder="E-Mail Adresse" required>
+          </div>
+          <div class="input-control">
+            <label for="password" class="input-label" hidden>Passwort</label>
+            <input type="password" name="password" id="password" class="input-field" placeholder="Passwort" required>
+          </div>
+
+          <div class="message success" id="success-div">
+            <div class="message__header">Anmeldung erfolgreich</div>
+            <div class="message__content">
+              Sie haben sich erfolgreich angemeldet.
             </div>
           </div>
-          <div class="form">
-            <label for="passwort">Парола: </label>
-            <br />
-            <input id="passwort" type="password" class="height" required tab-index="2" />
-            <div id="passwortFehlermeldung" class="fehlermeldung">Паролата трябва да се състои от поне осем
-              знака: главна буква, малка буква, число и специален знак.
+
+          <div class="message error" id="error-div">
+            <div class="message__header">Fehler</div>
+            <div class="message__content">
+              Ein Fehler ist aufgetreten. Vermutlich die Email oder das Passwort ist falsch. Überprüfen sie es nochmal!
             </div>
           </div>
-        </div>
 
-
-
-        <span class="umbruch"><input type="submit" id="submitLogin" value="Вход"
-            class="cookie-consent-banner__cta margin-bottom" tab-index="3" /></span>
-      </div>
-    </form>
-  </div>
-
-  <div class="footer">
-    <div class="card-section">
-      <div class="col-12 col-6-md footer-sec">
-        <div class="select">
-          <select name="slct" id="slct" data-select-name>
-            <option selected disabled>Език</option>
-            <option value="/de/login">Немски</option>
-            <option value="/en/login">Английски</option>
-            <option value="/ru/login">Руски</option>
-            <option value="/bg/login">Български</option>
-          </select>
-        </div>
-        <br>
-        <a class="footer-btn" href="/bg/imprint">Импресия</a>
-        <a class="footer-btn" href="/bg/privacy">Защита на данните</a>
-        <a class="footer-btn" href="/bg/about">За нас</a>
-      </div>
-      <div class="col-12 col-6-md footer-sec">
-        <p>WEB Team-B2</p>
-      </div>
+          <div class="input-control input-btn">
+            <a href="#" class="text text-links">Passwort vergessen</a>
+            <input type="submit" id="submit" name="submit" class="input-submit" value="Login">
+          </div>
+        </form>
+      </section>
     </div>
-  </div>
+  </main>
 
-  <div id="content"></div>
+  <div class="" id="footer"></div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/static/js/index.js"></script>
-  <script type="text/javascript" src="/static/js/footer.js"></script>
-  <script src="/static/js/banner.js"></script>
-  <script src="/static/js/validierung.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script src="/static/js/success.js"></script>
+  <script src="/static/js/common.js"></script>
+  <script src="/static/js/validierungLogin.js"></script>
 </body>
 
 </html>

@@ -1,61 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> About us </title>
-        <link rel="stylesheet" href="/static/css/style.css">
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Über uns </title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
 
 <body>
-    <div class="header">
-        <div id="banner"></div>
-        <hr>
+    <div id="banner"></div>
+    <hr>
     </div>
-    <h1> About us </h1>
-    <p>
-        This is a project of the Mannheim University of Applied Sciences from the module 'WEB' in the 3rd semester. The
-        leader of this event is Professor Frank Dopatka.
+    <div>
+        <h1> Über uns </h1>
+        Dies ist ein Projekt der Hochschule Mannheim aus dem Modul 'WEB' im 3. Semester. Der Leiter dieser Veranstaltung
+        ist Herr Professor Frank Dopatka.
         <br>
         <br>
-        Together with the Faculty of Social Work and the student Mr. Andreas Lindemann this project will be realized.
+        Zusammen mit der Fakultät für Sozialwesen und dem Studenten Herr Andreas Lindemann soll dieses Projekt
+        realisiert werden.
         <br>
         <br>
-        This working group consists of the students:
-    <ul>
-        <li> Benjamin Heppes - degree course for enterprise computing </li>
-        <li> Bogdan Kotikov </li>
-        <li> Hendrik Melich - degree course for enterprise computing </li>
-        <li> Nils Bächer - degree course for enterprise computing </li>
-        <li> Nils Rudolph </li>
-        <li> Petar Radev </li>
-    </ul>
-    </p>
+        Diese Arbeitsgruppe besteht aus den Studenten:
+        <ul>
+            <li> Benjamin Heppes - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Bogdan Kotikov </li>
+            <li> Hendrik Melich - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Nils Bächer - Studiengang Unternehmens- & Wirtschaftsinformatik </li>
+            <li> Nils Rudolph </li>
+            <li> Petar Radev </li>
+        </ul>
+        </p>
+    </div>
 
     <div class="footer">
         <div class="card-section">
             <div class="col-12 col-6-md footer-sec">
                 <div class="select">
                     <select name="slct" id="slct" data-select-name>
-                        <option selected disabled>Language</option>
-                        <option value="/de/about">German</option>
-                        <option value="/en/about">English</option>
-                        <option value="/ru/about">Russian</option>
-                        <option value="/bg/about">Bulgarian</option>
+                        <option selected disabled>Sprache</option>
+                        <option value="/de/about">Deutsch</option>
+                        <option value="/en/about">Englisch</option>
+                        <option value="/ru/about">Russisch</option>
+                        <option value="/bg/about">Bulgarisch</option>
                     </select>
                 </div>
                 <br>
-                <a class="footer-btn" href="/en/imprint">Imprint</a>
-                <a class="footer-btn" href="/en/privacy">Privacy</a>
-                <a class="footer-btn" href="/en/about">About</a>
+                <a class="footer-btn" href="/de/imprint">Impressum</a>
+                <a class="footer-btn" href="/de/privacy">Datenschutz</a>
+                <a class="footer-btn" href="/de/about">Über uns</a>
             </div>
             <div class="col-12 col-6-md footer-sec">
                 <p>WEB Team-B2</p>
@@ -67,6 +62,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/js/index.js"></script>
+    <script src="/static/js/banner.js"></script>
     <script type="text/javascript" src="/static/js/footer.js"></script>
 </body>
+
 </html>

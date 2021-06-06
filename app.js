@@ -13,7 +13,9 @@ const cookieParser = require('cookie-parser');
 
 const db = require('./js/db.js');
 const reg = require('./js/registration.js');
+const login = require('./js/login.js');
 const success = require('./js/success.js');
+const tools = require('./js/success.js');
 
 const PORT = 5000;
 
@@ -26,6 +28,7 @@ const de = 'de';
 const de_index = 'DE_';
 const bg = 'bg';
 const bg_index = 'BG_';
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -139,11 +142,19 @@ app.get('/' + bg + '/login', function (req, res) {
 
 //----Login------
 
+app.get('/404', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/404.html'));
+});
 
 //----Registration-----
 
 app.get('/' + de + '/registration', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'registration.html'))
+  console.log(req.cookies['benutzerid']);
+  if (req.cookies['benutzerid'] == undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'registration.html'));
+  } else {
+    res.redirect("/404");
+  }
 });
 app.get('/' + ru + '/registration', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'registration.html'))
@@ -155,6 +166,25 @@ app.get('/' + bg + '/registration', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'registration.html'))
 });
 
+app.post('/login', (request, response) => {
+  const url = request.body;
+  request.setTimeout(0);
+  login.signIn(url).then(result => {
+    if (typeof result != undefined) {
+      console.log(1);
+      response.cookie('benutzerid', result.benutzer_id, { maxAge: 1000 * 60 * 15, httpOnly: false });
+      console.log("succesfully logged in");
+      response.status(201).json({ success: true });
+    } else {
+
+      response.status(400).json({ fail: true });
+    }
+  }).catch(error => {
+    console.log(2);
+  });
+
+});
+
 app.post('/registration', (request, response) => {
   const url = request.body;
   request.setTimeout(0);
@@ -162,13 +192,11 @@ app.post('/registration', (request, response) => {
     .then(
       result => {
         if (typeof result === 'string') {
-          console.log(request.cookies.benutzerid);
           if (request.cookies.benutzerid) {
             console.log("cookie exist");
             response.status(400).json({ fail: true });
           } else {
-            console.log(1);
-            response.cookie('benutzerid', result, {maxAge: 1000 * 60 * 15, httpOnly: false});
+            response.cookie('benutzerid', result, { maxAge: 1000 * 60 * 15, httpOnly: false });
             console.log("cookie: " + request.cookies['benutzerid']);
             response.status(201).json({ success: true });
           }

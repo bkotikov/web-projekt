@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lang</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/lang.css">
 </head>
+
 <body>
-    <p>Bitte wählen Sie Ihre Sprache</p>
-    <p>Please choose your language</p>
-    <p>Моля изберете език</p>
-    <p>Пожалуйста выберите свой Язык≠сс</p>
-    <div>
-        <a class="cookie-consent-banner__cta" href="/de">Deutsch</a>
-        <a class="cookie-consent-banner__cta" href="/en">English</a>
-        <a class="cookie-consent-banner__cta" href="/bg">Български</a>
-        <a class="cookie-consent-banner__cta" style="margin: 0;" href="/ru">русский язык</a>
+    <div class="" id="header"></div>
+    <div class="" id="cookie"></div>
+
+    <div class="flex-container">
+        <div class="flex-parent">
+            <div class="div1 card">
+                <h2 class="card-desc">
+                    Deutsch
+                </h2>
+                <p class="card-content">
+                    Wählen sie Deutsch aus, wenn sie möchte, dass ihnen die Webseite auf Deutsch angezeigt werden soll.
+                </p>
+                <a href="/de/" class="card-redirect">Zur Startseite</a>
+            </div>
+            
+            <div class="div2 card">
+
+                <h2 class="card-desc">
+                    Englisch
+                </h2>
+                <p class="card-content">
+                    Select English if you want the website to be displayed in English.
+                </p>
+                <a href="/en/" class="card-redirect">Home page</a>
+            </div>
+            <div class="div3 card">
+                <h2 class="card-desc">
+                    Russisch
+                </h2>
+                <p class="card-content">
+                    Выберите Русский, если вы хотите, чтобы сайт отображался на русском языке.
+                </p>
+                <a href="/ru/" class="card-redirect">На главную страницу</a>
+            </div>
+            <div class="div4 card">
+                <h2 class="card-desc">
+                    Български
+                </h2>
+                <p class="card-content">
+                    Изберете български, ако искате уебсайтът да се показва на български език.
+                </p>
+                <a href="/bg/" class="card-redirect">Към началната страница</a>
+            </div>
+        </div>
+
     </div>
 
+    <div class="" id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="/static/js/common.js"></script>
 </body>
+
 </html>
