@@ -25,9 +25,11 @@
                 <p class="card-content">
                     Wählen sie Deutsch aus, wenn sie möchte, dass ihnen die Webseite auf Deutsch angezeigt werden soll.
                 </p>
-                <input class="file-upload" type="file">
-                <button class="footer-group__submit form-btn" type="reset" value="Zurücksetzen">Zurücksetzen</button>
-                <button class="footer-group__submit form-btn" type="submit" value="Hochladen">Hochladen</button>
+                <form action="/scan" method="post" enctype="multipart/form-data">
+                    <input  id="fileUpload" class="file-upload" type="file" accept="image/*" name="fileUpload">
+                    <input id="back" class="footer-group__submit form-btn" type="reset" value="Zurücksetzen"></input>
+                    <input id="hoch" class="footer-group__submit form-btn" type="submit" value="Hochladen"></input>
+                </form>
             </div>
         </div>
     </div>
@@ -40,6 +42,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="/static/js/success.js"></script>
     <script src="/static/js/common.js"></script>
+    <script src="/static/js/scan.js"></script>
 </body>
 
 </html>

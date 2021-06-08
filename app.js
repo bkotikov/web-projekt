@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const fs = require('fs')
+const multer = require('multer');
+const storage = multer.memoryStorage()
+const upload = multer({storage: storage});
 const app = express();
 
 const https = require('https')
@@ -16,6 +19,8 @@ const reg = require('./js/registration.js');
 const login = require('./js/login.js');
 const success = require('./js/success.js');
 const tools = require('./js/success.js');
+const recog = require('./js/pictureRecognition.js');
+
 
 const PORT = 5000;
 
@@ -99,7 +104,20 @@ app.get('/' + bg + '/scan', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'scan.html'));
 });
 
+
 //----Scanner------
+
+
+
+app.post('/scan', upload.single('fileUpload'), (req, res) => {
+  recog.reg(req.file.buffer);
+  
+  
+});
+
+
+
+
 
 
 //----Index------
