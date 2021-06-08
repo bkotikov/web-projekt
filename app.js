@@ -149,7 +149,7 @@ app.get('/404', function (req, res) {
 //----Registration-----
 
 app.get('/' + de + '/registration', function (req, res) {
-  console.log(req.cookies['benutzerid']);
+  //console.log(req.cookies['benutzerid']);
   if (req.cookies['benutzerid'] == undefined) {
     res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'registration.html'));
   } else {
@@ -205,6 +205,7 @@ app.post('/registration', (request, response) => {
         }
       }
     ).catch(err => {
+      
       if (typeof err === 'object') {
         response.status(400).json({ fail: true });
       }
@@ -315,11 +316,6 @@ app.post('/' + bg + '/registrierungPruefen', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'index.html'));
 });
 
-https.createServer({
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./key-cert.pem')
-}, app).listen(5001, () => {
-  console.log('Listening... 5000')
-})
+
 http.createServer(app).listen(5000);
 //app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
