@@ -129,6 +129,11 @@ app.get('/' + bg + '/', function (req, res) {
 
 app.get('/' + de + '/login', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'login.html'));
+  if (req.cookies['benutzerid'] == undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'login.html'));
+  } else {
+    res.redirect("/404");
+  }
 });
 app.get('/' + en + '/login', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'login.html'));
@@ -233,7 +238,6 @@ app.get('/' + bg + '/about', function (req, res) {
 
 //----About-----
 
-
 app.get('/' + de + '/privacy', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'privacy.html'))
 });
@@ -246,8 +250,6 @@ app.get('/' + en + '/privacy', function (req, res) {
 app.get('/' + bg + '/privacy', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'privacy.html'))
 });
-
-
 
 //-----Imprint----
 
@@ -285,37 +287,11 @@ app.get('/' + bg + '/gez', function (req, res) {
 
 //-----GEZ-----
 
-app.post('/' + de + '/loginPruefen', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'index.html'));
-});
-app.post('/' + en + '/loginPruefen', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'index.html'));
-});
-app.post('/' + ru + '/loginPruefen', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'index.html'));
-});
-app.post('/' + bg + '/loginPruefen', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'index.html'));
-});
-
-
-
-
-
-
-app.post('/' + de + '/registrierungPruefen', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'index.html'));
-});
-app.post('/' + en + '/registrierungPruefen', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'index.html'));
-});
-app.post('/' + ru + '/registrierungPruefen', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'index.html'));
-});
-app.post('/' + bg + '/registrierungPruefen', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'index.html'));
-});
-
-
+https.createServer({
+  //key: fs.readFileSync('./key.pem'),
+  //cert: fs.readFileSync('./key-cert.pem')
+}, app).listen(5001, () => {
+  console.log('Listening... 5000')
+})
 http.createServer(app).listen(5000);
 //app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
