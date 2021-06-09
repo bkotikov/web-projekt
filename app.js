@@ -110,9 +110,15 @@ app.get('/' + bg + '/scan', function (req, res) {
 
 
 app.post('/scan', upload.single('fileUpload'), (req, res) => {
-  recog.reg(req.file.buffer);
-  
-  
+    mimetype = req.file.mimetype.split("/");
+    if (mimetype[0] === "image" && (mimetype[1] === "bmp" || mimetype[1] === "jpg" || mimetype[1] === "png" || mimetype[1] === "pbm" || mimetype[1] === "jpeg")) {
+      recog.reg(req.file.buffer).then(text => {
+        console.log(text);
+      });
+    } else {
+      console.log("Falsches File Format: " + req.file.mimetype);
+      res.redirect(req);
+    }
 });
 
 
