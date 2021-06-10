@@ -199,8 +199,8 @@ app.post('/login', (request, response) => {
   const url = request.body;
   request.setTimeout(0);
   login.signIn(url).then(result => {
-    if (typeof result != undefined) {
-      console.log(1);
+    if (result !== undefined) {
+      console.log("hey" + 1);
       response.cookie('benutzerid', result.benutzer_id, { maxAge: 1000 * 60 * 15, httpOnly: false });
       console.log("succesfully logged in");
       response.status(201).json({ success: true });
@@ -209,7 +209,7 @@ app.post('/login', (request, response) => {
       response.status(400).json({ fail: true });
     }
   }).catch(error => {
-    console.log(2);
+    console.log(error);
   });
 
 });

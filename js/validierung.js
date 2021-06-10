@@ -1,29 +1,45 @@
+function hash(val) {
+  var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
+  hashObj.update(val);
+  var hash = hashObj.getHash("HEX");
+  return hash;
+}
+
+
 const vorname = document.getElementById("vorname");
-vorname.oninput = function () { validateVorname(this.value, getLength(this.value), vorname.id); }
+vorname.oninput = function () { validateVorname(this.value); }
+vorname.onload = function () { console.log("load"); }
 
 const vornameFehler = document.getElementById("vorname-fehler");
 
 const nachname = document.getElementById("nachname");
-nachname.oninput = function () { validateNachname(this.value, getLength(this.value), nachname.id); }
+nachname.oninput = function () { validateNachname(this.value); }
 
 const nachnameFehler = document.getElementById("nachname-fehler");
 
 const email = document.getElementById("email");
-email.oninput = function () { validateEmail(this.value, getLength(this.value)); }
+email.oninput = function () { validateEmail(this.value); }
 
 const emailFehler = document.getElementById("email-fehler");
 
 const passwort = document.getElementById("passwort");
-passwort.oninput = function () { validatePasswort(this.value, getLength(this.value)); }
+passwort.oninput = function () { validatePasswort(hash(this.value)); }
 
 const passwortFehler = document.getElementById("passwort-fehler");
 
 const passwortRepeat = document.getElementById("password-bestatigen");
-passwortRepeat.oninput = function () { matchPasswort(this.value, passwort.value); }
+passwortRepeat.oninput = function () { matchPasswort(hash(this.value), hash(passwort.value)); }
 
 const passwortRepeatFehler = document.getElementById("passwortRepeat-fehler");
 
 const submitBtn = document.getElementById("submit");
+
+submitBtn.addEventListener("click", () =>{
+  passwort.value = hash(passwort.value);
+  passwortRepeat.value = hash(passwortRepeat.value);
+});
+
+
 
 function disableBTN() {
   submitBtn.style.backgroundColor = "#778899";
@@ -60,52 +76,63 @@ function passwortRegex(params) {
 }
 
 var validVorname = false;
-function validateVorname(params, len, id) {
+function validateVorname(params) {
+  len = getLength(params);
   if ((len > 2 && len < 33) && !emptyValue(params) && VNCommonRegex(params)) {
     hideVornameOrNachnameError(true);
     validVorname = true;
     return true;
   } else {
-    displayVornameOrNachnameError(true);
+    if (params !== "") {
+      displayVornameOrNachnameError(true);
+    }
     validVorname = false;
     return false;
   }
 }
 
 var validNachname = false;
-function validateNachname(params, len, id) {
+function validateNachname(params) {
+  len = getLength(params);
   if ((len > 2 && len < 33) && !emptyValue(params) && VNCommonRegex(params)) {
     hideVornameOrNachnameError(false);
     validNachname = true;
     return true;
   } else {
     validNachname = false;
-    displayVornameOrNachnameError(false);
+    if (params !== "") {
+      displayVornameOrNachnameError(false);
+    }
     return false;
   }
 }
 
 var validEmail = false;
-function validateEmail(params, len, id) {
+function validateEmail(params) {
   if (!emptyValue(params) && emailRegex(params)) {
     hideEmailError();
     validEmail = true;
     return true;
   } else {
-    displayEmailError();
+    if (params !== "") {
+      displayEmailError();
+    }
     validEmail = false;
     return false;
   }
 }
 
 var validPasswort = false;
-function validatePasswort(params, len) {
+function validatePasswort(params) {
+  len = getLength(params);
   if (len > 7 && passwortRegex(params)) {
     hidePasswortError();
     validPasswort = true;
     return true;
   } else {
-    displayPasswortError();
+    if (params !== "") {
+      displayPasswortError();
+    }
     validPasswort = false;
     return false;
   }
@@ -118,7 +145,9 @@ function matchPasswort(params, param) {
     matchedPasswort = true;
     return true;
   } else {
-    displayRepeatPasswortError();
+    if (params !== "") {
+      displayRepeatPasswortError();
+    }
     matchedPasswort = false;
     return false;
   }
@@ -177,6 +206,12 @@ async function fieldsValidation() {
 }
 
 function validateFields() {
+  validateVorname(vorname.value);
+  validateNachname(nachname.value);
+  validateEmail(email.value);
+  validatePasswort(passwort.value);
+  matchPasswort(passwortRepeat.value, passwort.value);
+  
   if (validVorname && validNachname && validEmail && validPasswort && matchedPasswort) {
     enableBTN();
   } else {
