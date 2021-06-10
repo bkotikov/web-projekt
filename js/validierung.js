@@ -240,7 +240,7 @@ function redirectToHomePage() {
   }, 2000);
 }
 
-$("#submit").click(function (event) {
+$("#submit").on("click", function (event) {
   event.preventDefault();
   var formData = {
     vorname: $("#vorname").val(),
@@ -252,6 +252,7 @@ $("#submit").click(function (event) {
 
   $.ajax({
     type: "POST",
+    method: 'POST',
     url: "/registration",
     data: formData,
     //dataType: "json",

@@ -25,11 +25,17 @@
                 <p class="card-content">
                     Wählen sie Deutsch aus, wenn sie möchte, dass ihnen die Webseite auf Deutsch angezeigt werden soll.
                 </p>
-                <form action="/scan" method="post" enctype="multipart/form-data">
-                    <input  id="fileUpload" class="file-upload" type="file" accept="image/png, image/jpg, image/jpeg, image/bmp, image/pbm" name="fileUpload">
+                <form id="form" action="/scan" method="post" enctype="multipart/form-data">
+                    <input  id="fileUpload" class="file-upload" type="file" accept=".png, .jpg, .jpeg, .bmp, .pbm" name="fileUpload">
                     <input id="back" class="footer-group__submit form-btn" type="reset" value="Zurücksetzen"></input>
-                    <input id="hoch" class="footer-group__submit form-btn" type="submit" value="Hochladen"></input>
+                    <input id="submit" class="footer-group__submit form-btn" type="button" value="Hochladen"></input>
                 </form>
+                <div class="message error" id="error-div">
+                    <div class="message__header">Fehler</div>
+                    <div class="message__content">
+                      Ein Fehler ist aufgetreten. Vermutlich das Dateiformat ist falsch. Überprüfen sie es nochmal!
+                    </div>
+                  </div>
             </div>
         </div>
     </div>

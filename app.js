@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const multer = require('multer');
-const storage = multer.memoryStorage()
-const upload = multer({storage: storage});
+
+const formidable = require('formidable');
 const app = express();
 
 const https = require('https')
@@ -109,16 +109,24 @@ app.get('/' + bg + '/scan', function (req, res) {
 
 
 
-app.post('/scan', upload.single('fileUpload'), (req, res) => {
-    mimetype = req.file.mimetype.split("/");
+app.post('/scan', (req, res) => {
+  var form = new formidable.IncomingForm();
+  form.parse(req);
+  form.on('file', function (name, file){
+    console.log('Uploaded ' + file.name);
+    mimetype = file.type.split("/");
     if (mimetype[0] === "image" && (mimetype[1] === "bmp" || mimetype[1] === "jpg" || mimetype[1] === "png" || mimetype[1] === "pbm" || mimetype[1] === "jpeg")) {
-      recog.reg(req.file.buffer).then(text => {
+      recog.reg(file.path).then(text => {
         console.log(text);
+      }).catch(err => {
+        res.status(400).json({ fail: "reg" });
       });
     } else {
-      console.log("Falsches File Format: " + req.file.mimetype);
-      res.redirect(req);
+      console.log("Falsches File Format: " + file.type);
+      res.status(400).json({ fail: "type" });
     }
+  });
+    
 });
 
 
@@ -200,12 +208,10 @@ app.post('/login', (request, response) => {
   request.setTimeout(0);
   login.signIn(url).then(result => {
     if (result !== undefined) {
-      console.log("hey" + 1);
       response.cookie('benutzerid', result.benutzer_id, { maxAge: 1000 * 60 * 15, httpOnly: false });
       console.log("succesfully logged in");
       response.status(201).json({ success: true });
     } else {
-
       response.status(400).json({ fail: true });
     }
   }).catch(error => {

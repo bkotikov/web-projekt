@@ -28,6 +28,7 @@
     "express": "^4.17.1",
     "formidable": "^1.2.2",
     "gentleform": "^2.0.1",
+    "image-size": "^1.0.0",
     "jquery": "^3.6.0",
     "jsdom": "^16.5.3",
     "moment": "^2.29.1",
