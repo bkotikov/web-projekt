@@ -34,10 +34,7 @@ const passwortRepeatFehler = document.getElementById("passwortRepeat-fehler");
 
 const submitBtn = document.getElementById("submit");
 
-submitBtn.addEventListener("click", () =>{
-  passwort.value = hash(passwort.value);
-  passwortRepeat.value = hash(passwortRepeat.value);
-});
+
 
 
 
@@ -245,9 +242,9 @@ $("#submit").on("click", function (event) {
   var formData = {
     vorname: $("#vorname").val(),
     nachname: $("#nachname").val(),
-    passwort: $("#passwort").val(),
+    passwort: hash($("#passwort").val()),
     email: $("#email").val(),
-    passwordBes: $("#password-bestatigen").val()
+    passwordBes: hash($("#password-bestatigen").val())
   };
 
   $.ajax({
@@ -259,7 +256,7 @@ $("#submit").on("click", function (event) {
     encode: true
   }).done(done => {
     showSuccess();
-    redirectToHomePage();
+    window.location.href = '/';
   }).fail(fail => {
     showError();
   });

@@ -29,7 +29,7 @@ $("#submit").on("click", function (event) {
         encode: true
     }).done(done => {
         showSuccess();
-        redirectToHomePage();
+        window.location.href = '/';
     }).fail(fail => {
         showError();
     });

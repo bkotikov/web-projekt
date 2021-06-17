@@ -1,4 +1,5 @@
 
+// HASH
 var hashString = window.location.hash.substring(1);
 var allPages = document.getElementsByClassName("page");
 
@@ -20,6 +21,11 @@ function setRightUrlParams() {
 
 setRightUrlParams();
 
+// HASH
+
+
+// SHOW SITE
+
 function getAndSetUrlParams() {
   for (let index = 0; index < allPages.length; index++) {
     allPages[index].style.display = "none";
@@ -29,16 +35,63 @@ function getAndSetUrlParams() {
 
 getAndSetUrlParams();
 
+// SHOW SITE
 
-const next = document.getElementById("next");
-next.addEventListener("click", function () {
-  if ((parseInt(hashString) + 1) == allPages.length) {
-    next.setAttribute('type', 'submit');
-    showSuccess();
-  } else {
-    replaceUrlHash(true);
-    getAndSetUrlParams();
+
+$("#next").on("click", (event) => {
+  if (validateFields()) {
+    hash = urlHash() + 1;
+    const inputs = $("#" + hash + " input");
+    event.preventDefault();
+    var formData = {};
+    formData["page"] = hash;
+    inputs.each(function() {
+      if ($(this)[0].name === "gender" || $(this)[0].name === "accept" || $(this)[0].name === "payment" || $(this)[0].name === "accept-mandat" || $(this)[0].name === "payment-via") {
+          if ($(this)[0].checked) {
+            formData[$(this)[0].name] = $(this)[0].value;
+          }else{
+            if (formData[$(this)[0].name] === "" || formData[$(this)[0].name] === undefined) {
+              formData[$(this)[0].name] = "";
+            }
+            
+          }
+      }else{
+        formData[$(this)[0].name] = $(this)[0].value;
+      }
+      
+    });
+    
+
+    $.ajax({
+        type: "POST",
+        url: "/gez",
+        data: formData,
+        encode: true
+    }).done(done => {
+      if (urlHash() == 11) {
+        return;
+      }
+      if (urlHash() == 7 && payment_via[1].checked) {
+        return;
+      }  
+      replaceUrlHash(true);
+      getAndSetUrlParams(); 
+    }).fail(fail => {
+        
+    });
+
+
+
+
+
+
+
+
+      
+    
   }
+
+  
 });
 
 const prev = document.getElementById("prev");
@@ -52,6 +105,9 @@ prev.addEventListener("click", function () {
     getAndSetUrlParams();
   }
 });
+
+
+
 
 function replaceUrlHash(nextOrPrev) {
   if (nextOrPrev) {
@@ -73,6 +129,23 @@ const firstname = document.getElementById("firstname");
 const secondname = document.getElementById("secondname");
 const birthday = document.getElementById("birthday");
 const startDay = document.getElementById("startDay");
+const street = document.getElementById("street");
+const housenumber = document.getElementById("housenumber");
+const accept = document.getElementById("accept");
+const payment = document.getElementsByName("payment");
+const sname = document.getElementById("sname");
+const fname = document.getElementById("fname");
+const street_mandat = document.getElementById("street-mandat");
+const housenumber_mandat = document.getElementById("housenumber-mandat");
+const code_mandat = document.getElementById("code-mandat");
+const city_mandat = document.getElementById("city-mandat");
+const payment_via = document.getElementsByName("payment-via");
+const iban_mandat = document.getElementById("iban-mandat");
+const bic_mandat = document.getElementById("bic-mandat");
+const institut_mandat = document.getElementById("institut-mandat");
+const ort_mandat = document.getElementById("ort-mandat");
+
+const accept_mandat = document.getElementById("accept-mandat");
 
 /*
 if (!mann.checked || !frau.checked) {
@@ -86,21 +159,9 @@ function urlHash() {
   return parseInt(window.location.hash.substring(1));
 }
 
-function disableBTN() {
-  next.style.backgroundColor = "#778899";
-  next.disabled = true;
-}
 
-function enableBTN() {
-  next.style.backgroundColor = "#33c74f";
-  next.disabled = false;
-}
 
-disableBTN();
 
-async function fieldsValidation() {
-  setInterval(() => validateFields(), 3000);
-}
 
 function getLength(params) {
   return params.length;
@@ -109,42 +170,75 @@ function getLength(params) {
 function validateFields() {
   switch (urlHash()) {
     case 0:
-      if ((mann.checked || frau.checked) && firstname.value.length > 2 && secondname.value.length > 2 &&  birthday.value != "") {
-        enableBTN();
+      if ((mann.checked || frau.checked) && firstname.value.length > 2 && secondname.value.length > 2 &&  birthday.valueAsNumber <= Date.parse(new Date())) {
+        return true;
       }else{
-        disableBTN();
+        return false;
       }
-      break;
     case 1:
-      if (startDay.value != "") {
-        enableBTN();
-      } else {
-        disableBTN();
+      if (Date.parse(startDay.value) <= Date.parse(new Date)) {
+        return true;
+      }else{
+        return false;
       }
-      break;
-    case value:
-      break;
-    case value:
-      break;
-    case value:
-      break;
-    case value:
-      break;
-    case value:
-      break;
-    case value:
-      break;
-    case value:
-      break;
-    case value:
-      break;
-    case value:
-      break;
-    case value:
-      break;
+    case 2:
+      if (street.value !== "" && housenumber.value.match(/^[0-9]+[a-z]*$/)) {
+        return true;
+      }else{
+        return false;
+      }
+    case 3:
+      return true;
+    case 4:
+      return true;
+    case 5:
+      if (accept.checked) {
+        return true;
+      } else {
+        return false;
+      }
+    case 6:
+      for (const element of payment) {
+        if (element.checked) {
+          return true;
+        }
+      }
+      return false;
+    case 7:
+      for (const element of payment_via) {
+        if (element.checked) {
+          return true;
+        }
+      }
+      return false;
+    case 8:
+      if (fname.value !== "" && sname.value !== "") {
+        return true;
+      }else{
+        return false;
+      }
+    case 9:
+      if (street_mandat.value !== "" && housenumber_mandat.value.match(/^[0-9]+[a-z]*$/) && code_mandat.value.match(/^[0-9]{5}$/) && city_mandat.value !== "") {
+        return true;
+      }else{
+        return false;
+      }
+    case 10:
+      console.log(iban_mandat.value.match(/^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{4}[0-9]{7}([a-zA-Z0-9]?){0,16}$/));
+      console.log(bic_mandat.value.match(/^([a-zA-Z]{4}[a-zA-Z]{2}[a-zA-Z0-9]{2}([a-zA-Z0-9]{3})?)$/));
+      if (iban_mandat.value.match(/^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{4}[0-9]{7}([a-zA-Z0-9]?){0,16}$/) && bic_mandat.value.match(/^([a-zA-Z]{4}[a-zA-Z]{2}[a-zA-Z0-9]{2}([a-zA-Z0-9]{3})?)$/) && institut_mandat.value !== "" && ort_mandat.value !== "") {
+        return true;
+      } else {
+        return false;
+      }
+      
+    case 11:
+      if (accept_mandat.checked) {
+        return true;
+      }else{
+        return false;
+      }
     default:
       break;
   }
 }
-
-fieldsValidation();

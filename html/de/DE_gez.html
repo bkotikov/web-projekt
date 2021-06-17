@@ -32,9 +32,9 @@
                 Pflichtfelder sind mit * gekennzeichnet.
             </p>
         </div>
-        <form action="/gez/data" method="post">
+        <form action="/gez/data" method="post" id="gezForm">
 
-            <div class="page">
+            <div class="page" id="1">
                 <h3 class="page-main-text">
                     1. Allgemeine Angaben
                 </h3>
@@ -68,17 +68,17 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="2">
                 <h3 class="page-main-text">
                     2. Anmeldung
                 </h3>
                 <div class="page-12">
-                    <label class="label-text" for="startDay">Anmeldung zum (Monat.Jahr)</label>
+                    <label class="label-text" for="startDay">Anmeldung zum (Jahr-Monat)</label>
                     <input class="date-field" type="month" name="startDay" id="startDay">
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="3">
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="street">Straße</label>
@@ -92,7 +92,7 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="4">
                 <div class="page-12">
                     <label class="label-text" for="optionalAdress">Adresszusatz</label>
                     <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
@@ -100,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="5">
                 <div class="page-12">
                     <label class="label-text" for="mobilenumber">Telefonnummer für Rückfragen (freiwillige
                         Angabe)</label>
@@ -109,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="6">
                 <h3 class="page-main-text">
                     3. Ich bestätige die Richtigkeit der Angaben.
                 </h3>
@@ -124,7 +124,7 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="7">
                 <h3 class="page-main-text">
                     4. Angaben zur Zahlungsweise
                 </h3>
@@ -170,7 +170,7 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="8">
                 <h3 class="page-main-text">
                     4. Angaben zur Zahlungsweise
                 </h3>
@@ -184,8 +184,8 @@
                             </label>
                         </div>
                         <div class="page-6">
-                            <input type="radio" name="payment-via" id="bank-transfer" value="bank-transfer"">
-                            <label for=" bank-transfer" class="semiannual">
+                            <input type="radio" name="payment-via" id="bank-transfer" value="bank-transfer">
+                            <label for="bank-transfer" class="semiannual">
                             durch Überweisung
                             </label>
                         </div>
@@ -193,7 +193,7 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="9">
                 <h3 class="page-main-text">
                     5. SEPA-Lastschriftmandat
                 </h3>
@@ -219,15 +219,20 @@
                     meinem Kreditinstitut vereinbarten Bedingungen.
                 </p>
                 <div class="page-12 page-inside-row">
-                    <div class="page-12">
-                        <label class="label-text" for="fandsname">Nachname, Vorname</label>
-                        <input class="text-field" type="text" name="fandsname" id="fandsname"
-                            placeholder="Nachname, Vorname">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="fandsname">Nachname</label>
+                        <input class="text-field" type="text" name="sname" id="sname"
+                            placeholder="Nachname"/>
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="fname">Vorname</label>
+                        <input class="text-field" type="text" name="fname" id="fname"
+                            placeholder="Vorname"/>
                     </div>
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="10">
                 <h3 class="page-main-text">
                     5.1. SEPA-Lastschriftmandat
                 </h3>
@@ -256,7 +261,7 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="11">
                 <h3 class="page-main-text">
                     5.2. SEPA-Lastschriftmandat
                 </h3>
@@ -269,7 +274,7 @@
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="bic-mandat">BIC</label>
-                        <input class="text-field plz-field" type="number" name="bic-mandat" id="bic-mandat"
+                        <input class="text-field plz-field" type="text" name="bic-mandat" id="bic-mandat"
                             placeholder="BIC">
                     </div>
                     <div class="page-12 page-sm-6">
@@ -286,7 +291,7 @@
                 </div>
             </div>
 
-            <div class="page">
+            <div class="page" id="12">
                 <h3 class="page-main-text">
                     5.3. Ich bestätige die Richtigkeit der Angaben für den Mandat.
                 </h3>

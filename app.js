@@ -20,6 +20,8 @@ const login = require('./js/login.js');
 const success = require('./js/success.js');
 const tools = require('./js/success.js');
 const recog = require('./js/pictureRecognition.js');
+const vali = require('./js/server/gez.js');
+const { validate } = require('uuid');
 
 
 const PORT = 5000;
@@ -222,6 +224,7 @@ app.post('/login', (request, response) => {
 
 app.post('/registration', (request, response) => {
   const url = request.body;
+  console.log(url);
   request.setTimeout(0);
   reg.signUp(url)
     .then(
@@ -249,6 +252,20 @@ app.post('/registration', (request, response) => {
 
 
 //----Registration-----
+
+
+app.post('/gez', (request, response) => {
+  const url = request.body;
+  request.setTimeout(0);
+  if (!vali.validate(url)) {
+    response.status(400).json({ success: false });
+  }else{
+    response.status(201).json({ success: true });
+  }
+  
+});
+
+
 
 
 //----About-----
