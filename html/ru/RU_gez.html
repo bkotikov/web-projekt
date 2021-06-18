@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/static/css/gez.css">
+    <link rel="stylesheet" href="/static/css/success.css">
+    <link rel="stylesheet" href="/static/css/tooltip.css">
+    <title>Формуляр</title>
+</head>
+
+<body>
+
+    <div class="" id="header"></div>
+    <div class="" id="cookie"></div>
+
+    <section class="form-sec">
+        <div class="page-content">
+            <h2 class="form-sec-text-main">Новая регистрация квартиры </h2>
+            <p class="form-sec-text-second">
+Используйте эту форму для регистрации новой квартиры. Вы уже зарегистрированы в квартире или хотели бы зарегистрировать второй или вторичное жилье или исключительно частный дом отдыха? для частного использования? Пожалуйста, используйте форма "Регистрация дополнительной квартиры".
+            </p>
+            <p class="form-sec-text-second">
+                Обязательные поля отмечены знаком *.
+            </p>
+        </div>
+        <form action="/gez/data" method="post" id="gezForm">
+
+            <div class="page" id="1">
+                <h3 class="page-main-text">
+                    1. общая информация
+                </h3>
+                <div class="page-row">
+                    <div class="page-12">
+                        <label class="label-text" for="salutation">Приветствие</label>
+                        <div class="page-inside" id="salutation">
+                            <input type="radio" name="gender" id="men" value="men">
+                            <label for="men">Человек</label>
+
+                            <input type="radio" name="gender" id="woman" value="woman">
+                            <label for="woman">Мисс.</label>
+                        </div>
+                    </div>
+                    <div class="page-12 page-inside-row">
+                        <div class="page-12 page-sm-6">
+                            <label class="label-text" for="firstname">Фамилия</label>
+                            <input class="text-field" type="text" name="firstname" id="firstname"
+                                placeholder="Фамилия">
+                        </div>
+                        <div class="page-12 page-sm-6">
+                            <label class="label-text" for="secondname">Имя</label>
+                            <input class="text-field" type="text" name="secondname" id="secondname"
+                                placeholder="Имя">
+                        </div>
+                    </div>
+                    <div class="page-12">
+                        <label class="label-text" for="birthday">Дата рождения</label>
+                        <input class="date-field" type="date" name="birthday" id="birthday">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="2">
+                <h3 class="page-main-text">
+                    2. регистрация
+                </h3>
+                <div class="page-12">
+                    <label class="label-text" for="startDay">Регистрация на (год-месяц)</label>
+                    <input class="date-field" type="month" name="startDay" id="startDay">
+                </div>
+            </div>
+
+            <div class="page" id="3">
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="street">Улица</label>
+                        <input class="text-field" type="text" name="street" id="street" placeholder="Улица">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="housenumber">Номер дома</label>
+                        <input class="text-field" type="text" name="housenumber" id="housenumber"
+                            placeholder="Номер дома">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="4">
+                <div class="page-12">
+                    <label class="label-text" for="optionalAdress">Суффикс адреса</label>
+                    <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
+                        placeholder="Добавление адреса, например, номер квартиры, этаж">
+                </div>
+            </div>
+
+            <div class="page" id="5">
+                <div class="page-12">
+                    <label class="label-text" for="mobilenumber">Номер телефона для обращений (добровольный индикация)</label>
+                    <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
+                        placeholder="Номер телефона ">
+                </div>
+            </div>
+
+            <div class="page" id="6">
+                <h3 class="page-main-text">
+                    3. я подтверждаю, что предоставленная информация верна.
+                </h3>
+                <div class="page-12 accept-field">
+                    <div class="accept-field">
+                        <input class="" type="checkbox" name="accept" id="accept">
+                        <label for="accept" class="accept-label">
+                            Настоящим я подтверждаю, что информация были введены правильно и корректно.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="7">
+                <h3 class="page-main-text">
+                    4. информация о способе оплаты
+                </h3>
+                <div class="page-12">
+                    <div class="page-12">
+                        <label class="label-text" for="payment">Gesetzliche Zahlung </label>
+                        <div class="page-inside" id="payment">
+                            <input type="radio" name="payment" id="payment-middle" value="middle">
+                            <label for="men">
+                                в середине Трехмесячный период (по состоянию на 15 число)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-12">
+                    <div class="page-12">
+                        <label class="label-text" for="inadvance">Vorauszahlung</label>
+                        <div class="page-inside payment-row" id="inadvance">
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="quarterly" value="quarterly">
+                                <label for="quarterly" class="quarterly">
+                                    в середине Трехмесячный период (по состоянию на 15 число)
+                                </label>
+                            </div>
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="semiannual" value="semiannual">
+                                <label for="semiannual" class="semiannual">
+                                    Полугодовой аванс (1.1., 1.7.)
+                                </label>
+                            </div>
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="yearly" value="yearly">
+                                <label for="yearly" class="yearly">
+                                    ежегодно заблаговременно (по состоянию на 1.1.)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="8">
+                <h3 class="page-main-text">
+                    4. информация о способе оплаты
+                </h3>
+                <div class="page-12">
+                    <label class="label-text" for="payment-via">Zahlung über:</label>
+                    <div class="page-inside payment-row" id="payment-via">
+                        <div class="page-6">
+                            <input type="radio" name="payment_via" id="direct-debit" value="direct-debit">
+                            <label for="direct-debit" class="quarterly">
+                                путем прямого дебетования
+                            </label>
+                        </div>
+                        <div class="page-6">
+                            <input type="radio" name="payment_via" id="bank-transfer" value="bank-transfer">
+                            <label for="bank-transfer" class="semiannual">
+                            используя банковский перевод
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="9">
+                <h3 class="page-main-text">
+                    5. мандат на прямое дебетование SEPA
+                </h3>
+                <p class="mandat-text">
+                    Идентификационный номер кредитора Службы вкладов
+"ARD, ZDF und Deutschlandradio": DE30001000001272
+                </p>
+                <p class="mandat-text">
+                    Я разрешаю службе взносов "ARD, ZDF und Deutschlandradio" взимать платежи с моего счета путем прямого дебета. Одновременно я поручаю своему кредитному учреждению дебетовать платежи, производимые службой взносов ARD, ZDF и Deutschlandradio, на мой счет. Deutschlandradio на мой Deutschlandradio на мой счет.
+                </p>
+                <p class="mandat-text">
+Примечание: Я могу потребовать возврата денег в течение восьми недель, начиная с даты списания средств, чтобы потребовать возврата суммы дебетовая сумма сумма списания. Условия, согласованные с применяются условия, согласованные с моей кредитной организацией.
+                </p>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="fandsname">Фамилия</label>
+                        <input class="text-field" type="text" name="sname" id="sname"
+                            placeholder="Фамилия"/>
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="fname">Имя</label>
+                        <input class="text-field" type="text" name="fname" id="fname"
+                            placeholder="Имя"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="10">
+                <h3 class="page-main-text">
+                    5.1 Мандат прямого дебета SEPA
+                </h3>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="street-mandat">Улица</label>
+                        <input class="text-field" type="text" name="street_mandat" id="street-mandat"
+                            placeholder="Улица">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="housenumber-mandat">Номер дома</label>
+                        <input class="text-field" type="text" name="housenumber_mandat" id="housenumber-mandat"
+                            placeholder="Номер дома">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="code-mandat">Почтовый индекс</label>
+                        <input class="text-field plz-field" type="number" name="code_mandat" id="code-mandat"
+                            placeholder="Почтовый индекс">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="city-mandat">Город</label>
+                        <input class="text-field" type="text" name="city_mandat" id="city-mandat" placeholder="Город">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="11">
+                <h3 class="page-main-text">
+                    5.2 Мандат прямого дебета SEPA
+                </h3>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 ">
+                        <label class="label-text" for="iban-mandat">IBAN</label>
+                        <input class="text-field" type="text" name="iban_mandat" id="iban-mandat" placeholder="IBAN">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="bic-mandat">BIC</label>
+                        <input class="text-field plz-field" type="text" name="bic_mandat" id="bic-mandat"
+                            placeholder="BIC">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="institut-mandat">Кредитный институт</label>
+                        <input class="text-field" type="text" name="institut_mandat" id="institut-mandat"
+                            placeholder="Кредитный институт">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 ">
+                        <label class="label-text" for="ort-mandat">Орт</label>
+                        <input class="text-field" type="text" name="ort_mandat" id="ort-mandat" placeholder="Орт">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="12">
+                <h3 class="page-main-text">
+                    5.3 Я подтверждаю точность информации, предоставленной для мандата.
+                </h3>
+                <div class="page-12 accept-field">
+                    <div class="accept-field">
+                        <input class="" type="checkbox" name="accept_mandat" id="accept-mandat">
+                        <label for="accept-mandat" class="accept-label">
+                            Настоящим я подтверждаю, что информация были введены правильно и корректно.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message success" id="success-div">
+                <div class="message__header">Успех</div>
+                <div class="message__content">
+                    Вы успешно отправили свою анкету. Если вы хотите просмотреть свою форму, вы можете сделать это в архиве.
+                </div>
+            </div>
+
+            <div class="message error" id="error-div">
+                <div class="message__header">Ошибка</div>
+                <div class="message__content">
+                  Вы успешно отправили свою анкету. Если вы хотите просмотреть свою форму, вы можете сделать это в архиве.
+                </div>
+              </div>
+
+            <div class="btn-field">
+                <div class="page-6 btn-row">
+                    <button class="btn" type="button" id="prev">Назад</button>
+                    <button class="btn " type="button" id="next">Перейти к</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <div class="" id="footer"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="/static/js/client/gez.js"></script>
+    <script src="/static/js/client/success.js"></script>
+    <script src="/static/js/client/common.js"></script>
+    
+</body>
+</html>

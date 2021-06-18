@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta viewport="width = device-width, initial-scale = 1.0" />
+  <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/css/success.css">
+
+  <title>Доступ к сайту</title>
+</head>
+
+<body>
+
+  <div class="" id="header"></div>
+  <div class="" id="cookie"></div>
+
+  <main class="main">
+    <div class="container">
+      <section class="wrapper">
+        <div class="heading">
+          <h1 class="text text-large">Войти</h1>
+          <p class="text text-normal">новый пользователь? <span><a href="/de/registration" class="text text-links">Создать учетную записьn</a></span>
+          </p>
+        </div>
+        <form name="login" method="post" action="/login" class="form">
+          <div class="input-control">
+            <label for="email" class="input-label" hidden>Электронная почта</label>
+            <input type="email" name="email" id="email" class="input-field" placeholder="Электронная почта" required>
+          </div>
+          <div class="input-control">
+            <label for="password" class="input-label" hidden>Пароль</label>
+            <input type="password" name="password" id="password" class="input-field" placeholder="Пароль" required>
+          </div>
+
+          <div class="message success" id="success-div">
+            <div class="message__header">Регистрация прошла успешно</div>
+            <div class="message__content">
+              Вы успешно вошли в систему.
+            </div>
+          </div>
+
+          <div class="message error" id="error-div">
+            <div class="message__header">Ошибка</div>
+            <div class="message__content">
+              
+Произошла ошибка. Возможно, неправильно указан адрес электронной почты или пароль. Проверьте еще раз!
+Ошибка
+
+            </div>
+          </div>
+
+          <div class="input-control input-btn">
+            <a href="#" class="text text-links">Пароль забыт</a>
+            <input type="submit" id="submit" name="submit" class="input-submit" value="Login">
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <div class="" id="footer"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script src="/static/js/client/success.js"></script>
+  <script src="/static/js/client/common.js"></script>
+  <script src="/static/js/client/validierungLogin.js"></script>
+</body>
+
+</html>
