@@ -14,12 +14,10 @@ const parser = require('accept-language-parser');
 const url = require('url');
 const cookieParser = require('cookie-parser');
 
-const db = require('./js/db.js');
-const reg = require('./js/registration.js');
-const login = require('./js/login.js');
-const success = require('./js/success.js');
-const tools = require('./js/success.js');
-const recog = require('./js/pictureRecognition.js');
+const db = require('./js/server/db.js');
+const reg = require('./js/server/registration.js');
+const login = require('./js/server/login.js');
+const recog = require('./js/server/pictureRecognition.js');
 const vali = require('./js/server/gez.js');
 const { validate } = require('uuid');
 
@@ -196,9 +194,9 @@ app.get('/' + bg + '/logout', function (req, res) {
 
 app.get('/' + de + '/header', function (req, res) {
   if (req.cookies['benutzerid'] !== undefined) {
-    res.sendFile(path.join(__dirname + '/assets/static/headerLogin.html'));
+    res.sendFile(path.join(__dirname + '/assets/static/de/headerLogin.html'));
   } else {
-    res.sendFile(path.join(__dirname + '/assets/static/header.html'));
+    res.sendFile(path.join(__dirname + '/assets/static/de/header.html'));
   }
 });
 app.get('/' + en + '/header', function (req, res) {
