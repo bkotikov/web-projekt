@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/success.css">
+    <link rel="stylesheet" href="/static/css/scan.css">
+</head>
+
+<body>
+
+    <div class="" id="header"></div>
+    <div class="" id="cookie"></div>
+
+    <div class="flex-container">
+        <div class="flex-parent">
+            <div class="div1 card">
+                <h2 class="card-desc">
+                    English
+                </h2>
+                <p class="card-content">
+                    Select English if you want the website to be displayed in Englisch.
+                </p>
+                <form id="form" action="/scan" method="post" enctype="multipart/form-data">
+                    <input  id="fileUpload" class="file-upload" type="file" accept=".png, .jpg, .jpeg, .bmp, .pbm" name="fileUpload">
+                    <input id="back" class="footer-group__submit form-btn" type="reset" value="Reset"></input>
+                    <input id="submit" class="footer-group__submit form-btn" type="button" value="Upload"></input>
+                </form>
+                <div class="message error" id="error-div">
+                    <div class="message__header">Fehler</div>
+                    <div class="message__content">
+                      An error has occurred. Probably the file format is wrong. Check it again!
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="" id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="/static/js/client/success.js"></script>
+    <script src="/static/js/client/common.js"></script>
+    <script src="/static/js/client/scan.js"></script>
+</body>
+
+</html>
