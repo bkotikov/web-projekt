@@ -24,61 +24,122 @@ function insertGez(params, uuid) {
     const {page, gender, firstname, secondname, birthday, startDay, street, housenumber, optionalAdress, mobilenumber, accept, payment, payment_via, 
         sname, fname, street_mandat, housenumber_mandat, code_mandat, city_mandat, iban_mandat, bic_mandat, institut_mandat, ort_mandat, accept_mandat} = params;
         var sql;
-        var sqlChange;
+        var sqlTable;
+        var values;
         switch (page - 1) {
             case 0:
+                console.log(birthday);
+                sqlTable = 'one';
                 sql = 'INSERT INTO one (benutzer_id, gender, firstname, secondname, birthday) VALUES ($1, $2, $3, $4, $5)';
-                sqldelete = 'DELETE FROM one where ';
+                sqlupdate = 'UPDATE one SET benutzer_id = $1, gender = $2, firstname = $3, secondname = $4, birthday = $5 where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, gender, firstname, secondname, birthday];
               break;
             case 1:
-              
+                sqlTable = 'two';
+                sql = 'INSERT INTO two (benutzer_id, startDay) VALUES ($1, $2)';
+                sqlupdate = 'UPDATE two SET benutzer_id = $1, startDay = $2 where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, startDay + '-01'];
               break;
             case 2:
-              
+                sqlTable = 'three';
+                sql = 'INSERT INTO three (benutzer_id, street, housenumber) VALUES ($1, $2, $3)';
+                sqlupdate = 'UPDATE three SET benutzer_id = $1, street = $2, housenumber = $3 where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, street, housenumber];
               break;
             case 3:
-
+                sqlTable = 'four';
+                sql = 'INSERT INTO four (benutzer_id, optionalAdress) VALUES ($1, $2)';
+                sqlupdate = 'UPDATE four SET benutzer_id = $1, optionalAdress = $2  where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, optionalAdress];
               break;
             case 4:
-
+                sqlTable = 'five';
+                sql = 'INSERT INTO five (benutzer_id, mobilenumber) VALUES ($1, $2)';
+                sqlupdate = 'UPDATE five SET benutzer_id = $1, mobilenumber = $2  where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, mobilenumber];
                 break;
             case 5:
-              
+                sqlTable = 'six';
+                sql = 'INSERT INTO six (benutzer_id, accept) VALUES ($1, $2)';
+                sqlupdate = 'UPDATE six SET benutzer_id = $1, accept = $2  where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, accept];
               break;
             case 6:
-              
+                sqlTable = 'seven';
+                sql = 'INSERT INTO seven (benutzer_id, payment) VALUES ($1, $2)';
+                sqlupdate = 'UPDATE seven SET benutzer_id = $1, payment = $2  where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, payment];
               break;
             case 7:
-              
+                sqlTable = 'eight';
+                sql = 'INSERT INTO eight (benutzer_id, payment_via) VALUES ($1, $2)';
+                sqlupdate = 'UPDATE eight SET benutzer_id = $1, payment_via = $2  where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, payment_via];
               break;
             case 8:
-              
+                sqlTable = 'nine';
+                sql = 'INSERT INTO nine (benutzer_id, sname, fname) VALUES ($1, $2, $3)';
+                sqlupdate = 'UPDATE nine SET benutzer_id = $1, sname = $2, fname = $3 where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, sname, fname];
               break;
             case 9:
-              
+                sqlTable = 'ten';
+                sql = 'INSERT INTO ten (benutzer_id, street_mandat, housenumber_mandat, code_mandat, city_mandat) VALUES ($1, $2, $3, $4, $5)';
+                sqlupdate = 'UPDATE ten SET benutzer_id = $1, street_mandat = $2, housenumber_mandat = $3, code_mandat = $4, city_mandat = $5 where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, street_mandat, housenumber_mandat, code_mandat, city_mandat];
               break;
             case 10:
-              
+                sqlTable = 'eleven';
+                sql = 'INSERT INTO eleven (benutzer_id, iban_mandat, bic_mandat, institut_mandat, ort_mandat) VALUES ($1, $2, $3, $4, $5)';
+                sqlupdate = 'UPDATE eleven SET benutzer_id = $1, iban_mandat = $2, bic_mandat = $3, institut_mandat = $4, ort_mandat = $5 where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, iban_mandat, bic_mandat, institut_mandat, ort_mandat];
               break;
             case 11:
-              
+                sqlTable = 'twelve';
+                sql = 'INSERT INTO twelve (benutzer_id, accept_mandat) VALUES ($1, $2)';
+                sqlupdate = 'UPDATE twelve SET benutzer_id = $1, accept_mandat = $2  where benutzer_id = \'' + uuid + '\'';
+                values = [uuid, accept_mandat];
               break;
             default:
-              break;
+              return;
           }
+          var sqlTest = 'SELECT benutzer_id FROM ' + sqlTable + ' where benutzer_id = \'' + uuid + '\''
         return new Promise((resolve, reject) => {
             pool.connect()
-                .then(() => {
+                .then(res => {
                     pool
-                    .query(sql, values)
+                    .query(sqlTest)
                     .then(res => {
-                        resolve();
+                        if (res.rows.length === 1) {
+                            pool
+                            .query(sqlupdate, values)
+                            .then(res =>{
+                                console.log("updateGEZ");
+                                resolve(res);
+                            })
+                            .catch(err => {
+                                console.log("updateGEZ/fehler");
+                                reject(err);
+                            })
+                        } else if (res.rows.length === 0) {
+                            pool
+                        .query(sql, values)
+                        .then(res =>{
+                            console.log("insert");
+                            resolve(res);
+                        })
+                        .catch(err => {
+                            console.log("insertGEZ/fehler");
+                            reject(err);
+                        })
+                        }else{
+                            reject();
+                        }
+                        
                     })
                     .catch(err => {
-                        console.log("registration/fehler");
                         reject(err);
                     });
-                    
                 }).catch(err => {
                     console.log("first error: " + err);
                 });
@@ -156,5 +217,6 @@ function nowTimestamp() {
 
 module.exports = {
     insertUser,
-    getUserByEmail
+    getUserByEmail,
+    insertGez
 }

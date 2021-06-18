@@ -1,5 +1,5 @@
 $(function () {
-    $("#header").load("/static/html/header.html");
+    $("#header").load("/de/header");
     $("#footer").load("/static/html/footer.html");
 });
 

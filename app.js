@@ -162,11 +162,8 @@ app.get('/' + bg + '/', function (req, res) {
 //----Login------
 
 app.get('/' + de + '/login', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'login.html'));
   if (req.cookies['benutzerid'] == undefined) {
     res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'login.html'));
-  } else {
-    res.redirect("/404");
   }
 });
 app.get('/' + en + '/login', function (req, res) {
@@ -180,6 +177,44 @@ app.get('/' + bg + '/login', function (req, res) {
 });
 
 //----Login------
+
+app.get('/' + de + '/logout', function (req, res) {
+  if (req.cookies['benutzerid'] !== undefined) {
+    res.cookie('benutzerid', req.cookies['benutzerid'], { maxAge: 0, httpOnly: false });
+    res.sendFile(path.join(__dirname + '/html/lang.html'));
+  } 
+});
+app.get('/' + en + '/logout', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'login.html'));
+});
+app.get('/' + ru + '/logout', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'login.html'));
+});
+app.get('/' + bg + '/logout', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'login.html'));
+});
+
+app.get('/' + de + '/header', function (req, res) {
+  if (req.cookies['benutzerid'] !== undefined) {
+    res.sendFile(path.join(__dirname + '/assets/static/headerLogin.html'));
+  } else {
+    res.sendFile(path.join(__dirname + '/assets/static/header.html'));
+  }
+});
+app.get('/' + en + '/header', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'login.html'));
+});
+app.get('/' + ru + '/header', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'login.html'));
+});
+app.get('/' + bg + '/header', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'login.html'));
+});
+
+
+
+
+
 
 app.get('/404', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/404.html'));
@@ -210,7 +245,7 @@ app.post('/login', (request, response) => {
   request.setTimeout(0);
   login.signIn(url).then(result => {
     if (result !== undefined) {
-      response.cookie('benutzerid', result.benutzer_id, { maxAge: 1000 * 60 * 15, httpOnly: false });
+      response.cookie('benutzerid', result.benutzer_id, { httpOnly: false });
       console.log("succesfully logged in");
       response.status(201).json({ success: true });
     } else {
@@ -234,7 +269,7 @@ app.post('/registration', (request, response) => {
             console.log("cookie exist");
             response.status(400).json({ fail: true });
           } else {
-            response.cookie('benutzerid', result, { maxAge: 1000 * 60 * 15, httpOnly: false });
+            response.cookie('benutzerid', result, { httpOnly: false });
             console.log("cookie: " + request.cookies['benutzerid']);
             response.status(201).json({ success: true });
           }
@@ -256,11 +291,31 @@ app.post('/registration', (request, response) => {
 
 app.post('/gez', (request, response) => {
   const url = request.body;
+  console.log(url);
   request.setTimeout(0);
   if (!vali.validate(url)) {
+    console.log("not valid");
     response.status(400).json({ success: false });
   }else{
-    response.status(201).json({ success: true });
+    if (request.cookies['benutzerid'] !== undefined) {
+      db.insertGez(url, request.cookies['benutzerid'])
+      .then(
+        res => {
+          console.log("201");
+          response.status(201).json({ db: true });
+        }
+      )
+      .catch(
+        err => {
+          console.log("400");
+          response.status(400).json({ db: false });
+        }
+      )
+    }else{
+      console.log("Nicht angemeldet");
+      response.status(201).json({ db: true });
+    }
+    //response.status(201).json({ success: true });
   }
   
 });

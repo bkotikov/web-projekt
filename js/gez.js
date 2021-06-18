@@ -46,9 +46,20 @@ $("#next").on("click", (event) => {
     var formData = {};
     formData["page"] = hash;
     inputs.each(function() {
-      if ($(this)[0].name === "gender" || $(this)[0].name === "accept" || $(this)[0].name === "payment" || $(this)[0].name === "accept-mandat" || $(this)[0].name === "payment-via") {
-          if ($(this)[0].checked) {
+       
+      if ($(this)[0].name === "gender" || $(this)[0].name === "payment" || $(this)[0].name === "payment_via") {
+        
+        if ($(this)[0].checked) {
             formData[$(this)[0].name] = $(this)[0].value;
+          }else{
+            if (formData[$(this)[0].name] === "" || formData[$(this)[0].name] === undefined) {
+              formData[$(this)[0].name] = "";
+            }
+            
+          }
+      }else if($(this)[0].name === "accept_mandat" || $(this)[0].name === "accept"){
+          if ($(this)[0].checked) {
+            formData[$(this)[0].name] = $(this)[0].checked;
           }else{
             if (formData[$(this)[0].name] === "" || formData[$(this)[0].name] === undefined) {
               formData[$(this)[0].name] = "";
@@ -60,7 +71,7 @@ $("#next").on("click", (event) => {
       }
       
     });
-    
+    console.log(formData); 
 
     $.ajax({
         type: "POST",
@@ -68,14 +79,12 @@ $("#next").on("click", (event) => {
         data: formData,
         encode: true
     }).done(done => {
-      if (urlHash() == 11) {
-        return;
+      if (urlHash() === 11 || (urlHash() === 7 && payment_via[1].checked)) {
+        window.location.href = '/';
+      }else{
+        replaceUrlHash(true);
+        getAndSetUrlParams();
       }
-      if (urlHash() == 7 && payment_via[1].checked) {
-        return;
-      }  
-      replaceUrlHash(true);
-      getAndSetUrlParams(); 
     }).fail(fail => {
         
     });
@@ -139,7 +148,7 @@ const street_mandat = document.getElementById("street-mandat");
 const housenumber_mandat = document.getElementById("housenumber-mandat");
 const code_mandat = document.getElementById("code-mandat");
 const city_mandat = document.getElementById("city-mandat");
-const payment_via = document.getElementsByName("payment-via");
+const payment_via = document.getElementsByName("payment_via");
 const iban_mandat = document.getElementById("iban-mandat");
 const bic_mandat = document.getElementById("bic-mandat");
 const institut_mandat = document.getElementById("institut-mandat");
@@ -210,6 +219,7 @@ function validateFields() {
           return true;
         }
       }
+      console.log("what");
       return false;
     case 8:
       if (fname.value !== "" && sname.value !== "") {

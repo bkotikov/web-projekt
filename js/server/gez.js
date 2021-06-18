@@ -8,8 +8,9 @@ function validate(params) {
         valid = true;
         switch (page - 1) {
             case 0:
-              if ((gender !== "men" && gender !== "women") || firstname === "" || secondname === "" ||  Date.parse(birthday) > Date.parse(new Date())) {
+              if ((gender !== "men" && gender !== "woman") || firstname === "" || secondname === "" ||  Date.parse(birthday) > Date.parse(new Date())) {
                 valid = false;
+                console.log("1 not valid");
               }
               break;
             case 1:
@@ -27,7 +28,7 @@ function validate(params) {
             case 4:
                 break;
             case 5:
-              if (accept !== "on") {
+              if (!accept) {
                 valid = false;
               } 
               break;
@@ -37,6 +38,7 @@ function validate(params) {
               }
               break;
             case 7:
+              console.log(payment_via);
               if (payment_via !== "direct-debit" && payment_via !== "bank-transfer") {
                 valid = false;
               }
@@ -57,7 +59,7 @@ function validate(params) {
               } 
               break;
             case 11:
-              if (accept_mandat !== "on") {
+              if (!accept_mandat) {
                 valid = false;
               }
               break;
