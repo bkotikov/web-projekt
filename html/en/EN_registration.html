@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta viewport="width = device-width, initial-scale = 1.0" />
+  <link rel="stylesheet" href="/static/css/login.css">
+  <link rel="stylesheet" href="/static/css/success.css">
+  <link rel="stylesheet" href="/static/css/tooltip.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <title>Registration</title>
+</head>
+
+<body>
+
+  <div class="" id="header"></div>
+  <div class="" id="cookie"></div>
+
+  <main class="main">
+    <div class="container">
+      <section class="wrapper">
+        <div class="heading">
+          <h1 class="text text-large">Registration
+          </h1>
+          <p class="text text-normal">already registered?
+            <span>
+              <a href="/de/login" class="text text-links">
+                Login
+              </a>
+            </span>
+          </p>
+        </div>
+        <form name="login" class="form" method="POST" action="/registration">
+          <div class="input-control">
+            <label for="vorname" class="input-label">First Name
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Text
+                </div>
+              </div>
+            </label>
+            <input type="text" name="vorname" id="vorname" minlength="3" maxlength="32" class="input-field"
+              placeholder="First Name" required>
+            <small class="fehler" id="vorname-fehler">
+First name must be min. 3 characters and max. 32 characters long.
+</small>
+          </div>
+          <div class="input-control">
+            <label for="nachname" class="input-label" hidden>Last Name</label>
+            <input type="text" name="nachname" id="nachname" class="input-field" placeholder="Last Name" required>
+            <small class="fehler" id="nachname-fehler">Last name must be min. 3 characters and max. 32 characters long be.</small>
+          </div>
+          <div class="input-control">
+            <label for="email" class="input-label" hidden>E-Mail Adresse</label>
+            <input type="email" name="email" id="email" class="input-field" placeholder="E-Mail" required>
+            <small class="fehler" id="email-fehler">The email you entered is invalid. Please, enter a valid email.</small>
+          </div>
+          <div class="input-control">
+            <label for="password" class="input-label" hidden>Passwort</label>
+            <input type="password" name="password" id="passwort" class="input-field" placeholder="Password" required>
+            <small class="fehler" id="passwort-fehler">Password should be at least 8 characters long, consist of uppercase and lowercase letters and special characters.</small>
+          </div>
+          <div class="input-control">
+            <label for="password-bestatigen" class="input-label" hidden>Confirm password</label>
+            <input type="password" name="password-bestatigen" id="password-bestatigen" class="input-field" required
+              placeholder="Confirm password">
+            <small class="fehler" id="passwortRepeat-fehler">Passwords do not match</small>
+          </div>
+
+          <div class="message success" id="success-div">
+            <div class="message__header">Registration successful</div>
+            <div class="message__content">
+              You have successfully registered.
+            </div>
+          </div>
+
+          <div class="message error" id="error-div">
+            <div class="message__header">Error</div>
+            <div class="message__content">
+              Email already registered
+            </div>
+          </div>
+
+          <div class="input-control input-btn">
+            <a href="#" class="text text-links">Password forgotten?</a>
+            <input type="submit" id="submit" name="submit" class="input-submit" value="Register">
+          </div>
+        </form>
+        <!--
+        <div class="striped">
+          <span class="striped-line"></span>
+          <span class="striped-text">Oder</span>
+          <span class="striped-line"></span>
+        </div>
+        <div class="method">
+          <div class="method-control">
+            <a href="#" class="method-action">
+              <i class="bi bi-google ion-logo-google"></i>
+              <span>Continue as guest</span>
+            </a>
+          </div>
+        </div>
+        -->
+
+      </section>
+    </div>
+  </main>
+
+  <div class="" id="footer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+  <script src="/static/js/client/success.js"></script>
+  <script src="/static/js/client/common.js"></script>
+  <script src="/static/js/client/validierung.js"></script>
+
+</body>
+
+</html>

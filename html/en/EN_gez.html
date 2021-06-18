@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/static/css/gez.css">
+    <link rel="stylesheet" href="/static/css/success.css">
+    <link rel="stylesheet" href="/static/css/tooltip.css">
+    <title>Formular</title>
+</head>
+
+<body>
+
+    <div class="" id="header"></div>
+    <div class="" id="cookie"></div>
+
+    <section class="form-sec">
+        <div class="page-content">
+            <h2 class="form-sec-text-main">New registration of a apartment </h2>
+            <p class="form-sec-text-second">
+Use this form for the new registration of an apartment.Are you already registered with an apartment or do you want to register a second or secondary residence or exclusively privately used vacation home? for private use? Please use the form "Registration of an additional apartment".
+            </p>
+            <p class="form-sec-text-second">
+                Required fields are marked with *.
+            </p>
+        </div>
+        <form action="/gez/data" method="post" id="gezForm">
+
+            <div class="page" id="1">
+                <h3 class="page-main-text">
+                    1. General information
+                </h3>
+                <div class="page-row">
+                    <div class="page-12">
+                        <label class="label-text" for="salutation">Anrede</label>
+                        <div class="page-inside" id="salutation">
+                            <input type="radio" name="gender" id="men" value="men">
+                            <label for="men">Men</label>
+
+                            <input type="radio" name="gender" id="woman" value="woman">
+                            <label for="woman">Women</label>
+                        </div>
+                    </div>
+                    <div class="page-12 page-inside-row">
+                        <div class="page-12 page-sm-6">
+                            <label class="label-text" for="firstname">Last Name</label>
+                            <input class="text-field" type="text" name="firstname" id="firstname"
+                                placeholder="Last Name">
+                        </div>
+                        <div class="page-12 page-sm-6">
+                            <label class="label-text" for="secondname">First Name</label>
+                            <input class="text-field" type="text" name="secondname" id="secondname"
+                                placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="page-12">
+                        <label class="label-text" for="birthday">Date of Birth</label>
+                        <input class="date-field" type="date" name="birthday" id="birthday">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="2">
+                <h3 class="page-main-text">
+                    2. Registration
+                </h3>
+                <div class="page-12">
+                    <label class="label-text" for="startDay">Registration for (year-month)</label>
+                    <input class="date-field" type="month" name="startDay" id="startDay">
+                </div>
+            </div>
+
+            <div class="page" id="3">
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="street">Street</label>
+                        <input class="text-field" type="text" name="street" id="street" placeholder="Street">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="housenumber">Housenumber</label>
+                        <input class="text-field" type="text" name="housenumber" id="housenumber"
+                            placeholder="Housenumber">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="4">
+                <div class="page-12">
+                    <label class="label-text" for="optionalAdress">Address suffix</label>
+                    <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
+                        placeholder="Address suffix, e.g. apartment number, floor">
+                </div>
+            </div>
+
+            <div class="page" id="5">
+                <div class="page-12">
+                    <label class="label-text" for="mobilenumber">Telephone number for queries (optional)</label>
+                    <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
+                        placeholder="Mobile Number">
+                </div>
+            </div>
+
+            <div class="page" id="6">
+                <h3 class="page-main-text">
+                    3. I confirm the accuracy of the information.
+                </h3>
+                <div class="page-12 accept-field">
+                    <div class="accept-field">
+                        <input class="" type="checkbox" name="accept" id="accept">
+                        <label for="accept" class="accept-label">
+                            I confirm that the information have been entered correctly and properly.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="7">
+                <h3 class="page-main-text">
+                    4. Information on the method of payment
+                </h3>
+                <div class="page-12">
+                    <div class="page-12">
+                        <label class="label-text" for="payment">Legal payment </label>
+                        <div class="page-inside" id="payment">
+                            <input type="radio" name="payment" id="payment-middle" value="middle">
+                            <label for="men">
+In the middle of a Three-month period (as of the 15th)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-12">
+                    <div class="page-12">
+                        <label class="label-text" for="inadvance">Prepayment</label>
+                        <div class="page-inside payment-row" id="inadvance">
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="quarterly" value="quarterly">
+                                <label for="quarterly" class="quarterly">
+In the middle of a three-month period (as of the 15th).
+                                </label>
+                            </div>
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="semiannual" value="semiannual">
+                                <label for="semiannual" class="semiannual">
+Semi-annually in advance (on 1.1., 1.7.)
+                                </label>
+                            </div>
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="yearly" value="yearly">
+                                <label for="yearly" class="yearly">
+Annually in advance (on 1.1)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="8">
+                <h3 class="page-main-text">
+4. Information on the method of payment
+                </h3>
+                <div class="page-12">
+                    <label class="label-text" for="payment-via">Zahlung über:</label>
+                    <div class="page-inside payment-row" id="payment-via">
+                        <div class="page-6">
+                            <input type="radio" name="payment_via" id="direct-debit" value="direct-debit">
+                            <label for="direct-debit" class="quarterly">
+                                By direct debit
+                            </label>
+                        </div>
+                        <div class="page-6">
+                            <input type="radio" name="payment_via" id="bank-transfer" value="bank-transfer">
+                            <label for="bank-transfer" class="semiannual">
+                            By bank transfer
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="9">
+                <h3 class="page-main-text">
+                    5. SEPA direct debit mandate
+                </h3>
+                <p class="mandat-text">
+                    Creditor identification number of the contribution service from "ARD, ZDF und Deutschlandradio": DE3000100000001272
+                </p>
+                <p class="mandat-text">
+I authorize the contribution service of ARD, ZDF and Deutschlandradio, payments from my account by means of direct debit by direct debit. At the same time I instruct instruct my credit institution to debit the contribution service of ARD, ZDF and Deutschlandradio to my my account by the Contribution Service of "ARD, ZDF und Deutschlandradio".
+                </p>
+                <p class="mandat-text">
+Note: I can request a refund of the debited amount within eight weeks, starting from the debit date. The conditions agreed with conditions agreed with my credit institution apply.
+                </p>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="fandsname">Nachname</label>
+                        <input class="text-field" type="text" name="sname" id="sname"
+                            placeholder="Last Name"/>
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="fname">Vorname</label>
+                        <input class="text-field" type="text" name="fname" id="fname"
+                            placeholder="First Name"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="10">
+                <h3 class="page-main-text">
+                    5.1 SEPA Direct Debit Mandate
+                </h3>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="street-mandat">Straße</label>
+                        <input class="text-field" type="text" name="street_mandat" id="street-mandat"
+                            placeholder="Street">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="housenumber-mandat">Hausnummer</label>
+                        <input class="text-field" type="text" name="housenumber_mandat" id="housenumber-mandat"
+                            placeholder="Housenumber">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="code-mandat">Postleitzahl</label>
+                        <input class="text-field plz-field" type="number" name="code_mandat" id="code-mandat"
+                            placeholder="Postal code">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="city-mandat">Stadt</label>
+                        <input class="text-field" type="text" name="city_mandat" id="city-mandat" placeholder="City">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="11">
+                <h3 class="page-main-text">
+                    5.2 SEPA direct debit mandate
+                </h3>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 ">
+                        <label class="label-text" for="iban-mandat">IBAN</label>
+                        <input class="text-field" type="text" name="iban_mandat" id="iban-mandat" placeholder="IBAN">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="bic-mandat">BIC</label>
+                        <input class="text-field plz-field" type="text" name="bic_mandat" id="bic-mandat"
+                            placeholder="BIC">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="institut-mandat">Kreditinstitut</label>
+                        <input class="text-field" type="text" name="institut_mandat" id="institut-mandat"
+                            placeholder="Bank">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 ">
+                        <label class="label-text" for="ort-mandat">Ort</label>
+                        <input class="text-field" type="text" name="ort_mandat" id="ort-mandat" placeholder="Location">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="12">
+                <h3 class="page-main-text">
+                    5.3 I confirm the accuracy of the information for the mandate.
+                </h3>
+                <div class="page-12 accept-field">
+                    <div class="accept-field">
+                        <input class="" type="checkbox" name="accept_mandat" id="accept-mandat">
+                        <label for="accept-mandat" class="accept-label">
+                            I confirm that the information have been entered correctly and properly.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message success" id="success-div">
+                <div class="message__header">Success</div>
+                <div class="message__content">
+                    You have successfully sent your form. If you want to view your form you can do it in the archive.
+                </div>
+            </div>
+
+            <div class="message error" id="error-div">
+                <div class="message__header">Error</div>
+                <div class="message__content">
+Form could not be sent successfully
+                </div>
+              </div>
+
+            <div class="btn-field">
+                <div class="page-6 btn-row">
+                    <button class="btn" type="button" id="prev">Back</button>
+                    <button class="btn " type="button" id="next">Next</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <div class="" id="footer"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="/static/js/client/gez.js"></script>
+    <script src="/static/js/client/success.js"></script>
+    <script src="/static/js/client/common.js"></script>
+    
+</body>
+</html>
