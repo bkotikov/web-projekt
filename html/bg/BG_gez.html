@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/static/css/gez.css">
+    <link rel="stylesheet" href="/static/css/success.css">
+    <link rel="stylesheet" href="/static/css/tooltip.css">
+    <title>Формуляр</title>
+</head>
+
+<body>
+
+    <div class="" id="header"></div>
+    <div class="" id="cookie"></div>
+
+    <section class="form-sec">
+        <div class="page-content">
+            <h2 class="form-sec-text-main">Нова регистрация на апартамент </h2>
+            <p class="form-sec-text-second">
+                Използвайте този формуляр, за да регистрирате нов апартамент. Регистрирани ли сте вече в апартамент или искате да регистрирате втори или вторично жилище или изключително частно използван ваканционен дом? за лична употреба? Моля, използвайте формуляр "Регистрация на допълнителен апартамент".
+            </p>
+            <p class="form-sec-text-second">
+                Задължителните полета са отбелязани с *.
+            </p>
+        </div>
+        <form action="/gez/data" method="post" id="gezForm">
+
+            <div class="page" id="1">
+                <h3 class="page-main-text">
+                    1. обща информация
+                </h3>
+                <div class="page-row">
+                    <div class="page-12">
+                        <label class="label-text" for="salutation">Anrede</label>
+                        <div class="page-inside" id="salutation">
+                            <input type="radio" name="gender" id="men" value="Човек">
+                            <label for="men">Човек</label>
+
+                            <input type="radio" name="gender" id="woman" value="Г-жа">
+                            <label for="woman">Г-жа</label>
+                        </div>
+                    </div>
+                    <div class="page-12 page-inside-row">
+                        <div class="page-12 page-sm-6">
+                            <label class="label-text" for="firstname">Фамилия</label>
+                            <input class="text-field" type="text" name="firstname" id="firstname"
+                                placeholder="Фамилия">
+                        </div>
+                        <div class="page-12 page-sm-6">
+                            <label class="label-text" for="secondname">Първо име</label>
+                            <input class="text-field" type="text" name="secondname" id="secondname"
+                                placeholder="Първо име">
+                        </div>
+                    </div>
+                    <div class="page-12">
+                        <label class="label-text" for="birthday">Дата на раждане</label>
+                        <input class="date-field" type="date" name="birthday" id="birthday">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="2">
+                <h3 class="page-main-text">
+                    2. регистрация
+                </h3>
+                <div class="page-12">
+                    <label class="label-text" for="startDay">Регистрация за (година-месец)</label>
+                    <input class="date-field" type="month" name="startDay" id="startDay">
+                </div>
+            </div>
+
+            <div class="page" id="3">
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="street">Улица</label>
+                        <input class="text-field" type="text" name="street" id="street" placeholder="Улица">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="housenumber">Номер на къща</label>
+                        <input class="text-field" type="text" name="housenumber" id="housenumber"
+                            placeholder="Номер на къща">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="4">
+                <div class="page-12">
+                    <label class="label-text" for="optionalAdress">Адресен суфикс</label>
+                    <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
+                        placeholder="Добавяне на адрес, напр. номер на апартамент, етаж">
+                </div>
+            </div>
+
+            <div class="page" id="5">
+                <div class="page-12">
+                    <label class="label-text" for="mobilenumber">Телефонен номер за запитвания (доброволно  индикация)</label>
+                    <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
+                        placeholder="Телефонен номер ">
+                </div>
+            </div>
+
+            <div class="page" id="6">
+                <h3 class="page-main-text">
+                    3. потвърждавам, че предоставената информация е вярна.
+                </h3>
+                <div class="page-12 accept-field">
+                    <div class="accept-field">
+                        <input class="" type="checkbox" name="accept" id="accept">
+                        <label for="accept" class="accept-label">
+                            С настоящото потвърждавам, че информацията са въведени правилно и коректно.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="7">
+                <h3 class="page-main-text">
+                    4. информация за начина на плащане
+                </h3>
+                <div class="page-12">
+                    <div class="page-12">
+                        <label class="label-text" for="payment">Законово плащане </label>
+                        <div class="page-inside" id="payment">
+                            <input type="radio" name="payment" id="payment-middle" value="middle">
+                            <label for="men">
+                                в средата на Тримесечен период (към 15-то число)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-12">
+                    <div class="page-12">
+                        <label class="label-text" for="inadvance">Предплащане</label>
+                        <div class="page-inside payment-row" id="inadvance">
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="quarterly" value="quarterly">
+                                <label for="quarterly" class="quarterly">
+                                    в средата на Тримесечен период (към 15-то число)
+                                </label>
+                            </div>
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="semiannual" value="semiannual">
+                                <label for="semiannual" class="semiannual">
+                                    Предварително на половин година (1.1., 1.7.)
+                                </label>
+                            </div>
+                            <div class="page-4">
+                                <input type="radio" name="payment" id="yearly" value="yearly">
+                                <label for="yearly" class="yearly">
+                                    годишно предварително (от 1.1.)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="8">
+                <h3 class="page-main-text">
+                   4. информация за начина на плащане
+                </h3>
+                <div class="page-12">
+                    <label class="label-text" for="payment-via">Плащане чрез:</label>
+                    <div class="page-inside payment-row" id="payment-via">
+                        <div class="page-6">
+                            <input type="radio" name="payment_via" id="direct-debit" value="direct-debit">
+                            <label for="direct-debit" class="quarterly">
+                                чрез директно дебитиране
+                            </label>
+                        </div>
+                        <div class="page-6">
+                            <input type="radio" name="payment_via" id="bank-transfer" value="bank-transfer">
+                            <label for="bank-transfer" class="semiannual">
+                            използване на банков превод
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="9">
+                <h3 class="page-main-text">
+                    5. СЕПА мандат за директен дебит
+                </h3>
+                <p class="mandat-text">
+                    Идентификационен номер на кредитора на службата за вноски на "ARD, ZDF und Deutschlandradio": DE30001000001272
+                </p>
+                <p class="mandat-text">
+Разрешавам услугата за плащане на вноски на "ARD, ZDF und Deutschlandradio", да дебитирате плащания от моята сметка директен дебит чрез директен дебит. В същото време инструктирам инструктирам кредитната си институция да дебитира услугата за плащане на вноски на ARD, ZDF и Deutschlandradio към моя Deutschlandradio към моя акаунт.
+                </p>
+                <p class="mandat-text">
+                    Забележка: В рамките на осем седмици, считано от датата на дебитиране, мога да поискам възстановяване на дебитирана сума дебитирана сума. Условията, договорени с важат условията, договорени с моята кредитна институция.
+                </p>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="fandsname">Фамилия</label>
+                        <input class="text-field" type="text" name="sname" id="sname"
+                            placeholder="Фамилия"/>
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="fname">Първо име</label>
+                        <input class="text-field" type="text" name="fname" id="fname"
+                            placeholder="Първо име"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="10">
+                <h3 class="page-main-text">
+                    5.1 Мандат за директен дебит на СЕПА
+                </h3>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="street-mandat">Улица</label>
+                        <input class="text-field" type="text" name="street_mandat" id="street-mandat"
+                            placeholder="Улица">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="housenumber-mandat">Номер на къщата</label>
+                        <input class="text-field" type="text" name="housenumber_mandat" id="housenumber-mandat"
+                            placeholder="Номер на къщата">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="code-mandat">Пощенски код</label>
+                        <input class="text-field plz-field" type="number" name="code_mandat" id="code-mandat"
+                            placeholder="Пощенски код">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="city-mandat">Град</label>
+                        <input class="text-field" type="text" name="city_mandat" id="city-mandat" placeholder="Град">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="11">
+                <h3 class="page-main-text">
+                    5.2 Мандат за директен дебит СЕПА
+                </h3>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 ">
+                        <label class="label-text" for="iban-mandat">IBAN</label>
+                        <input class="text-field" type="text" name="iban_mandat" id="iban-mandat" placeholder="IBAN">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="bic-mandat">BIC</label>
+                        <input class="text-field plz-field" type="text" name="bic_mandat" id="bic-mandat"
+                            placeholder="BIC">
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="institut-mandat">Кредитна институция</label>
+                        <input class="text-field" type="text" name="institut_mandat" id="institut-mandat"
+                            placeholder="Кредитна институция">
+                    </div>
+                </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 ">
+                        <label class="label-text" for="ort-mandat">Местоположение</label>
+                        <input class="text-field" type="text" name="ort_mandat" id="ort-mandat" placeholder="Местоположение">
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="12">
+                <h3 class="page-main-text">
+                    5.3 Потвърждавам точността на информацията, предоставена за мандата.
+                </h3>
+                <div class="page-12 accept-field">
+                    <div class="accept-field">
+                        <input class="" type="checkbox" name="accept_mandat" id="accept-mandat">
+                        <label for="accept-mandat" class="accept-label">
+                            С настоящото потвърждавам, че информацията са въведени правилно и коректно.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="message success" id="success-div">
+                <div class="message__header">Успех</div>
+                <div class="message__content">
+                    Успешно сте изпратили формуляра си. Ако искате да видите формуляра си, можете да го направите в архива.
+                </div>
+            </div>
+
+            <div class="message error" id="error-div">
+                <div class="message__header">Грешка</div>
+                <div class="message__content">
+                  Формулярът не може да бъде обработен успешно
+                </div>
+              </div>
+
+            <div class="btn-field">
+                <div class="page-6 btn-row">
+                    <button class="btn" type="button" id="prev">Обратно</button>
+                    <button class="btn " type="button" id="next">Отидете на</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <div class="" id="footer"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="/static/js/client/gez.js"></script>
+    <script src="/static/js/client/success.js"></script>
+    <script src="/static/js/client/common.js"></script>
+    
+</body>
+</html>

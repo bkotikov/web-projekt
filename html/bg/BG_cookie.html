@@ -1,0 +1,54 @@
+<script>
+    function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
+
+
+const body = document.getElementsByTagName('body')[0];
+const ok = document.getElementById("ok");
+const deny = document.getElementById("reject");
+const popup = document.getElementById("cookie");
+const overlay = document.getElementById("overlay");
+
+function showCookie(bool) {
+    if (bool) {
+      body.style.overflow = "hidden";
+      popup.style.display = "block";
+      overlay.style.display = "block";
+    } else {
+      body.style.overflow = "auto";
+      popup.style.display = "none";
+      overlay.style.display = "none";
+    }
+}
+
+
+
+var dvsgo = getCookie("dvsgo");
+if (dvsgo !== "accecpted" && dvsgo !== "rejected") {
+    showCookie(true);
+}
+ 
+ok.addEventListener('click', () => {
+    document.cookie = "dvsgo=accecpted; path=/; samesite=strict";
+    showCookie(false);
+}, true);
+
+deny.addEventListener('click', () => {
+    document.cookie = "dvsgo=rejected; path=/; samesite=strict";
+    showCookie(false);
+}, true);
+</script>
