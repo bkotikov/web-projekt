@@ -80,7 +80,7 @@ $("#next").on("click", (event) => {
         encode: true
     }).done(done => {
       if (urlHash() === 11 || (urlHash() === 7 && payment_via[1].checked)) {
-        window.location.href = '/';
+        window.location.href = '/' + window.location.pathname.split('/')[1];
       }else{
         replaceUrlHash(true);
         getAndSetUrlParams();
