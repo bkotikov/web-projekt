@@ -2,29 +2,8 @@
     box-sizing: border-box !important;
 }
 
-main .firstpage {
-    background-color: white;
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    user-select: none;
-    width: 100%;
-}
-
-.main-sec {
-    word-wrap: break-word;
-    font-weight: 700;
-    font-size: 150px;
-    letter-spacing: 0.25rem;
-    -webkit-background-clip: text;
-    background-clip: text;
-    line-height: 100%;
-    -webkit-text-fill-color: transparent;
-    padding: 0.5rem 0;
-}
-
 main .inhalt {
-    text-align: center;
+    text-align: left;
     padding: 15px;
     color: #666;
     font-size: 1.25rem;
