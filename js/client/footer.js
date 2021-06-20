@@ -5,5 +5,5 @@ const bg = document.getElementById("bg");
 
 
 function changeLang(lang) {
-    
+    window.location.pathname.split('/')[1]
 }
