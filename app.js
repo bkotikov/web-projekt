@@ -51,19 +51,19 @@ app.get('/', function (req, res) {
 //----Cookie------
 
 app.get('/' + de + '/cookie', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'cookie.html'));
+  res.sendFile(path.join(__dirname + '/assets/static/' + de + '/' + 'cookie.html'));
 });
 
 app.get('/' + en + '/cookie', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'cookie.html'));
+  res.sendFile(path.join(__dirname + '/assets/static/' + en + '/' + 'cookie.html'));
 });
 
 app.get('/' + ru + '/cookie', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'cookie.html'));
+  res.sendFile(path.join(__dirname + '/assets/static/' + ru + '/' + 'cookie.html'));
 });
 
 app.get('/' + bg + '/cookie', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'cookie.html'));
+  res.sendFile(path.join(__dirname + '/assets/static/' + bg + '/' + 'cookie.html'));
 });
 
 //----Cookie------
@@ -137,8 +137,8 @@ app.post('/scan', (req, res) => {
 //----Index------
 
 
-app.get('/' + de + '/index', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + de + '/indeex.html'));
+app.get('/' + de + '/', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'index.html'));
 });
 
 app.get('/' + en + '/', function (req, res) {
@@ -200,13 +200,25 @@ app.get('/' + de + '/header', function (req, res) {
   }
 });
 app.get('/' + en + '/header', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'login.html'));
+  if (req.cookies['benutzerid'] !== undefined) {
+    res.sendFile(path.join(__dirname + '/assets/static/en/headerLogin.html'));
+  } else {
+    res.sendFile(path.join(__dirname + '/assets/static/en/header.html'));
+  }
 });
 app.get('/' + ru + '/header', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'login.html'));
+  if (req.cookies['benutzerid'] !== undefined) {
+    res.sendFile(path.join(__dirname + '/assets/static/ru/headerLogin.html'));
+  } else {
+    res.sendFile(path.join(__dirname + '/assets/static/ru/header.html'));
+  }
 });
 app.get('/' + bg + '/header', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'login.html'));
+  if (req.cookies['benutzerid'] !== undefined) {
+    res.sendFile(path.join(__dirname + '/assets/static/bg/headerLogin.html'));
+  } else {
+    res.sendFile(path.join(__dirname + '/assets/static/bg/header.html'));
+  }
 });
 
 
