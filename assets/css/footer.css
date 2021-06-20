@@ -105,6 +105,22 @@ a:hover {
     border-width: 2px;
 }
 
+
+.btn {
+	display: inline-block !important;
+	padding: 0.5rem 1rem !important;
+	color: #fff;
+	background: #15b113;
+	border: 1px solid #000;
+	border-radius: 1rem;
+	opacity: 0.92 !important;
+	margin: 0 0 1rem 0;
+	font-size: 1rem !important;
+	line-height: 0 !important;
+	cursor: pointer;
+  }
+
+
 .footer-group__submit {
 	outline: none;
 	display: block;
@@ -160,6 +176,8 @@ a:hover {
 	.footer-footnote {
 		flex-direction: column-reverse;
 	}
+	/*
 	.footnote__items {
 	}
+	*/
 }

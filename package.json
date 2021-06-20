@@ -45,7 +45,7 @@
     "@babel/core": "^7.14.3",
     "@babel/node": "^7.14.2",
     "@babel/preset-env": "^7.14.4",
-    "gulp": "^4.0.2",
+    "gulp": "^3.9.1",
     "gulp-file-include": "^2.3.0"
   }
 }
