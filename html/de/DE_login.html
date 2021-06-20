@@ -29,10 +29,14 @@
           <div class="input-control">
             <label for="email" class="input-label" hidden>E-Mail Adresse</label>
             <input type="email" name="email" id="email" class="input-field" placeholder="E-Mail Adresse" required>
+            <small class="fehler" id="email-fehler">Die von ihnen eingegebene Email ist ungültig. Bitte, geben sie eine
+              gültige Email.</small>
           </div>
           <div class="input-control">
             <label for="password" class="input-label" hidden>Passwort</label>
             <input type="password" name="password" id="password" class="input-field" placeholder="Passwort" required>
+            <small class="fehler" id="passwort-fehler">Passwort sollte mindestens 8 Zeichen lang sein, aus Groß- und
+              Kleinbuchstaben sowie Sonderzeichen bestehen</small>
           </div>
 
           <div class="message success" id="success-div">

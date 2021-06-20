@@ -28,10 +28,15 @@
           <div class="input-control">
             <label for="email" class="input-label" hidden>Электронная почта</label>
             <input type="email" name="email" id="email" class="input-field" placeholder="Электронная почта" required>
+            <small class="fehler" id="email-fehler">
+              Введенный вами адрес электронной почты недействителен. Пожалуйста, введите действующая электронная почта.
+              Электронная почта
+            </small>
           </div>
           <div class="input-control">
             <label for="password" class="input-label" hidden>Пароль</label>
             <input type="password" name="password" id="password" class="input-field" placeholder="Пароль" required>
+            <small class="fehler" id="passwort-fehler">Пароль должен состоять не менее чем из 8 символов, состоять из верхнего и нижнего регистров состоять из прописных и строчных букв и специальных символов</small>
           </div>
 
           <div class="message success" id="success-div">

@@ -28,10 +28,12 @@
           <div class="input-control">
             <label for="email" class="input-label" hidden>E-Mail</label>
             <input type="email" name="email" id="email" class="input-field" placeholder="E-Mail Adresse" required>
+            <small class="fehler" id="email-fehler">The email you entered is invalid. Please, enter a valid email.</small>
           </div>
           <div class="input-control">
             <label for="password" class="input-label" hidden>Password</label>
             <input type="password" name="password" id="password" class="input-field" placeholder="Passwort" required>
+            <small class="fehler" id="passwort-fehler">Password should be at least 8 characters long, consist of uppercase and lowercase letters and special characters.</small>
           </div>
 
           <div class="message success" id="success-div">
