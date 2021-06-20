@@ -19,7 +19,7 @@ main .firstpage {
     -webkit-background-clip: text;
     background-clip: text;
     line-height: 100%;
-    -webkit-text-fill-color: transparent;
+    /*-webkit-text-fill-color: transparent;*/
     padding: 0.5rem 0;
 }
 
