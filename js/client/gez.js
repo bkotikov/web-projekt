@@ -331,11 +331,11 @@ function genderValid() {
 }
 
 function firstnameValid() {
-  return firstname.value !== "";
+  return firstname.value.match(/^[a-zA-Z]+$/);
 }
 
 function secondnameValid() {
-  return secondname.value !== "";
+  return secondname.value.match(/^[a-zA-Z]+$/);
 }
 
 function birthdayValid() {
@@ -377,11 +377,11 @@ function payment_viaValid() {
 }
 
 function fnameValid() {
-  return fname.value !== "";
+  return fname.value.match(/^[a-zA-Z]+$/);
 }
 
 function snameValid() {
-  return sname.value !== "";
+  return sname.value.match(/^[a-zA-Z]+$/);
 }
 
 function street_mandatValid() {
@@ -397,7 +397,7 @@ function code_mandatValid() {
 }
 
 function city_mandatValid() {
-  return city_mandat.value !== "";
+  return city_mandat.value.match(/^[a-zA-Z]+$/);
 }
 
 function iban_mandatValid() {
