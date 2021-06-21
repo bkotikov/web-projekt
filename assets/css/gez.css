@@ -3,6 +3,12 @@
   box-sizing: border-box;
 }
 
+
+.fehler {
+  display: none;
+  color: red;
+}
+
 .form-sec {
   display: block;
   width: 100%;

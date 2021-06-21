@@ -34,7 +34,7 @@
         </div>
         <form action="/gez/data" method="post" id="gezForm">
 
-            <div class="page" id="1">
+            <div class="page" id="0">
                 <h3 class="page-main-text">
                     1. Allgemeine Angaben
                 </h3>
@@ -51,48 +51,56 @@
                     </div>
                     <div class="page-12 page-inside-row">
                         <div class="page-12 page-sm-6">
-                            <label class="label-text" for="firstname">Nachname</label>
+                            
+                            <label class="label-text" for="firstname">Vorname</label>
+                            
                             <input class="text-field" type="text" name="firstname" id="firstname"
-                                placeholder="Nachname">
+                                placeholder="Vorname">
+                            <small class="fehler" id="firstnameFehler">Vorname darf nicht leer sein.</small>
                         </div>
                         <div class="page-12 page-sm-6">
-                            <label class="label-text" for="secondname">Vorname</label>
+                            <label class="label-text" for="secondname">Nachname</label>
                             <input class="text-field" type="text" name="secondname" id="secondname"
-                                placeholder="Vorname">
+                                placeholder="Nachname">
+                            <small class="fehler" id="secondnameFehler">Nachname darf nicht leer sein.</small>
                         </div>
                     </div>
                     <div class="page-12">
                         <label class="label-text" for="birthday">Geburtsdatum</label>
                         <input class="date-field" type="date" name="birthday" id="birthday">
+                        <small class="fehler" id="birthdayFehler">Geburtsdatum darf nicht in der Zukunft liegen.</small>
                     </div>
                 </div>
             </div>
 
-            <div class="page" id="2">
+            <div class="page" id="1">
                 <h3 class="page-main-text">
                     2. Anmeldung
                 </h3>
                 <div class="page-12">
                     <label class="label-text" for="startDay">Anmeldung zum (Jahr-Monat)</label>
                     <input class="date-field" type="month" name="startDay" id="startDay">
+                    <small class="fehler" id="startDayFehler">Datum darf nicht in der Zukunft liegen.</small>
                 </div>
             </div>
 
-            <div class="page" id="3">
+            <div class="page" id="2">
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="street">Straße</label>
                         <input class="text-field" type="text" name="street" id="street" placeholder="Straße">
+                        <small class="fehler" id="streetFehler">Straße darf nicht leer sein.</small>
                     </div>
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="housenumber">Hausnummer</label>
                         <input class="text-field" type="text" name="housenumber" id="housenumber"
                             placeholder="Hausnummer">
+                        <small class="fehler" id="housenumberFehler">Keine gültige Hausnummer.</small>
                     </div>
                 </div>
             </div>
 
-            <div class="page" id="4">
+            <div class="page" id="3">
                 <div class="page-12">
                     <label class="label-text" for="optionalAdress">Adresszusatz</label>
                     <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
@@ -100,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="page" id="5">
+            <div class="page" id="4">
                 <div class="page-12">
                     <label class="label-text" for="mobilenumber">Telefonnummer für Rückfragen (freiwillige
                         Angabe)</label>
@@ -109,7 +117,7 @@
                 </div>
             </div>
 
-            <div class="page" id="6">
+            <div class="page" id="5">
                 <h3 class="page-main-text">
                     3. Ich bestätige die Richtigkeit der Angaben.
                 </h3>
@@ -124,7 +132,7 @@
                 </div>
             </div>
 
-            <div class="page" id="7">
+            <div class="page" id="6">
                 <h3 class="page-main-text">
                     4. Angaben zur Zahlungsweise
                 </h3>
@@ -170,7 +178,7 @@
                 </div>
             </div>
 
-            <div class="page" id="8">
+            <div class="page" id="7">
                 <h3 class="page-main-text">
                     4. Angaben zur Zahlungsweise
                 </h3>
@@ -193,7 +201,7 @@
                 </div>
             </div>
 
-            <div class="page" id="9">
+            <div class="page" id="8">
                 <h3 class="page-main-text">
                     5. SEPA-Lastschriftmandat
                 </h3>
@@ -223,16 +231,18 @@
                         <label class="label-text" for="fandsname">Nachname</label>
                         <input class="text-field" type="text" name="sname" id="sname"
                             placeholder="Nachname"/>
+                        <small class="fehler" id="snameFehler">Nachname darf nicht leer sein.</small>
                     </div>
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="fname">Vorname</label>
                         <input class="text-field" type="text" name="fname" id="fname"
                             placeholder="Vorname"/>
+                        <small class="fehler" id="fnameFehler">Vorname darf nicht leer sein.</small>
                     </div>
                 </div>
             </div>
 
-            <div class="page" id="10">
+            <div class="page" id="9">
                 <h3 class="page-main-text">
                     5.1. SEPA-Lastschriftmandat
                 </h3>
@@ -241,11 +251,13 @@
                         <label class="label-text" for="street-mandat">Straße</label>
                         <input class="text-field" type="text" name="street_mandat" id="street-mandat"
                             placeholder="Straße">
+                        <small class="fehler" id="street-mandatFehler">Straße darf nicht leer sein.</small>
                     </div>
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="housenumber-mandat">Hausnummer</label>
                         <input class="text-field" type="text" name="housenumber_mandat" id="housenumber-mandat"
                             placeholder="Hausnummer">
+                        <small class="fehler" id="housenumber-mandatFehler">Keine gültige Hausnummer.</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
@@ -253,15 +265,17 @@
                         <label class="label-text" for="code-mandat">Postleitzahl</label>
                         <input class="text-field plz-field" type="number" name="code_mandat" id="code-mandat"
                             placeholder="Postleitzahl">
+                        <small class="fehler" id="code-mandatFehler">Keine gültige Postleitzahl.</small>
                     </div>
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="city-mandat">Stadt</label>
                         <input class="text-field" type="text" name="city_mandat" id="city-mandat" placeholder="Stadt">
+                        <small class="fehler" id="city-mandatFehler">Stadt darf nicht leer sein.</small>
                     </div>
                 </div>
             </div>
 
-            <div class="page" id="11">
+            <div class="page" id="10">
                 <h3 class="page-main-text">
                     5.2. SEPA-Lastschriftmandat
                 </h3>
@@ -269,6 +283,7 @@
                     <div class="page-12 ">
                         <label class="label-text" for="iban-mandat">IBAN</label>
                         <input class="text-field" type="text" name="iban_mandat" id="iban-mandat" placeholder="IBAN">
+                        <small class="fehler" id="iban-mandatFehler">Keine gültige IBAN.</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
@@ -276,22 +291,25 @@
                         <label class="label-text" for="bic-mandat">BIC</label>
                         <input class="text-field plz-field" type="text" name="bic_mandat" id="bic-mandat"
                             placeholder="BIC">
+                        <small class="fehler" id="bic-mandatFehler">Keine gültige BIC.</small>
                     </div>
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="institut-mandat">Kreditinstitut</label>
                         <input class="text-field" type="text" name="institut_mandat" id="institut-mandat"
                             placeholder="Kreditinstitut">
+                        <small class="fehler" id="institut-mandatFehler">Kreditinstitut darf nicht leer sein.</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 ">
                         <label class="label-text" for="ort-mandat">Ort</label>
                         <input class="text-field" type="text" name="ort_mandat" id="ort-mandat" placeholder="Ort">
+                        <small class="fehler" id="ort-mandatFehler">Ort darf nicht leer sein.</small>
                     </div>
                 </div>
             </div>
 
-            <div class="page" id="12">
+            <div class="page" id="11">
                 <h3 class="page-main-text">
                     5.3. Ich bestätige die Richtigkeit der Angaben für den Mandat.
                 </h3>
@@ -316,20 +334,20 @@
             </div>
 
             <div class="message error" id="error-div">
-                <div class="message__header">Erfolg</div>
+                <div class="message__header">Fehler</div>
                 <div class="message__content">
-                  Sie haben ihren Formular erfolgreich verschickt.
-                  Wenn sie ihren Formular anschauen wollen,
-                  das könnt ihr im Archiv machen.
+                    Bitte füllen Sie alle Felder aus.
                 </div>
               </div>
-
             <div class="btn-field">
+                
                 <div class="page-6 btn-row">
                     <button class="btn" type="button" id="prev">Zurück</button>
                     <button class="btn " type="button" id="next">Weiter</button>
                 </div>
+                
             </div>
+            
         </form>
     </section>
 

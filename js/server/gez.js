@@ -6,7 +6,7 @@ function validate(params) {
         sname, fname, street_mandat, housenumber_mandat, code_mandat, city_mandat, iban_mandat, bic_mandat, institut_mandat, ort_mandat, accept_mandat} = params;
     
         valid = true;
-        switch (page - 1) {
+        switch (page) {
             case 0:
               if ((gender !== "men" && gender !== "woman") || firstname === "" || secondname === "" ||  Date.parse(birthday) > Date.parse(new Date())) {
                 valid = false;

@@ -3,7 +3,6 @@ const en = document.getElementById("en");
 const ru = document.getElementById("ru");
 const bg = document.getElementById("bg");
 
-
 de.addEventListener("click", changeLangDe);
 en.addEventListener("click", changeLangEn);
 ru.addEventListener("click", changeLangRu);
@@ -22,8 +21,6 @@ function changeLangBg() {
     changeLang("bg");
 }
 
-
-
 function changeLang(lang) {
     if (lang === window.location.pathname.split('/')[1]) {
         return;
@@ -34,6 +31,5 @@ function changeLang(lang) {
        const element = path[index];
        newPath += "/" + element;
     }
-   
    window.location.href = newPath + window.location.hash;
 }
