@@ -27,14 +27,6 @@ main .firstpage {
     background-image: linear-gradient(90deg, #007cf0, #00dfd8);
 }
 
-.second-main-sec {
-    background-image: linear-gradient(90deg, #0e0d0d, #929292);
-}
-
-.third-main-sec {
-    background-image: linear-gradient(90deg, #e25909, #b1a504);
-}
-
 main .firstpagebutton {
     text-align: center;
     margin-bottom: 40px;
@@ -42,12 +34,12 @@ main .firstpagebutton {
     justify-content: center;
 }
 
-main .firstpagebutton a:first-of-type {
+main .firstpagebutton a {
     display: block;
     font-weight: 500;
     font-size: 16px;
-    height: 50px;
-    width: 100px;
+    height: 50px, auto;
+    width: 100px, auto;
     min-width: 200px;
     line-height: 50px;
     padding: 0px 25px;
@@ -60,32 +52,9 @@ main .firstpagebutton a:first-of-type {
     transition-duration: 0.2s, 0.2s;
 }
 
-main .firstpagebutton a:first-of-type:hover {
+main .firstpagebutton a:hover {
     color: rgb(7, 7, 7);
     background-color: rgb(247, 247, 247);
-
-}
-
-main .firstpagebutton a:last-of-type {
-    display: block;
-    font-weight: 500;
-    font-size: 16px;
-    height: 50px;
-    width: 100px;
-    min-width: 200px;
-    line-height: 50px;
-    padding: 0px 25px;
-    color: #333;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #eaeaea;
-    transition-property: border-color, color;
-    transition-duration: 0.2s, 0.2s;
-}
-
-main .firstpagebutton a:last-of-type:hover {
-    border-color: black;
-    color: black;
 
 }
 
@@ -116,38 +85,16 @@ main .info {
         line-height: 100.78px;
     }
 
-    main .firstpage h2:nth-of-type(1) {
-        font-size: 5rem;
-        font-weight: 800;
-        letter-spacing: -6.7344px;
-    }
-
-    main .firstpage h2:nth-of-type(2) {
-        font-size: 5rem;
-        font-weight: 800;
-        letter-spacing: -6.7344px;
-    }
-
-    main .firstpage h2:nth-of-type(3) {
-        font-size: 5rem;
-        font-weight: 800;
-        letter-spacing: -6.7344px;
-    }
-
     main .firstpagebutton {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    main .firstpagebutton a:first-of-type {
+    main .firstpagebutton a {
         width: 90%;
         margin-right: 0px;
         margin-bottom: 15px;
-    }
-
-    main .firstpagebutton a:last-of-type {
-        width: 90%
     }
 
     main .info {
@@ -162,7 +109,7 @@ main .info {
 @media screen and (min-width:501px) {
  
     .main-sec {
-        font-size: 6rem;
+        font-size: 4rem;
         font-weight: 800;
         margin: 1rem 0;
     }
@@ -171,7 +118,7 @@ main .info {
 @media screen and (max-width:500px) {
    
     .main-sec {
-        font-size: 4rem !important;
+        font-size: 2rem !important;
         font-weight: 600;
         margin: 1rem 0;
     }
