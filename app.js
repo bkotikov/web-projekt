@@ -307,25 +307,37 @@ app.post('/gez', (request, response) => {
     console.log("not valid");
     response.status(400).json({ success: false });
   }else{
+    
     if (request.cookies['benutzerid'] !== undefined) {
-      db.insertGez(url, request.cookies['benutzerid'])
-      .then(
-        res => {
-          console.log("201");
-          response.status(201).json({ db: true });
+      db.getUserByUuid(request.cookies['benutzerid'])
+      .then( result => {
+        if (result === undefined) {
+          response.status(400).json({ user: false });
+        }else{
+          db.insertGez(url, request.cookies['benutzerid'])
+            .then(
+              res => {
+                response.status(201).json({ db: true });
+              }
+            )
+            .catch(
+              err => {
+                console.log("insert");
+                response.status(400).json({ db: false });
+              }
+            );
         }
-      )
-      .catch(
-        err => {
-          console.log("400");
-          response.status(400).json({ db: false });
-        }
-      )
+      })
+      .catch( err => {
+        console.log(err);
+        response.status(400).json({ db: false });
+      });
+      
     }else{
       console.log("Nicht angemeldet");
-      response.status(201).json({ db: true });
+      response.status(201).json({ success: true });
     }
-    //response.status(201).json({ success: true });
+    
   }
   
 });

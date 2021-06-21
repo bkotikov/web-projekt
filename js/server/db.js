@@ -204,6 +204,32 @@ function getUserByEmail(params) {
     });
 }
 
+function getUserByUuid(uuid) {
+    
+    return new Promise((resolve, reject) => {
+        const sql = "SELECT benutzer_id FROM benutzer WHERE benutzer_id = $1";
+        pool.connect().then(res => {
+            pool.query(sql, [uuid])
+            .then(result => {
+                //const { benutzer_id, email, password} = result.rows[0];
+                console.log("uuid: " + uuid);
+                resolve(result.rows[0]);
+                res.end();
+            })
+            .catch(err => {
+                
+                console.log(err);
+                reject(err);
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            reject(err);
+        });
+    });
+}
+
+
 function uniqueId() {
     return new Date().getUTCMilliseconds();
 }
@@ -218,5 +244,6 @@ function nowTimestamp() {
 module.exports = {
     insertUser,
     getUserByEmail,
-    insertGez
+    insertGez,
+    getUserByUuid
 }
