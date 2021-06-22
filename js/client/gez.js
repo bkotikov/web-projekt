@@ -331,11 +331,11 @@ function genderValid() {
 }
 
 function firstnameValid() {
-  return firstname.value.match(/^[a-zA-Z]+$/);
+  return firstname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/);
 }
 
 function secondnameValid() {
-  return secondname.value.match(/^[a-zA-Z]+$/);
+  return secondname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/);
 }
 
 function birthdayValid() {
