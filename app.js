@@ -411,11 +411,5 @@ app.get('/' + bg + '/gez', function (req, res) {
 
 //-----GEZ-----
 
-https.createServer({
-  //key: fs.readFileSync('./key.pem'),
-  //cert: fs.readFileSync('./key-cert.pem')
-}, app).listen(5001, () => {
-  console.log('Listening... 5000')
-})
 http.createServer(app).listen(5000);
 //app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
