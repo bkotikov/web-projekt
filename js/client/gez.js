@@ -377,11 +377,11 @@ function payment_viaValid() {
 }
 
 function fnameValid() {
-  return fname.value.match(/^[a-zA-Z]+$/);
+  return fname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/);
 }
 
 function snameValid() {
-  return sname.value.match(/^[a-zA-Z]+$/);
+  return sname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/);
 }
 
 function street_mandatValid() {
