@@ -5,8 +5,9 @@
   <meta charset="utf-8" />
   <meta viewport="width = device-width, initial-scale = 1.0" />
   <link rel="stylesheet" href="/static/css/login.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/css/tooltip.css">
   <link rel="stylesheet" href="/static/css/success.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <title>Регистрация</title>
 </head>
@@ -26,12 +27,26 @@
         </div>
         <form name="login" method="post" action="/login" class="form">
           <div class="input-control">
-            <label for="email" class="input-label" hidden>Адрес на електронна поща</label>
+            <label for="email" class="input-label" hidden>Адрес на електронна поща
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Geben Sie Ihre E-Mail ein, mit der Sie sich angemeldet haben.
+                </div>
+              </div>
+            </label>
             <input type="email" name="email" id="email" class="input-field" placeholder="Адрес на електронна поща" required>
             <small class="fehler" id="email-fehler">Въведеният от вас имейл е невалиден. Моля, въведете валиден имейл.</small>
           </div>
           <div class="input-control">
-            <label for="password" class="input-label" hidden>Парола</label>
+            <label for="password" class="input-label" hidden>Парола
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Geben Sie Ihre Passwort ein, mit der Sie sich angemeldet haben.
+                </div>
+              </div>
+            </label>
             <input type="password" name="password" id="password" class="input-field" placeholder="Парола" required>
             <small class="fehler" id="passwort-fehler">Паролата трябва да е дълга поне 8 символа, да се състои от главни и малки букви. се състои от главни и малки букви и специални символи.</small>
           </div>

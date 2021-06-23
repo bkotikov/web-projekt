@@ -32,11 +32,11 @@
         </div>
         <form name="login" class="form" method="POST" action="/registration">
           <div class="input-control">
-            <label for="vorname" class="input-label">First Name
+            <label for="vorname" class="input-label">First Name*
               <div class="tooltip">
                 <i class="bi bi-question-circle"></i>
                 <div class="tooltiptext">
-                  Text
+                  Please enter your first Name. e.g.: Max, Dana
                 </div>
               </div>
             </label>
@@ -47,22 +47,50 @@ First name must be min. 3 characters and max. 32 characters long.
 </small>
           </div>
           <div class="input-control">
-            <label for="nachname" class="input-label" hidden>Last Name</label>
+            <label for="nachname" class="input-label" hidden>Last Name*
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Please enter your last Name. e.g.: Müller, Schneider
+                </div>
+              </div>
+            </label>
             <input type="text" name="nachname" id="nachname" class="input-field" placeholder="Last Name" required>
             <small class="fehler" id="nachname-fehler">Last name must be min. 3 characters and max. 32 characters long be.</small>
           </div>
           <div class="input-control">
-            <label for="email" class="input-label" hidden>E-Mail Adresse</label>
+            <label for="email" class="input-label" hidden>E-Mail*
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Please enter your e-mail. e.g.: max.mueller@gmail.com
+                </div>
+              </div>
+            </label>
             <input type="email" name="email" id="email" class="input-field" placeholder="E-Mail" required>
             <small class="fehler" id="email-fehler">The email you entered is invalid. Please, enter a valid email.</small>
           </div>
           <div class="input-control">
-            <label for="password" class="input-label" hidden>Passwort</label>
+            <label for="password" class="input-label" hidden>Passwort*
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Only you should know your password. The password must contain at least one capital letter, one number and one special character. It must be at least 8 characters long.
+                </div>
+              </div>
+            </label>
             <input type="password" name="password" id="passwort" class="input-field" placeholder="Password" required>
             <small class="fehler" id="passwort-fehler">Password should be at least 8 characters long, consist of uppercase and lowercase letters and special characters.</small>
           </div>
           <div class="input-control">
-            <label for="password-bestatigen" class="input-label" hidden>Confirm password</label>
+            <label for="password-bestatigen" class="input-label" hidden>Confirm password*
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Repeat your password to make sure you haven't made a mistake.
+                </div>
+              </div>
+            </label>
             <input type="password" name="password-bestatigen" id="password-bestatigen" class="input-field" required
               placeholder="Confirm password">
             <small class="fehler" id="passwortRepeat-fehler">Passwords do not match</small>
