@@ -1,10 +1,9 @@
-const close = document.querySelector(".close");
 const cookie = document.querySelector(".cookie");
 
 const front = document.querySelector(".front");
 const back = document.querySelector(".back");
 
-const more = document.querySelector("#more_cookie");
+
 
 const backicon = document.querySelector(".back_icon");
 
@@ -15,14 +14,7 @@ backbtn.addEventListener("click", () => {
     front.style.display = "flex";
 });
 
-close.addEventListener("click", function () {
-    cookie.style.display = "none";
-});
 
-more.addEventListener("click", () => {
-    front.style.display = "none";
-    back.style.display = "flex";
-});
 
 backicon.addEventListener("click", () => {
     back.style.display = "none";
