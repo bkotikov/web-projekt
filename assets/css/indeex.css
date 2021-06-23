@@ -59,7 +59,7 @@ main .firstpagebutton a:hover {
 }
 
 main .info {
-    text-align: center;
+    text-align: left;
     padding: 15px;
     color: #666;
     font-size: 1.25rem;
