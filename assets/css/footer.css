@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
+body{
+	font-family: Arial, sans-serif;
+}
+
 :root {
 	--primary: #f39fae;
 	--dark: #01010c;
@@ -93,7 +97,7 @@ a:hover {
 	display: none; /* TODO proper implementation */
 }
 .footer-group__input {
-	font-family: "Poppins";
+	/*font-family: "Poppins";*/
 	width: 100%;
 	display: block;
 	/*   height: 0.8rem; */
