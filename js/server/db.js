@@ -148,6 +148,29 @@ function insertGez(params, uuid) {
 }
 
 
+function getAllDataGez(userid) {
+    console.log("id: " + userid);
+    return new Promise((resolve, reject) => {
+        const sql = "SELECT * FROM odf";
+        pool.connect().then(res => {
+            pool.query(sql, [userid])
+            .then(result => {
+                //const { benutzer_id, email, password} = result.rows[0];
+                resolve(result.rows);
+                res.end();
+            })
+            .catch(err => {
+                console.log(err);
+                reject(err);
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            reject(err);
+        });
+    });
+}
+
 
 function insertUser(values) {
     const { vorname, nachname, passwort, email } = values;
@@ -175,6 +198,40 @@ function insertUser(values) {
             }).catch(err => {
                 console.log("first error: " + err);
             });
+    });
+}
+
+
+/**
+ * create table pdf(
+ * id serial not null primary key, 
+ * benutzerID uuid not null, 
+ * path varchar(255) not null, 
+ * uploaded timestamp not null default CURRENT_TIMESTAMP);
+ * 
+ */
+
+
+function getFileByUserID(userid) {
+    console.log("id: " + userid);
+    return new Promise((resolve, reject) => {
+        const sql = "SELECT benutzerID, path FROM pdf WHERE benutzerID = $1";
+        pool.connect().then(res => {
+            pool.query(sql, [userid])
+            .then(result => {
+                //const { benutzer_id, email, password} = result.rows[0];
+                resolve(result.rows);
+                res.end();
+            })
+            .catch(err => {
+                console.log(err);
+                reject(err);
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            reject(err);
+        });
     });
 }
 
@@ -245,5 +302,6 @@ module.exports = {
     insertUser,
     getUserByEmail,
     insertGez,
-    getUserByUuid
+    getUserByUuid,
+    getFileByUserID
 }

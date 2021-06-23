@@ -34,10 +34,13 @@ const de_index = 'DE_';
 const bg = 'bg';
 const bg_index = 'BG_';
 
+bodyParser.json();
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser.json());
 
 app.use('/static/css', express.static(__dirname + '/assets/css'));
 app.use('/static/images', express.static(__dirname + '/assets/images'));
@@ -46,6 +49,43 @@ app.use('/static/html', express.static(__dirname + '/assets/static/'));
 //root
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/lang.html'));
+});
+
+/*
+app.put('/users/:userId', (req, res) => {
+  return res.send(
+    `PUT HTTP method on user/${req.params.userId} resource`,
+  );
+});
+*/
+
+app.get('/archiv/', function (req, res) {
+  fs.readdir("upload/uuid", (err, files) => {
+    files.forEach(file => {
+      console.log(file);
+    });
+  });
+  //console.log(req.query.id);
+  db.getFileByUserID(req.cookies['benutzerid'])
+  .then(result => {
+    console.log(result);
+    res.status(200).send(result);
+  }).catch(error => {
+
+  });
+});
+
+app.get('/' + de + '/archiv', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'archiv.html'));
+});
+app.get('/' + en + '/archiv', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'archiv.html'));
+});
+app.get('/' + ru + '/archiv', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'archiv.html'));
+});
+app.get('/' + bg + '/archiv', function (req, res) {
+  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'archiv.html'));
 });
 
 //----Cookie------
@@ -112,7 +152,7 @@ app.get('/' + bg + '/scan', function (req, res) {
 app.post('/scan', (req, res) => {
   var form = new formidable.IncomingForm();
   form.parse(req);
-  form.on('file', function (name, file){
+  form.on('file', function (name, file) {
     console.log('Uploaded ' + file.name);
     mimetype = file.type.split("/");
     if (mimetype[0] === "image" && (mimetype[1] === "bmp" || mimetype[1] === "jpg" || mimetype[1] === "png" || mimetype[1] === "pbm" || mimetype[1] === "jpeg")) {
@@ -126,16 +166,9 @@ app.post('/scan', (req, res) => {
       res.status(400).json({ fail: "type" });
     }
   });
-    
 });
 
-
-
-
-
-
 //----Index------
-
 
 app.get('/' + de + '/', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'index.html'));
@@ -176,20 +209,11 @@ app.get('/' + bg + '/login', function (req, res) {
 
 //----Login------
 
-app.get('/' + de + '/logout', function (req, res) {
+app.get('/logout', function (req, res) {
   if (req.cookies['benutzerid'] !== undefined) {
     res.cookie('benutzerid', req.cookies['benutzerid'], { maxAge: 0, httpOnly: false });
     res.sendFile(path.join(__dirname + '/html/lang.html'));
-  } 
-});
-app.get('/' + en + '/logout', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'login.html'));
-});
-app.get('/' + ru + '/logout', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'login.html'));
-});
-app.get('/' + bg + '/logout', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'login.html'));
+  }
 });
 
 app.get('/' + de + '/header', function (req, res) {
@@ -241,13 +265,25 @@ app.get('/' + de + '/registration', function (req, res) {
   }
 });
 app.get('/' + ru + '/registration', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'registration.html'))
+  if (req.cookies['benutzerid'] == undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'registration.html'))
+  } else {
+    res.redirect("/404");
+  }
 });
 app.get('/' + en + '/registration', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'registration.html'))
+  if (req.cookies['benutzerid'] == undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'registration.html'))
+  } else {
+    res.redirect("/404");
+  }
 });
 app.get('/' + bg + '/registration', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'registration.html'))
+  if (req.cookies['benutzerid'] == undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'registration.html'))
+  } else {
+    res.redirect("/404");
+  }
 });
 
 app.post('/login', (request, response) => {
@@ -288,7 +324,7 @@ app.post('/registration', (request, response) => {
         }
       }
     ).catch(err => {
-      
+
       if (typeof err === 'object') {
         response.status(400).json({ fail: true });
       }
@@ -306,40 +342,42 @@ app.post('/gez', (request, response) => {
   if (!vali.validate(url)) {
     console.log("not valid");
     response.status(400).json({ success: false });
-  }else{
-    
+  } else {
+
     if (request.cookies['benutzerid'] !== undefined) {
       db.getUserByUuid(request.cookies['benutzerid'])
-      .then( result => {
-        if (result === undefined) {
-          response.status(400).json({ user: false });
-        }else{
-          db.insertGez(url, request.cookies['benutzerid'])
-            .then(
-              res => {
-                response.status(201).json({ db: true });
-              }
-            )
-            .catch(
-              err => {
-                console.log("insert");
-                response.status(400).json({ db: false });
-              }
-            );
-        }
-      })
-      .catch( err => {
-        console.log(err);
-        response.status(400).json({ db: false });
-      });
-      
-    }else{
+        .then(result => {
+          if (result === undefined) {
+            response.status(400).json({ user: false });
+          } else {
+            db.insertGez(url, request.cookies['benutzerid'])
+              .then(
+                res => {
+                  log(url);
+
+                  response.status(201).json({ db: true });
+                }
+              )
+              .catch(
+                err => {
+                  console.log("insert");
+                  response.status(400).json({ db: false });
+                }
+              );
+          }
+        })
+        .catch(err => {
+          console.log(err);
+          response.status(400).json({ db: false });
+        });
+
+    } else {
       console.log("Nicht angemeldet");
       response.status(201).json({ success: true });
     }
-    
+
   }
-  
+
 });
 
 
