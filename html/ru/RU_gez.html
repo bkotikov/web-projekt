@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/css/gez.css">
     <link rel="stylesheet" href="/static/css/success.css">
     <link rel="stylesheet" href="/static/css/tooltip.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <title>Формуляр</title>
 </head>
 
@@ -35,7 +36,14 @@
                 </h3>
                 <div class="page-row">
                     <div class="page-12">
-                        <label class="label-text" for="salutation">Приветствие</label>
+                        <label class="label-text" for="salutation">Приветствие*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie hier Ihr biologisches Geschlecht an.
+                                </div>
+                              </div>
+                        </label>
                         <div class="page-inside" id="salutation">
                             <input type="radio" name="gender" id="men" value="men">
                             <label for="men">Человек</label>
@@ -46,19 +54,43 @@
                     </div>
                     <div class="page-12 page-inside-row">
                         <div class="page-12 page-sm-6">
-                            <label class="label-text" for="firstname">Фамилия</label>
+                            <label class="label-text" for="firstname">Фамилия*
+                                <div class="tooltip">
+                                    <i class="bi bi-question-circle"></i>
+                                    <div class="tooltiptext">
+                                      Bitte geben Sie Ihren Vornamen ein. z.B.: Max, Dana
+                                    </div>
+                                  </div>
+                            </label>
                             <input class="text-field" type="text" name="firstname" id="firstname"
                                 placeholder="Фамилия">
+                                <small class="fehler" id="firstnameFehler">Vorname darf nicht leer sein.</small>
                         </div>
                         <div class="page-12 page-sm-6">
-                            <label class="label-text" for="secondname">Имя</label>
+                            <label class="label-text" for="secondname">Имя*
+                                <div class="tooltip">
+                                    <i class="bi bi-question-circle"></i>
+                                    <div class="tooltiptext">
+                                        Bitte geben Sie Ihren Nachnamen ein. z.B.: Müller, Schneider
+                                    </div>
+                                  </div>
+                            </label>
                             <input class="text-field" type="text" name="secondname" id="secondname"
                                 placeholder="Имя">
+                                <small class="fehler" id="secondnameFehler">Nachname darf nicht leer sein.</small>
                         </div>
                     </div>
                     <div class="page-12">
-                        <label class="label-text" for="birthday">Дата рождения</label>
+                        <label class="label-text" for="birthday">Дата рождения*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie das Datum Ihrer Geburt ein.
+                                </div>
+                              </div>
+                        </label>
                         <input class="date-field" type="date" name="birthday" id="birthday">
+                        <small class="fehler" id="birthdayFehler">Geburtsdatum darf nicht in der Zukunft liegen.</small>
                     </div>
                 </div>
             </div>
@@ -68,28 +100,59 @@
                     2. регистрация
                 </h3>
                 <div class="page-12">
-                    <label class="label-text" for="startDay">Регистрация на (год-месяц)</label>
+                    <label class="label-text" for="startDay">Регистрация на (год-месяц)*
+                        <div class="tooltip">
+                            <i class="bi bi-question-circle"></i>
+                            <div class="tooltiptext">
+                              Bitte geben Sie das Jahr und den Monat an, zu dem Sie sich für die GEZ-Gebüren anmelden möchten.
+                            </div>
+                          </div>
+                    </label>
                     <input class="date-field" type="month" name="startDay" id="startDay">
+                    <small class="fehler" id="startDayFehler">Datum darf nicht in der Zukunft liegen.</small>
                 </div>
             </div>
 
             <div class="page" id="3">
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="street">Улица</label>
+                        <label class="label-text" for="street">Улица*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie die Straße an, in der Sie wohnen.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="street" id="street" placeholder="Улица">
+                        <small class="fehler" id="streetFehler">Straße darf nicht leer sein.</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="housenumber">Номер дома</label>
+                        <label class="label-text" for="housenumber">Номер дома*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie die Hausnummer von Ihrem Haus, in dem Sie wohnen, ein.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="housenumber" id="housenumber"
                             placeholder="Номер дома">
+                            <small class="fehler" id="housenumberFehler">Keine gültige Hausnummer.</small>
                     </div>
                 </div>
             </div>
 
             <div class="page" id="4">
                 <div class="page-12">
-                    <label class="label-text" for="optionalAdress">Суффикс адреса</label>
+                    <label class="label-text" for="optionalAdress">Суффикс адреса
+                        <div class="tooltip">
+                            <i class="bi bi-question-circle"></i>
+                            <div class="tooltiptext">
+                              Hier können Sie weitere Informationen zu Ihrer Adresse angeben, wie z.B. "hinterm Haus"
+                            </div>
+                          </div>
+                    </label>
                     <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
                         placeholder="Добавление адреса, например, номер квартиры, этаж">
                 </div>
@@ -97,7 +160,14 @@
 
             <div class="page" id="5">
                 <div class="page-12">
-                    <label class="label-text" for="mobilenumber">Номер телефона для обращений (добровольный индикация)</label>
+                    <label class="label-text" for="mobilenumber">Номер телефона для обращений (добровольный индикация)
+                        <div class="tooltip">
+                            <i class="bi bi-question-circle"></i>
+                            <div class="tooltiptext">
+                              Hier können Sie optional Ihre Telefonnummer angeben, damit wir Sie bei Rückfragen anrufen können.
+                            </div>
+                          </div>
+                    </label>
                     <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
                         placeholder="Номер телефона ">
                 </div>
@@ -123,7 +193,13 @@
                 </h3>
                 <div class="page-12">
                     <div class="page-12">
-                        <label class="label-text" for="payment">Gesetzliche Zahlung </label>
+                        <label class="label-text" for="payment">Gesetzliche Zahlung*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Wählen Sie diese Zahlungweise, wenn Sie alle drei Monate zum 15. bezahlen möchten.
+                                </div>
+                              </div> </label>
                         <div class="page-inside" id="payment">
                             <input type="radio" name="payment" id="payment-middle" value="middle">
                             <label for="men">
@@ -134,7 +210,14 @@
                 </div>
                 <div class="page-12">
                     <div class="page-12">
-                        <label class="label-text" for="inadvance">Vorauszahlung</label>
+                        <label class="label-text" for="inadvance">Vorauszahlung*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Wählen Sie eine diser drei Zahlungweisen, wenn Sie im Voraus bezahlen möchten. Sie können für ein viertel, halbes und ganzes Jahr im Voraus bezahlen.
+                                </div>
+                              </div>
+                        </label>
                         <div class="page-inside payment-row" id="inadvance">
                             <div class="page-4">
                                 <input type="radio" name="payment" id="quarterly" value="quarterly">
@@ -164,7 +247,15 @@
                     4. информация о способе оплаты
                 </h3>
                 <div class="page-12">
-                    <label class="label-text" for="payment-via">Zahlung über:</label>
+                    <label class="label-text" for="payment-via">Zahlung über:*
+                        <div class="tooltip">
+                            <i class="bi bi-question-circle"></i>
+                            <div class="tooltiptext">
+                              Hier wählen Sie mit welcher Methode Sie bezahlen möchten. <br/> Bei Lastschrift wird das Geld automatisch von Ihrem Konto abgezogen. Jedoch müssen Sie dann noch Ihr Konto angeben. <br/>
+                              Bei Überweisung müssen Sie das Geld jedes mal selbst über Ihre Bank überweisen.
+                            </div>
+                        </div>
+                    </label>
                     <div class="page-inside payment-row" id="payment-via">
                         <div class="page-6">
                             <input type="radio" name="payment_via" id="direct-debit" value="direct-debit">
@@ -198,14 +289,30 @@
                 </p>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="fandsname">Фамилия</label>
+                        <label class="label-text" for="fandsname">Фамилия*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Bitte geben Sie Ihren Nachnamen ein. z.B.: Müller, Schneider
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="sname" id="sname"
                             placeholder="Фамилия"/>
+                            <small class="fehler" id="snameFehler">Nachname darf nicht leer sein.</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="fname">Имя</label>
+                        <label class="label-text" for="fname">Имя*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Bitte geben Sie Ihren Vornamen ein. z.B.: Max, Dana
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="fname" id="fname"
                             placeholder="Имя"/>
+                            <small class="fehler" id="fnameFehler">Vorname darf nicht leer sein.</small>
                     </div>
                 </div>
             </div>
@@ -216,25 +323,57 @@
                 </h3>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="street-mandat">Улица</label>
+                        <label class="label-text" for="street-mandat">Улица*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie die Straße an, in der Sie wohnen.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="street_mandat" id="street-mandat"
                             placeholder="Улица">
+                            <small class="fehler" id="street-mandatFehler">Straße darf nicht leer sein.</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="housenumber-mandat">Номер дома</label>
+                        <label class="label-text" for="housenumber-mandat">Номер дома*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie die Hausnummer Ihres Hauses, in dem Sie wohnen, ein.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="housenumber_mandat" id="housenumber-mandat"
                             placeholder="Номер дома">
+                            <small class="fehler" id="housenumber-mandatFehler">Keine gültige Hausnummer.</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="code-mandat">Почтовый индекс</label>
+                        <label class="label-text" for="code-mandat">Почтовый индекс*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie die Postleitzahl Ihrer Stadt ein.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field plz-field" type="number" name="code_mandat" id="code-mandat"
                             placeholder="Почтовый индекс">
+                            <small class="fehler" id="code-mandatFehler">Keine gültige Postleitzahl.</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="city-mandat">Город</label>
+                        <label class="label-text" for="city-mandat">Город*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie die den Namen Ihrer Stadt ein.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="city_mandat" id="city-mandat" placeholder="Город">
+                        <small class="fehler" id="city-mandatFehler">Stadt darf nicht leer sein.</small>
                     </div>
                 </div>
             </div>
@@ -245,26 +384,58 @@
                 </h3>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 ">
-                        <label class="label-text" for="iban-mandat">IBAN</label>
+                        <label class="label-text" for="iban-mandat">IBAN*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie die internationale Identifikationsnummer Ihrers Kontos ein. Diese Nummer fängt immer mit einem Länderkürzel an (In Deutschland ist dieses "DE").
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="iban_mandat" id="iban-mandat" placeholder="IBAN">
+                        <small class="fehler" id="iban-mandatFehler">Keine gültige IBAN.</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="bic-mandat">BIC</label>
+                        <label class="label-text" for="bic-mandat">BIC*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie die Identifikationsnummer Ihrer Bank ein. Diese Nummer besteht aus Zahlen und Buchstaben und ist 8 bis 11 Zeichen lang.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field plz-field" type="text" name="bic_mandat" id="bic-mandat"
                             placeholder="BIC">
+                            <small class="fehler" id="bic-mandatFehler">Keine gültige BIC.</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="institut-mandat">Кредитный институт</label>
+                        <label class="label-text" for="institut-mandat">Кредитный институт*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie hier den Namen Ihrer Bank an, bei der Sie Ihr Konto haben.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="institut_mandat" id="institut-mandat"
                             placeholder="Кредитный институт">
+                            <small class="fehler" id="institut-mandatFehler">Kreditinstitut darf nicht leer sein.</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 ">
-                        <label class="label-text" for="ort-mandat">Орт</label>
+                        <label class="label-text" for="ort-mandat">Орт*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Bitte geben Sie den Ort an an dem Sie dies Dokument unterschreiben werden.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="ort_mandat" id="ort-mandat" placeholder="Орт">
+                        <small class="fehler" id="ort-mandatFehler">Ort darf nicht leer sein.</small>
                     </div>
                 </div>
             </div>
@@ -277,7 +448,7 @@
                     <div class="accept-field">
                         <input class="" type="checkbox" name="accept_mandat" id="accept-mandat">
                         <label for="accept-mandat" class="accept-label">
-                            Настоящим я подтверждаю, что информация были введены правильно и корректно.
+                            Настоящим я подтверждаю, что информация были введены правильно и корректно.*
                         </label>
                     </div>
                 </div>

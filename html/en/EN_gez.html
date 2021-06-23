@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/css/gez.css">
     <link rel="stylesheet" href="/static/css/success.css">
     <link rel="stylesheet" href="/static/css/tooltip.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <title>Formular</title>
 </head>
 
@@ -37,7 +38,15 @@
                 </h3>
                 <div class="page-row">
                     <div class="page-12">
-                        <label class="label-text" for="salutation">Anrede</label>
+                        <label class="label-text" for="salutation">Gender*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Please enter Your gender.
+                                </div>
+                              </div>
+                        </label>
+                        </label>
                         <div class="page-inside" id="salutation">
                             <input type="radio" name="gender" id="men" value="men">
                             <label for="men">Men</label>
@@ -48,19 +57,43 @@
                     </div>
                     <div class="page-12 page-inside-row">
                         <div class="page-12 page-sm-6">
-                            <label class="label-text" for="firstname">Last Name</label>
+                            <label class="label-text" for="firstname">First Name*
+                                <div class="tooltip">
+                                    <i class="bi bi-question-circle"></i>
+                                    <div class="tooltiptext">
+                                      Please enter Your first name. e.g.: Max, Dana
+                                    </div>
+                                  </div>
+                            </label>
                             <input class="text-field" type="text" name="firstname" id="firstname"
                                 placeholder="Last Name">
+                                <small class="fehler" id="firstnameFehler">First Name cannot be empty</small>      
                         </div>
                         <div class="page-12 page-sm-6">
-                            <label class="label-text" for="secondname">First Name</label>
+                            <label class="label-text" for="secondname">Last Name*
+                                <div class="tooltip">
+                                    <i class="bi bi-question-circle"></i>
+                                    <div class="tooltiptext">
+                                        Please enter Your last name. e.g.: Müller, Schneider
+                                    </div>
+                                  </div>
+                            </label>
                             <input class="text-field" type="text" name="secondname" id="secondname"
                                 placeholder="First Name">
+                                <small class="fehler" id="secondnameFehler">Last name cannot be empty</small>
                         </div>
                     </div>
                     <div class="page-12">
-                        <label class="label-text" for="birthday">Date of Birth</label>
+                        <label class="label-text" for="birthday">Date of Birth*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                  Please enter the Date of Your birth.
+                                </div>
+                              </div>
+                        </label>
                         <input class="date-field" type="date" name="birthday" id="birthday">
+                        <small class="fehler" id="birthdayFehler">Date of birth cannot be in the future</small>
                     </div>
                 </div>
             </div>
@@ -70,28 +103,60 @@
                     2. Registration
                 </h3>
                 <div class="page-12">
-                    <label class="label-text" for="startDay">Registration for (year-month)</label>
+                    <label class="label-text" for="startDay">Registration for (year-month)*
+                        <div class="tooltip">
+                            <i class="bi bi-question-circle"></i>
+                            <div class="tooltiptext">
+                                Please enter the year and month for which you would like to register for the GEZ fees.
+                            </div>
+                          </div>
+                    </label>
                     <input class="date-field" type="month" name="startDay" id="startDay">
+                    <small class="fehler" id="startDayFehler">Date cannot be in the future</small>
                 </div>
             </div>
 
             <div class="page" id="3">
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="street">Street</label>
+                        <label class="label-text" for="street">Street*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the street where you live.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="street" id="street" placeholder="Street">
+                        <small class="fehler" id="streetFehler">Street cannot be empty
+                        </small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="housenumber">Housenumber</label>
+                        <label class="label-text" for="housenumber">Housenumber*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the house number of the house in which you live.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="housenumber" id="housenumber"
                             placeholder="Housenumber">
+                            <small class="fehler" id="housenumberFehler">Not a valid housenumber</small>
                     </div>
                 </div>
             </div>
 
             <div class="page" id="4">
                 <div class="page-12">
-                    <label class="label-text" for="optionalAdress">Address suffix</label>
+                    <label class="label-text" for="optionalAdress">Address suffix (optional)
+                        <div class="tooltip">
+                            <i class="bi bi-question-circle"></i>
+                            <div class="tooltiptext">
+                                Here you can enter further information about your address, e.g. "behind the house"
+                            </div>
+                        </div>
+                    </label>
                     <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
                         placeholder="Address suffix, e.g. apartment number, floor">
                 </div>
@@ -99,7 +164,14 @@
 
             <div class="page" id="5">
                 <div class="page-12">
-                    <label class="label-text" for="mobilenumber">Telephone number for queries (optional)</label>
+                    <label class="label-text" for="mobilenumber">Telephone number for queries (optional)
+                        <div class="tooltip">
+                            <i class="bi bi-question-circle"></i>
+                            <div class="tooltiptext">
+                                Here you can optionally enter your telephone number so that we can call you if we have any questions.
+                            </div>
+                          </div>
+                    </label>
                     <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
                         placeholder="Mobile Number">
                 </div>
@@ -113,7 +185,7 @@
                     <div class="accept-field">
                         <input class="" type="checkbox" name="accept" id="accept">
                         <label for="accept" class="accept-label">
-                            I confirm that the information have been entered correctly and properly.
+                            I confirm that the information have been entered correctly and properly.*
                         </label>
                     </div>
                 </div>
@@ -125,7 +197,14 @@
                 </h3>
                 <div class="page-12">
                     <div class="page-12">
-                        <label class="label-text" for="payment">Legal payment </label>
+                        <label class="label-text" for="payment">Legal payment*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Choose this payment method if you want to pay on the 15th every three months.
+                                </div>
+                              </div>
+                        </label>
                         <div class="page-inside" id="payment">
                             <input type="radio" name="payment" id="payment-middle" value="middle">
                             <label for="men">
@@ -136,7 +215,14 @@ In the middle of a Three-month period (as of the 15th)
                 </div>
                 <div class="page-12">
                     <div class="page-12">
-                        <label class="label-text" for="inadvance">Prepayment</label>
+                        <label class="label-text" for="inadvance">Prepayment*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Choose one of these three payment methods if you want to pay in advance. You can pay in advance for a quarter, a half and a full year.
+                                </div>
+                              </div>
+                        </label>
                         <div class="page-inside payment-row" id="inadvance">
                             <div class="page-4">
                                 <input type="radio" name="payment" id="quarterly" value="quarterly">
@@ -166,7 +252,15 @@ Annually in advance (on 1.1)
 4. Information on the method of payment
                 </h3>
                 <div class="page-12">
-                    <label class="label-text" for="payment-via">Zahlung über:</label>
+                    <label class="label-text" for="payment-via">Payment via:*
+                        <div class="tooltip">
+                            <i class="bi bi-question-circle"></i>
+                            <div class="tooltiptext">
+                                Here you choose which method you would like to pay with. <br/> In the case of direct debit, the money is automatically deducted from your account. However, you still have to enter your account information. <br/>
+                                When u choose bank transfer, you have to transfer the money yourself through your bank.
+                            </div>
+                        </div>
+                    </label>
                     <div class="page-inside payment-row" id="payment-via">
                         <div class="page-6">
                             <input type="radio" name="payment_via" id="direct-debit" value="direct-debit">
@@ -199,14 +293,30 @@ Note: I can request a refund of the debited amount within eight weeks, starting 
                 </p>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="fandsname">Nachname</label>
+                        <label class="label-text" for="fandsname">Last Name*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter your last Name. e.g.: Müller, Schneider
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="sname" id="sname"
                             placeholder="Last Name"/>
+                            <small class="fehler" id="snameFehler">Last name cannot be empty</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="fname">Vorname</label>
+                        <label class="label-text" for="fname">First Name*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter your first name e.g.: Max, Dana
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="fname" id="fname"
                             placeholder="First Name"/>
+                            <small class="fehler" id="fnameFehler">First name cannot be empty</small>
                     </div>
                 </div>
             </div>
@@ -217,25 +327,57 @@ Note: I can request a refund of the debited amount within eight weeks, starting 
                 </h3>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="street-mandat">Straße</label>
+                        <label class="label-text" for="street-mandat">Street*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the street where you live.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="street_mandat" id="street-mandat"
                             placeholder="Street">
+                            <small class="fehler" id="street-mandatFehler">Street cannot be empty</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="housenumber-mandat">Hausnummer</label>
+                        <label class="label-text" for="housenumber-mandat">Housenumber*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the house number of the house in which you live.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="housenumber_mandat" id="housenumber-mandat"
                             placeholder="Housenumber">
+                            <small class="fehler" id="housenumber-mandatFehler">No valid housenumber</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="code-mandat">Postleitzahl</label>
+                        <label class="label-text" for="code-mandat">Postalcode*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the postal code of your city.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field plz-field" type="number" name="code_mandat" id="code-mandat"
                             placeholder="Postal code">
+                            <small class="fehler" id="code-mandatFehler">No valid postal code</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="city-mandat">Stadt</label>
+                        <label class="label-text" for="city-mandat">City*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the name of your city.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="city_mandat" id="city-mandat" placeholder="City">
+                        <small class="fehler" id="city-mandatFehler">City cannot be empty</small>
                     </div>
                 </div>
             </div>
@@ -246,26 +388,58 @@ Note: I can request a refund of the debited amount within eight weeks, starting 
                 </h3>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 ">
-                        <label class="label-text" for="iban-mandat">IBAN</label>
+                        <label class="label-text" for="iban-mandat">IBAN*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the international identification number of your bank account. This number always starts with a country code (in Germany this is "DE").
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="iban_mandat" id="iban-mandat" placeholder="IBAN">
+                        <small class="fehler" id="iban-mandatFehler">No valid IBAN.</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="bic-mandat">BIC</label>
+                        <label class="label-text" for="bic-mandat">BIC*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the identification number of your bank. This number consists of numbers and letters and is 8 to 11 characters long.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field plz-field" type="text" name="bic_mandat" id="bic-mandat"
                             placeholder="BIC">
+                            <small class="fehler" id="bic-mandatFehler">No valid BIC.</small>
                     </div>
                     <div class="page-12 page-sm-6">
-                        <label class="label-text" for="institut-mandat">Kreditinstitut</label>
+                        <label class="label-text" for="institut-mandat">Credit institution*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please enter the name of your bank with which you have your account.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="institut_mandat" id="institut-mandat"
                             placeholder="Bank">
+                            <small class="fehler" id="institut-mandatFehler">Credit institution cannot be empty.</small>
                     </div>
                 </div>
                 <div class="page-12 page-inside-row">
                     <div class="page-12 ">
-                        <label class="label-text" for="ort-mandat">Ort</label>
+                        <label class="label-text" for="ort-mandat">Location*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Please indicate the place where you will sign this document.
+                                </div>
+                              </div>
+                        </label>
                         <input class="text-field" type="text" name="ort_mandat" id="ort-mandat" placeholder="Location">
+                        <small class="fehler" id="ort-mandatFehler">Location cannot be empty.</small>
                     </div>
                 </div>
             </div>
@@ -278,7 +452,7 @@ Note: I can request a refund of the debited amount within eight weeks, starting 
                     <div class="accept-field">
                         <input class="" type="checkbox" name="accept_mandat" id="accept-mandat">
                         <label for="accept-mandat" class="accept-label">
-                            I confirm that the information have been entered correctly and properly.
+                            I confirm that the information have been entered correctly and properly.*
                         </label>
                     </div>
                 </div>
@@ -294,7 +468,7 @@ Note: I can request a refund of the debited amount within eight weeks, starting 
             <div class="message error" id="error-div">
                 <div class="message__header">Error</div>
                 <div class="message__content">
-Form could not be sent successfully
+                    Please fill in all fields.
                 </div>
               </div>
 
