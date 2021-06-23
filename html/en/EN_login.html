@@ -5,8 +5,9 @@
   <meta charset="utf-8" />
   <meta viewport="width = device-width, initial-scale = 1.0" />
   <link rel="stylesheet" href="/static/css/login.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/static/css/tooltip.css">
   <link rel="stylesheet" href="/static/css/success.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <title>Login</title>
 </head>
@@ -26,12 +27,26 @@
         </div>
         <form name="login" method="post" action="/login" class="form">
           <div class="input-control">
-            <label for="email" class="input-label" hidden>E-Mail</label>
+            <label for="email" class="input-label" hidden>E-Mail
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Enter your email with which you signed up.
+                </div>
+              </div>
+            </label>
             <input type="email" name="email" id="email" class="input-field" placeholder="E-Mail Adresse" required>
             <small class="fehler" id="email-fehler">The email you entered is invalid. Please, enter a valid email.</small>
           </div>
           <div class="input-control">
-            <label for="password" class="input-label" hidden>Password</label>
+            <label for="password" class="input-label" hidden>Password
+              <div class="tooltip">
+                <i class="bi bi-question-circle"></i>
+                <div class="tooltiptext">
+                  Enter the password you used to log in.
+                </div>
+              </div>
+            </label>
             <input type="password" name="password" id="password" class="input-field" placeholder="Passwort" required>
             <small class="fehler" id="passwort-fehler">Password should be at least 8 characters long, consist of uppercase and lowercase letters and special characters.</small>
           </div>
