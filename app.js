@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const fs = require('fs')
+const fse = require("fs-extra");
 const multer = require('multer');
 
 const formidable = require('formidable');
@@ -20,6 +21,7 @@ const login = require('./js/server/login.js');
 const recog = require('./js/server/pictureRecognition.js');
 const vali = require('./js/server/gez.js');
 const { validate } = require('uuid');
+const { jsPDF } = require("jspdf");
 
 
 const PORT = 5000;
@@ -60,6 +62,21 @@ app.put('/users/:userId', (req, res) => {
 */
 
 app.get('/archiv/', function (req, res) {
+
+  var doc = new jsPDF();
+  doc.text(20, 20, 'Hello world!');
+  doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+  doc.addPage();
+  doc.text(20, 20, 'Do you like that?');
+
+  doc.save('Test.pdf')
+
+  fs.copyFile('Test.pdf', 'upload/uuid/' + 'Test.pdf', (err) => {
+    if (err)
+      throw err;
+    console.log('source.txt was copied to destination.txt');
+  });
+
   fs.readdir("upload/uuid", (err, files) => {
     files.forEach(file => {
       console.log(file);
@@ -67,25 +84,43 @@ app.get('/archiv/', function (req, res) {
   });
   //console.log(req.query.id);
   db.getFileByUserID(req.cookies['benutzerid'])
-  .then(result => {
-    console.log(result);
-    res.status(200).send(result);
-  }).catch(error => {
+    .then(result => {
+      console.log(result);
+      res.status(200).send(result);
+    }).catch(error => {
 
-  });
+    });
 });
 
 app.get('/' + de + '/archiv', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'archiv.html'));
+  console.log(req.cookies['benutzerid']);
+  if (req.cookies['benutzerid'] !== undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'archiv.html'));
+  } else {
+    res.redirect("/404");
+  }
+
 });
 app.get('/' + en + '/archiv', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'archiv.html'));
+  if (req.cookies['benutzerid'] == undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'archiv.html'));
+  } else {
+    res.redirect("/404");
+  }
 });
 app.get('/' + ru + '/archiv', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'archiv.html'));
+  if (req.cookies['benutzerid'] == undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + ru + '/' + en_index + 'archiv.html'));
+  } else {
+    res.redirect("/404");
+  }
 });
 app.get('/' + bg + '/archiv', function (req, res) {
-  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'archiv.html'));
+  if (req.cookies['benutzerid'] == undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'archiv.html'));
+  } else {
+    res.redirect("/404");
+  }
 });
 
 //----Cookie------

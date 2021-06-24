@@ -215,7 +215,7 @@ function insertUser(values) {
 function getFileByUserID(userid) {
     console.log("id: " + userid);
     return new Promise((resolve, reject) => {
-        const sql = "SELECT benutzerID, path FROM pdf WHERE benutzerID = $1";
+        const sql = "SELECT benutzerID, path, name FROM pdf WHERE benutzerID = $1";
         pool.connect().then(res => {
             pool.query(sql, [userid])
             .then(result => {
