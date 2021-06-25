@@ -202,14 +202,15 @@ function insertUser(values) {
 }
 
 
-/**
- * create table pdf(
- * id serial not null primary key, 
- * benutzerID uuid not null, 
- * path varchar(255) not null, 
- * uploaded timestamp not null default CURRENT_TIMESTAMP);
- * 
- */
+/*
+  create table pdf(
+  id serial not null primary key, 
+  benutzerID uuid not null, 
+  path varchar(255) not null, 
+  uploaded timestamp not null default CURRENT_TIMESTAMP);
+  */
+  
+
 
 
 function getFileByUserID(userid) {
