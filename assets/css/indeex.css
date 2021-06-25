@@ -13,10 +13,10 @@ main .firstpage {
     color: #000;
     font-size: 3rem;
     line-height: 1em;
-    letter-spacing: -.02em;
     font-weight: 600;
     margin: 20px auto;
     padding: 15px;
+    width: 90%;
 }
 
 main .firstpagebutton {
@@ -100,11 +100,6 @@ main .info {
 
 @media screen and (min-width:768px) {
  
-    .main-sec {
-        font-size: 4rem;
-        font-weight: 800;
-        margin: 1rem 3rem 0 3rem;
-    }
 }
 
 @media screen and (max-width:500px) {
