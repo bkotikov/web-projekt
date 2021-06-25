@@ -95,13 +95,13 @@ app.get('/archiv/', function (req, res) {
   doc.addPage();
   doc.text(20, 20, 'Do you like that?');
 
-  doc.save('Test.pdf')
+  doc.save('upload/uuid/Test.pdf');
 
-  fs.copyFile('Test.pdf', 'upload/uuid/' + 'Test.pdf', (err) => {
+  /* fs.copyFile('Test.pdf', 'upload/uuid/' + 'Test.pdf', (err) => {
     if (err)
       throw err;
     console.log('source.txt was copied to destination.txt');
-  });
+  }); */
 
   fs.readdir("upload/uuid", (err, files) => {
     files.forEach(file => {
