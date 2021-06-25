@@ -1,34 +1,22 @@
-body {
-    font-family: Arial, sans-serif;
-}
-
-*{
-    box-sizing: border-box !important;
-}
 
 main .firstpage {
     background-color: white;
     text-align: left;
-    margin-top: 40px;
-    margin-bottom: 40px;
     user-select: none;
     width: 100%;
+    text-align: center;
+    margin: 40px auto;
 }
 
 .main-sec {
-    word-wrap: break-word;
-    font-weight: 700;
-    font-size: 150px;
-    letter-spacing: 0.25rem;
-    -webkit-background-clip: text;
-    background-clip: text;
-    line-height: 100%;
-    /*-webkit-text-fill-color: transparent;*/
-    padding: 0.5rem 0;
-}
-
-.first-main-sec {
-    background-image: linear-gradient(90deg, #007cf0, #00dfd8);
+    text-align: left;
+    color: #000;
+    font-size: 3rem;
+    line-height: 1em;
+    letter-spacing: -.02em;
+    font-weight: 600;
+    margin: 20px auto;
+    padding: 15px;
 }
 
 main .firstpagebutton {
@@ -49,17 +37,17 @@ main .firstpagebutton a {
     padding: 0px 25px;
     margin-right: 25px;
     color: white;
-    background-color: #000;
+    background-color: #15b113;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #fff;
     transition-property: background-color, color;
     transition-duration: 0.2s, 0.2s;
 }
 
 main .firstpagebutton a:hover {
-    color: rgb(7, 7, 7);
-    background-color: rgb(247, 247, 247);
-
+    color: #15b113;
+    background-color: #fff;
+    border: 1px solid #15b113;
 }
 
 main .info {
@@ -79,7 +67,7 @@ main .info {
 :root {
     --height: 6px;
     --space: calc(var(--height) * 2.5);
-    --color: rgb(7, 7, 7);
+    --color: #15b113;
     --color2: white;
 }
 
@@ -101,7 +89,7 @@ main .info {
         margin-bottom: 15px;
     }
 
-    main .info {
+    main .info, .main-sec  {
         max-width: 90%;
     }
 
@@ -110,7 +98,7 @@ main .info {
     }
 }
 
-@media screen and (min-width:501px) {
+@media screen and (min-width:768px) {
  
     .main-sec {
         font-size: 4rem;

@@ -15,12 +15,84 @@ $.ajax({
         //Do Something to handle error
     }
 });
-console.log(12356);
+
+$(document).on('click','.btn-card',function(){
+    //alert(this.name);
+    window.location.href = "/download/" + this.name;
+})
+
+/*
+
+$('body').on('click', '#test', function () {
+    var i = $(this).attr('value');
+    alert(i);
+    alert($('#dateiname').attr('value'))
+    $.ajax({
+        type: "GET",
+        url: '/download/' + $('#test').attr('name'),
+        encode: true,
+        success: function (response) {
+            console.log("suc");
+            //console.log(response);
+        },
+        error: function (xhr) {
+            console.log(xhr);
+            //Do Something to handle error
+        }
+    });
+});
+*/
 
 function nameasd(params, param) {
     const container = document.getElementById('container');
-    param.forEach(function(item, params) {
+
+    param.forEach(function (item, params) {
+        const card = document.createElement("div");
+        card.id = "card" + params;
+        card.classList.add("card");
+
+        const box = document.createElement("div");
+        box.classList.add("box");
+
+        const content = document.createElement("div");
+        content.classList.add("content");
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = "text";
+        input.hidden = true;
+
+        const image = document.createElement("img");
+        image.src = "/static/images/8681331601536080157.svg"
+        image.classList.add("content-img");
+
+        const para = document.createElement("p");
+        para.type = "text";
+        para.disabled = true;
+        para.classList.add("dateiname");
+        para.value = '' + item.name;
+        para.id = "dateiname" + params;
+        para.innerText = "" + item.name;
+
+        const btn = document.createElement("button");
+        btn.type = "submit";
+        btn.innerText = "download-" + params;
+        btn.id = "download" + params;
+        btn.name = item.name;
+        btn.classList.add("btn-card");
+
+        box.appendChild(content);
+        content.appendChild(input);
+        content.appendChild(image);
+        content.appendChild(para);
+        content.appendChild(btn);
+
+        card.appendChild(box);
+
+        container.appendChild(card);
+
         console.log(item);
-		container.innerHTML = container.innerHTML +  ' <div class="card" id="card"> <div class="box">  <div class="content"> <input type="text" hidden value="text"> <img class="content-img" src="/static/images/8681331601536080157.svg" alt=""> <p id="dateiname">'+ item.name + '</p> <button id="test" href="#">Download</button> </div> </div></div>';
-	});
+    });
+
 }
+
