@@ -108,8 +108,7 @@ function insertGez(params, uuid) {
           var sqlInsert = 'INSERT INTO daten (benutzer_id) VALUES ($1)'
           
         return new Promise((resolve, reject) => {
-            pool.connect()
-                .then(res => {
+            
                     console.log("connect");
                     pool
                     .query(sqlInsert, [uuid])
@@ -142,10 +141,6 @@ function insertGez(params, uuid) {
                         })
                             resolve(res);
                         });
-                }).catch(err => {
-                    console.log("first error: " + err);
-                    reject(err);
-            });
         });
         
 }
@@ -155,7 +150,7 @@ function getAllDataGez(userid) {
     console.log("id: " + userid);
     return new Promise((resolve, reject) => {
         const sql = "SELECT * FROM odf";
-        pool.connect().then(res => {
+        
             pool.query(sql, [userid])
             .then(result => {
                 //const { benutzer_id, email, password} = result.rows[0];
@@ -166,11 +161,6 @@ function getAllDataGez(userid) {
                 console.log(err);
                 reject(err);
             });
-        })
-        .catch(err => {
-            console.log(err);
-            reject(err);
-        });
     });
 }
 
@@ -179,8 +169,7 @@ function insertUser(values) {
     const { vorname, nachname, passwort, email } = values;
     console.log("Vorname: " + vorname + "Nachname: " + nachname + "passwort: " + passwort + "email: " + email);
     return new Promise((resolve, reject) => {
-        pool.connect()
-            .then(() => {
+        
                 
                 const sql = 'INSERT INTO benutzer (benutzer_id, vorname, nachname, password, email, created_on, last_login) VALUES ($1, $2, $3, $4, $5, $6, $7)';
                 const id = uuidv4();
@@ -198,9 +187,6 @@ function insertUser(values) {
                         console.log("registration/fehler");
                         reject(err);
                     });
-            }).catch(err => {
-                console.log("first error: " + err);
-            });
     });
 }
 
@@ -220,7 +206,7 @@ function getFileByUserID(userid) {
     console.log("id: " + userid);
     return new Promise((resolve, reject) => {
         const sql = "SELECT benutzerID, path, name FROM pdf WHERE benutzerID = $1";
-        pool.connect().then(res => {
+        
             pool.query(sql, [userid])
             .then(result => {
                 //const { benutzer_id, email, password} = result.rows[0];
@@ -231,11 +217,6 @@ function getFileByUserID(userid) {
                 console.log(err);
                 reject(err);
             });
-        })
-        .catch(err => {
-            console.log(err);
-            reject(err);
-        });
     });
 }
 
@@ -245,23 +226,17 @@ function getUserByEmail(params) {
     console.log("passwort: " + password);
     return new Promise((resolve, reject) => {
         const sql = "SELECT benutzer_id, email, password FROM benutzer WHERE email = $1 AND password = $2";
-        pool.connect().then(res => {
+        
             pool.query(sql, [email, password])
             .then(result => {
                 //const { benutzer_id, email, password} = result.rows[0];
                 resolve(result.rows[0]);
-                res.end();
             })
             .catch(err => {
                 
                 console.log(err);
                 reject(err);
             });
-        })
-        .catch(err => {
-            console.log(err);
-            reject(err);
-        });
     });
 }
 
@@ -269,7 +244,7 @@ function getUserByUuid(uuid) {
     
     return new Promise((resolve, reject) => {
         const sql = "SELECT benutzer_id FROM benutzer WHERE benutzer_id = $1";
-        pool.connect().then(res => {
+        
             console.log("connect uuid");
             pool.query(sql, [uuid])
             .then(result => {
@@ -282,12 +257,7 @@ function getUserByUuid(uuid) {
                 console.log(err);
                 reject(err);
             });
-        })
-        .catch(err => {
-            console.log(err);
-            reject(err);
-        });
-        
+
     });
 }
 
