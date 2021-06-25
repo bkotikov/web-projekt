@@ -6,6 +6,9 @@
   flex-wrap: wrap;
   padding: 44px 0px;
 }
+.dateiname{
+  display: block;
+}
 
 .container .card {
   position: relative;

@@ -9,7 +9,7 @@ body {
     --color2: white;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -76,10 +76,10 @@ nav {
     padding: 6px 12px;
     min-width: auto;
     color: white;
-    background-color: #000;
+    background-color: #15b113;
     margin-left: 8px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #fff;
     font-size: 14px;
     opacity: initial;
     transition-property: background-color, color;
@@ -88,12 +88,12 @@ nav {
 }
 
 .login ul li a#signup:hover {
-    color: rgb(7, 7, 7);
-    background-color: rgb(247, 247, 247);
-
+    color: #15b113;
+    background-color: #fff;
+    border: 1px solid #15b113;
 }
 
-#hamburger {
+#hamburgerr {
     display: none;
 }
 
@@ -203,11 +203,99 @@ input#hamburger:checked+.toogle label span:before {
 }
 
 @media screen and (min-width:501px) {
-    .toogle{
+    .toogle {
         display: none !important;
     }
 }
 
 li {
     list-style: none;
+}
+
+.header-log {
+    display: block;
+}
+
+.logo-btn {
+    display: block !important;
+    color: #000;
+    transition: 0 !important;
+}
+
+.icon-hea {
+    display: block;
+    float: right;
+    margin: 1rem 1rem 0 0;
+    font-size: 2rem;
+}
+
+.header-mobile {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.mobile-logo {
+    margin: 1rem auto;
+}
+
+.nav-links {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    margin: 0 0 1rem 0;
+}
+
+.nav-li {
+    padding: 8px !important;
+    color: #000 !important;
+    opacity: 0.6 !important;
+    font-size: 2rem !important;
+}
+
+.nav-btn {
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    height: 50px, auto;
+    width: 100px, auto;
+    min-width: 200px;
+    line-height: 50px;
+    padding: 0px 25px;
+    margin-top: 1rem;
+    color: white;
+    background-color: #15b113;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+
+@media screen and (min-width:400px) {
+    .header-mobile {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .header-mobile {
+        width: 300px;
+    }
 }

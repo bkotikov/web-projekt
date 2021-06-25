@@ -1,31 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
     <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
+
+    <div class="header-mobile" id="headi">
+
+        <i class="icon-hea fas fa-times" id="closehead"></i>
+
+        <nav class="navbar">
+            <div class="logo mobile-logo">
+                <a href="/" class="logo-btn">
+                    WEB-B2
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link"><a class="nav-li" href="#">Home</a></li>
+                <li class="nav-link"><a class="nav-li" href="#">About</a></li>
+                <li class="nav-link"><a class="nav-li" href="#">Gallery</a></li>
+                <li class="nav-link"><a class="nav-li" href="#">Contact</a></li>
+                <button class="nav-btn">Sign In</button>
+                <button class="nav-btn">Sign Up</button>
+            </ul>
+        </nav>
+    </div>
+
     <header>
         <nav>
-            <div class="logo"><span>WEB-B2</span> </div>
-            <div class="login">
-              <ul>
-		<li> <a href="/de/">Startseite</a></li>
-                  <li><a href="/de/login">Login</a></li>
-                  <li><a id="signup" href="/de/registration">Registrierung</a></li>
-              </ul>
+            <div class="logo">
+                <a href="/" class="logo-btn">
+                    <span>WEB-B2</span>
+                </a>
             </div>
-            <input type="checkbox" name="" id="hamburger">
-    
-            <div class="toogle">
+            <div class="login">
+                <ul>
+                    <li> <a href="/de/">Startseite</a></li>
+                    <li><a href="/de/login">Login</a></li>
+                    <li><a id="signup" href="/de/registration">Registrierung</a></li>
+                </ul>
+            </div>
+            <div class="toogle" id="tog">
                 <label for="hamburger">
                     <span></span>
                 </label>
             </div>
         </nav>
     </header>
+
+    <script>
+        const closedicon = document.getElementById("headi");
+
+        const burger = document.getElementById('tog');
+        //const navLinks = document.querySelector('.nav-links');
+
+        const closeheader = document.getElementById("closehead");
+
+        burger.addEventListener('click', () => {
+            closedicon.style.display = "block";
+            //navLinks.classList.toggle('active');
+        });
+
+        closeheader.addEventListener('click', () => {
+            closedicon.style.display = "none";
+            //navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
+
 </html>

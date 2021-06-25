@@ -44,7 +44,7 @@ function disableBTN() {
 }
 
 function enableBTN() {
-  submitBtn.style.backgroundColor = "#1a73e8";
+  submitBtn.style.backgroundColor = "#15b113";
   submitBtn.disabled = false;
 }
 

@@ -1,35 +1,27 @@
-const de = document.getElementById("de");
-const en = document.getElementById("en");
-const ru = document.getElementById("ru");
-const bg = document.getElementById("bg");
+const lang8age = ["de", "en", "ru", "bg"];
 
-de.addEventListener("click", changeLangDe);
-en.addEventListener("click", changeLangEn);
-ru.addEventListener("click", changeLangRu);
-bg.addEventListener("click", changeLangBg);
-
-function changeLangDe() {
-    changeLang("de");
-}
-function changeLangEn() {
-    changeLang("en");
-}
-function changeLangRu() {
-    changeLang("ru");
-}
-function changeLangBg() {
-    changeLang("bg");
-}
-
-function changeLang(lang) {
-    if (lang === window.location.pathname.split('/')[1]) {
-        return;
-    }
-    path = window.location.pathname.split('/');
-    newPath = "/" + lang;
-    for (let index = 2; index < path.length; index++) {
-       const element = path[index];
-       newPath += "/" + element;
-    }
-   window.location.href = newPath + window.location.hash;
-}
+jQuery(function($) {
+	$('select').on('change', function() {
+		var url = $(this).val();
+		if (url) {
+			//window.location = location.href.replace(lang8age, (this).val());
+            for (const key of lang8age) {
+                console.log("Key: " + key);
+                if (window.location.href.indexOf(key) > 0) {
+                    window.location = location.href.replace("/" + key + "/", "/" + url + "/");
+                }else{
+                    console.log("donw");
+                }
+            }
+            /*
+            lang.forEach(element => {
+                console.log(element);
+                if (window.location.href.indexOf(element)) {
+                    console.log("klasse");
+                }
+            });
+            */
+		}
+		return false;
+	});
+});

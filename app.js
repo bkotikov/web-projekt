@@ -61,6 +61,32 @@ app.put('/users/:userId', (req, res) => {
 });
 */
 
+app.get('/download/:name', (req, res) => {
+  console.log(req.params.name);
+
+  if (req.params.name == undefined || req.cookies['benutzerid'] == undefined) {
+    res.redirect("/404")
+  }
+
+  db.getFileByUserID(req.cookies['benutzerid'])
+    .then(result => {
+      console.log(result);
+      if (result !== undefined) {
+        for (let [key, value] of Object.entries(result)) {
+          console.log("value: " + value.name);
+          if (value.name == req.params.name && value.benutzerid == req.cookies['benutzerid']) {
+            res.download('upload/uuid/' + req.params.name + ".pdf");
+            console.log("test test test");
+          }
+        }
+      } else {
+        res.sendStatus(404);
+      }
+    }).catch(error => {
+      res.sendStatus(404);
+    });
+});
+
 app.get('/archiv/', function (req, res) {
 
   var doc = new jsPDF();
@@ -82,6 +108,11 @@ app.get('/archiv/', function (req, res) {
       console.log(file);
     });
   });
+
+  if (req.cookies['benutzerid'] == undefined) {
+    res.redirect("/404");
+  }
+
   //console.log(req.query.id);
   db.getFileByUserID(req.cookies['benutzerid'])
     .then(result => {
