@@ -134,5 +134,8 @@ body {
 .card-redirect {
     padding: 0.5rem 1rem;
     display: inline-block;
-    background-color: #15b113;
+    color: #ffffff;
+    background-color: #000;
+    border-radius: 5px;
+    border: 1px solid black;
 }
