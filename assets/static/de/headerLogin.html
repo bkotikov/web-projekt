@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,36 @@
     <title>Header</title>
     <link rel="stylesheet" href="/static/css/header.css">
 </head>
+
 <body>
+    <div class="header-mobile" id="headi">
+
+        <i class="icon-hea fas fa-times" id="closehead"></i>
+
+        <nav class="navbar">
+            <div class="logo mobile-logo">
+                <a href="/" class="logo-btn">
+                    WEB-B2
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-link"><a class="nav-li" href="#">Startseite</a></li>
+                <li class="nav-link"><a class="nav-li" href="#">Archiv</a></li>
+                <button class="nav-btn">Abmelden</button>
+            </ul>
+        </nav>
+    </div>
+
     <header>
         <nav>
             <div class="logo"><span>WEB-B2</span> </div>
             <div class="login">
-              <ul>
+                <ul>
                     <li> <a href="/de/">Startseite</a></li>
-                  <li><a id="signup" href="/logout">Abmelden</a></li>
-              </ul>
+                    <li> <a href="/de/archiv">Archiv</a></li>
+                    <li><a id="signup" href="/logout">Abmelden</a></li>
+                </ul>
             </div>
-            <input type="checkbox" name="" id="hamburger">
-    
             <div class="toogle">
                 <label for="hamburger">
                     <span></span>
@@ -26,5 +45,25 @@
             </div>
         </nav>
     </header>
+
+    <script>
+        const closedicon = document.getElementById("headi");
+
+        const burger = document.getElementById('tog');
+        //const navLinks = document.querySelector('.nav-links');
+
+        const closeheader = document.getElementById("closehead");
+
+        burger.addEventListener('click', () => {
+            closedicon.style.display = "block";
+            //navLinks.classList.toggle('active');
+        });
+
+        closeheader.addEventListener('click', () => {
+            closedicon.style.display = "none";
+            //navLinks.classList.toggle('active');
+        });
+    </script>Ì
 </body>
+
 </html>
