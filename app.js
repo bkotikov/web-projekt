@@ -404,6 +404,7 @@ app.post('/registration', (request, response) => {
 app.post('/gez', (request, response) => {
   const url = request.body;
   console.log(url);
+  console.log(request.cookies['benutzerid']);
   request.setTimeout(0);
   if (!vali.validate(url)) {
     console.log("not valid");
@@ -411,22 +412,24 @@ app.post('/gez', (request, response) => {
   } else {
 
     if (request.cookies['benutzerid'] !== undefined) {
+      console.log("id vorhanden");
       db.getUserByUuid(request.cookies['benutzerid'])
         .then(result => {
           if (result === undefined) {
+            console.log("user falsch");
             response.status(400).json({ user: false });
           } else {
+            console.log("user richtig");
             db.insertGez(url, request.cookies['benutzerid'])
               .then(
                 res => {
-                  log(url);
-
+                  console.log("insert");
                   response.status(201).json({ db: true });
                 }
               )
               .catch(
                 err => {
-                  console.log("insert");
+                  console.log(err);
                   response.status(400).json({ db: false });
                 }
               );

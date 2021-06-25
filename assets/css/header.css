@@ -88,9 +88,9 @@ nav {
 }
 
 .login ul li a#signup:hover {
-    color: #15b113;
+    color: #000;
     background-color: #fff;
-    border: 1px solid #15b113;
+    border: 1px solid #000;
 }
 
 #hamburgerr {
