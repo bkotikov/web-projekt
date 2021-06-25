@@ -76,7 +76,7 @@ nav {
     padding: 6px 12px;
     min-width: auto;
     color: white;
-    background-color: #15b113;
+    background-color: #000;
     margin-left: 8px;
     border-radius: 5px;
     border: 1px solid #fff;
@@ -163,24 +163,6 @@ nav {
 
 }
 
-input#hamburger:checked+.toogle label span {
-    background: transparent;
-    border-radius: 0;
-
-}
-
-input#hamburger:checked+.toogle label span:after {
-    top: 0;
-    transform: rotate(-45deg);
-    transition-delay: 0s, 0.3s;
-
-}
-
-input#hamburger:checked+.toogle label span:before {
-    top: 0;
-    transform: rotate(45deg);
-    transition-delay: 0s, 0.3s;
-}
 
 @media screen and (max-width:768px) {
     header nav .menu {
@@ -282,10 +264,10 @@ li {
     line-height: 50px;
     padding: 0px 25px;
     margin-top: 1rem;
-    color: white;
-    background-color: #15b113;
+    color: #fff;
+    background-color: #000;
     border-radius: 5px;
-    border: 1px solid #fff;
+    border: 1px solid #000;
 }
 
 @media screen and (min-width:400px) {
