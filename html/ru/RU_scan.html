@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
@@ -20,20 +20,20 @@
         <div class="flex-parent">
             <div class="div1 card">
                 <h2 class="card-desc">
-Русский
+                    Сканер
                 </h2>
                 <p class="card-content">
-                    Выберите Русский, если вы хотите, чтобы сайт отображался на русском языке.
+                    Вы не знаете, о каком документе конкретно идет речь? Нет проблем! Просто загрузите изображение документа с помощью кнопки "Выбрать файл", и мы автоматически перешлем его вам.
                 </p>
                 <form id="form" action="/scan" method="post" enctype="multipart/form-data">
                     <input  id="fileUpload" class="file-upload" type="file" accept=".png, .jpg, .jpeg, .bmp, .pbm" name="fileUpload">
-                    <input id="back" class="footer-group__submit form-btn" type="reset" value="Сброс"></input>
-                    <input id="submit" class="footer-group__submit form-btn" type="button" value="Загрузить"></input>
+                    <input id="back" class="form-btn" type="reset" value="Zurücksetzen"></input>
+                    <input id="submit" class="form-btn" type="button" value="Hochladen"></input>
                 </form>
                 <div class="message error" id="error-div">
                     <div class="message__header">Ошибка</div>
                     <div class="message__content">
-                      Произошла ошибка. Возможно, формат файла неправильный. Проверьте еще раз!
+                        Произошла ошибка. Возможно, формат файла неверен. Проверьте его еще раз!
                     </div>
                   </div>
             </div>
@@ -49,6 +49,7 @@
     <script src="/static/js/client/success.js"></script>
     <script src="/static/js/client/common.js"></script>
     <script src="/static/js/client/scan.js"></script>
+    
 </body>
 
 </html>

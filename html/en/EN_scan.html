@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
@@ -20,20 +20,20 @@
         <div class="flex-parent">
             <div class="div1 card">
                 <h2 class="card-desc">
-                    English
+                    Scanner
                 </h2>
                 <p class="card-content">
-                    Select English if you want the website to be displayed in Englisch.
+                    You do not know which document it is concretely about? No problem! Simply upload an image of the document via the "Select file" button and we will automatically forward you.
                 </p>
                 <form id="form" action="/scan" method="post" enctype="multipart/form-data">
                     <input  id="fileUpload" class="file-upload" type="file" accept=".png, .jpg, .jpeg, .bmp, .pbm" name="fileUpload">
-                    <input id="back" class="footer-group__submit form-btn" type="reset" value="Reset"></input>
-                    <input id="submit" class="footer-group__submit form-btn" type="button" value="Upload"></input>
+                    <input id="back" class="form-btn" type="reset" value="Zurücksetzen"></input>
+                    <input id="submit" class="form-btn" type="button" value="Hochladen"></input>
                 </form>
                 <div class="message error" id="error-div">
-                    <div class="message__header">Fehler</div>
+                    <div class="message__header">Error</div>
                     <div class="message__content">
-                      An error has occurred. Probably the file format is wrong. Check it again!
+                        An error has occurred. Probably the file format is wrong. Check it again!
                     </div>
                   </div>
             </div>
@@ -49,6 +49,7 @@
     <script src="/static/js/client/success.js"></script>
     <script src="/static/js/client/common.js"></script>
     <script src="/static/js/client/scan.js"></script>
+    
 </body>
 
 </html>
