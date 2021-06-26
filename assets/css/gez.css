@@ -12,6 +12,28 @@ body {
   color: red;
 }
 
+.btn {
+	display: block;
+    font-weight: 500;
+    font-size: 16px;
+    min-width: 140px;
+    line-height: 40px;
+    margin-right: 1rem;
+    color: #fff;
+    background-color: #000;
+    border-radius: 10px;
+    border: 1px solid #000;
+    transition-property: background-color, color;
+    transition-duration: 0.2s, 0.2s;
+}
+
+.btn:hover {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
 .form-sec {
   display: block;
   width: 100%;
@@ -271,14 +293,13 @@ body {
 
 @media (min-width: 576px) {
   .btn {
-      max-width: 50%;
-      padding: 0.5rem 3rem;
+      
   }
 
 
 
   .date-field {
-      width: 95% !important;
+      width: 100% !important;
   }
 
   .page-sm-1 {
@@ -307,7 +328,7 @@ body {
   }
 
   .page-sm-6 {
-      flex: 0 0 auto;
+      flex: 1 1 auto;
       width: 50%;
   }
 
@@ -436,7 +457,7 @@ body {
   .page,
   .page-content,
   .btn-field {
-      width: 60%;
+      width: 75%;
       margin: 0 auto;
   }
 
@@ -505,7 +526,7 @@ body {
 
   .page,
   .page-content {
-      width: 50%;
+      width: 70%;
       margin: 0 auto;
   }
 

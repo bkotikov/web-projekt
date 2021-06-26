@@ -16,7 +16,7 @@ $("#submit").on("click", function (event) {
         method: 'POST',
         type: 'POST', 
     }).fail(fail => {
-        console.log(fail.responseJSON.fail);
+        console.log(fail.responseJSON);
         showError();
         
         
