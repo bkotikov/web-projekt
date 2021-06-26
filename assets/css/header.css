@@ -38,9 +38,15 @@ nav {
 }
 
 .logo {
+    
     font-size: 2.3rem;
     font-weight: bold;
-
+    line-height: 1em;
+    font-weight: 600;
+    padding: 15px;
+    width: 90%;
+    letter-spacing: -.02em;
+    max-width: 70%;
 }
 
 .logo span {
