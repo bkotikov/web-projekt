@@ -8,7 +8,11 @@ $.ajax({
         console.log("suc");
         console.log(response);
         console.log(Object.keys(response).length);
-        nameasd(Object.keys(response).length, response);
+        if (Object.keys(response).length > 0) {
+            nameasd(Object.keys(response).length, response);
+        } else {
+            asda();
+        }
     },
     error: function (xhr) {
         console.log(xhr);
@@ -16,32 +20,17 @@ $.ajax({
     }
 });
 
-$(document).on('click','.btn-card',function(){
+$(document).on('click', '.btn-card', function () {
     //alert(this.name);
     window.location.href = "/download/" + this.name;
 })
 
-/*
-
-$('body').on('click', '#test', function () {
-    var i = $(this).attr('value');
-    alert(i);
-    alert($('#dateiname').attr('value'))
-    $.ajax({
-        type: "GET",
-        url: '/download/' + $('#test').attr('name'),
-        encode: true,
-        success: function (response) {
-            console.log("suc");
-            //console.log(response);
-        },
-        error: function (xhr) {
-            console.log(xhr);
-            //Do Something to handle error
-        }
-    });
-});
-*/
+function asda() {
+    const container = document.getElementById('container');
+    container.style.flexDirection = "column";
+    const imag = document.getElementById('mig');
+    imag.style.display = "block";
+}
 
 function nameasd(params, param) {
     const container = document.getElementById('container');
