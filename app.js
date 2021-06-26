@@ -22,7 +22,7 @@ const recog = require('./js/server/pictureRecognition.js');
 const vali = require('./js/server/gez.js');
 const { validate } = require('uuid');
 const { jsPDF } = require("jspdf");
-
+const nocache = require("nocache");
 
 const PORT = 5000;
 
@@ -43,6 +43,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(nocache());
 
 app.use('/static/css', express.static(__dirname + '/assets/css'));
 app.use('/static/images', express.static(__dirname + '/assets/images'));
@@ -278,7 +279,7 @@ app.get('/' + bg + '/login', function (req, res) {
 app.get('/logout', function (req, res) {
   if (req.cookies['benutzerid'] !== undefined) {
     res.cookie('benutzerid', req.cookies['benutzerid'], { maxAge: 0, httpOnly: false });
-    res.sendFile(path.join(__dirname + '/html/lang.html'));
+    res.redirect("/");
   }
 });
 
@@ -357,7 +358,9 @@ app.post('/login', (request, response) => {
   request.setTimeout(0);
   login.signIn(url).then(result => {
     if (result !== undefined) {
-      response.cookie('benutzerid', result.benutzer_id, { httpOnly: false });
+      const timestamp = new Date().getTime(); // current time
+      const exp = timestamp + (60 * 60 * 24 * 1000 * 7)
+      response.cookie('benutzerid', result.benutzer_id, { maxAge: exp, httpOnly: false });
       console.log("succesfully logged in");
       response.status(201).json({ success: true });
     } else {
@@ -381,7 +384,9 @@ app.post('/registration', (request, response) => {
             console.log("cookie exist");
             response.status(400).json({ fail: true });
           } else {
-            response.cookie('benutzerid', result, { httpOnly: false });
+            const timestamp = new Date().getTime(); // current time
+            const exp = timestamp + (60 * 60 * 24 * 1000 * 7)
+            response.cookie('benutzerid', result, { maxAge: exp, httpOnly: false });
             console.log("cookie: " + request.cookies['benutzerid']);
             response.status(201).json({ success: true });
           }

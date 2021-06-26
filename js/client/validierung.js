@@ -1,5 +1,5 @@
 function hash(val) {
-  var hashObj = new jsSHA("SHA-512", "TEXT", {numRounds: 1});
+  var hashObj = new jsSHA("SHA-512", "TEXT", { numRounds: 1 });
   hashObj.update(val);
   var hash = hashObj.getHash("HEX");
   return hash;
@@ -208,7 +208,7 @@ function validateFields() {
   validateEmail(email.value);
   validatePasswort(passwort.value);
   matchPasswort(passwortRepeat.value, passwort.value);
-  
+
   if (validVorname && validNachname && validEmail && validPasswort && matchedPasswort) {
     enableBTN();
   } else {
@@ -231,9 +231,19 @@ fieldsValidation();
   Code 409 wenn der Nutzer bereits in der DB existiert
 */
 
+
 function redirectToHomePage() {
+  const lan = ["de", "en", "ru", "bg"];
+
   setTimeout(() => {
-    window.location.href = '/';
+    for (const key of lan) {
+      console.log("Key: " + key);
+      if (window.location.href.indexOf(key) > 0) {
+        window.location = location.href.replace("/" + key + "/", "/" + key + "/");
+      } else {
+        console.log("donw");
+      }
+    }
   }, 2000);
 }
 
@@ -256,7 +266,18 @@ $("#submit").on("click", function (event) {
     encode: true
   }).done(done => {
     showSuccess();
-    window.location.href = '/';
+    //redirectToHomePage();
+    const lan = ["en", "ru", "bg", "de"];
+
+    for (const key of lan) {
+      console.log("Key: " + key);
+      if (window.location.href.indexOf(key) > 0) {
+        console.log("test: " + window.location);
+        window.location = "/" + key;
+      } else {
+        console.log("donw");
+      }
+    }
   }).fail(fail => {
     showError();
   });
