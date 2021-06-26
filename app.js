@@ -88,7 +88,7 @@ app.get('/download/:name', (req, res) => {
     });
 });
 
-app.get('/archiv/', function (req, res) {
+app.get('/archiv', function (req, res) {
 
   var doc = new jsPDF();
   doc.text(20, 20, 'Hello world!');

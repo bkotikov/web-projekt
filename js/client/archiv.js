@@ -1,7 +1,7 @@
 
 $.ajax({
     type: "GET",
-    url: '/archiv/',
+    url: '/archiv',
     encode: true,
 
     success: function (response) {
