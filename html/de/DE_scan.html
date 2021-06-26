@@ -20,15 +20,15 @@
         <div class="flex-parent">
             <div class="div1 card">
                 <h2 class="card-desc">
-                    Deutsch
+                    Scanner
                 </h2>
                 <p class="card-content">
-                    Wählen sie Deutsch aus, wenn sie möchte, dass ihnen die Webseite auf Deutsch angezeigt werden soll.
+                    Sie wissen nicht, um welches Dokument es sich konkrekt handelt? Kein Problem! Einfach ein Bild des Dokuments über die Schaltfläche "Datei auswählen" hochladen und wir leiten Sie automatisch weiter.
                 </p>
                 <form id="form" action="/scan" method="post" enctype="multipart/form-data">
                     <input  id="fileUpload" class="file-upload" type="file" accept=".png, .jpg, .jpeg, .bmp, .pbm" name="fileUpload">
-                    <input id="back" class="footer-group__submit form-btn" type="reset" value="Zurücksetzen"></input>
-                    <input id="submit" class="footer-group__submit form-btn" type="button" value="Hochladen"></input>
+                    <input id="back" class="form-btn" type="reset" value="Zurücksetzen"></input>
+                    <input id="submit" class="form-btn" type="button" value="Hochladen"></input>
                 </form>
                 <div class="message error" id="error-div">
                     <div class="message__header">Fehler</div>
