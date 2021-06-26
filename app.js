@@ -80,7 +80,7 @@ app.get('/download/:name', (req, res) => {
     });
 });
 
-app.get('/archiv/', function (req, res) {
+app.get('/archiv', function (req, res) {
 
   /*
     var doc = new jsPDF();

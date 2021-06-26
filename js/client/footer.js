@@ -8,7 +8,7 @@ jQuery(function($) {
             for (const key of lang8age) {
                 console.log("Key: " + key);
                 if (window.location.href.indexOf(key) > 0) {
-                    window.location = location.href.replace("/" + key + "/", "/" + url + "/");
+                    window.location = location.href.replace(key, url);
                 }else{
                     console.log("donw");
                 }

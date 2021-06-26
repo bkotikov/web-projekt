@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="bg">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сканер</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/static/css/success.css">
+    
+    <link rel="stylesheet" href="/static/css/gez.css">
     <link rel="stylesheet" href="/static/css/scan.css">
+    <link rel="stylesheet" href="/static/css/success.css">
+    <link rel="stylesheet" href="/static/css/tooltip.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Сканер</title>
 </head>
 
 <body>
@@ -16,40 +19,51 @@
     <div class="" id="header"></div>
     <div class="" id="cookie"></div>
 
-    <div class="flex-container">
-        <div class="flex-parent">
-            <div class="div1 card">
-                <h2 class="card-desc">
-                    Сканер
-                </h2>
-                <p class="card-content">
-                    Не знаете с кой документ се занимавате? Няма проблем! Просто качете изображение на документа чрез бутона "Изберете файл" и ние автоматично ще ви го изпратим.
-                </p>
-                <form id="form" action="/scan" method="post" enctype="multipart/form-data">
-                    <input  id="fileUpload" class="file-upload" type="file" accept=".png, .jpg, .jpeg, .bmp, .pbm" name="fileUpload">
-                    <input id="back" class="form-btn" type="reset" value="Нулиране на сайта"></input>
-                    <input id="submit" class="form-btn" type="button" value="Качване на"></input>
-                </form>
-                <div class="message error" id="error-div">
-                    <div class="message__header">Грешка</div>
-                    <div class="message__content">
-                        Възникна грешка. Вероятно файловият формат е грешен. Проверете го отново!
-                    </div>
-                  </div>
+    <section class="form-sec">
+        <div class="page-content">
+            <h2 class="card-desc">
+                Сканер
+            </h2>
+            <p class="card-content">
+                Не знаете с кой документ се занимавате? Няма проблем! Просто качете изображение на документа чрез бутона "Изберете файл" и ние автоматично ще ви го изпратим.
+            </p>
+            <form id="form" action="/scan" method="post" enctype="multipart/form-data">
+                <input  id="fileUpload" class="file-upload" type="file" accept=".png, .jpg, .jpeg, .bmp, .pbm" name="fileUpload"/>
+                <div class="flex">
+                    <input id="back" class="btn" type="reset" value="нулиране"></input>
+                    <input id="submit" class="btn" type="button" value="качване"></input>
+                </div>
+            </form>
+            <div class="message error" id="error-div">
+                <div class="message__header">Грешка</div>
+                <div class="message__content">
+                    Възникна грешка. Вероятно файловият формат е грешен. Проверете го отново!
+                </div>
+              </div>
+        </div>
+        <div class="page-content">
+            <h3 style="margin: 3rem 0 0 0; text-align: left;">So benutzen Sie die Formularerkennung:</h3>
+            <div style="display: flex;">
+                <ol class="table">
+                    <li>Laden Sie ein Bild von Ihrem Formular über den Knopf hoch</li>
+                    <li>Das Bild wird auf unseren Server hochgeladen</li>
+                    <li>Wir erkennen das Formular für Sie</li>
+                    <li>Sie werden automatisch auf Ihr Formular weitergeleitet</li>
+                </ol>
             </div>
         </div>
-    </div>
-
-
+        
+        
+    </section>
 
     <div class="" id="footer"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="/static/js/client/scan.js"></script>
     <script src="/static/js/client/success.js"></script>
     <script src="/static/js/client/common.js"></script>
-    <script src="/static/js/client/scan.js"></script>
+    
     
 </body>
-
 </html>
