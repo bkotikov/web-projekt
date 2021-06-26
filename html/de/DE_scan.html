@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/static/css/success.css">
     <link rel="stylesheet" href="/static/css/tooltip.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <title>Formular</title>
+    <title>Scanner</title>
 </head>
 
 <body>
@@ -34,12 +34,24 @@
                     <input id="submit" class="btn" type="button" value="Hochladen"></input>
                 </div>
             </form>
-            <div class="message error" id="error-div">
+            <div class="message error" id="error-div"  style="margin-top: 2rem;">
                 <div class="message__header">Fehler</div>
                 <div class="message__content">
                   Ein Fehler ist aufgetreten. Vermutlich das Dateiformat ist falsch. Überprüfen sie es nochmal!
                 </div>
-              </div>
+            </div>
+            <div class="message success" id="success-div"  style="margin-top: 2rem;">
+                <div class="message__header">Hochladen erfolgreich!</div>
+                <div class="message__content">
+                  Bitte warten Sie, während wir Ihr Formular erkennen. Sie werden automatisch weitergeleitet.
+                </div>
+            </div>
+            <div class="message error" id="error-div-reg" style="margin-top: 2rem;">
+                <div class="message__header">Fehler</div>
+                <div class="message__content">
+                  Wir konnten Ihr Formualr nicht erkennen. 
+                </div>
+            </div>
         </div>
         <div class="page-content">
             <h3 style="margin: 3rem 0 0 0; text-align: left;">So benutzen Sie die Formularerkennung:</h3>

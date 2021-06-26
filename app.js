@@ -224,13 +224,18 @@ app.post('/scan', (req, res) => {
     mimetype = file.type.split("/");
     if (mimetype[0] === "image" && (mimetype[1] === "bmp" || mimetype[1] === "jpg" || mimetype[1] === "png" || mimetype[1] === "pbm" || mimetype[1] === "jpeg")) {
       recog.reg(file.path).then(text => {
-        console.log(text);
+        if (text.includes("Neuanmeldung einer Wohnung")) {
+          res.status(201).json({ form: "gez" });
+        }else{
+          console.log("fail reg");
+          res.status(400).json({ fehler: "reg" });
+        }
       }).catch(err => {
-        res.status(400).json({ fail: "reg" });
+        res.status(400).json({ fehler: "reg" });
       });
     } else {
       console.log("Falsches File Format: " + file.type);
-      res.status(400).json({ fail: "type" });
+      res.status(400).json({ fehler: "type" });
     }
   });
 });
