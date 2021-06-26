@@ -20,6 +20,7 @@ html {
   font-size-adjust: 100%;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  background-color: #fff !important;
 }
 
 *,
@@ -43,7 +44,6 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: var(--color-black);
-  background: var(--color-light);
 }
 
 a,
@@ -75,27 +75,6 @@ img {
   width: 100%;
   padding: 0 2rem;
   margin: 0 auto;
-}
-
-.ion-logo-apple {
-  font-size: 1.65rem;
-  line-height: inherit;
-  margin-right: 0.5rem;
-  color: var(--color-black);
-}
-
-.ion-logo-google {
-  font-size: 1.65rem;
-  line-height: inherit;
-  margin-right: 0.5rem;
-  color: var(--color-red);
-}
-
-.ion-logo-facebook {
-  font-size: 1.65rem;
-  line-height: inherit;
-  margin-right: 0.5rem;
-  color: var(--color-blue);
 }
 
 .text {
@@ -138,10 +117,11 @@ img {
   border-radius: 0.25rem;
   color: var(--color-black);
   background: var(--color-white);
-  box-shadow: var(--shadow-large);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.66);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.66);
 }
 
-@media (max-width: 658px) { 
+@media (max-width: 658px) {
   .main .wrapper {
     max-width: 100%;
   }
@@ -194,7 +174,7 @@ img {
   padding: 0.65rem 1.25rem;
   border: none;
   outline: none;
-  border-radius: 2rem;
+  border-radius: 10px;
   color: var(--color-white);
   background: var(--color-blue);
   box-shadow: var(--shadow-medium);
