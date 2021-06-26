@@ -339,11 +339,11 @@ function secondnameValid() {
 }
 
 function birthdayValid() {
-  return birthday.valueAsNumber <= Date.parse(new Date());
+  return (Date.parse(birthday.value) <= Date.parse(new Date()) && (birthday.value.match(/-/g) || []).length === 2);
 }
 
 function startDayValid() {
-  return (Date.parse(startDay.value) <= Date.parse(new Date) && startDay.value.includes("-"));
+  return (Date.parse(startDay.value) <= Date.parse(new Date()) && (startDay.value.match(/-/g) || []).length === 1);
 }
 
 function housenumberValid() {
