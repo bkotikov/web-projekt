@@ -159,6 +159,7 @@ function insertUser(values) {
                         resolve(id);
                     })
                     .catch(err => {
+                        console.log(err);
                         console.log("registration/fehler");
                         reject(err);
                     });
