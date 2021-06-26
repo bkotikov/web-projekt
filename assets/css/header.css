@@ -164,7 +164,7 @@ nav {
 }
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:992px) {
     header nav .menu {
         display: none;
     }
@@ -178,13 +178,13 @@ nav {
     }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:992px) {
     header nav .login {
         display: none;
     }
 }
 
-@media screen and (min-width:501px) {
+@media screen and (min-width:993px) {
     .toogle {
         display: none !important;
     }
@@ -279,5 +279,9 @@ li {
 @media screen and (min-width:768px) {
     .header-mobile {
         width: 300px;
+    }
+    .nav-btn{
+        width: 75%;
+        margin: 0 auto;
     }
 }

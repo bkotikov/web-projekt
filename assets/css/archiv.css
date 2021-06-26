@@ -1,3 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.img-acr {
+  width: 50%;
+  height: 50%;
+  padding: 0;
+  margin: 2rem auto;
+  display: block;
+}
+
+.arc-btn {
+  color: #fff !important;
+  display: block;
+  width: 100%;
+  background-color: #000;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width:768px) {
+  .arc-btn {
+    width: 300px;
+  }
+}
+
+.arc-btn:hover {
+  color: #000 !important;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
 .container {
   box-sizing: border-box;
   display: flex;
@@ -6,7 +46,8 @@
   flex-wrap: wrap;
   padding: 44px 0px;
 }
-.dateiname{
+
+.dateiname {
   display: block;
 }
 

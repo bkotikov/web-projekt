@@ -54,14 +54,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/lang.html'));
 });
 
-/*
-app.put('/users/:userId', (req, res) => {
-  return res.send(
-    `PUT HTTP method on user/${req.params.userId} resource`,
-  );
-});
-*/
-
 app.get('/download/:name', (req, res) => {
   console.log(req.params.name);
 
@@ -90,19 +82,15 @@ app.get('/download/:name', (req, res) => {
 
 app.get('/archiv/', function (req, res) {
 
-  var doc = new jsPDF();
-  doc.text(20, 20, 'Hello world!');
-  doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-  doc.addPage();
-  doc.text(20, 20, 'Do you like that?');
-
-  doc.save('upload/uuid/Test.pdf');
-
-  /* fs.copyFile('Test.pdf', 'upload/uuid/' + 'Test.pdf', (err) => {
-    if (err)
-      throw err;
-    console.log('source.txt was copied to destination.txt');
-  }); */
+  /*
+    var doc = new jsPDF();
+    doc.text(20, 20, 'Hello world!');
+    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+    doc.addPage();
+    doc.text(20, 20, 'Do you like that?');
+  
+    doc.save('upload/uuid/Test.pdf');
+  */
 
   fs.readdir("upload/uuid", (err, files) => {
     files.forEach(file => {
@@ -134,21 +122,21 @@ app.get('/' + de + '/archiv', function (req, res) {
 
 });
 app.get('/' + en + '/archiv', function (req, res) {
-  if (req.cookies['benutzerid'] == undefined) {
+  if (req.cookies['benutzerid'] !== undefined) {
     res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'archiv.html'));
   } else {
     res.redirect("/404");
   }
 });
 app.get('/' + ru + '/archiv', function (req, res) {
-  if (req.cookies['benutzerid'] == undefined) {
-    res.sendFile(path.join(__dirname + '/html/' + ru + '/' + en_index + 'archiv.html'));
+  if (req.cookies['benutzerid'] !== undefined) {
+    res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'archiv.html'));
   } else {
     res.redirect("/404");
   }
 });
 app.get('/' + bg + '/archiv', function (req, res) {
-  if (req.cookies['benutzerid'] == undefined) {
+  if (req.cookies['benutzerid'] !== undefined) {
     res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'archiv.html'));
   } else {
     res.redirect("/404");
@@ -276,10 +264,23 @@ app.get('/' + bg + '/login', function (req, res) {
 
 //----Login------
 
-app.get('/logout', function (req, res) {
+app.get('/logout/:lan', function (req, res) {
+
+
   if (req.cookies['benutzerid'] !== undefined) {
     res.cookie('benutzerid', req.cookies['benutzerid'], { maxAge: 0, httpOnly: false });
-    res.redirect("/");
+
+    //req.params.id
+
+    if (req.params.lan == "bg") {
+      res.redirect("/bg/");
+    }else if (req.params.lan == "en") {
+      res.redirect("/en/");
+    }else if (req.params.lan == "de") {
+      res.redirect("/de/");
+    }else if(req.params.lan == "ru") {
+      res.redirect("/ru/");
+    }
   }
 });
 
