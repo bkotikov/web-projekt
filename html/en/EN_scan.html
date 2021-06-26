@@ -32,12 +32,24 @@
                     <input id="submit" class="btn" type="button" value="Upload"></input>
                 </div>
             </form>
-            <div class="message error" id="error-div">
+            <div class="message error" id="error-div" style="margin-top: 2rem;">
                 <div class="message__header">Error</div>
                 <div class="message__content">
                     An error has occurred. Probably the file format is wrong. Check it again!
                 </div>
-              </div>
+            </div>
+            <div class="message success" id="success-div" style="margin-top: 2rem;">
+                <div class="message__header">Upload successful!</div>
+                <div class="message__content">
+                    Please wait while we recognize your form. You will be automatically redirected if successful.
+                </div>
+            </div>
+            <div class="message error" id="error-div-reg" style="margin-top: 2rem;">
+                <div class="message__header">Error</div>
+                <div class="message__content">
+                    We couldn't recognize your form. Please try again. Make sure that the whole form is clearly visible in the picture.
+                </div>
+            </div>  
         </div>
         <div class="page-content">
             <h3 style="margin: 3rem 0 0 0; text-align: left;">How to use the form recognition:</h3>

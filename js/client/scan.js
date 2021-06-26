@@ -7,12 +7,13 @@ $("#submit").on("click", function (event) {
     var files = $('#fileUpload')[0].files[0];
     mimetype = files.type.split("/");
     if (!(mimetype[0] === "image" && (mimetype[1] === "bmp" || mimetype[1] === "jpg" || mimetype[1] === "png" || mimetype[1] === "pbm" || mimetype[1] === "jpeg"))) {
-        console.log(mimetype);
+        hideRegError();
         showError();
         return;
     } 
     
     fdata.append( 'file', files );
+    hideRegError();
     showRegSuccess();
     $.ajax({
         url: '/scan',
@@ -63,9 +64,8 @@ async function hideRegSuccess() {
   async function showRegError() {
     const error = document.getElementById("error-div-reg");
     error.style.display = "block";
-    hideRegError();
 }
 async function hideRegError() {
     const error = document.getElementById("error-div-reg");
-    setTimeout(() => { error.style.display = "none"; }, 10000);
+    error.style.display = "none";
 }

@@ -6,6 +6,11 @@ body {
   box-sizing: border-box;
 }
 
+.btn-field {
+  margin-top: 1rem;
+  margin-left: auto;
+}
+
 
 .fehler {
   display: none;
@@ -79,7 +84,6 @@ body {
 }
 
 .btn-field {
-  margin: 0 auto;
   width: 100%;
   display: block;
 }
@@ -292,9 +296,6 @@ body {
 }
 
 @media (min-width: 576px) {
-  .btn {
-      
-  }
 
 
 
@@ -378,7 +379,6 @@ body {
   .page-content,
   .btn-field {
       width: 80%;
-      margin: 0 auto;
   }
 
 
@@ -458,7 +458,6 @@ body {
   .page-content,
   .btn-field {
       width: 75%;
-      margin: 0 auto;
   }
 
   .page-lg-1 {
