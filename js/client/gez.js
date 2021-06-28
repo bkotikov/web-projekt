@@ -42,10 +42,13 @@ getAndSetUrlParams();
 // SHOW SITE
 
 
+
+
+
 $("#next").on("click", (event) => {
   if (validateFields()) {
     hash = urlHash();
-    const inputs = $("#" + hash + " input");
+    const inputs = $("input");
     event.preventDefault();
     var formData = {};
     formData["page"] = hash;
@@ -377,7 +380,64 @@ var accept_mandat = document.getElementById("accept-mandat");
 
 
 
+jQuery(function() {
+  $.ajax({
+    type: "GET",
+    url: "/gezData",
+    encode: true
+  }).done(data => {
+    console.log(data)
+    if (data.gender === "men") {
+      mann.checked = true
+    }else if(data.gender === "woman"){
+      frau.checked = true
+    }
+    firstname.value = data.firstname;
+    secondname.value = data.secondname;
+    bday = new Date(data.birthday);
+    birthday.value = bday.getFullYear() + "-" + ('0' + (bday.getMonth()+1)).slice(-2) + "-" + ('0' + bday.getDate()).slice(-2);
+    sday = new Date(data.startday);
+    startDay.value = sday.getFullYear() + "-" + ('0' + (sday.getMonth()+1)).slice(-2);
+    street.value = data.street;
+    housenumber.value = data.housenumber;
+    code.value = data.code;
+    city.value = data.city;
+    optionalAdress.value = data.optionaladress;
+    mobilenumber.value = data.mobilenumber;
+    accept.checked = data.accept;
+    if (data.payment === "middle") {
+      payment[0].checked = true;
+    }
+    if (data.payment === "quarterly") {
+      payment[1].checked = true;
+    }
+    if (data.payment === "semiannual") {
+      payment[2].checked = true;
+    }
+    if (data.payment === "yearly") {
+      payment[3].checked = true;
+    }
+    if (data.payment_via === "direct-debit") {
+      payment_via[0].checked = true;
+    }
+    if (data.payment_via === "bank-transfer") {
+      payment_via[1].checked = true;
+    }
+    sname.value = data.sname;
+    fname.value = data.fname;
+    street_mandat.value = data.street_mandat;
+    housenumber_mandat.value = data.housenumber_mandat;
+    code_mandat.value = data.code_mandat;
+    city_mandat.value = data.city_mandat;
+    iban_mandat.value = data.iban_mandat;
+    bic_mandat.value = data.bic_mandat;
+    institut_mandat.value = data.institut_mandat;
+    ort_mandat.value = data.ort_mandat;
+    accept_mandat.checked = data.accept_mandat;
+  }).catch(err => {
 
+  })
+})
 
 
 

@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session')
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const fse = require("fs-extra");
@@ -49,6 +50,21 @@ app.use('/static/css', express.static(__dirname + '/assets/css'));
 app.use('/static/images', express.static(__dirname + '/assets/images'));
 app.use('/static/js', express.static(__dirname + '/js'));
 app.use('/static/html', express.static(__dirname + '/assets/static/'));
+app.use(session({
+  
+  // It holds the secret key for session
+  secret: 'thisisasecret',
+
+  // Forces the session to be saved
+  // back to the session store
+  resave: true,
+
+  // Forces a session that is "uninitialized"
+  // to be saved to the store
+  saveUninitialized: true
+}))
+
+
 //root
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/lang.html'));
@@ -262,9 +278,7 @@ app.get('/' + bg + '/', function (req, res) {
 //----Login------
 
 app.get('/' + de + '/login', function (req, res) {
-  if (req.cookies['benutzerid'] == undefined) {
-    res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'login.html'));
-  }
+  res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'login.html'));
 });
 app.get('/' + en + '/login', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'login.html'));
@@ -279,48 +293,50 @@ app.get('/' + bg + '/login', function (req, res) {
 //----Login------
 
 app.get('/logout/:lan', function (req, res) {
+  sess = req.session
 
 
-  if (req.cookies['benutzerid'] !== undefined) {
-    res.cookie('benutzerid', req.cookies['benutzerid'], { maxAge: 0, httpOnly: false });
-
-    //req.params.id
-
-    if (req.params.lan == "bg") {
-      res.redirect("/bg/");
-    }else if (req.params.lan == "en") {
-      res.redirect("/en/");
-    }else if (req.params.lan == "de") {
-      res.redirect("/de/");
-    }else if(req.params.lan == "ru") {
-      res.redirect("/ru/");
-    }
+  if (sess.benutzer_id !== undefined) {
+    sess.benutzer_id = undefined
+  }
+  if (req.params.lan == "bg") {
+    res.redirect("/bg");
+  }else if (req.params.lan == "en") {
+    res.redirect("/en");
+  }else if (req.params.lan == "de") {
+    res.redirect("/de");
+  }else if(req.params.lan == "ru") {
+    res.redirect("/ru");
   }
 });
 
 app.get('/' + de + '/header', function (req, res) {
-  if (req.cookies['benutzerid'] !== undefined) {
+  sess = req.session
+  if (sess.benutzer_id !== undefined) {
     res.sendFile(path.join(__dirname + '/assets/static/de/headerLogin.html'));
   } else {
     res.sendFile(path.join(__dirname + '/assets/static/de/header.html'));
   }
 });
 app.get('/' + en + '/header', function (req, res) {
-  if (req.cookies['benutzerid'] !== undefined) {
+  sess = req.session
+  if (sess.benutzer_id !== undefined) {
     res.sendFile(path.join(__dirname + '/assets/static/en/headerLogin.html'));
   } else {
     res.sendFile(path.join(__dirname + '/assets/static/en/header.html'));
   }
 });
 app.get('/' + ru + '/header', function (req, res) {
-  if (req.cookies['benutzerid'] !== undefined) {
+  sess = req.session
+  if (sess.benutzer_id !== undefined) {
     res.sendFile(path.join(__dirname + '/assets/static/ru/headerLogin.html'));
   } else {
     res.sendFile(path.join(__dirname + '/assets/static/ru/header.html'));
   }
 });
 app.get('/' + bg + '/header', function (req, res) {
-  if (req.cookies['benutzerid'] !== undefined) {
+  sess = req.session
+  if (sess.benutzer_id !== undefined) {
     res.sendFile(path.join(__dirname + '/assets/static/bg/headerLogin.html'));
   } else {
     res.sendFile(path.join(__dirname + '/assets/static/bg/header.html'));
@@ -369,12 +385,14 @@ app.get('/' + bg + '/registration', function (req, res) {
 });
 
 app.post('/login', (request, response) => {
+  sess = request.session;
   const url = request.body;
   request.setTimeout(0);
   login.signIn(url).then(result => {
     if (result !== undefined) {
       const timestamp = new Date().getTime(); // current time
       const exp = timestamp + (60 * 60 * 24 * 1000 * 7)
+      sess.benutzer_id = result.benutzer_id
       response.cookie('benutzerid', result.benutzer_id, { maxAge: exp, httpOnly: false });
       console.log("succesfully logged in");
       response.status(201).json({ success: true });
@@ -388,6 +406,7 @@ app.post('/login', (request, response) => {
 });
 
 app.post('/registration', (request, response) => {
+  sess = request.session;
   const url = request.body;
   console.log(url);
   request.setTimeout(0);
@@ -395,16 +414,8 @@ app.post('/registration', (request, response) => {
     .then(
       result => {
         if (typeof result === 'string') {
-          if (request.cookies.benutzerid) {
-            console.log("cookie exist");
-            response.status(400).json({ fail: true });
-          } else {
-            const timestamp = new Date().getTime(); // current time
-            const exp = timestamp + (60 * 60 * 24 * 1000 * 7)
-            response.cookie('benutzerid', result, { maxAge: exp, httpOnly: false });
-            console.log("cookie: " + request.cookies['benutzerid']);
-            response.status(201).json({ success: true });
-          }
+          sess.benutzer_id = result
+          response.status(201).json({ success: true });
         } else {
           response.redirect('/');
         }
@@ -419,20 +430,39 @@ app.post('/registration', (request, response) => {
 
 
 //----Registration-----
+app.get('/gezData', (request, response) => {
+  sess = request.session
+  if (sess.benutzer_id !== undefined) {
+    db.getAllDataGez(sess.benutzer_id).then(data => {
+      if (data.length === 0) {
+        response.status(400).json({ success: false });
+      }else{
+        console.log(typeof data[0].birthday)
+        response.status(201).send(data[0]);
+      }
+      
+    })
+  }else{
+    response.status(400).json({ success: false });
+  }
+  
+})
 
 
 app.post('/gez', (request, response) => {
+  
+  sess = request.session;
   const url = request.body;
-  console.log(url.payment_via);
-  console.log(request.cookies['benutzerid']);
+  console.log("url: " + new Date(url.startDay))
   request.setTimeout(0);
   if (!vali.validate(url)) {
     console.log("not valid");
     response.status(400).json({ success: false });
   } else {
-    if (request.cookies['benutzerid'] !== undefined) {
+    sess.url = url;
+    if (sess.benutzer_id !== undefined) {
       console.log("id vorhanden");
-      benutzerid = request.cookies['benutzerid'];
+      benutzerid = sess.benutzer_id;
       db.getUserByUuid(benutzerid)
         .then(result => {
           if (result === undefined) {
@@ -445,13 +475,13 @@ app.post('/gez', (request, response) => {
                 res => {
                   console.log("insert");
                   if (url.page === "7" && url.payment_via === "bank-transfer" || url.page === "11") {
-                    db.getAllDataGez(benutzerid).then(data => {
-                      console.log(data[0]);
-                      pdf.modifyPdf(data[0]).then(text => {
+                    
+                      
+                      pdf.modifyPdf(sess.url).then(text => {
                         //console.log(text);
                         response.status(201).send(text);  
                       });
-                    });
+                    
                     
                   }else{
                     response.status(201).json({db: true});
@@ -472,8 +502,23 @@ app.post('/gez', (request, response) => {
         });
 
     } else {
-      console.log("Nicht angemeldet");
+      console.log("nicht angemeldet");
+      sess.url = url
+      if (url.page === "7" && url.payment_via === "bank-transfer" || url.page === "11") {
+                    
+                      
+        pdf.modifyPdf(sess.url).then(text => {
+          //console.log(text);
+          response.status(201).send(text);  
+        });
+      
+      
+    }else{
       response.status(201).json({ success: true });
+    }
+      
+      
+      
     }
 
   }

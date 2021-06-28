@@ -4,11 +4,13 @@ const fs = require('fs')
 
 
 async function modifyPdf(data) {
+    console.log("data:")
+    console.log(data)
   
-    const {page, gender, firstname, secondname, birthday, startday, street, housenumber, code, city, optionaladress, mobilenumber, accept, payment, payment_via, 
+    const {page, gender, firstname, secondname, birthday, startDay, street, housenumber, code, city, optionalAdress, mobilenumber, accept, payment, payment_via, 
         sname, fname, street_mandat, housenumber_mandat, code_mandat, city_mandat, iban_mandat, bic_mandat, institut_mandat, ort_mandat, accept_mandat} = data;
     const uint8Array = fs.readFileSync('gez.pdf');
-    console.log(typeof startday);
+    console.log("type: " + optionalAdress);
   
     const pdfDoc = await PDFDocument.load(uint8Array);
     pdfDoc.registerFontkit(fontkit)
@@ -52,13 +54,17 @@ async function modifyPdf(data) {
 
     form.getTextField("Vorname").setText(firstname)
 
-    var date = ('0' + birthday.getDate()).slice(-2) + ('0' + (birthday.getMonth()+1)).slice(-2) + birthday.getFullYear();
+
+    var bday = new Date(birthday)
+    var date = ('0' + bday.getDate()).slice(-2) + ('0' + (bday.getMonth()+1)).slice(-2) + bday.getFullYear();
     form.getTextField("Geburtsdatum").setText(date)
 
-    var startdate = ('0' + (startday.getMonth()+1)).slice(-2) + startday.getFullYear();
+    console.log(startDay + "-01")
+    var sday = new Date(startDay + "-01")
+    var startdate = ('0' + (sday.getMonth()+1)).slice(-2) + sday.getFullYear();
     form.getTextField("Anmeldedatum").setText(startdate);
 
-    form.getTextField("Adresszusatz").setText(optionaladress)
+    form.getTextField("Adresszusatz").setText(optionalAdress)
 
     form.getTextField("Straße").setText(street)
 
@@ -120,23 +126,23 @@ async function modifyPdf(data) {
 
     if (payment_via === "bank-transfer") {
       secondPage.drawLine({
-        start: { x: 65.5, y: height - 153 },
-        end: { x: 65.5 + 10, y: height - 163 },
-      })
-      secondPage.drawLine({
-        start: { x: 65.5 + 10, y: height - 153 },
-        end: { x: 65.5, y: height - 163 },
-      })
-    }
-
-    if (payment_via === "direct-debit") {
-      secondPage.drawLine({
         start: { x: 65.5 + 88, y: height - 153 },
         end: { x: 65.5 + 10 + 88, y: height - 163 },
       })
       secondPage.drawLine({
         start: { x: 65.5 + 10 + 88, y: height - 153 },
         end: { x: 65.5 + 88, y: height - 163 },
+      })
+    }
+
+    if (payment_via === "direct-debit") {
+      secondPage.drawLine({
+        start: { x: 65.5, y: height - 153 },
+        end: { x: 65.5 + 10, y: height - 163 },
+      })
+      secondPage.drawLine({
+        start: { x: 65.5 + 10, y: height - 153 },
+        end: { x: 65.5, y: height - 163 },
       })
       var sfstring = sname + "/" + fname;
       form.getTextField("NameLastschrift").setText(sfstring)
