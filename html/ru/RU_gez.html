@@ -30,7 +30,7 @@
         </div>
         <form action="/gez/data" method="post" id="gezForm">
 
-            <div class="page" id="1">
+            <div class="page" id="0">
                 <h3 class="page-main-text">
                     1. общая информация
                 </h3>
@@ -95,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="page" id="2">
+            <div class="page" id="1">
                 <h3 class="page-main-text">
                     2. регистрация
                 </h3>
@@ -113,7 +113,7 @@
                 </div>
             </div>
 
-            <div class="page" id="3">
+            <div class="page" id="2">
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="street">Улица*
@@ -141,9 +141,36 @@
                             <small class="fehler" id="housenumberFehler">Нет действительного номера дома.</small>
                     </div>
                 </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="code">Почтовый индекс*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Пожалуйста, введите почтовый индекс вашего города.
+                                </div>
+                              </div>
+                        </label>
+                        <input class="text-field" type="number" name="code" id="code" placeholder="Почтовый индекс">
+                        <small class="fehler" id="codeFehler">Недействительный почтовый индекс.</small>
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="city">город*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Пожалуйста, введите название вашего города.
+                                </div>
+                              </div>
+                        </label>
+                        <input class="text-field" type="text" name="city" id="city"
+                            placeholder="город">
+                        <small class="fehler" id="cityFehler">Город не может быть пустым.</small>
+                    </div>
+                </div>
             </div>
 
-            <div class="page" id="4">
+            <div class="page" id="3">
                 <div class="page-12">
                     <label class="label-text" for="optionalAdress">Суффикс адреса
                         <div class="tooltip">
@@ -158,7 +185,7 @@
                 </div>
             </div>
 
-            <div class="page" id="5">
+            <div class="page" id="4">
                 <div class="page-12">
                     <label class="label-text" for="mobilenumber">Номер телефона для обращений (добровольный индикация)
                         <div class="tooltip">
@@ -173,7 +200,7 @@
                 </div>
             </div>
 
-            <div class="page" id="6">
+            <div class="page" id="5">
                 <h3 class="page-main-text">
                     3. я подтверждаю, что предоставленная информация верна.
                 </h3>
@@ -187,7 +214,7 @@
                 </div>
             </div>
 
-            <div class="page" id="7">
+            <div class="page" id="6">
                 <h3 class="page-main-text">
                     4. информация о способе оплаты
                 </h3>
@@ -241,7 +268,7 @@
                 </div>
             </div>
 
-            <div class="page" id="8">
+            <div class="page" id="7">
                 <h3 class="page-main-text">
                     4. информация о способе оплаты
                 </h3>
@@ -271,7 +298,7 @@
                 </div>
             </div>
 
-            <div class="page" id="9">
+            <div class="page" id="8">
                 <h3 class="page-main-text">
                     5. мандат на прямое дебетование SEPA
                 </h3>
@@ -315,7 +342,7 @@
                 </div>
             </div>
 
-            <div class="page" id="10">
+            <div class="page" id="9">
                 <h3 class="page-main-text">
                     5.1 Мандат прямого дебета SEPA
                 </h3>
@@ -376,7 +403,7 @@
                 </div>
             </div>
 
-            <div class="page" id="11">
+            <div class="page" id="10">
                 <h3 class="page-main-text">
                     5.2 Мандат прямого дебета SEPA
                 </h3>
@@ -438,7 +465,7 @@
                 </div>
             </div>
 
-            <div class="page" id="12">
+            <div class="page" id="11">
                 <h3 class="page-main-text">
                     5.3 Я подтверждаю точность информации, предоставленной для мандата.
                 </h3>

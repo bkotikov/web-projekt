@@ -31,7 +31,7 @@
         </div>
         <form action="/gez/data" method="post" id="gezForm">
 
-            <div class="page" id="1">
+            <div class="page" id="0">
                 <h3 class="page-main-text">
                     1. Обща информация
                 </h3>
@@ -96,7 +96,7 @@
                 </div>
             </div>
 
-            <div class="page" id="2">
+            <div class="page" id="1">
                 <h3 class="page-main-text">
                     2. регистрация
                 </h3>
@@ -114,7 +114,7 @@
                 </div>
             </div>
 
-            <div class="page" id="3">
+            <div class="page" id="2">
                 <div class="page-12 page-inside-row">
                     <div class="page-12 page-sm-6">
                         <label class="label-text" for="street">Улица*
@@ -142,9 +142,36 @@
                             <small class="fehler" id="housenumberFehler">Няма валиден номер на къщата.</small>
                     </div>
                 </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="code">Пощенски код*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Моля, въведете пощенския код на вашия град.
+                                </div>
+                              </div>
+                        </label>
+                        <input class="text-field" type="number" name="code" id="code" placeholder="Пощенски код">
+                        <small class="fehler" id="codeFehler">Не е валиден пощенски код.</small>
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="city">град*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Моля, въведете името на вашия град.
+                                </div>
+                              </div>
+                        </label>
+                        <input class="text-field" type="text" name="city" id="city"
+                            placeholder="град">
+                        <small class="fehler" id="cityFehler">Градът не може да бъде празен.</small>
+                    </div>
+                </div>
             </div>
 
-            <div class="page" id="4">
+            <div class="page" id="3">
                 <div class="page-12">
                     <label class="label-text" for="optionalAdress">Адресен суфикс
                         <div class="tooltip">
@@ -159,7 +186,7 @@
                 </div>
             </div>
 
-            <div class="page" id="5">
+            <div class="page" id="4">
                 <div class="page-12">
                     <label class="label-text" for="mobilenumber">Телефонен номер за запитвания (доброволно  индикация)
                         <div class="tooltip">
@@ -174,7 +201,7 @@
                 </div>
             </div>
 
-            <div class="page" id="6">
+            <div class="page" id="5">
                 <h3 class="page-main-text">
                     3. потвърждавам, че предоставената информация е вярна.
                 </h3>
@@ -188,7 +215,7 @@
                 </div>
             </div>
 
-            <div class="page" id="7">
+            <div class="page" id="6">
                 <h3 class="page-main-text">
                     4. информация за начина на плащане
                 </h3>
@@ -244,7 +271,7 @@
                 </div>
             </div>
 
-            <div class="page" id="8">
+            <div class="page" id="7">
                 <h3 class="page-main-text">
                    4. информация за начина на плащане
                 </h3>
@@ -273,7 +300,7 @@
                 </div>
             </div>
 
-            <div class="page" id="9">
+            <div class="page" id="8">
                 <h3 class="page-main-text">
                     5. СЕПА мандат за директен дебит
                 </h3>
@@ -316,7 +343,7 @@
                 </div>
             </div>
 
-            <div class="page" id="10">
+            <div class="page" id="9">
                 <h3 class="page-main-text">
                     5.1 Мандат за директен дебит на СЕПА
                 </h3>
@@ -376,7 +403,7 @@
                 </div>
             </div>
 
-            <div class="page" id="11">
+            <div class="page" id="10">
                 <h3 class="page-main-text">
                     5.2 Мандат за директен дебит СЕПА
                 </h3>
@@ -438,7 +465,7 @@
                 </div>
             </div>
 
-            <div class="page" id="12">
+            <div class="page" id="11">
                 <h3 class="page-main-text">
                     5.3 Потвърждавам точността на информацията, предоставена за мандата.
                 </h3>
