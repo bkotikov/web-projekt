@@ -2,7 +2,7 @@ function validate(params) {
     if (Object.keys(params).length === 0) {
       return false;
     }
-    const {page, gender, firstname, secondname, birthday, startDay, street, housenumber, optionalAdress, mobilenumber, accept, payment, payment_via, 
+    const {page, gender, firstname, secondname, birthday, startDay, street, housenumber, code, city, optionalAdress, mobilenumber, accept, payment, payment_via, 
         sname, fname, street_mandat, housenumber_mandat, code_mandat, city_mandat, iban_mandat, bic_mandat, institut_mandat, ort_mandat, accept_mandat} = params;
     
         valid = true;
@@ -19,7 +19,7 @@ function validate(params) {
               }
               break;
             case 2:
-              if (street.value === "" || !housenumber.match(/^[0-9]+[a-z]*$/)) {
+              if (street.value === "" || !housenumber.match(/^[0-9]+[a-z]*$/) || !code.match(/^[0-9]{5}$/) || city.value === "") {
                 valid = false;
               }
               break;

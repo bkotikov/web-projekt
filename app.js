@@ -20,8 +20,8 @@ const reg = require('./js/server/registration.js');
 const login = require('./js/server/login.js');
 const recog = require('./js/server/pictureRecognition.js');
 const vali = require('./js/server/gez.js');
+const pdf = require('./js/server/pdf.js');
 const { validate } = require('uuid');
-const { jsPDF } = require("jspdf");
 const nocache = require("nocache");
 
 const PORT = 5000;
@@ -82,15 +82,16 @@ app.get('/download/:name', (req, res) => {
 
 app.get('/archiv', function (req, res) {
 
-  /*
-    var doc = new jsPDF();
-    doc.text(20, 20, 'Hello world!');
-    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-    doc.addPage();
-    doc.text(20, 20, 'Do you like that?');
   
-    doc.save('upload/uuid/Test.pdf');
-  */
+  
+  
+
+
+
+
+
+
+  
 
   fs.readdir("upload/uuid", (err, files) => {
     files.forEach(file => {
@@ -112,8 +113,16 @@ app.get('/archiv', function (req, res) {
     });
 });
 
+
+
+
+
+
+
+
+
 app.get('/' + de + '/archiv', function (req, res) {
-  console.log(req.cookies['benutzerid']);
+  //console.log(req.cookies['benutzerid']);
   if (req.cookies['benutzerid'] !== undefined) {
     res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'archiv.html'));
   } else {
@@ -414,28 +423,39 @@ app.post('/registration', (request, response) => {
 
 app.post('/gez', (request, response) => {
   const url = request.body;
-  console.log(url);
+  console.log(url.payment_via);
   console.log(request.cookies['benutzerid']);
   request.setTimeout(0);
   if (!vali.validate(url)) {
     console.log("not valid");
     response.status(400).json({ success: false });
   } else {
-
     if (request.cookies['benutzerid'] !== undefined) {
       console.log("id vorhanden");
-      db.getUserByUuid(request.cookies['benutzerid'])
+      benutzerid = request.cookies['benutzerid'];
+      db.getUserByUuid(benutzerid)
         .then(result => {
           if (result === undefined) {
             console.log("user falsch");
             response.status(400).json({ user: false });
           } else {
             console.log("user richtig");
-            db.insertGez(url, request.cookies['benutzerid'])
+            db.insertGez(url, benutzerid)
               .then(
                 res => {
                   console.log("insert");
-                  response.status(201).json({ db: true });
+                  if (url.page === "7" && url.payment_via === "bank-transfer" || url.page === "11") {
+                    db.getAllDataGez(benutzerid).then(data => {
+                      console.log(data[0]);
+                      pdf.modifyPdf(data[0]).then(text => {
+                        //console.log(text);
+                        response.status(201).send(text);  
+                      });
+                    });
+                    
+                  }else{
+                    response.status(201).json({db: true});
+                  }
                 }
               )
               .catch(

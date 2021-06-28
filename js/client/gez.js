@@ -82,9 +82,27 @@ $("#next").on("click", (event) => {
         url: "/gez",
         data: formData,
         encode: true
-    }).done(done => {
+    }).done(data => {
       if (urlHash() === 11 || (urlHash() === 7 && payment_via[1].checked)) {
-        window.location.href = '/' + window.location.pathname.split('/')[1];
+                    var egal = new Uint8Array(Object.values(data));
+                    console.log("egal: " + egal)
+                    var blob = new Blob([egal], { type: "application/octetstream" });
+ 
+                    //Check the Browser type and download the File.
+                    var isIE = false || !!document.documentMode;
+                    if (isIE) {
+                        window.navigator.msSaveBlob(blob, "gez.pdf");
+                    } else {
+                        var url = window.URL || window.webkitURL;
+                        link = url.createObjectURL(blob);
+                        var a = $("<a />");
+                        a.attr("download", "gez.pdf");
+                        a.attr("href", link);
+                        $("body").append(a);
+                        a[0].click();
+                        $("body").remove(a);
+                    }
+        //
       }else{
         replaceUrlHash(true);
         getAndSetUrlParams();
@@ -102,13 +120,7 @@ $("#next").on("click", (event) => {
 
 const prev = document.getElementById("prev");
 prev.addEventListener("click", function () {
-  if ((parseInt(hashString) - 1) == -1) {
-    //prev.setAttribute('type', 'submit');
-    console.log("prev");
-  } else {
-    replaceUrlHash(false);
-    getAndSetUrlParams();
-  }
+  window.history.back();
 });
 
 
@@ -196,6 +208,58 @@ housenumber.addEventListener("input", () => {
     housenumberFehler.style.display = "none";
   }
 });
+var code = document.getElementById("code");
+var codeFehler = document.getElementById("codeFehler");
+code.addEventListener("input", () => {
+  if (!codeValid()) {
+    code.style.marginBottom = "1px";
+    codeFehler.style.display = "block";
+  }else{
+    code.style.marginBottom = "1rem";
+    codeFehler.style.display = "none";
+  }
+});
+
+var city = document.getElementById("city");
+var cityFehler = document.getElementById("cityFehler");
+city.addEventListener("input", () => {
+  if (!cityValid()) {
+    city.style.marginBottom = "1px";
+    cityFehler.style.display = "block";
+  }else{
+    city.style.marginBottom = "1rem";
+    cityFehler.style.display = "none";
+  }
+});
+
+var optionalAdress = document.getElementById("optionalAdress");
+var optionalAdressFehler = document.getElementById("optionalAdressFehler");
+optionalAdress.addEventListener("input", () => {
+  if (!optionalAdressValid()) {
+    optionalAdress.style.marginBottom = "1px";
+    optionalAdressFehler.style.display = "block";
+  }else{
+    optionalAdress.style.marginBottom = "1rem";
+    optionalAdressFehler.style.display = "none";
+  }
+});
+
+
+var mobilenumber = document.getElementById("mobilenumber");
+var mobilenumberFehler = document.getElementById("mobilenumberFehler");
+mobilenumber.addEventListener("input", () => {
+  if (!mobilenumberValid()) {
+    mobilenumber.style.marginBottom = "1px";
+    mobilenumberFehler.style.display = "block";
+  }else{
+    mobilenumber.style.marginBottom = "1rem";
+    mobilenumberFehler.style.display = "none";
+  }
+});
+
+
+
+
 var accept = document.getElementById("accept");
 var payment = document.getElementsByName("payment");
 var sname = document.getElementById("sname");
@@ -331,11 +395,11 @@ function genderValid() {
 }
 
 function firstnameValid() {
-  return firstname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/);
+  return firstname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/) && firstname.value.length <= 19;
 }
 
 function secondnameValid() {
-  return secondname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/);
+  return secondname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/) && secondname.value.length <= 28;
 }
 
 function birthdayValid() {
@@ -347,11 +411,19 @@ function startDayValid() {
 }
 
 function housenumberValid() {
-  return housenumber.value.match(/^[0-9]+[a-z]*$/);
+  return housenumber.value.match(/^[0-9]+[a-z]*$/)  && housenumber.value.length <= 5;
 }
 
 function streetValid() {
-  return street.value !== "";
+  return street.value !== "" && street.value.length <= 22;
+}
+
+function codeValid() {
+  return code.value.match(/^[0-9]{5}$/);
+}
+
+function cityValid() {
+  return city.value !== "" && city.value.length <= 22;
 }
 
 function acceptValid() {
@@ -377,19 +449,19 @@ function payment_viaValid() {
 }
 
 function fnameValid() {
-  return fname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/);
+  return fname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/) && fname.value.length + sname.value.length <= 27;
 }
 
 function snameValid() {
-  return sname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/);
+  return sname.value.match(/^[a-zA-ZÄÖÜäöüß]+$/) && fname.value.length + sname.value.length <= 27;
 }
 
 function street_mandatValid() {
-  return street_mandat.value !== "";
+  return street_mandat.value !== "" && street_mandat.value.length <= 22;
 }
 
 function housenumber_mandatValid() {
-  return housenumber_mandat.value.match(/^[0-9]+[a-z]*$/);
+  return housenumber_mandat.value.match(/^[0-9]+[a-z]*$/) && housenumber_mandat.value.length <= 5;
 }
 
 function code_mandatValid() {
@@ -397,7 +469,7 @@ function code_mandatValid() {
 }
 
 function city_mandatValid() {
-  return city_mandat.value.match(/^[a-zA-Z]+$/);
+  return city_mandat.value.match(/^[a-zA-Z]+$/)  && city_mandat.value.length <= 22;
 }
 
 function iban_mandatValid() {
@@ -409,15 +481,39 @@ function bic_mandatValid() {
 }
 
 function institut_mandatValid() {
-  return institut_mandat.value !== "";
+  return institut_mandat.value !== ""  && institut_mandat.value.length <= 16;
 }
 
 function ort_mandatValid() {
-  return ort_mandat.value !== "";
+  return ort_mandat.value !== ""  && ort_mandat.value.length <= 22;
 }
 
 function accept_mandatValid() {
   return accept_mandat.checked;
+}
+
+function optionalAdressValid() {
+  if (optionalAdress.value !== "") {
+    if (optionalAdress.value.length > 22) {
+      return false;
+    }else{
+      return true;
+    }
+  }else{
+    return true;
+  }
+}
+
+function mobilenumberValid() {
+  if (mobilenumber.value !== "") {
+    if (mobilenumber.value.length > 17) {
+      return false;
+    }else{
+      return true;
+    }
+  }else{
+    return true;
+  }
 }
 
 
@@ -432,11 +528,11 @@ function validateFields() {
     case 1:
       return startDayValid();
     case 2:
-      return (streetValid() && housenumberValid());
+      return (streetValid() && housenumberValid() && codeValid() && cityValid());
     case 3:
-      return true;
+      return optionalAdressValid();
     case 4:
-      return true;
+      return mobilenumberValid();
     case 5:
       return acceptValid();
     case 6:

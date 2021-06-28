@@ -145,7 +145,38 @@
                         <small class="fehler" id="housenumberFehler">Keine gültige Hausnummer.</small>
                     </div>
                 </div>
+                <div class="page-12 page-inside-row">
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="code">Postleitzahl*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Bitte geben Sie die Postleitzahl Ihrer Stadt ein.
+                                </div>
+                              </div>
+                        </label>
+                        <input class="text-field" type="number" name="code" id="code" placeholder="Postleitzahl">
+                        <small class="fehler" id="codeFehler">Keine gültige Postleitzahl.</small>
+                    </div>
+                    <div class="page-12 page-sm-6">
+                        <label class="label-text" for="city">Stadt*
+                            <div class="tooltip">
+                                <i class="bi bi-question-circle"></i>
+                                <div class="tooltiptext">
+                                    Bitte geben Sie die den Namen Ihrer Stadt ein.
+                                </div>
+                              </div>
+                        </label>
+                        <input class="text-field" type="text" name="city" id="city"
+                            placeholder="Hausnummer">
+                        <small class="fehler" id="cityFehler">Stadt darf nicht leer sein.</small>
+                    </div>
+                </div>
             </div>
+
+            
+                
+            
 
             <div class="page" id="3">
                 <div class="page-12">
@@ -158,6 +189,7 @@
                       </div></label>
                     <input class="date-field" type="text" name="optionalAdress" id="optionalAdress"
                         placeholder="Adresszusatz, z.B. Wohnungnummer, Etage">
+                    <small class="fehler" id="optionalAdressFehler">Eingabe zu lang.</small>
                 </div>
             </div>
 
@@ -173,6 +205,7 @@
                           </div></label>
                     <input class="date-field" type="number" name="mobilenumber" id="mobilenumber"
                         placeholder="Telefonnummer">
+                    <small class="fehler" id="mobilenumberFehler">Eingabe zu lang.</small>
                 </div>
             </div>
 
@@ -227,8 +260,7 @@
                             <div class="page-4">
                                 <input type="radio" name="payment" id="quarterly" value="quarterly">
                                 <label for="quarterly" class="quarterly">
-                                    in der Mitte eines
-                                    Dreimonatszeitraums (zum 15.)
+                                    vierteljährlich im Voraus(zum 1.1., 1.4., 1.7., 1.10.)
                                 </label>
                             </div>
                             <div class="page-4">

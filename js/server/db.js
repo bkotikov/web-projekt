@@ -21,7 +21,7 @@ create Table benutzer (benutzer_id uuid PRIMARY KEY,vorname VARCHAR ( 50 ) NOT N
 */
 
 function insertGez(params, uuid) {
-    const {page, gender, firstname, secondname, birthday, startDay, street, housenumber, optionalAdress, mobilenumber, accept, payment, payment_via, 
+    const {page, gender, firstname, secondname, birthday, startDay, street, housenumber, code, city, optionalAdress, mobilenumber, accept, payment, payment_via, 
         sname, fname, street_mandat, housenumber_mandat, code_mandat, city_mandat, iban_mandat, bic_mandat, institut_mandat, ort_mandat, accept_mandat} = params;
         var sql;
         var sqlTable;
@@ -37,8 +37,8 @@ function insertGez(params, uuid) {
                 values = [uuid, startDay + '-01'];
                 break;
             case 2:
-                sqlupdate = 'UPDATE daten SET benutzer_id = $1, street = $2, housenumber = $3 where benutzer_id = $1';
-                values = [uuid, street, housenumber];
+                sqlupdate = 'UPDATE daten SET benutzer_id = $1, street = $2, housenumber = $3, code = $4, city = $5  where benutzer_id = $1';
+                values = [uuid, street, housenumber, code, city];
                 break;
             case 3:
                 sqlupdate = 'UPDATE daten SET benutzer_id = $1, optionalAdress = $2  where benutzer_id = $1';
@@ -124,13 +124,12 @@ function insertGez(params, uuid) {
 function getAllDataGez(userid) {
     console.log("id: " + userid);
     return new Promise((resolve, reject) => {
-        const sql = "SELECT * FROM odf";
+        const sql = "SELECT * FROM daten where benutzer_id = $1";
         
             pool.query(sql, [userid])
             .then(result => {
                 //const { benutzer_id, email, password} = result.rows[0];
                 resolve(result.rows);
-                res.end();
             })
             .catch(err => {
                 console.log(err);
@@ -181,13 +180,13 @@ function insertUser(values) {
 function getFileByUserID(userid) {
     console.log("id: " + userid);
     return new Promise((resolve, reject) => {
-        const sql = "SELECT benutzerID, path, name FROM pdf WHERE benutzerID = $1";
+        const sql = "SELECT benutzerID, path, uploaded FROM pdf WHERE benutzerID = $1";
         
             pool.query(sql, [userid])
             .then(result => {
                 //const { benutzer_id, email, password} = result.rows[0];
                 resolve(result.rows);
-                res.end();
+                //res.end();
             })
             .catch(err => {
                 console.log(err);
@@ -254,5 +253,6 @@ module.exports = {
     getUserByEmail,
     insertGez,
     getUserByUuid,
-    getFileByUserID
+    getFileByUserID,
+    getAllDataGez
 }
