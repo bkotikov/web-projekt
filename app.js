@@ -97,30 +97,13 @@ app.get('/download/:name', (req, res) => {
 });
 
 app.get('/archiv', function (req, res) {
-
-  
-  
-  
-
-
-
-
-
-
-  
-
-  fs.readdir("upload/uuid", (err, files) => {
-    files.forEach(file => {
-      console.log(file);
-    });
-  });
-
-  if (req.cookies['benutzerid'] == undefined) {
+  sess = req.session
+  if (sess.benutzer_id == undefined) {
     res.redirect("/404");
   }
 
   //console.log(req.query.id);
-  db.getFileByUserID(req.cookies['benutzerid'])
+  db.getFileByUserID(sess.benutzer_id)
     .then(result => {
       console.log(result);
       res.status(200).send(result);
@@ -138,8 +121,9 @@ app.get('/archiv', function (req, res) {
 
 
 app.get('/' + de + '/archiv', function (req, res) {
+  sess = req.session
   //console.log(req.cookies['benutzerid']);
-  if (req.cookies['benutzerid'] !== undefined) {
+  if (sess.benutzer_id !== undefined) {
     res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'archiv.html'));
   } else {
     res.redirect("/404");
@@ -147,21 +131,21 @@ app.get('/' + de + '/archiv', function (req, res) {
 
 });
 app.get('/' + en + '/archiv', function (req, res) {
-  if (req.cookies['benutzerid'] !== undefined) {
+  if (sess.benutzer_id !== undefined) {
     res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'archiv.html'));
   } else {
     res.redirect("/404");
   }
 });
 app.get('/' + ru + '/archiv', function (req, res) {
-  if (req.cookies['benutzerid'] !== undefined) {
+  if (sess.benutzer_id !== undefined) {
     res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'archiv.html'));
   } else {
     res.redirect("/404");
   }
 });
 app.get('/' + bg + '/archiv', function (req, res) {
-  if (req.cookies['benutzerid'] !== undefined) {
+  if (sess.benutzer_id !== undefined) {
     res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'archiv.html'));
   } else {
     res.redirect("/404");
@@ -478,8 +462,17 @@ app.post('/gez', (request, response) => {
                     
                       
                       pdf.modifyPdf(sess.url).then(text => {
-                        //console.log(text);
-                        response.status(201).send(text);  
+                        db.insertPdf(sess.benutzer_id, text).then(res => {
+                          
+                        }).catch(err => {
+                          console.log(err)
+                        });
+                        db.getpdfdata(sess.benutzer_id).then(res =>{
+                          response.status(201).send(new Uint8Array(res.pdfdata.buffer));
+                        }).catch(err => {
+                          console.log(err);
+                        });
+                          
                       });
                     
                     

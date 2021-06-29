@@ -215,10 +215,46 @@ function getUserByEmail(params) {
     });
 }
 
+function insertPdf(uuid, data) {
+    return new Promise((resolve, reject) => {
+        const sql = "insert into pdf(benutzer_id, pdfdata) values ($1, $2)";
+        
+            pool.query(sql, [uuid, data])
+            .then(result => {
+                resolve(result)
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+}
+
 function getUserByUuid(uuid) {
     
     return new Promise((resolve, reject) => {
         const sql = "SELECT benutzer_id FROM benutzer WHERE benutzer_id = $1";
+        
+            console.log("connect uuid");
+            pool.query(sql, [uuid])
+            .then(result => {
+                //const { benutzer_id, email, password} = result.rows[0];
+                console.log("uuid: " + uuid);
+                resolve(result.rows[0]);
+            })
+            .catch(err => {
+                
+                console.log(err);
+                reject(err);
+            });
+
+    });
+}
+
+
+function getpdfdata(uuid) {
+    
+    return new Promise((resolve, reject) => {
+        const sql = "SELECT pdfdata FROM pdf WHERE benutzer_id = $1";
         
             console.log("connect uuid");
             pool.query(sql, [uuid])
@@ -254,5 +290,7 @@ module.exports = {
     insertGez,
     getUserByUuid,
     getFileByUserID,
-    getAllDataGez
+    getAllDataGez,
+    insertPdf,
+    getpdfdata
 }
