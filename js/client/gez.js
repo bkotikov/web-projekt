@@ -105,7 +105,6 @@ $("#next").on("click", (event) => {
                         a[0].click();
                         $("body").remove(a);
                     }
-        //
       }else{
         replaceUrlHash(true);
         getAndSetUrlParams();

@@ -14,7 +14,6 @@ async function modifyPdf(data) {
   
     const pdfDoc = await PDFDocument.load(uint8Array);
     pdfDoc.registerFontkit(fontkit)
-    const font = await pdfDoc.embedFont(fs.readFileSync('schrift.ttf'))
     const firstPage = pdfDoc.getPage(0);
     const secondPage = pdfDoc.getPage(1);
     const { width, height } = firstPage.getSize();
