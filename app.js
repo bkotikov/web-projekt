@@ -381,7 +381,6 @@ app.post('/login', (request, response) => {
       const timestamp = new Date().getTime(); // current time
       const exp = timestamp + (60 * 60 * 24 * 1000 * 7)
       sess.benutzer_id = result.benutzer_id
-      response.cookie('benutzerid', result.benutzer_id, { maxAge: exp, httpOnly: false });
       console.log("succesfully logged in");
       response.status(201).json({ success: true });
     } else {
