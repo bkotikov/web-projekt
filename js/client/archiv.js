@@ -9,7 +9,7 @@ $.ajax({
         console.log(response);
         console.log(Object.keys(response).length);
         if (Object.keys(response).length > 0) {
-            nameasd(Object.keys(response).length, response);
+            nameasd(response);
         } else {
             asda();
         }
@@ -21,8 +21,36 @@ $.ajax({
 });
 
 $(document).on('click', '.btn-card', function () {
-    //alert(this.name);
-    window.location.href = "/download/" + this.name;
+    $.ajax({
+        type: "POST",
+        url: "/pdf",
+        data: {pdfid: this.value},
+        encode: true
+    }).done(data => {
+      
+                    var egal = new Uint8Array(Object.values(data));
+                    console.log("egal: " + egal)
+                    var blob = new Blob([egal], { type: "application/octetstream" });
+ 
+                    //Check the Browser type and download the File.
+                    var isIE = false || !!document.documentMode;
+                    if (isIE) {
+                        window.navigator.msSaveBlob(blob, this.name + ".pdf");
+                    } else {
+                        var url = window.URL || window.webkitURL;
+                        link = url.createObjectURL(blob);
+                        var a = $("<a />");
+                        a.attr("download", this.name + ".pdf");
+                        a.attr("href", link);
+                        $("body").append(a);
+                        a[0].click();
+                        $("body").remove(a);
+                    }
+                    
+      
+    }).fail(fail => {
+        
+    });
 })
 
 function asda() {
@@ -32,7 +60,7 @@ function asda() {
     imag.style.display = "block";
 }
 
-function nameasd(params, param) {
+function nameasd(param) {
     const container = document.getElementById('container');
 
     param.forEach(function (item, params) {
@@ -59,15 +87,16 @@ function nameasd(params, param) {
         para.type = "text";
         para.disabled = true;
         para.classList.add("dateiname");
-        para.value = '' + item.name;
+        var data = new Date(item.createdate);
         para.id = "dateiname" + params;
-        para.innerText = "" + item.name;
+        para.innerText = '' + ('0' + data.getDate()).slice(-2) + "-" + ('0' + (data.getMonth()+1)).slice(-2) + "-" + data.getFullYear() + " " + ('0' + data.getHours()).slice(-2) + ":" + ('0' + data.getMinutes()).slice(-2);
 
         const btn = document.createElement("button");
         btn.type = "submit";
-        btn.innerText = "download-" + params;
-        btn.id = "download" + params;
-        btn.name = item.name;
+        btn.innerText = "Download";
+        btn.id = item.id;
+        btn.name = '' + ('0' + data.getDate()).slice(-2) + "-" + ('0' + (data.getMonth()+1)).slice(-2) + "-" + data.getFullYear() + " " + ('0' + data.getHours()).slice(-2) + "-" + ('0' + data.getMinutes()).slice(-2);
+        btn.value = item.id;
         btn.classList.add("btn-card");
 
         box.appendChild(content);
@@ -79,8 +108,6 @@ function nameasd(params, param) {
         card.appendChild(box);
 
         container.appendChild(card);
-
-        console.log(item);
     });
 
 }

@@ -32,11 +32,7 @@ body {
   }
 }
 
-.arc-btn:hover {
-  color: #000 !important;
-  background-color: #fff;
-  border: 1px solid #000;
-}
+
 
 .container {
   box-sizing: border-box;
@@ -130,4 +126,7 @@ body {
 
 .container .card:hover .box .content a {
   background: #15b113;
+}
+.mig{
+  display: none;
 }

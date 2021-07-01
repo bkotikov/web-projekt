@@ -105,6 +105,8 @@ $("#next").on("click", (event) => {
                         a[0].click();
                         $("body").remove(a);
                     }
+                    showSuccess()
+                    setTimeout(() => { window.location.href =  '/' + window.location.pathname.split('/')[1]}, 3000);
       }else{
         replaceUrlHash(true);
         getAndSetUrlParams();
@@ -462,7 +464,8 @@ function secondnameValid() {
 }
 
 function birthdayValid() {
-  return (Date.parse(birthday.value) <= Date.parse(new Date()) && (birthday.value.match(/-/g) || []).length === 2);
+  var eighteenYearsAgo = moment().subtract(18, "years")
+  return (eighteenYearsAgo.isAfter(moment(birthday.value)) && (birthday.value.match(/-/g) || []).length === 2);
 }
 
 function startDayValid() {

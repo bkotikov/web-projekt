@@ -5,7 +5,6 @@ function redirectToHomePage() {
     for (const key of lan) {
       console.log("Key: " + key);
       if (window.location.href.indexOf(key) > 0) {
-        console.log(location.href.replace("/" + key + "/", "/" + key + "/"));
         window.location = "/" + key;
       } else {
         console.log("donw");

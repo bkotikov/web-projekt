@@ -180,7 +180,7 @@ function insertUser(values) {
 function getFileByUserID(userid) {
     console.log("id: " + userid);
     return new Promise((resolve, reject) => {
-        const sql = "SELECT benutzerID, path, uploaded FROM pdf WHERE benutzerID = $1";
+        const sql = "SELECT id, createdate FROM pdf WHERE benutzer_id = $1 order by createdate desc";
         
             pool.query(sql, [userid])
             .then(result => {
@@ -251,16 +251,14 @@ function getUserByUuid(uuid) {
 }
 
 
-function getpdfdata(uuid) {
+function getpdfdata(id) {
     
     return new Promise((resolve, reject) => {
-        const sql = "SELECT pdfdata FROM pdf WHERE benutzer_id = $1";
+        const sql = "SELECT pdfdata FROM pdf WHERE id = $1";
         
             console.log("connect uuid");
-            pool.query(sql, [uuid])
+            pool.query(sql, [id])
             .then(result => {
-                //const { benutzer_id, email, password} = result.rows[0];
-                console.log("uuid: " + uuid);
                 resolve(result.rows[0]);
             })
             .catch(err => {

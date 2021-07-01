@@ -70,29 +70,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/html/lang.html'));
 });
 
-app.get('/download/:name', (req, res) => {
-  console.log(req.params.name);
-
-  if (req.params.name == undefined || req.cookies['benutzerid'] == undefined) {
-    res.redirect("/404")
-  }
-
-  db.getFileByUserID(req.cookies['benutzerid'])
+app.post('/pdf', (req, res) => {
+  var id = req.body.pdfid;
+  db.getpdfdata(id)
     .then(result => {
-      console.log(result);
-      if (result !== undefined) {
-        for (let [key, value] of Object.entries(result)) {
-          console.log("value: " + value.name);
-          if (value.name == req.params.name && value.benutzerid == req.cookies['benutzerid']) {
-            res.download('upload/uuid/' + req.params.name + ".pdf");
-            console.log("test test test");
-          }
-        }
-      } else {
-        res.sendStatus(404);
-      }
+      res.status(201).send(new Uint8Array(result.pdfdata.buffer));
     }).catch(error => {
-      res.sendStatus(404);
+      console.log(error);
     });
 });
 
@@ -339,37 +323,24 @@ app.get('/404', function (req, res) {
 //----Registration-----
 
 app.get('/' + de + '/registration', function (req, res) {
-  sess = req.session
-  //console.log(req.cookies['benutzerid']);
-  if (sess.benutzer_id == undefined) {
+  
     res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'registration.html'));
-  } else {
-    res.redirect("/404");
-  }
+  
 });
 app.get('/' + ru + '/registration', function (req, res) {
-  sess = req.session
-  if (sess.benutzer_id == undefined) {
+  
     res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'registration.html'))
-  } else {
-    res.redirect("/404");
-  }
+  
 });
 app.get('/' + en + '/registration', function (req, res) {
-  sess = req.session
-  if (sess.benutzer_id == undefined) {
+  
     res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'registration.html'))
-  } else {
-    res.redirect("/404");
-  }
+  
 });
 app.get('/' + bg + '/registration', function (req, res) {
-  sess = req.session
-  if (sess.benutzer_id == undefined) {
-    res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'registration.html'))
-  } else {
-    res.redirect("/404");
-  }
+  
+  res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'registration.html'))
+  
 });
 
 app.post('/login', (request, response) => {
@@ -377,17 +348,11 @@ app.post('/login', (request, response) => {
   const url = request.body;
   request.setTimeout(0);
   login.signIn(url).then(result => {
-    if (result !== undefined) {
-      const timestamp = new Date().getTime(); // current time
-      const exp = timestamp + (60 * 60 * 24 * 1000 * 7)
       sess.benutzer_id = result.benutzer_id
       console.log("succesfully logged in");
       response.status(201).json({ success: true });
-    } else {
-      response.status(400).json({ fail: true });
-    }
   }).catch(error => {
-    console.log(error);
+    response.status(400).json({ fail: true });
   });
 
 });
@@ -400,18 +365,14 @@ app.post('/registration', (request, response) => {
   reg.signUp(url)
     .then(
       result => {
-        if (typeof result === 'string') {
           sess.benutzer_id = result
           response.status(201).json({ success: true });
-        } else {
-          response.redirect('/');
-        }
       }
     ).catch(err => {
 
-      if (typeof err === 'object') {
+      
         response.status(400).json({ fail: true });
-      }
+      
     });
 });
 

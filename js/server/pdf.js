@@ -53,15 +53,19 @@ async function modifyPdf(data) {
 
     form.getTextField("Vorname").setText(firstname)
 
-
-    var bday = new Date(birthday)
+    if (birthday !== "") {
+      var bday = new Date(birthday)
     var date = ('0' + bday.getDate()).slice(-2) + ('0' + (bday.getMonth()+1)).slice(-2) + bday.getFullYear();
     form.getTextField("Geburtsdatum").setText(date)
-
-    console.log(startDay + "-01")
-    var sday = new Date(startDay + "-01")
-    var startdate = ('0' + (sday.getMonth()+1)).slice(-2) + sday.getFullYear();
-    form.getTextField("Anmeldedatum").setText(startdate);
+    }
+    
+    if (startDay !== "") {
+      console.log(startDay + "-01")
+      var sday = new Date(startDay + "-01")
+      var startdate = ('0' + (sday.getMonth()+1)).slice(-2) + sday.getFullYear();
+      form.getTextField("Anmeldedatum").setText(startdate);
+    }
+    
 
     form.getTextField("Adresszusatz").setText(optionalAdress)
 

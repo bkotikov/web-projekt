@@ -239,7 +239,7 @@ function redirectToHomePage() {
     for (const key of lan) {
       console.log("Key: " + key);
       if (window.location.href.indexOf(key) > 0) {
-        window.location = location.href.replace("/" + key + "/", "/" + key + "/");
+        window.location = "/" + key;
       } else {
         console.log("donw");
       }
@@ -266,18 +266,7 @@ $("#submit").on("click", function (event) {
     encode: true
   }).done(done => {
     showSuccess();
-    //redirectToHomePage();
-    const lan = ["en", "ru", "bg", "de"];
-
-    for (const key of lan) {
-      console.log("Key: " + key);
-      if (window.location.href.indexOf(key) > 0) {
-        console.log("test: " + window.location);
-        window.location = "/" + key;
-      } else {
-        console.log("donw");
-      }
-    }
+    redirectToHomePage();
   }).fail(fail => {
     showError();
   });
