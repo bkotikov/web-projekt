@@ -339,29 +339,33 @@ app.get('/404', function (req, res) {
 //----Registration-----
 
 app.get('/' + de + '/registration', function (req, res) {
+  sess = req.session
   //console.log(req.cookies['benutzerid']);
-  if (req.cookies['benutzerid'] == undefined) {
+  if (sess.benutzer_id == undefined) {
     res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'registration.html'));
   } else {
     res.redirect("/404");
   }
 });
 app.get('/' + ru + '/registration', function (req, res) {
-  if (req.cookies['benutzerid'] == undefined) {
+  sess = req.session
+  if (sess.benutzer_id == undefined) {
     res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'registration.html'))
   } else {
     res.redirect("/404");
   }
 });
 app.get('/' + en + '/registration', function (req, res) {
-  if (req.cookies['benutzerid'] == undefined) {
+  sess = req.session
+  if (sess.benutzer_id == undefined) {
     res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'registration.html'))
   } else {
     res.redirect("/404");
   }
 });
 app.get('/' + bg + '/registration', function (req, res) {
-  if (req.cookies['benutzerid'] == undefined) {
+  sess = req.session
+  if (sess.benutzer_id == undefined) {
     res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'registration.html'))
   } else {
     res.redirect("/404");
@@ -377,7 +381,6 @@ app.post('/login', (request, response) => {
       const timestamp = new Date().getTime(); // current time
       const exp = timestamp + (60 * 60 * 24 * 1000 * 7)
       sess.benutzer_id = result.benutzer_id
-      response.cookie('benutzerid', result.benutzer_id, { maxAge: exp, httpOnly: false });
       console.log("succesfully logged in");
       response.status(201).json({ success: true });
     } else {
@@ -467,11 +470,7 @@ app.post('/gez', (request, response) => {
                         }).catch(err => {
                           console.log(err)
                         });
-                        db.getpdfdata(sess.benutzer_id).then(res =>{
-                          response.status(201).send(new Uint8Array(res.pdfdata.buffer));
-                        }).catch(err => {
-                          console.log(err);
-                        });
+                        response.status(201).send(text);
                           
                       });
                     
