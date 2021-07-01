@@ -5,9 +5,6 @@ $.ajax({
     encode: true,
 
     success: function (response) {
-        console.log("suc");
-        console.log(response);
-        console.log(Object.keys(response).length);
         if (Object.keys(response).length > 0) {
             nameasd(response);
         } else {
@@ -15,8 +12,7 @@ $.ajax({
         }
     },
     error: function (xhr) {
-        console.log(xhr);
-        //Do Something to handle error
+        asda();
     }
 });
 
@@ -93,7 +89,16 @@ function nameasd(param) {
 
         const btn = document.createElement("button");
         btn.type = "submit";
-        btn.innerText = "Download";
+        var lang = window.location.pathname.split('/')[1];
+        if (lang === "de") {
+            btn.innerText = "Herunterladen";
+        } else if(lang === "en"){
+            btn.innerText = "Download";
+        } else if(lang === "ru"){
+            btn.innerText = "Скачать";
+        } else if(lang === "bg"){
+            btn.innerText = "Изтегли";
+        }
         btn.id = item.id;
         btn.name = '' + ('0' + data.getDate()).slice(-2) + "-" + ('0' + (data.getMonth()+1)).slice(-2) + "-" + data.getFullYear() + " " + ('0' + data.getHours()).slice(-2) + "-" + ('0' + data.getMinutes()).slice(-2);
         btn.value = item.id;

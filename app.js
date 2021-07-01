@@ -83,7 +83,7 @@ app.post('/pdf', (req, res) => {
 app.get('/archiv', function (req, res) {
   sess = req.session
   if (sess.benutzer_id == undefined) {
-    res.redirect("/404");
+    res.status(400).json({ id: "false" });
   }
 
   //console.log(req.query.id);
@@ -105,35 +105,24 @@ app.get('/archiv', function (req, res) {
 
 
 app.get('/' + de + '/archiv', function (req, res) {
-  sess = req.session
-  //console.log(req.cookies['benutzerid']);
-  if (sess.benutzer_id !== undefined) {
+  
     res.sendFile(path.join(__dirname + '/html/' + de + '/' + de_index + 'archiv.html'));
-  } else {
-    res.redirect("/404");
-  }
 
 });
 app.get('/' + en + '/archiv', function (req, res) {
-  if (sess.benutzer_id !== undefined) {
+  
     res.sendFile(path.join(__dirname + '/html/' + en + '/' + en_index + 'archiv.html'));
-  } else {
-    res.redirect("/404");
-  }
+  
 });
 app.get('/' + ru + '/archiv', function (req, res) {
-  if (sess.benutzer_id !== undefined) {
+  
     res.sendFile(path.join(__dirname + '/html/' + ru + '/' + ru_index + 'archiv.html'));
-  } else {
-    res.redirect("/404");
-  }
+  
 });
 app.get('/' + bg + '/archiv', function (req, res) {
-  if (sess.benutzer_id !== undefined) {
+  
     res.sendFile(path.join(__dirname + '/html/' + bg + '/' + bg_index + 'archiv.html'));
-  } else {
-    res.redirect("/404");
-  }
+  
 });
 
 //----Cookie------
