@@ -25,26 +25,15 @@ body {
 .card {
     display: block;
     position: relative;
-    background-color: #000;
+    background-color: #fff;
     border-radius: 5px;
-    color: white;
+    color: #000;
     border: 1px solid black;
     padding: 32px 24px;
     margin: 12px;
     text-decoration: none;
     z-index: 0;
     overflow: hidden;
-}
-
-.card:hover {
-    color: rgb(7, 7, 7);
-    background-color: rgb(247, 247, 247);
-
-}
-
-.card:hover .card-redirect{
-    border: 1px solid #000;
-
 }
 
 .div1 {
@@ -118,11 +107,11 @@ body {
 .card-redirect {
     padding: 0.5rem 1rem;
     display: inline-block;
-    background-color: #fff;
+    background-color: #000;
     border-radius: 5px;
     font-weight: 400;
     font-style: normal;
     text-align: center;
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
