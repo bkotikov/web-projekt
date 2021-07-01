@@ -85,3 +85,11 @@ function nameasd(params, param) {
 
 }
 
+
+/* 
+db.getpdfdata(sess.benutzer_id).then(res =>{
+    response.status(201).send(new Uint8Array(res.pdfdata.buffer));
+  }).catch(err => {
+    console.log(err);
+  }); 
+*/
